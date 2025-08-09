@@ -1,0 +1,405 @@
+{
+	"card": "card_2",
+	"perguntas": [
+		{
+			"numero": "A000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a velocidade da luz no vácuo?",
+			"hipoteses_resposta": ["299.792.458 m/s", "300.000.000 m/s", "299.000.000 m/s", "298.792.458 m/s"],
+			"resposta": "299.792.458 m/s"
+		},
+		{
+			"numero": "A000051",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filósofo escreveu 'A República'?",
+			"hipoteses_resposta": ["Aristóteles", "Platão", "Sócrates", "Heráclito"],
+			"resposta": "Platão"
+		},
+		{
+			"numero": "A000052",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Lituânia?",
+			"hipoteses_resposta": ["Vilnius", "Riga", "Tallinn", "Helsinque"],
+			"resposta": "Vilnius"
+		},
+		{
+			"numero": "A000053",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi descoberta a estrutura do DNA?",
+			"hipoteses_resposta": ["1951", "1953", "1955", "1949"],
+			"resposta": "1953"
+		},
+		{
+			"numero": "A000054",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior deserto quente do mundo?",
+			"hipoteses_resposta": ["Kalahari", "Gobi", "Sahara", "Thar"],
+			"resposta": "Sahara"
+		},
+		{
+			"numero": "A000055",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem compôs 'As Quatro Estações'?",
+			"hipoteses_resposta": ["Bach", "Mozart", "Vivaldi", "Beethoven"],
+			"resposta": "Vivaldi"
+		},
+		{
+			"numero": "A000056",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a moeda oficial do Japão?",
+			"hipoteses_resposta": ["Won", "Yuan", "Yen", "Dong"],
+			"resposta": "Yen"
+		},
+		{
+			"numero": "A000057",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que camada da atmosfera ocorrem as auroras boreais?",
+			"hipoteses_resposta": ["Troposfera", "Estratosfera", "Mesosfera", "Termosfera"],
+			"resposta": "Termosfera"
+		},
+		{
+			"numero": "A000058",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual império construiu Machu Picchu?",
+			"hipoteses_resposta": ["Maia", "Asteca", "Inca", "Olmeca"],
+			"resposta": "Inca"
+		},
+		{
+			"numero": "A000059",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do teorema que relaciona os lados de um triângulo retângulo?",
+			"hipoteses_resposta": ["Teorema de Tales", "Teorema de Pitágoras", "Teorema de Euclides", "Teorema de Fermat"],
+			"resposta": "Teorema de Pitágoras"
+		},
+		{
+			"numero": "A000060",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem mais fusos horários?",
+			"hipoteses_resposta": ["Estados Unidos", "Rússia", "China", "França"],
+			"resposta": "França"
+		},
+		{
+			"numero": "A000061",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o elemento químico com símbolo 'Au'?",
+			"hipoteses_resposta": ["Prata", "Ouro", "Alumínio", "Argônio"],
+			"resposta": "Ouro"
+		},
+		{
+			"numero": "A000062",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Primeira Guerra Mundial?",
+			"hipoteses_resposta": ["1913", "1914", "1915", "1916"],
+			"resposta": "1914"
+		},
+		{
+			"numero": "A000063",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a língua oficial do Brasil?",
+			"hipoteses_resposta": ["Espanhol", "Português", "Inglês", "Francês"],
+			"resposta": "Português"
+		},
+		{
+			"numero": "A000064",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual pintor criou o movimento artístico cubismo junto com Braque?",
+			"hipoteses_resposta": ["Van Gogh", "Picasso", "Dalí", "Matisse"],
+			"resposta": "Picasso"
+		},
+		{
+			"numero": "A000065",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a fórmula química da água?",
+			"hipoteses_resposta": ["H2O2", "H2O", "HO2", "H3O"],
+			"resposta": "H2O"
+		},
+		{
+			"numero": "A000066",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que continente fica o Monte Kilimanjaro?",
+			"hipoteses_resposta": ["Ásia", "América do Sul", "África", "Oceania"],
+			"resposta": "África"
+		},
+		{
+			"numero": "A000067",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Dom Quixote'?",
+			"hipoteses_resposta": ["Lope de Vega", "Miguel de Cervantes", "García Lorca", "Calderón de la Barca"],
+			"resposta": "Miguel de Cervantes"
+		},
+		{
+			"numero": "A000068",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Austrália?",
+			"hipoteses_resposta": ["Sydney", "Melbourne", "Canberra", "Perth"],
+			"resposta": "Canberra"
+		},
+		{
+			"numero": "A000069",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual físico formulou a teoria da relatividade?",
+			"hipoteses_resposta": ["Newton", "Einstein", "Hawking", "Galileu"],
+			"resposta": "Einstein"
+		},
+		{
+			"numero": "A000070",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior órgão do corpo humano?",
+			"hipoteses_resposta": ["Fígado", "Pulmões", "Pele", "Cérebro"],
+			"resposta": "Pele"
+		},
+		{
+			"numero": "A000071",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que oceano se localizam as Ilhas Maldivas?",
+			"hipoteses_resposta": ["Atlântico", "Pacífico", "Índico", "Ártico"],
+			"resposta": "Índico"
+		},
+		{
+			"numero": "A000072",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual compositor escreveu 'A Flauta Mágica'?",
+			"hipoteses_resposta": ["Beethoven", "Mozart", "Bach", "Chopin"],
+			"resposta": "Mozart"
+		},
+		{
+			"numero": "A000073",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da galáxia em que vivemos?",
+			"hipoteses_resposta": ["Andrómeda", "Via Láctea", "Triângulo", "Galáxia do Rodamoinho"],
+			"resposta": "Via Láctea"
+		},
+		{
+			"numero": "A000074",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país nasceu o poeta Pablo Neruda?",
+			"hipoteses_resposta": ["Argentina", "Chile", "Peru", "Colômbia"],
+			"resposta": "Chile"
+		},
+		{
+			"numero": "A000075",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a unidade de medida da resistência elétrica?",
+			"hipoteses_resposta": ["Ampere", "Volt", "Ohm", "Watt"],
+			"resposta": "Ohm"
+		},
+		{
+			"numero": "A000076",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual rio passa por Roma?",
+			"hipoteses_resposta": ["Pó", "Arno", "Tibre", "Adige"],
+			"resposta": "Tibre"
+		},
+		{
+			"numero": "A000077",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'A Persistência da Memória' (relógios derretidos)?",
+			"hipoteses_resposta": ["Picasso", "Magritte", "Dalí", "Miró"],
+			"resposta": "Dalí"
+		},
+		{
+			"numero": "A000078",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome científico do ser humano?",
+			"hipoteses_resposta": ["Homo erectus", "Homo sapiens", "Homo habilis", "Homo neanderthalensis"],
+			"resposta": "Homo sapiens"
+		},
+		{
+			"numero": "A000079",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano caiu o Muro de Berlim?",
+			"hipoteses_resposta": ["1987", "1988", "1989", "1990"],
+			"resposta": "1989"
+		},
+		{
+			"numero": "A000080",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a montanha mais alta da Europa?",
+			"hipoteses_resposta": ["Monte Branco", "Matterhorn", "Monte Elbrus", "Monte Rosa"],
+			"resposta": "Monte Elbrus"
+		},
+		{
+			"numero": "A000081",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Cem Anos de Solidão'?",
+			"hipoteses_resposta": ["Mario Vargas Llosa", "Gabriel García Márquez", "Jorge Luis Borges", "Octavio Paz"],
+			"resposta": "Gabriel García Márquez"
+		},
+		{
+			"numero": "A000082",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital do Canadá?",
+			"hipoteses_resposta": ["Toronto", "Vancouver", "Montreal", "Ottawa"],
+			"resposta": "Ottawa"
+		},
+		{
+			"numero": "A000083",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual partícula subatômica tem carga elétrica positiva?",
+			"hipoteses_resposta": ["Eletrão", "Neutrão", "Protão", "Fotão"],
+			"resposta": "Protão"
+		},
+		{
+			"numero": "A000084",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que mar se localiza a ilha de Chipre?",
+			"hipoteses_resposta": ["Mar Negro", "Mar Mediterrâneo", "Mar Egeu", "Mar Jónico"],
+			"resposta": "Mar Mediterrâneo"
+		},
+		{
+			"numero": "A000085",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual arquiteto projetou a Sagrada Família em Barcelona?",
+			"hipoteses_resposta": ["Le Corbusier", "Frank Lloyd Wright", "Antoni Gaudí", "Mies van der Rohe"],
+			"resposta": "Antoni Gaudí"
+		},
+		{
+			"numero": "A000086",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do processo pelo qual as plantas produzem energia?",
+			"hipoteses_resposta": ["Respiração", "Fotossíntese", "Fermentação", "Digestão"],
+			"resposta": "Fotossíntese"
+		},
+		{
+			"numero": "A000087",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi fundada a ONU?",
+			"hipoteses_resposta": ["1944", "1945", "1946", "1947"],
+			"resposta": "1945"
+		},
+		{
+			"numero": "A000088",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o lago mais profundo do mundo?",
+			"hipoteses_resposta": ["Lago Superior", "Lago Vitória", "Lago Baikal", "Lago Tanganyika"],
+			"resposta": "Lago Baikal"
+		},
+		{
+			"numero": "A000089",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem compôs 'O Barbeiro de Sevilha'?",
+			"hipoteses_resposta": ["Verdi", "Puccini", "Rossini", "Mozart"],
+			"resposta": "Rossini"
+		},
+		{
+			"numero": "A000090",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a fórmula química do sal comum?",
+			"hipoteses_resposta": ["NaCl", "KCl", "CaCl2", "MgCl2"],
+			"resposta": "NaCl"
+		},
+		{
+			"numero": "A000091",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que península se localiza a Espanha?",
+			"hipoteses_resposta": ["Península Itálica", "Península Ibérica", "Península Balcânica", "Península Escandinava"],
+			"resposta": "Península Ibérica"
+		},
+		{
+			"numero": "A000092",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Processo'?",
+			"hipoteses_resposta": ["Thomas Mann", "Franz Kafka", "Hermann Hesse", "Robert Musil"],
+			"resposta": "Franz Kafka"
+		},
+		{
+			"numero": "A000093",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Nova Zelândia?",
+			"hipoteses_resposta": ["Auckland", "Wellington", "Christchurch", "Hamilton"],
+			"resposta": "Wellington"
+		},
+		{
+			"numero": "A000094",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual cientista propôs a teoria da evolução das espécies?",
+			"hipoteses_resposta": ["Mendel", "Darwin", "Lamarck", "Wallace"],
+			"resposta": "Darwin"
+		},
+		{
+			"numero": "A000095",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o menor país do mundo?",
+			"hipoteses_resposta": ["San Marino", "Mónaco", "Vaticano", "Liechtenstein"],
+			"resposta": "Vaticano"
+		},
+		{
+			"numero": "A000096",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que oceano se encontra a Fossa das Marianas?",
+			"hipoteses_resposta": ["Atlântico", "Índico", "Pacífico", "Ártico"],
+			"resposta": "Pacífico"
+		},
+		{
+			"numero": "A000097",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'Guernica'?",
+			"hipoteses_resposta": ["Dalí", "Miró", "Picasso", "Goya"],
+			"resposta": "Picasso"
+		},
+		{
+			"numero": "A000098",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da força que mantém os planetas em órbita?",
+			"hipoteses_resposta": ["Força centrífuga", "Força gravitacional", "Força magnética", "Força elétrica"],
+			"resposta": "Força gravitacional"
+		},
+		{
+			"numero": "A000099",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano terminou a Segunda Guerra Mundial?",
+			"hipoteses_resposta": ["1944", "1945", "1946", "1947"],
+			"resposta": "1945"
+		}
+	]
+}
