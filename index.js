@@ -15,99 +15,101 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-document.getElementById("startGameBtn").addEventListener("click", () => {
-  console.log("Botão Criar Jogo clicado");
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById("startGameBtn").addEventListener("click", () => {
+    console.log("Botão Criar Jogo clicado");
 
-  const playerName = document.getElementById("playerName").value.trim();
-  const totalPlayers = parseInt(document.getElementById("totalPlayers").value);
-  const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
-  const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
-  const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
+    const playerName = document.getElementById("playerName").value.trim();
+    const totalPlayers = parseInt(document.getElementById("totalPlayers").value);
+    const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
+    const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
+    const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
 
-  if (!playerName) {
-    alert("Por favor insere o teu nome!");
-    return;
-  }
-
-  if (isNaN(totalPlayers) || totalPlayers < 1) {
-    alert("O número de jogadores deve ser pelo menos 1.");
-    return;
-  }
-
-  if (isNaN(maxQuestions) || maxQuestions < 1) {
-    alert("O número máximo de perguntas deve ser pelo menos 1.");
-    return;
-  }
-
-  if (isNaN(pointsCorrect)) {
-    alert("Por favor insere os pontos por resposta certa.");
-    return;
-  }
-
-  if (isNaN(pointsWrong)) {
-    alert("Por favor insere os pontos por resposta errada.");
-    return;
-  }
-
-  let players = {};
-  players[playerName] = { score: 0 };
-  for (let i = 2; i <= totalPlayers; i++) {
-    players[`Jogador_${i}`] = { score: 0 };
-  }
-
-  const gameRef = push(ref(db, "games"));
-  const gameId = gameRef.key;
-
-  set(gameRef, {
-    config: {
-      totalPlayers,
-      maxQuestions,
-      pointsCorrect,
-      pointsWrong
-    },
-    players
-  })
-    .then(() => {
-      console.log("Jogo criado com ID:", gameId);
-
-      sessionStorage.setItem("gameId", gameId);
-      sessionStorage.setItem("playerName", playerName);
-
-      const link = `${window.location.origin}/quiz.html?gameId=${gameId}`;
-      document.getElementById("shareLink").style.display = "block";
-      const gameLinkInput = document.getElementById("gameLink");
-      gameLinkInput.value = link;
-
-      // Remove redirecionamento automático (opcional)
-      // setTimeout(() => {
-      //   window.location.href = `quiz.html?gameId=${gameId}`;
-      // }, 3000);
-    })
-    .catch((error) => {
-      console.error("Erro ao criar o jogo:", error);
-      alert("Erro ao criar o jogo. Verifique a consola para mais detalhes.");
-    });
-});
-
-// Botão copiar
-document.getElementById("copyBtn").addEventListener("click", () => {
-  const gameLinkInput = document.getElementById("gameLink");
-  gameLinkInput.select();
-  gameLinkInput.setSelectionRange(0, 99999); // Para dispositivos móveis
-
-  try {
-    const sucesso = document.execCommand("copy");
-    if (sucesso) {
-      const copyMsg = document.getElementById("copyMsg");
-      copyMsg.style.display = "inline";
-      setTimeout(() => (copyMsg.style.display = "none"), 2000);
-    } else {
-      alert("Não foi possível copiar o link.");
+    if (!playerName) {
+      alert("Por favor insere o teu nome!");
+      return;
     }
-  } catch (err) {
-    alert("Erro ao tentar copiar o link.");
-  }
 
-  // Deselecionar texto
-  window.getSelection().removeAllRanges();
+    if (isNaN(totalPlayers) || totalPlayers < 1) {
+      alert("O número de jogadores deve ser pelo menos 1.");
+      return;
+    }
+
+    if (isNaN(maxQuestions) || maxQuestions < 1) {
+      alert("O número máximo de perguntas deve ser pelo menos 1.");
+      return;
+    }
+
+    if (isNaN(pointsCorrect)) {
+      alert("Por favor insere os pontos por resposta certa.");
+      return;
+    }
+
+    if (isNaN(pointsWrong)) {
+      alert("Por favor insere os pontos por resposta errada.");
+      return;
+    }
+
+    let players = {};
+    players[playerName] = { score: 0 };
+    for (let i = 2; i <= totalPlayers; i++) {
+      players[`Jogador_${i}`] = { score: 0 };
+    }
+
+    const gameRef = push(ref(db, "games"));
+    const gameId = gameRef.key;
+
+    set(gameRef, {
+      config: {
+        totalPlayers,
+        maxQuestions,
+        pointsCorrect,
+        pointsWrong
+      },
+      players
+    })
+      .then(() => {
+        console.log("Jogo criado com ID:", gameId);
+
+        sessionStorage.setItem("gameId", gameId);
+        sessionStorage.setItem("playerName", playerName);
+
+        const link = `${window.location.origin}/quiz.html?gameId=${gameId}`;
+        document.getElementById("shareLink").style.display = "block";
+        const gameLinkInput = document.getElementById("gameLink");
+        gameLinkInput.value = link;
+
+        // Removido redirecionamento automático para o quiz (opcional)
+        // setTimeout(() => {
+        //   window.location.href = `quiz.html?gameId=${gameId}`;
+        // }, 3000);
+      })
+      .catch((error) => {
+        console.error("Erro ao criar o jogo:", error);
+        alert("Erro ao criar o jogo. Verifique a consola para mais detalhes.");
+      });
+  });
+
+  // Botão copiar
+  document.getElementById("copyBtn").addEventListener("click", () => {
+    const gameLinkInput = document.getElementById("gameLink");
+    gameLinkInput.select();
+    gameLinkInput.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+    try {
+      const sucesso = document.execCommand("copy");
+      if (sucesso) {
+        const copyMsg = document.getElementById("copyMsg");
+        copyMsg.style.display = "inline";
+        setTimeout(() => (copyMsg.style.display = "none"), 2000);
+      } else {
+        alert("Não foi possível copiar o link.");
+      }
+    } catch (err) {
+      alert("Erro ao tentar copiar o link.");
+    }
+
+    // Deselecionar texto
+    window.getSelection().removeAllRanges();
+  });
 });
