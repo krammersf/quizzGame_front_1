@@ -3,8 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <title>Início do Quiz</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     #beginGameBtn { display: none; margin-top: 10px; }
+    
+    /* Estilos para organizar perguntas verticalmente */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .container label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .container input {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    .container button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .container button:hover {
+      background-color: #45a049;
+    }
+    
+    /* Estilos específicos para alguns botões */
+    #copyBtn {
+      width: 18% !important;
+      display: inline-block !important;
+    }
+    
+    #gameLink {
+      width: 80% !important;
+      display: inline-block !important;
+    }
   </style>
 </head>
 <body>
