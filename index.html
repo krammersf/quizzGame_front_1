@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8" />
-    <title>Início do Quiz</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>Início do Quiz</title>
+  <style>
+    #beginGameBtn { display: none; margin-top: 10px; }
+  </style>
 </head>
 <body>
-<div class="container">
-    <h1>🎯 Início do Quiz</h1>
+  <div class="container">
+    <h1>🎯 Criar Novo Quiz</h1>
 
     <label>Nome do Jogador 1:</label>
     <input type="text" id="playerName" placeholder="Ex: João" required />
@@ -25,15 +27,16 @@
     <input type="number" id="pointsWrong" value="-4" />
 
     <button id="startGameBtn">🚀 Criar Jogo</button>
+    <button id="beginGameBtn">▶️ Iniciar Jogo</button>
 
     <div id="shareLink" style="display:none; margin-top:20px;">
-        <p>Partilha este link com os outros jogadores:</p>
-        <input type="text" id="gameLink" readonly style="width:80%;" />
-        <button id="copyBtn" style="width:18%;">Copiar</button>
-        <span id="copyMsg" style="display:none; color:green; margin-left:10px;">Copiado!</span>
+      <p>Partilha este link com os outros jogadores:</p>
+      <input type="text" id="gameLink" readonly style="width:80%;" />
+      <button id="copyBtn" style="width:18%;">Copiar</button>
+      <span id="copyMsg" style="display:none; color:green; margin-left:10px;">Copiado!</span>
     </div>
-</div>
+  </div>
 
-<script type="module" src="index.js"></script>
+  <script type="module" src="index.js"></script>
 </body>
 </html>

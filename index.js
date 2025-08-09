@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+import { getDatabase, ref, set, push, update } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDkhUnWFDUio5ebqfxal2TR-fI5wFmgBqc",
@@ -16,9 +16,13 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById("startGameBtn").addEventListener("click", () => {
-    console.log("Botão Criar Jogo clicado");
+  const startGameBtn = document.getElementById("startGameBtn");
+  const beginGameBtn = document.getElementById("beginGameBtn");
 
+  let createdGameId = null;
+  let creatorName = null;
+
+  startGameBtn.addEventListener("click", () => {
     const playerName = document.getElementById("playerName").value.trim();
     const totalPlayers = parseInt(document.getElementById("totalPlayers").value);
     const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
@@ -29,22 +33,18 @@ window.addEventListener('DOMContentLoaded', () => {
       alert("Por favor insere o teu nome!");
       return;
     }
-
     if (isNaN(totalPlayers) || totalPlayers < 1) {
       alert("O número de jogadores deve ser pelo menos 1.");
       return;
     }
-
     if (isNaN(maxQuestions) || maxQuestions < 1) {
       alert("O número máximo de perguntas deve ser pelo menos 1.");
       return;
     }
-
     if (isNaN(pointsCorrect)) {
       alert("Por favor insere os pontos por resposta certa.");
       return;
     }
-
     if (isNaN(pointsWrong)) {
       alert("Por favor insere os pontos por resposta errada.");
       return;
@@ -52,12 +52,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     let players = {};
     players[playerName] = { score: 0 };
-    for (let i = 2; i <= totalPlayers; i++) {
-      players[`Jogador_${i}`] = { score: 0 };
-    }
 
     const gameRef = push(ref(db, "games"));
-    const gameId = gameRef.key;
+    createdGameId = gameRef.key;
+    creatorName = playerName;
 
     set(gameRef, {
       config: {
@@ -66,51 +64,41 @@ window.addEventListener('DOMContentLoaded', () => {
         pointsCorrect,
         pointsWrong
       },
-      players
-    })
-      .then(() => {
-        console.log("Jogo criado com ID:", gameId);
+      players,
+      gameStarted: false
+    }).then(() => {
+      sessionStorage.setItem("gameId", createdGameId);
+      sessionStorage.setItem("playerName", creatorName);
 
-        sessionStorage.setItem("gameId", gameId);
-        sessionStorage.setItem("playerName", playerName);
+      document.getElementById("shareLink").style.display = "block";
+      document.getElementById("gameLink").value = `${window.location.origin}/quizzGame_front_1/quiz.html?gameId=${createdGameId}`;
 
-        const repoName = "quizzGame_front_1";  // nome do teu repo no GitHub
-        const link = `${window.location.origin}/${repoName}/quiz.html?gameId=${gameId}`;
-        document.getElementById("shareLink").style.display = "block";
-        const gameLinkInput = document.getElementById("gameLink");
-        gameLinkInput.value = link;
-
-        // Removido redirecionamento automático para o quiz (opcional)
-        // setTimeout(() => {
-        //   window.location.href = `quiz.html?gameId=${gameId}`;
-        // }, 3000);
-      })
-      .catch((error) => {
-        console.error("Erro ao criar o jogo:", error);
-        alert("Erro ao criar o jogo. Verifique a consola para mais detalhes.");
-      });
+      // Mostrar botão iniciar só para criador
+      beginGameBtn.style.display = "inline-block";
+    }).catch((error) => {
+      console.error("Erro ao criar o jogo:", error);
+      alert("Erro ao criar o jogo. Veja a consola.");
+    });
   });
 
-  // Botão copiar
+  beginGameBtn.addEventListener("click", () => {
+    if (!createdGameId) {
+      alert("Cria um jogo antes de iniciar!");
+      return;
+    }
+    update(ref(db, `games/${createdGameId}`), { gameStarted: true })
+      .then(() => alert("Jogo iniciado!"))
+      .catch(() => alert("Erro ao iniciar o jogo."));
+  });
+
   document.getElementById("copyBtn").addEventListener("click", () => {
     const gameLinkInput = document.getElementById("gameLink");
     gameLinkInput.select();
-    gameLinkInput.setSelectionRange(0, 99999); // Para dispositivos móveis
-
-    try {
-      const sucesso = document.execCommand("copy");
-      if (sucesso) {
-        const copyMsg = document.getElementById("copyMsg");
-        copyMsg.style.display = "inline";
-        setTimeout(() => (copyMsg.style.display = "none"), 2000);
-      } else {
-        alert("Não foi possível copiar o link.");
-      }
-    } catch (err) {
-      alert("Erro ao tentar copiar o link.");
-    }
-
-    // Deselecionar texto
+    gameLinkInput.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    const copyMsg = document.getElementById("copyMsg");
+    copyMsg.style.display = "inline";
+    setTimeout(() => (copyMsg.style.display = "none"), 2000);
     window.getSelection().removeAllRanges();
   });
 });
