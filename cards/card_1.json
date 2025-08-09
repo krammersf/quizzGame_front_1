@@ -1,45 +1,101 @@
 {
-	"card": "card_1",
+	"card": "card_2",
 	"perguntas": [
 		{
 			"numero": "A000001",
 			"tipo_pergunta": "hipotese",
-			"imagem": "imagens/pergunta1.png",
-			"pergunta": "Qual é a capital de Portugal?",
-			"hipoteses_resposta": ["Lisboa", "Porto", "Faro", "Coimbra"],
-			"resposta": "Lisboa"
+			"imagem": null,
+			"pergunta": "Qual é o maior planeta do sistema solar?",
+			"hipoteses_resposta": ["Júpiter", "Saturno", "Netuno", "Urano"],
+			"resposta": "Júpiter"
 		},
 		{
-			"numero": "B000002",
-			"tipo_pergunta": "letra",
+			"numero": "A000002",
+			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Escolhe a letra correta para a capital da França:",
-			"hipoteses_resposta": ["Paris", "Lyon", "Marselha", "Bordéus"],
-			"resposta": "P"
+			"pergunta": "Quem pintou a obra 'A Noite Estrelada'?",
+			"hipoteses_resposta": ["Picasso", "Van Gogh", "Monet", "Da Vinci"],
+			"resposta": "Van Gogh"
 		},
 		{
-			"numero": "C000003",
-			"tipo_pergunta": "ordenar",
+			"numero": "A000003",
+			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Ordena os planetas do mais próximo para o mais distante do Sol:",
-			"hipoteses_resposta": ["Terra", "Marte", "Vénus", "Mercúrio"],
-			"resposta": ["Mercúrio", "Vénus", "Terra", "Marte"]
+			"pergunta": "Qual é o oceano mais profundo?",
+			"hipoteses_resposta": ["Atlântico", "Índico", "Pacífico", "Ártico"],
+			"resposta": "Pacífico"
 		},
 		{
-			"numero": "D000004",
-			"tipo_pergunta": "varios_certos",
+			"numero": "A000004",
+			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Quais destes são mamíferos?",
-			"hipoteses_resposta": ["Golfinho", "Tubarão", "Morcego", "Cobra"],
-			"resposta": ["Golfinho", "Morcego"]
+			"pergunta": "Em que ano terminou a Segunda Guerra Mundial?",
+			"hipoteses_resposta": ["1943", "1944", "1946", "1945"],
+			"resposta": "1945"
 		},
 		{
-			"numero": "E000005",
-			"tipo_pergunta": "sim_nao",
+			"numero": "A000005",
+			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "A água ferve a 100°C ao nível do mar?",
-			"hipoteses_resposta": ["Sim", "Não"],
-			"resposta": "Sim"
+			"pergunta": "Qual é o elemento químico com símbolo 'Au'?",
+			"hipoteses_resposta": ["Ouro", "Prata", "Alumínio", "Cobre"],
+			"resposta": "Ouro"
+		},
+		{
+			"numero": "A000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos continentes existem?",
+			"hipoteses_resposta": ["5", "6", "7", "8"],
+			"resposta": "7"
+		},
+		{
+			"numero": "A000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a montanha mais alta do mundo?",
+			"hipoteses_resposta": ["K2", "Everest", "Kangchenjunga", "Lhotse"],
+			"resposta": "Everest"
+		},
+		{
+			"numero": "A000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Dom Quixote'?",
+			"hipoteses_resposta": ["Shakespeare", "Goethe", "Cervantes", "Dante"],
+			"resposta": "Cervantes"
+		},
+		{
+			"numero": "A000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a velocidade da luz no vácuo?",
+			"hipoteses_resposta": ["299.792.458 m/s", "300.000.000 m/s", "250.000.000 m/s", "350.000.000 m/s"],
+			"resposta": "299.792.458 m/s"
+		},
+		{
+			"numero": "A000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país com maior população?",
+			"hipoteses_resposta": ["Índia", "China", "Estados Unidos", "Brasil"],
+			"resposta": "China"
+		},
+		{
+			"numero": "A000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que cidade se encontra a Torre Eiffel?",
+			"hipoteses_resposta": ["Londres", "Berlim", "Roma", "Paris"],
+			"resposta": "Paris"
+		},
+		{
+			"numero": "A000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior mamífero terrestre?",
+			"hipoteses_resposta": ["Rinoceronte", "Hipopótamo", "Girafa", "Elefante"],
+			"resposta": "Elefante"
 		}
 	]
 }
