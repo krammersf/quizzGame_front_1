@@ -16,56 +16,80 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 document.getElementById("startGameBtn").addEventListener("click", () => {
-	const playerName = document.getElementById("playerName").value.trim();
-	const totalPlayers = parseInt(document.getElementById("totalPlayers").value);
-	const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
-	const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
-	const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
+  console.log("Botão Criar Jogo clicado");
 
-	if (!playerName) {
-		alert("Por favor insere o teu nome!");
-		return;
-	}
+  const playerName = document.getElementById("playerName").value.trim();
+  const totalPlayers = parseInt(document.getElementById("totalPlayers").value);
+  const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
+  const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
+  const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
 
-	if (totalPlayers < 1) {
-		alert("O número de jogadores deve ser pelo menos 1.");
-		return;
-	}
+  if (!playerName) {
+    alert("Por favor insere o teu nome!");
+    return;
+  }
 
-	// Criar estrutura de jogadores
-	let players = {};
-	players[playerName] = { score: 0 }; // Jogador 1
+  if (isNaN(totalPlayers) || totalPlayers < 1) {
+    alert("O número de jogadores deve ser pelo menos 1.");
+    return;
+  }
 
-	// Adiciona espaços reservados para os outros jogadores
-	for (let i = 2; i <= totalPlayers; i++) {
-		players[`Jogador_${i}`] = { score: 0 };
-	}
+  if (isNaN(maxQuestions) || maxQuestions < 1) {
+    alert("O número máximo de perguntas deve ser pelo menos 1.");
+    return;
+  }
 
-	// Criar novo jogo no Firebase
-	const gameRef = push(ref(db, "games"));
-	const gameId = gameRef.key;
+  if (isNaN(pointsCorrect)) {
+    alert("Por favor insere os pontos por resposta certa.");
+    return;
+  }
 
-	set(gameRef, {
-		config: {
-			totalPlayers,
-			maxQuestions,
-			pointsCorrect,
-			pointsWrong
-		},
-		players
-	}).then(() => {
-		// Guardar dados na sessão
-		sessionStorage.setItem("gameId", gameId);
-		sessionStorage.setItem("playerName", playerName);
+  if (isNaN(pointsWrong)) {
+    alert("Por favor insere os pontos por resposta errada.");
+    return;
+  }
 
-		// Mostrar link para partilhar
-		const link = `${window.location.origin}/quiz.html?gameId=${gameId}`;
-		document.getElementById("shareLink").style.display = "block";
-		document.getElementById("gameLink").value = link;
+  // Criar estrutura de jogadores
+  let players = {};
+  players[playerName] = { score: 0 }; // Jogador 1
 
-		// Redirecionar jogador 1 para quiz.html
-		setTimeout(() => {
-			window.location.href = `quiz.html?gameId=${gameId}`;
-		}, 3000);
-	});
+  // Espaços reservados para outros jogadores
+  for (let i = 2; i <= totalPlayers; i++) {
+    players[`Jogador_${i}`] = { score: 0 };
+  }
+
+  // Criar novo jogo no Firebase
+  const gameRef = push(ref(db, "games"));
+  const gameId = gameRef.key;
+
+  set(gameRef, {
+    config: {
+      totalPlayers,
+      maxQuestions,
+      pointsCorrect,
+      pointsWrong
+    },
+    players
+  })
+  .then(() => {
+    console.log("Jogo criado com ID:", gameId);
+
+    // Guardar dados na sessão
+    sessionStorage.setItem("gameId", gameId);
+    sessionStorage.setItem("playerName", playerName);
+
+    // Mostrar link para partilhar
+    const link = `${window.location.origin}/quiz.html?gameId=${gameId}`;
+    document.getElementById("shareLink").style.display = "block";
+    document.getElementById("gameLink").value = link;
+
+    // Redirecionar jogador 1 para quiz.html após 3 segundos
+    setTimeout(() => {
+      window.location.href = `quiz.html?gameId=${gameId}`;
+    }, 3000);
+  })
+  .catch(error => {
+    console.error("Erro ao criar o jogo:", error);
+    alert("Erro ao criar o jogo. Verifique a consola para mais detalhes.");
+  });
 });
