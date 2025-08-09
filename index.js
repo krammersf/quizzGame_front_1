@@ -49,16 +49,12 @@ document.getElementById("startGameBtn").addEventListener("click", () => {
     return;
   }
 
-  // Criar estrutura de jogadores
   let players = {};
-  players[playerName] = { score: 0 }; // Jogador 1
-
-  // Espaços reservados para outros jogadores
+  players[playerName] = { score: 0 };
   for (let i = 2; i <= totalPlayers; i++) {
     players[`Jogador_${i}`] = { score: 0 };
   }
 
-  // Criar novo jogo no Firebase
   const gameRef = push(ref(db, "games"));
   const gameId = gameRef.key;
 
@@ -71,25 +67,47 @@ document.getElementById("startGameBtn").addEventListener("click", () => {
     },
     players
   })
-  .then(() => {
-    console.log("Jogo criado com ID:", gameId);
+    .then(() => {
+      console.log("Jogo criado com ID:", gameId);
 
-    // Guardar dados na sessão
-    sessionStorage.setItem("gameId", gameId);
-    sessionStorage.setItem("playerName", playerName);
+      sessionStorage.setItem("gameId", gameId);
+      sessionStorage.setItem("playerName", playerName);
 
-    // Mostrar link para partilhar
-    const link = `${window.location.origin}/quiz.html?gameId=${gameId}`;
-    document.getElementById("shareLink").style.display = "block";
-    document.getElementById("gameLink").value = link;
+      const link = `${window.location.origin}/quiz.html?gameId=${gameId}`;
+      document.getElementById("shareLink").style.display = "block";
+      const gameLinkInput = document.getElementById("gameLink");
+      gameLinkInput.value = link;
 
-    // Redirecionar jogador 1 para quiz.html após 3 segundos
-    setTimeout(() => {
-      window.location.href = `quiz.html?gameId=${gameId}`;
-    }, 3000);
-  })
-  .catch(error => {
-    console.error("Erro ao criar o jogo:", error);
-    alert("Erro ao criar o jogo. Verifique a consola para mais detalhes.");
-  });
+      // Remove redirecionamento automático (opcional)
+      // setTimeout(() => {
+      //   window.location.href = `quiz.html?gameId=${gameId}`;
+      // }, 3000);
+    })
+    .catch((error) => {
+      console.error("Erro ao criar o jogo:", error);
+      alert("Erro ao criar o jogo. Verifique a consola para mais detalhes.");
+    });
+});
+
+// Botão copiar
+document.getElementById("copyBtn").addEventListener("click", () => {
+  const gameLinkInput = document.getElementById("gameLink");
+  gameLinkInput.select();
+  gameLinkInput.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+  try {
+    const sucesso = document.execCommand("copy");
+    if (sucesso) {
+      const copyMsg = document.getElementById("copyMsg");
+      copyMsg.style.display = "inline";
+      setTimeout(() => (copyMsg.style.display = "none"), 2000);
+    } else {
+      alert("Não foi possível copiar o link.");
+    }
+  } catch (err) {
+    alert("Erro ao tentar copiar o link.");
+  }
+
+  // Deselecionar texto
+  window.getSelection().removeAllRanges();
 });

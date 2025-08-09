@@ -28,13 +28,14 @@
 
     <div id="shareLink" style="display:none; margin-top:20px;">
         <p>Partilha este link com os outros jogadores:</p>
-        <input type="text" id="gameLink" readonly style="width:100%;">
+        <input type="text" id="gameLink" readonly style="width:80%;">
+        <button id="copyBtn">Copiar Link</button>
+        <span id="copyMsg" style="color:green; margin-left:10px; display:none;">Copiado!</span>
     </div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
-<!-- <script src="index.js"></script> -->
 <script type="module" src="index.js"></script>
 </body>
 </html>
