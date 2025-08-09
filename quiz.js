@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let timeLeft = 10;
   let answered = false; // controla se o jogador já respondeu à pergunta atual
   let gameStarted = false; // controla se o jogo já foi iniciado para evitar reiniciar
+  let listeningForGameStart = false; // controla se já está a ouvir mudanças do Firebase
 
   const enterNameBox = document.getElementById("enterNameBox");
   const waitingBox = document.getElementById("waitingBox");
@@ -70,16 +71,25 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("testRankingBtn")?.addEventListener("click", showFinalRanking);
 
   function registerPlayerAndWait() {
+    console.log("registerPlayerAndWait() chamado");
     const playerRef = ref(db, `games/${gameId}/players/${playerName}`);
     update(playerRef, { score: 0 });
 
-    waitForGameStart();
+    if (!listeningForGameStart) {
+      console.log("Começando a ouvir mudanças do Firebase pela primeira vez");
+      listeningForGameStart = true;
+      waitForGameStart();
+    } else {
+      console.log("Já está a ouvir mudanças do Firebase, ignorando");
+    }
   }
 
   function waitForGameStart() {
+    console.log("waitForGameStart() chamado");
     const gameRef = ref(db, `games/${gameId}`);
 
     onValue(gameRef, (snapshot) => {
+      console.log("onValue Firebase chamado - gameStarted flag:", gameStarted);
       const data = snapshot.val();
       if (!data) return;
 
@@ -90,11 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       playerNameDisplay.textContent = `Jogador: ${playerName} (${connectedPlayers}/${totalPlayers} jogadores)`;
 
+      console.log("data.gameStarted:", data.gameStarted, "gameStarted flag:", gameStarted);
       if (data.gameStarted && !gameStarted) {
         waitingBox.style.display = "none";
         gameStarted = true; // marca que o jogo já foi iniciado
         console.log("Iniciando jogo pela primeira vez");
         startGame();
+      } else if (data.gameStarted && gameStarted) {
+        console.log("Jogo já estava iniciado, ignorando nova chamada do Firebase");
+        waitingBox.style.display = "none";
       } else {
         waitingBox.style.display = "block";
       }
@@ -219,7 +233,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Score atual:", score);
     document.getElementById("scoreDisplay").textContent = `Pontuação: ${score}`;
-    update(ref(db, `games/${gameId}/players/${playerName}`), { score });
+    
+    console.log("Atualizando score no Firebase...");
+    update(ref(db, `games/${gameId}/players/${playerName}`), { score })
+      .then(() => console.log("Score atualizado no Firebase com sucesso"))
+      .catch(err => console.error("Erro ao atualizar score:", err));
 
     // Desativa todos os botões para impedir mais cliques
     const answersBox = document.getElementById("answersBox");
@@ -292,6 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function startGame() {
+    console.log("startGame() chamado - gameStarted flag:", gameStarted);
     await loadQuestions();
     showQuestion();
   }
