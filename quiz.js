@@ -12,42 +12,6 @@ const firebaseConfig = {
   measurementId: "G-RQZQXT0EYP"
 };
 
-function showFinalRanking() {
-  // Esconder quiz
-  document.getElementById("quizSection").style.display = "none";
-
-  // Mostrar tabela
-  const scoreSection = document.getElementById("scoreSection");
-  scoreSection.style.display = "block";
-
-  const playersRef = ref(db, `games/${gameId}/players`);
-
-  onValue(playersRef, (snapshot) => {
-    if (!snapshot.exists()) return;
-
-    const data = snapshot.val();
-    const playersArray = Object.keys(data).map(name => ({
-      name,
-      score: data[name].score || 0
-    }));
-
-    playersArray.sort((a, b) => b.score - a.score);
-
-    const tbody = document.querySelector("#scoreTable tbody");
-    tbody.innerHTML = "";
-
-    playersArray.forEach((player, index) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${index + 1}</td>
-        <td>${player.name}</td>
-        <td>${player.score}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-  });
-}
-
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
@@ -64,6 +28,7 @@ let timer;
 let timeLeft = 10;
 let answered = false; // controla se o jogador já respondeu à pergunta atual
 
+// DOM elements
 const enterNameBox = document.getElementById("enterNameBox");
 const waitingBox = document.getElementById("waitingBox");
 const playerNameDisplay = document.getElementById("playerNameDisplay");
@@ -73,7 +38,7 @@ if (!gameId) {
   window.location.href = "index.html";
 }
 
-// Se não tiver nome, mostra input para entrar
+// Mostrar input para entrar se ainda não tiver nome
 if (!playerName) {
   enterNameBox.style.display = "block";
   waitingBox.style.display = "none";
@@ -157,18 +122,19 @@ function showQuestion() {
   const q = questions[currentQuestionIndex];
   document.getElementById("questionBox").style.display = "block";
 
+  const img = document.getElementById("questionImage");
   if (q.imagem) {
-    document.getElementById("questionImage").src = q.imagem;
-    document.getElementById("questionImage").style.display = "block";
+    img.src = q.imagem;
+    img.style.display = "block";
   } else {
-    document.getElementById("questionImage").style.display = "none";
+    img.style.display = "none";
   }
 
   document.getElementById("questionText").textContent = q.pergunta;
 
   const answersBox = document.getElementById("answersBox");
 
-  // Antes de limpar, desativa os botões atuais para evitar clique
+  // Desativa botões atuais antes de limpar
   Array.from(answersBox.children).forEach(btn => btn.disabled = true);
 
   answersBox.innerHTML = "";
@@ -176,8 +142,8 @@ function showQuestion() {
   q.hipoteses_resposta.forEach(option => {
     const btn = document.createElement("button");
     btn.textContent = option;
+    btn.disabled = false; // ativa botões para a nova pergunta
     btn.onclick = () => checkAnswer(option, q.resposta);
-    btn.disabled = false;  // ativa botões para nova pergunta
     answersBox.appendChild(btn);
   });
 
@@ -187,39 +153,34 @@ function showQuestion() {
 function startTimer() {
   timeLeft = 10;
   answered = false;
-  document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
+  updateTimerDisplay(timeLeft);
 
   clearInterval(timer);
   timer = setInterval(() => {
     timeLeft--;
-    document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
+    updateTimerDisplay(timeLeft);
 
     if (timeLeft <= 0) {
       clearInterval(timer);
-      nextQuestion();  // Só avança aqui
+      nextQuestion();
     }
   }, 1000);
 }
 
+function updateTimerDisplay(time) {
+  document.getElementById("timerDisplay").textContent = `Tempo: ${time}s`;
+}
+
 function checkAnswer(selected, correct) {
-  if (answered) return;  // Já respondeu? Ignora
+  if (answered) return;
   answered = true;
 
-  // Para o timer para não dar jump à próxima pergunta
   clearInterval(timer);
 
   if (Array.isArray(correct)) {
-    if (correct.includes(selected)) {
-      score += gameConfig.pointsCorrect;
-    } else {
-      score += gameConfig.pointsWrong;
-    }
+    score += correct.includes(selected) ? gameConfig.pointsCorrect : gameConfig.pointsWrong;
   } else {
-    if (selected === correct) {
-      score += gameConfig.pointsCorrect;
-    } else {
-      score += gameConfig.pointsWrong;
-    }
+    score += selected === correct ? gameConfig.pointsCorrect : gameConfig.pointsWrong;
   }
 
   document.getElementById("scoreDisplay").textContent = `Pontuação: ${score}`;
@@ -227,8 +188,8 @@ function checkAnswer(selected, correct) {
 
   const answersBox = document.getElementById("answersBox");
   Array.from(answersBox.children).forEach(btn => btn.disabled = true);
-  
-  // Não avança aqui, aguarda o timer acabar para nextQuestion()
+
+  // NÃO chamar nextQuestion aqui, apenas o timer faz isso
 }
 
 function nextQuestion() {
@@ -239,4 +200,40 @@ function nextQuestion() {
 async function startGame() {
   await loadQuestions();
   showQuestion();
+}
+
+function showFinalRanking() {
+  // Esconder quiz
+  document.getElementById("quizSection").style.display = "none";
+
+  // Mostrar tabela
+  const scoreSection = document.getElementById("scoreSection");
+  scoreSection.style.display = "block";
+
+  const playersRef = ref(db, `games/${gameId}/players`);
+
+  onValue(playersRef, (snapshot) => {
+    if (!snapshot.exists()) return;
+
+    const data = snapshot.val();
+    const playersArray = Object.keys(data).map(name => ({
+      name,
+      score: data[name].score || 0
+    }));
+
+    playersArray.sort((a, b) => b.score - a.score);
+
+    const tbody = document.querySelector("#scoreTable tbody");
+    tbody.innerHTML = "";
+
+    playersArray.forEach((player, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${player.name}</td>
+        <td>${player.score}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  });
 }
