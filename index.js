@@ -92,13 +92,22 @@ window.addEventListener('DOMContentLoaded', () => {
       console.log("Host gerando perguntas para o jogo...");
       const questions = await generateQuestionsForGame();
       
-      // Atualizar o Firebase com as perguntas e gameStarted
+      // Atualizar o Firebase com as perguntas, gameStarted e estado inicial
       await update(ref(db, `games/${createdGameId}`), { 
         gameStarted: true,
-        questions: questions
+        questions: questions,
+        gameState: {
+          currentQuestionIndex: 0,
+          timeLeft: 10,
+          questionStartTime: Date.now(),
+          totalQuestions: questions.length
+        }
       });
       
       alert("Jogo iniciado!");
+      
+      // Iniciar controlador do jogo (apenas para o host)
+      startGameController();
     } catch (error) {
       console.error("Erro ao iniciar o jogo:", error);
       alert("Erro ao iniciar o jogo.");
@@ -124,6 +133,45 @@ window.addEventListener('DOMContentLoaded', () => {
     allQuestions.sort(() => Math.random() - 0.5);
     const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
     return allQuestions.slice(0, maxQuestions);
+  }
+
+  // Função para controlar o jogo (apenas para o host)
+  function startGameController() {
+    if (!createdGameId) return;
+    
+    let currentQuestion = 0;
+    const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
+    
+    function nextQuestion() {
+      if (currentQuestion >= maxQuestions) {
+        // Fim do jogo
+        update(ref(db, `games/${createdGameId}/gameState`), {
+          gameEnded: true,
+          currentQuestionIndex: currentQuestion
+        });
+        return;
+      }
+      
+      // Avançar para próxima pergunta
+      update(ref(db, `games/${createdGameId}/gameState`), {
+        currentQuestionIndex: currentQuestion,
+        timeLeft: 10,
+        questionStartTime: Date.now()
+      });
+      
+      console.log(`Host: Pergunta ${currentQuestion + 1} iniciada`);
+      
+      // Timer de 10 segundos para próxima pergunta
+      setTimeout(() => {
+        currentQuestion++;
+        nextQuestion();
+      }, 10000);
+    }
+    
+    // Iniciar primeira pergunta após um pequeno delay
+    setTimeout(() => {
+      nextQuestion();
+    }, 2000);
   }
 
   const openPlayer1Btn = document.getElementById("openPlayer1Btn");

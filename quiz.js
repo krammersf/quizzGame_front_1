@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let answered = false; // controla se o jogador já respondeu à pergunta atual
   let gameStarted = false; // controla se o jogo já foi iniciado para evitar reiniciar
   let listeningForGameStart = false; // controla se já está a ouvir mudanças do Firebase
+  let listeningForGameState = false; // controla se já está a ouvir o estado do jogo
 
   const enterNameBox = document.getElementById("enterNameBox");
   const waitingBox = document.getElementById("waitingBox");
@@ -115,6 +116,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Nova função para sincronizar com o estado do jogo
+  function listenToGameState() {
+    if (listeningForGameState) return;
+    listeningForGameState = true;
+    
+    const gameStateRef = ref(db, `games/${gameId}/gameState`);
+    
+    onValue(gameStateRef, (snapshot) => {
+      if (!snapshot.exists()) return;
+      
+      const gameState = snapshot.val();
+      console.log("Estado do jogo atualizado:", gameState);
+      
+      // Sincronizar pergunta atual
+      if (gameState.currentQuestionIndex !== currentQuestionIndex) {
+        currentQuestionIndex = gameState.currentQuestionIndex;
+        console.log("Sincronizando para pergunta:", currentQuestionIndex);
+        showQuestion();
+      }
+      
+      // Sincronizar timer baseado no tempo servidor
+      if (gameState.questionStartTime) {
+        const elapsed = Math.floor((Date.now() - gameState.questionStartTime) / 1000);
+        timeLeft = Math.max(0, 10 - elapsed);
+        console.log("Timer sincronizado - timeLeft:", timeLeft);
+        document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
+      }
+    });
+  }
+
+  // Função para atualizar o display do timer baseado no tempo do servidor
+  function updateTimerDisplay(questionStartTime) {
+    const updateTimer = () => {
+      const elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
+      timeLeft = Math.max(0, 10 - elapsed);
+      document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
+      
+      if (timeLeft > 0) {
+        setTimeout(updateTimer, 100); // Atualizar a cada 100ms para suavidade
+      }
+    };
+    updateTimer();
+  }
+
   async function loadQuestions() {
     console.log("loadQuestions chamado - carregando do Firebase");
     
@@ -185,23 +230,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function startTimer() {
-    timeLeft = 10;
-    answered = false;
-    console.log("Timer iniciado - timeLeft:", timeLeft, "answered:", answered);
-    document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
-
-    clearInterval(timer);
-    timer = setInterval(() => {
-      timeLeft--;
-      console.log("Timer tick - timeLeft:", timeLeft, "answered:", answered);
-      document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
-
-      if (timeLeft <= 0) {
-        console.log("Timer acabou - avançando para próxima pergunta");
-        clearInterval(timer);
-        nextQuestion();  // Só avança aqui
-      }
-    }, 1000);
+    // Timer agora é controlado pelo Firebase
+    // Esta função apenas atualiza o display local baseado no estado sincronizado
+    console.log("Timer local desativado - usando sincronização Firebase");
   }
 
   function checkAnswer(selected, correct) {
@@ -269,10 +300,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function nextQuestion() {
-    console.log("nextQuestion chamada - currentQuestionIndex:", currentQuestionIndex);
-    currentQuestionIndex++;
-    console.log("Avançando para pergunta:", currentQuestionIndex + 1);
-    showQuestion();
+    // Esta função não é mais necessária localmente
+    // O avanço de perguntas é controlado pelo host via Firebase
+    console.log("nextQuestion chamada - mas controlado pelo Firebase agora");
   }
 
   function showFinalRanking() {
@@ -315,6 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function startGame() {
     console.log("startGame() chamado - gameStarted flag:", gameStarted);
     await loadQuestions();
+    listenToGameState(); // Começar a ouvir mudanças no estado do jogo
     showQuestion();
   }
 
