@@ -98,6 +98,8 @@ document.getElementById("enterGameBtn").addEventListener("click", () => {
   registerPlayerAndWait();
 });
 
+document.getElementById("testRankingBtn").addEventListener("click", showFinalRanking);
+
 function registerPlayerAndWait() {
   // Regista jogador na base de dados
   const playerRef = ref(db, `games/${gameId}/players/${playerName}`);
