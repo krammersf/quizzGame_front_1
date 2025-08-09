@@ -61,6 +61,8 @@ let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 let timer;
+let timeLeft = 10;
+let answered = false; // controla se o jogador já respondeu à pergunta atual
 
 const enterNameBox = document.getElementById("enterNameBox");
 const waitingBox = document.getElementById("waitingBox");
@@ -146,11 +148,11 @@ async function loadQuestions() {
 }
 
 function showQuestion() {
-	if (currentQuestionIndex >= questions.length) {
-	alert("Fim do jogo!");
-	showFinalRanking();
-	return;
-	}
+  if (currentQuestionIndex >= questions.length) {
+    alert("Fim do jogo!");
+    showFinalRanking();
+    return;
+  }
 
   const q = questions[currentQuestionIndex];
   document.getElementById("questionBox").style.display = "block";
@@ -170,6 +172,7 @@ function showQuestion() {
     const btn = document.createElement("button");
     btn.textContent = option;
     btn.onclick = () => checkAnswer(option, q.resposta);
+    btn.disabled = false; // habilita os botões para nova pergunta
     answersBox.appendChild(btn);
   });
 
@@ -177,7 +180,8 @@ function showQuestion() {
 }
 
 function startTimer() {
-  let timeLeft = 10;
+  timeLeft = 10;
+  answered = false;
   document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
 
   clearInterval(timer);
@@ -187,13 +191,16 @@ function startTimer() {
 
     if (timeLeft <= 0) {
       clearInterval(timer);
+      // Só avança para próxima pergunta quando o tempo acabar
       nextQuestion();
     }
   }, 1000);
 }
 
 function checkAnswer(selected, correct) {
-  clearInterval(timer);
+  // Se o jogador já respondeu, ignora cliques extras
+  if (answered) return;
+  answered = true;
 
   if (Array.isArray(correct)) {
     if (correct.includes(selected)) {
@@ -212,7 +219,9 @@ function checkAnswer(selected, correct) {
   document.getElementById("scoreDisplay").textContent = `Pontuação: ${score}`;
   update(ref(db, `games/${gameId}/players/${playerName}`), { score });
 
-  setTimeout(nextQuestion, 500);
+  // Desativa os botões para evitar múltiplas respostas
+  const answersBox = document.getElementById("answersBox");
+  Array.from(answersBox.children).forEach(btn => btn.disabled = true);
 }
 
 function nextQuestion() {
