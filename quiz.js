@@ -167,13 +167,17 @@ function showQuestion() {
   document.getElementById("questionText").textContent = q.pergunta;
 
   const answersBox = document.getElementById("answersBox");
+
+  // Antes de limpar, desativa os botões atuais para evitar clique
+  Array.from(answersBox.children).forEach(btn => btn.disabled = true);
+
   answersBox.innerHTML = "";
 
   q.hipoteses_resposta.forEach(option => {
     const btn = document.createElement("button");
     btn.textContent = option;
     btn.onclick = () => checkAnswer(option, q.resposta);
-    btn.disabled = false;  // ativa botões aqui
+    btn.disabled = false;  // ativa botões para nova pergunta
     answersBox.appendChild(btn);
   });
 
@@ -188,17 +192,23 @@ function startTimer() {
   clearInterval(timer);
   timer = setInterval(() => {
     timeLeft--;
+    console.log("Timer:", timeLeft);
     document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
 
     if (timeLeft <= 0) {
       clearInterval(timer);
+      console.log("Tempo esgotado, próxima pergunta.");
       nextQuestion();  // Avança só quando o tempo terminar
     }
   }, 1000);
 }
 
 function checkAnswer(selected, correct) {
-  if (answered) return;
+  console.log("checkAnswer chamada:", selected);
+  if (answered) {
+    console.log("Resposta ignorada porque já respondeu");
+    return;
+  }
   answered = true;
 
   if (Array.isArray(correct)) {
@@ -220,8 +230,8 @@ function checkAnswer(selected, correct) {
 
   const answersBox = document.getElementById("answersBox");
   Array.from(answersBox.children).forEach(btn => btn.disabled = true);
-  
-  // Não avançar ainda, aguardar o timer chegar a zero para próxima pergunta
+
+  console.log("Botões desativados, aguardando próximo ciclo do timer.");
 }
 
 function nextQuestion() {
