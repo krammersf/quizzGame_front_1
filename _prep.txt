@@ -1,0 +1,27 @@
+ficheiro card_1.json
+
+cada pergunta:
+	numero[deve ser uma letra e 6 digitos] a letra indica o tipo_pergunta
+		A - hipotese
+		B - letra
+		C - ordenar
+		D - varios_certos
+		E - sim_nao
+	tipo_pergunta[hipotese, letra, ordenar, varios_certos, sim_nao]
+	imagem
+	pergunta
+	hipoteses_resposta [ate 8]
+	resposta
+
+
+quiz/
+  index.html        ← Página inicial (escolher nome e configurações)
+  quiz.html         ← Página do jogo
+  scoreboard.html   ← Tabela de classificações
+  cards/
+    card_1.json
+    card_2.json
+    card_3.json
+  script.js         ← Lógica principal do quiz
+  scoreboard.js     ← Gestão de pontuações
+  style.css

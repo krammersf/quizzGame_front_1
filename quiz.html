@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz Multiplayer</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>🎯 Quiz Multiplayer</h1>
+		<h3 id="playerNameDisplay"></h3>
+		<h4 id="scoreDisplay">Pontuação: 0</h4>
+		<h4 id="timerDisplay">Tempo: 10s</h4>
+
+		<div id="waitingBox">
+			<p>A aguardar que todos os jogadores entrem...</p>
+		</div>
+
+		<div id="questionBox" style="display:none;">
+			<img id="questionImage" src="" alt="" style="max-width:200px; display:none;">
+			<p id="questionText"></p>
+			<div id="answersBox"></div>
+		</div>
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
+	<script src="quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Classificações</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 Classificação do Quiz</h1>
+        <table id="scoreTable" border="1" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>Jogador</th>
+                    <th>Pontuação</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <br>
+        <button onclick="window.location.href='index.html'">Voltar ao Início</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
+    <!-- <script src="scoreboard.js"></script> -->
+	<script type="module" src="scoreboard.js"></script>
+</body>
+</html>
