@@ -168,11 +168,12 @@ function showQuestion() {
 
   const answersBox = document.getElementById("answersBox");
   answersBox.innerHTML = "";
+
   q.hipoteses_resposta.forEach(option => {
     const btn = document.createElement("button");
     btn.textContent = option;
     btn.onclick = () => checkAnswer(option, q.resposta);
-    btn.disabled = false; // habilita os botões para nova pergunta
+    btn.disabled = false;  // ativa botões aqui
     answersBox.appendChild(btn);
   });
 
@@ -181,7 +182,7 @@ function showQuestion() {
 
 function startTimer() {
   timeLeft = 10;
-  answered = false;
+  answered = false; // reset para nova pergunta
   document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
 
   clearInterval(timer);
@@ -191,14 +192,12 @@ function startTimer() {
 
     if (timeLeft <= 0) {
       clearInterval(timer);
-      // Só avança para próxima pergunta quando o tempo acabar
-      nextQuestion();
+      nextQuestion();  // Avança só quando o tempo terminar
     }
   }, 1000);
 }
 
 function checkAnswer(selected, correct) {
-  // Se o jogador já respondeu, ignora cliques extras
   if (answered) return;
   answered = true;
 
@@ -219,9 +218,10 @@ function checkAnswer(selected, correct) {
   document.getElementById("scoreDisplay").textContent = `Pontuação: ${score}`;
   update(ref(db, `games/${gameId}/players/${playerName}`), { score });
 
-  // Desativa os botões para evitar múltiplas respostas
   const answersBox = document.getElementById("answersBox");
   Array.from(answersBox.children).forEach(btn => btn.disabled = true);
+  
+  // Não avançar ainda, aguardar o timer chegar a zero para próxima pergunta
 }
 
 function nextQuestion() {
