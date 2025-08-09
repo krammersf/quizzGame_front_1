@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" />
 	<title>Quiz Multiplayer</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 	<div class="container">
 		<h1>🎯 Quiz Multiplayer</h1>
+
+		<!-- Caixa para inserir nome e botão entrar -->
+		<div id="enterNameBox" style="display:none; margin-bottom: 20px;">
+			<label for="playerNameInput">Insere o teu nome:</label><br />
+			<input type="text" id="playerNameInput" placeholder="Ex: João" />
+			<button id="enterGameBtn">Entrar</button>
+		</div>
+
+		<!-- Mostra o nome do jogador e espera os outros -->
 		<h3 id="playerNameDisplay"></h3>
+
 		<h4 id="scoreDisplay">Pontuação: 0</h4>
 		<h4 id="timerDisplay">Tempo: 10s</h4>
 
-		<div id="waitingBox">
+		<!-- Mensagem enquanto espera os jogadores -->
+		<div id="waitingBox" style="display:none;">
 			<p>A aguardar que todos os jogadores entrem...</p>
 		</div>
 
+		<!-- Caixa para mostrar perguntas e respostas, inicialmente oculta -->
 		<div id="questionBox" style="display:none;">
-			<img id="questionImage" src="" alt="" style="max-width:200px; display:none;">
+			<img id="questionImage" src="" alt="" style="max-width:200px; display:none;" />
 			<p id="questionText"></p>
 			<div id="answersBox"></div>
 		</div>
 	</div>
 
-	<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
-	<script src="quiz.js"></script>
+	<script type="module" src="quiz.js"></script>
 </body>
 </html>

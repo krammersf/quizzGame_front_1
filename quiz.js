@@ -1,35 +1,75 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getDatabase, ref, get, onValue, update } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+import { getDatabase, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
-// ⚠️ Coloca as tuas credenciais Firebase
+// Configurações do Firebase
 const firebaseConfig = {
-	apiKey: "A_TUA_API_KEY",
-	authDomain: "O_TEUDO.firebaseapp.com",
-	databaseURL: "https://O_TEUDO.firebaseio.com",
-	projectId: "O_TEUDO",
-	storageBucket: "O_TEUDO.appspot.com",
-	messagingSenderId: "ID_REMETENTE",
-	appId: "APP_ID"
+	apiKey: "AIzaSyDkhUnWFDUio5ebqfxal2TR-fI5wFmgBqc",
+	authDomain: "quizzgamefb.firebaseapp.com",
+	databaseURL: "https://quizzgamefb-default-rtdb.europe-west1.firebasedatabase.app",
+	projectId: "quizzgamefb",
+	storageBucket: "quizzgamefb.firebasestorage.app",
+	messagingSenderId: "282180005873",
+	appId: "1:282180005873:web:e941f64e2660a60cf99e50",
+	measurementId: "G-RQZQXT0EYP"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// --- Ler gameId e playerName ---
 const urlParams = new URLSearchParams(window.location.search);
-const gameId = urlParams.get("gameId") || sessionStorage.getItem("gameId");
-const playerName = sessionStorage.getItem("playerName");
+const gameId = urlParams.get("gameId");
 
-document.getElementById("playerNameDisplay").textContent = `Jogador: ${playerName}`;
+let playerName = sessionStorage.getItem("playerName");
 
-let gameConfig = {};
-let score = 0;
-let currentQuestionIndex = 0;
-let timer;
+// Variáveis globais para o jogo
+let gameConfig = null;
 let questions = [];
+let currentQuestionIndex = 0;
+let score = 0;
+let timer;
 
-// --- Espera até todos os jogadores entrarem ---
-async function waitForPlayers() {
+const enterNameBox = document.getElementById("enterNameBox");
+const waitingBox = document.getElementById("waitingBox");
+const playerNameDisplay = document.getElementById("playerNameDisplay");
+
+if (!gameId) {
+	alert("Link inválido: falta o gameId");
+	window.location.href = "index.html";
+}
+
+// Mostrar input do nome se ainda não existir
+if (!playerName) {
+	enterNameBox.style.display = "block";
+	waitingBox.style.display = "none";
+} else {
+	enterNameBox.style.display = "none";
+	waitingBox.style.display = "block";
+	playerNameDisplay.textContent = `Jogador: ${playerName}`;
+	waitForPlayers();
+}
+
+document.getElementById("enterGameBtn").addEventListener("click", () => {
+	const inputName = document.getElementById("playerNameInput").value.trim();
+	if (!inputName) {
+		alert("Por favor, insere um nome válido!");
+		return;
+	}
+
+	playerName = inputName;
+	sessionStorage.setItem("playerName", playerName);
+
+	enterNameBox.style.display = "none";
+	waitingBox.style.display = "block";
+	playerNameDisplay.textContent = `Jogador: ${playerName}`;
+
+	// Atualiza no Firebase que este jogador entrou (pontuação 0)
+	const playerRef = ref(db, `games/${gameId}/players/${playerName}`);
+	update(playerRef, { score: 0 });
+
+	waitForPlayers();
+});
+
+function waitForPlayers() {
 	const gameRef = ref(db, `games/${gameId}`);
 
 	onValue(gameRef, (snapshot) => {
@@ -41,21 +81,16 @@ async function waitForPlayers() {
 		const totalPlayers = gameConfig.totalPlayers;
 		const connectedPlayers = Object.keys(players).length;
 
-		// Jogador entra oficialmente no jogo se não existir
-		if (!players[playerName]) {
-			update(ref(db, `games/${gameId}/players/${playerName}`), { score: 0 });
-		}
+		playerNameDisplay.textContent = `Jogador: ${playerName} (${connectedPlayers}/${totalPlayers} jogadores)`;
 
 		if (connectedPlayers >= totalPlayers) {
-			document.getElementById("waitingBox").style.display = "none";
+			waitingBox.style.display = "none";
 			startGame();
 		}
 	});
 }
 
-// --- Carregar perguntas ---
 async function loadQuestions() {
-	// Aqui podes carregar múltiplos ficheiros card_X.json
 	const files = ["cards/card_1.json", "cards/card_2.json"];
 	let allQuestions = [];
 
@@ -65,14 +100,11 @@ async function loadQuestions() {
 		allQuestions = allQuestions.concat(data.perguntas);
 	}
 
-	// Misturar aleatoriamente
 	allQuestions.sort(() => Math.random() - 0.5);
 
-	// Limitar ao máximo definido
 	questions = allQuestions.slice(0, gameConfig.maxQuestions);
 }
 
-// --- Mostrar pergunta ---
 function showQuestion() {
 	if (currentQuestionIndex >= questions.length) {
 		alert("Fim do jogo!");
@@ -104,7 +136,6 @@ function showQuestion() {
 	startTimer();
 }
 
-// --- Temporizador ---
 function startTimer() {
 	let timeLeft = 10;
 	document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
@@ -121,12 +152,10 @@ function startTimer() {
 	}, 1000);
 }
 
-// --- Verificar resposta ---
 function checkAnswer(selected, correct) {
 	clearInterval(timer);
 
 	if (Array.isArray(correct)) {
-		// Caso de múltiplas respostas
 		if (correct.includes(selected)) {
 			score += gameConfig.pointsCorrect;
 		} else {
@@ -146,16 +175,12 @@ function checkAnswer(selected, correct) {
 	setTimeout(nextQuestion, 500);
 }
 
-// --- Próxima pergunta ---
 function nextQuestion() {
 	currentQuestionIndex++;
 	showQuestion();
 }
 
-// --- Início ---
 async function startGame() {
 	await loadQuestions();
 	showQuestion();
 }
-
-waitForPlayers();
