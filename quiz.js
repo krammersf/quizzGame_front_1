@@ -70,24 +70,28 @@ document.getElementById("enterGameBtn").addEventListener("click", () => {
 });
 
 function waitForPlayers() {
-	const gameRef = ref(db, `games/${gameId}`);
+  const gameRef = ref(db, `games/${gameId}`);
 
-	onValue(gameRef, (snapshot) => {
-		const data = snapshot.val();
-		if (!data) return;
+  onValue(gameRef, (snapshot) => {
+    const data = snapshot.val();
+    if (!data) return;
 
-		gameConfig = data.config;
-		const players = data.players;
-		const totalPlayers = gameConfig.totalPlayers;
-		const connectedPlayers = Object.keys(players).length;
+    gameConfig = data.config;
+    const players = data.players;
+    const totalPlayers = gameConfig.totalPlayers;
+    const connectedPlayers = Object.keys(players).length;
 
-		playerNameDisplay.textContent = `Jogador: ${playerName} (${connectedPlayers}/${totalPlayers} jogadores)`;
+    console.log(`Jogadores conectados: ${connectedPlayers}, Total esperado: ${totalPlayers}`);
+    console.log("Lista de jogadores:", Object.keys(players));
 
-		if (connectedPlayers >= totalPlayers) {
-			waitingBox.style.display = "none";
-			startGame();
-		}
-	});
+    playerNameDisplay.textContent = `Jogador: ${playerName} (${connectedPlayers}/${totalPlayers} jogadores)`;
+
+	if (connectedPlayers >= totalPlayers && !data.gameStarted) {
+	update(ref(db, `games/${gameId}`), { gameStarted: true });
+	waitingBox.style.display = "none";
+	startGame(gameConfig);
+	}
+  });
 }
 
 async function loadQuestions() {
