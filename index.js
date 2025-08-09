@@ -91,6 +91,24 @@ window.addEventListener('DOMContentLoaded', () => {
       .catch(() => alert("Erro ao iniciar o jogo."));
   });
 
+  const openPlayer1Btn = document.getElementById("openPlayer1Btn");
+
+	openPlayer1Btn.addEventListener("click", () => {
+	if (!createdGameId) {
+		alert("Cria um jogo primeiro!");
+		return;
+	}
+	// Abre nova aba com o link do quiz para jogador 1 (já com nome guardado)
+	const url = `${window.location.origin}/quizzGame_front_1/quiz.html?gameId=${createdGameId}`;
+	
+	// Guardar o playerName na sessão da nova aba pode ser feito usando URL ou localStorage no quiz.js
+	// Aqui vamos usar URL com parâmetro playerName para facilitar:
+	const playerName = creatorName;
+	const fullUrl = `${url}&playerName=${encodeURIComponent(playerName)}`;
+
+	window.open(fullUrl, '_blank');
+	});
+
   document.getElementById("copyBtn").addEventListener("click", () => {
     const gameLinkInput = document.getElementById("gameLink");
     gameLinkInput.select();
