@@ -73,7 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("testRankingBtn")?.addEventListener("click", showFinalRanking);
   
   // Event listeners para tela final
-  document.getElementById("classificacaoBtn")?.addEventListener("click", showFinalRanking);
+  document.getElementById("showRankingBtn")?.addEventListener("click", () => {
+    console.log("Botão Ver Classificação clicado - redirecionando para scoreboard.html");
+    window.location.href = "scoreboard.html";
+  });
   document.getElementById("backToGameBtn")?.addEventListener("click", () => {
     // Voltar ao menu inicial
     document.getElementById("scoreSection").style.display = "none";
