@@ -1,53 +1,50 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
-// ⚠️ Substituir pelo teu config Firebase
 const firebaseConfig = {
-	apiKey: "A_TUA_API_KEY",
-	authDomain: "O_TEUDO.firebaseapp.com",
-	databaseURL: "https://O_TEUDO.firebaseio.com",
-	projectId: "O_TEUDO",
-	storageBucket: "O_TEUDO.appspot.com",
-	messagingSenderId: "ID_REMETENTE",
-	appId: "APP_ID"
+  apiKey: "AIzaSyDkhUnWFDUio5ebqfxal2TR-fI5wFmgBqc",
+  authDomain: "quizzgamefb.firebaseapp.com",
+  databaseURL: "https://quizzgamefb-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "quizzgamefb",
+  storageBucket: "quizzgamefb.firebasestorage.app",
+  messagingSenderId: "282180005873",
+  appId: "1:282180005873:web:e941f64e2660a60cf99e50",
+  measurementId: "G-RQZQXT0EYP"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Ler gameId da sessão
 const gameId = sessionStorage.getItem("gameId");
 
 if (!gameId) {
-	alert("ID do jogo não encontrado!");
-	window.location.href = "index.html";
+  alert("ID do jogo não encontrado!");
+  window.location.href = "index.html";
 }
 
-// Atualizar tabela em tempo real
 const playersRef = ref(db, `games/${gameId}/players`);
 
-onValue(playersRef, snapshot => {
-	if (snapshot.exists()) {
-		const data = snapshot.val();
-		let playersArray = Object.keys(data).map(name => ({
-			name,
-			score: data[name].score || 0
-		}));
+onValue(playersRef, (snapshot) => {
+  if (snapshot.exists()) {
+    const data = snapshot.val();
+    const playersArray = Object.keys(data).map(name => ({
+      name,
+      score: data[name].score || 0
+    }));
 
-		// Ordenar por pontuação (descendente)
-		playersArray.sort((a, b) => b.score - a.score);
+    playersArray.sort((a, b) => b.score - a.score);
 
-		const tbody = document.querySelector("#scoreTable tbody");
-		tbody.innerHTML = "";
+    const tbody = document.querySelector("#scoreTable tbody");
+    tbody.innerHTML = "";
 
-		playersArray.forEach((player, index) => {
-			const tr = document.createElement("tr");
-			tr.innerHTML = `
-				<td>${index + 1}</td>
-				<td>${player.name}</td>
-				<td>${player.score}</td>
-			`;
-			tbody.appendChild(tr);
-		});
-	}
+    playersArray.forEach((player, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${player.name}</td>
+        <td>${player.score}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
 });
