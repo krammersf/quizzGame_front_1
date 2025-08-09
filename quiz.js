@@ -186,30 +186,27 @@ function showQuestion() {
 
 function startTimer() {
   timeLeft = 10;
-  answered = false; // reset para nova pergunta
+  answered = false;
   document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
 
   clearInterval(timer);
   timer = setInterval(() => {
     timeLeft--;
-    console.log("Timer:", timeLeft);
     document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
 
     if (timeLeft <= 0) {
       clearInterval(timer);
-      console.log("Tempo esgotado, próxima pergunta.");
-      nextQuestion();  // Avança só quando o tempo terminar
+      nextQuestion();  // Só avança aqui
     }
   }, 1000);
 }
 
 function checkAnswer(selected, correct) {
-  console.log("checkAnswer chamada:", selected);
-  if (answered) {
-    console.log("Resposta ignorada porque já respondeu");
-    return;
-  }
+  if (answered) return;  // Já respondeu? Ignora
   answered = true;
+
+  // Para o timer para não dar jump à próxima pergunta
+  clearInterval(timer);
 
   if (Array.isArray(correct)) {
     if (correct.includes(selected)) {
@@ -230,8 +227,8 @@ function checkAnswer(selected, correct) {
 
   const answersBox = document.getElementById("answersBox");
   Array.from(answersBox.children).forEach(btn => btn.disabled = true);
-
-  console.log("Botões desativados, aguardando próximo ciclo do timer.");
+  
+  // Não avança aqui, aguarda o timer acabar para nextQuestion()
 }
 
 function nextQuestion() {
