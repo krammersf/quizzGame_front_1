@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let timer;
   let timeLeft = 10;
   let answered = false; // controla se o jogador já respondeu à pergunta atual
+  let gameStarted = false; // controla se o jogo já foi iniciado para evitar reiniciar
 
   const enterNameBox = document.getElementById("enterNameBox");
   const waitingBox = document.getElementById("waitingBox");
@@ -89,8 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       playerNameDisplay.textContent = `Jogador: ${playerName} (${connectedPlayers}/${totalPlayers} jogadores)`;
 
-      if (data.gameStarted) {
+      if (data.gameStarted && !gameStarted) {
         waitingBox.style.display = "none";
+        gameStarted = true; // marca que o jogo já foi iniciado
+        console.log("Iniciando jogo pela primeira vez");
         startGame();
       } else {
         waitingBox.style.display = "block";
