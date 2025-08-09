@@ -128,7 +128,15 @@
     <p>A aguardar os outros jogadores...</p>
   </div>
 
-  <button id="testRankingBtn">Mostrar Classificação Final</button>
+  <button id="testRankingBtn" onclick="
+    const currentGameId = sessionStorage.getItem('gameId');
+    if (currentGameId) {
+      console.log('Abrindo classificação para o jogo:', currentGameId);
+      window.open('scoreboard.html', '_blank');
+    } else {
+      alert('⚠️ Nenhum jogo ativo encontrado! Crie um jogo primeiro.');
+    }
+  ">📊 Mostrar Classificação Final</button>
 
   <script type="module" src="index.js"></script>
 </body>
