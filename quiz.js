@@ -116,26 +116,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function loadQuestions() {
-    const files = ["cards/card_1.json"];
-    let allQuestions = [];
-
-    console.log("Carregando perguntas dos ficheiros:", files);
-
-    for (let file of files) {
-      try {
-        const res = await fetch(file);
-        const data = await res.json();
-        console.log(`Ficheiro ${file} carregado:`, data.perguntas.length, "perguntas");
-        allQuestions = allQuestions.concat(data.perguntas);
-      } catch (error) {
-        console.warn(`Erro ao carregar ${file}:`, error);
+    console.log("loadQuestions chamado - carregando do Firebase");
+    
+    // Carregar perguntas do Firebase (geradas pelo host)
+    const gameQuestionsRef = ref(db, `games/${gameId}/questions`);
+    
+    try {
+      const snapshot = await new Promise((resolve, reject) => {
+        onValue(gameQuestionsRef, (snap) => {
+          resolve(snap);
+        }, { once: true });
+      });
+      
+      if (snapshot.exists()) {
+        questions = snapshot.val();
+        console.log("Perguntas carregadas do Firebase:", questions.length);
+        return;
+      } else {
+        throw new Error("Perguntas não encontradas no Firebase");
       }
+    } catch (error) {
+      console.error("Erro ao carregar perguntas do Firebase:", error);
+      alert("Erro ao carregar perguntas do jogo. O host pode não ter iniciado o jogo corretamente.");
     }
-
-    console.log("Total de perguntas antes de baralhar:", allQuestions.length);
-    allQuestions.sort(() => Math.random() - 0.5);
-    questions = allQuestions.slice(0, gameConfig.maxQuestions);
-    console.log("Perguntas selecionadas para o jogo:", questions.length);
   }
 
   function showQuestion() {

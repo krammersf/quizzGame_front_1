@@ -81,15 +81,50 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  beginGameBtn.addEventListener("click", () => {
+  beginGameBtn.addEventListener("click", async () => {
     if (!createdGameId) {
       alert("Cria um jogo antes de iniciar!");
       return;
     }
-    update(ref(db, `games/${createdGameId}`), { gameStarted: true })
-      .then(() => alert("Jogo iniciado!"))
-      .catch(() => alert("Erro ao iniciar o jogo."));
+    
+    try {
+      // Gerar as perguntas para o jogo
+      console.log("Host gerando perguntas para o jogo...");
+      const questions = await generateQuestionsForGame();
+      
+      // Atualizar o Firebase com as perguntas e gameStarted
+      await update(ref(db, `games/${createdGameId}`), { 
+        gameStarted: true,
+        questions: questions
+      });
+      
+      alert("Jogo iniciado!");
+    } catch (error) {
+      console.error("Erro ao iniciar o jogo:", error);
+      alert("Erro ao iniciar o jogo.");
+    }
   });
+
+  // Função para gerar perguntas (similar ao quiz.js)
+  async function generateQuestionsForGame() {
+    const files = ["cards/card_1.json"];
+    let allQuestions = [];
+
+    for (let file of files) {
+      try {
+        const res = await fetch(file);
+        const data = await res.json();
+        allQuestions = allQuestions.concat(data.perguntas);
+      } catch (error) {
+        console.warn(`Erro ao carregar ${file}:`, error);
+      }
+    }
+
+    // Baralhar e selecionar o número correto de perguntas
+    allQuestions.sort(() => Math.random() - 0.5);
+    const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
+    return allQuestions.slice(0, maxQuestions);
+  }
 
   const openPlayer1Btn = document.getElementById("openPlayer1Btn");
 
