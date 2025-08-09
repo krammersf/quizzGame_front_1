@@ -29,6 +29,30 @@
       <input type="text" id="playerNameInput" placeholder="Escreve o teu nome" />
       <button id="enterGameBtn">Entrar no Jogo</button>
     </div>
+
+    <div id="gameEndBox" style="display:none;">
+      <h2>🏁 FIM DO JOGO</h2>
+      <p>Parabéns! Completaste todas as perguntas.</p>
+      <h3 id="finalScoreDisplay">Pontuação Final: 0</h3>
+      <button id="showRankingBtn" style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">📊 Ver Classificação</button>
+    </div>
+
+    <!-- Seção de classificação -->
+    <div id="scoreSection" style="display:none;">
+      <h2>🏆 CLASSIFICAÇÃO FINAL</h2>
+      <table id="scoreTable" border="1" style="width: 100%; margin-top: 20px;">
+        <thead>
+          <tr style="background-color: #f0f0f0;">
+            <th>Posição</th>
+            <th>Jogador</th>
+            <th>Pontuação</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <button id="backToGameBtn" style="margin-top: 20px; padding: 10px 20px; background-color: #2196F3; color: white; border: none; border-radius: 5px; cursor: pointer;">🔙 Voltar</button>
+    </div>
   </div>
 
   <script type="module" src="quiz.js"></script>

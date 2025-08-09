@@ -71,6 +71,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("testRankingBtn")?.addEventListener("click", showFinalRanking);
+  
+  // Event listeners para tela final
+  document.getElementById("classificacaoBtn")?.addEventListener("click", showFinalRanking);
+  document.getElementById("backToGameBtn")?.addEventListener("click", () => {
+    // Voltar ao menu inicial
+    document.getElementById("scoreSection").style.display = "none";
+    document.getElementById("gameEndBox").style.display = "none";
+    document.getElementById("waitingBox").style.display = "block";
+  });
 
   function registerPlayerAndWait() {
     console.log("registerPlayerAndWait() chamado");
@@ -132,8 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // Verificar se o jogo terminou
       if (gameState.gameEnded) {
-        console.log("Jogo terminou");
-        showFinalRanking();
+        console.log("Jogo terminou - mostrando tela de fim");
+        showGameEndScreen();
         return;
       }
       
@@ -419,6 +428,22 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Resposta registada - aguardando período de resultados");
   }
 
+  // Função para mostrar a tela de fim de jogo
+  function showGameEndScreen() {
+    console.log("Mostrando tela de fim de jogo");
+    
+    // Esconder todas as outras seções
+    document.getElementById("waitingBox").style.display = "none";
+    document.getElementById("questionBox").style.display = "none";
+    document.getElementById("scoreSection").style.display = "none";
+    
+    // Mostrar tela de fim
+    document.getElementById("gameEndBox").style.display = "block";
+    document.getElementById("finalScoreDisplay").textContent = `Pontuação Final: ${score}`;
+    
+    console.log(`Jogo terminado! Pontuação final: ${score}`);
+  }
+
   function nextQuestion() {
     // Esta função não é mais necessária localmente
     // O avanço de perguntas é controlado pelo host via Firebase
@@ -426,17 +451,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showFinalRanking() {
-    // Esconder quiz
-    document.getElementById("quizSection")?.style.setProperty("display", "none");
+    console.log("Mostrando classificação final");
+    
+    // Esconder tela de fim
+    document.getElementById("gameEndBox").style.display = "none";
+    document.getElementById("waitingBox").style.display = "none";
+    document.getElementById("questionBox").style.display = "none";
 
-    // Mostrar tabela
+    // Mostrar tabela de classificação
     const scoreSection = document.getElementById("scoreSection");
     if (scoreSection) scoreSection.style.display = "block";
 
     const playersRef = ref(db, `games/${gameId}/players`);
 
     onValue(playersRef, (snapshot) => {
-      if (!snapshot.exists()) return;
+      if (!snapshot.exists()) {
+        console.log("Nenhum jogador encontrado");
+        return;
+      }
 
       const data = snapshot.val();
       const playersArray = Object.keys(data).map(name => ({
@@ -444,6 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
         score: data[name].score || 0
       }));
 
+      // Ordenar por pontuação (maior primeiro)
       playersArray.sort((a, b) => b.score - a.score);
 
       const tbody = document.querySelector("#scoreTable tbody");
@@ -452,13 +485,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
       playersArray.forEach((player, index) => {
         const tr = document.createElement("tr");
+        
+        // Destacar o jogador atual
+        if (player.name === playerName) {
+          tr.style.backgroundColor = "#e3f2fd";
+          tr.style.fontWeight = "bold";
+        }
+        
+        // Adicionar emojis para as primeiras posições
+        let positionText = index + 1;
+        if (index === 0) positionText = "🥇 1º";
+        else if (index === 1) positionText = "🥈 2º";
+        else if (index === 2) positionText = "🥉 3º";
+        else positionText = `${index + 1}º`;
+        
         tr.innerHTML = `
-          <td>${index + 1}</td>
-          <td>${player.name}</td>
-          <td>${player.score}</td>
+          <td style="text-align: center; padding: 8px;">${positionText}</td>
+          <td style="padding: 8px;">${player.name}</td>
+          <td style="text-align: center; padding: 8px;">${player.score}</td>
         `;
         tbody.appendChild(tr);
       });
+      
+      console.log(`Classificação carregada com ${playersArray.length} jogadores`);
     });
   }
 
