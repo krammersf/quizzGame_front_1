@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = option;
       btn.onclick = () => checkAnswer(option, q.resposta);
       btn.disabled = false;  // ativa botões para nova pergunta
+      btn.style.backgroundColor = ""; // limpa cor de fundo
       answersBox.appendChild(btn);
     });
 
@@ -170,9 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (answered) return;  // Já respondeu? Ignora
     answered = true;
 
-    // Para o timer para não avançar imediato à próxima pergunta
-    clearInterval(timer);
-
+    // Calcula pontuação
     if (Array.isArray(correct)) {
       if (correct.includes(selected)) {
         score += gameConfig.pointsCorrect;
@@ -190,10 +189,25 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("scoreDisplay").textContent = `Pontuação: ${score}`;
     update(ref(db, `games/${gameId}/players/${playerName}`), { score });
 
+    // Desativa todos os botões para impedir mais cliques
     const answersBox = document.getElementById("answersBox");
     Array.from(answersBox.children).forEach(btn => btn.disabled = true);
 
-    // Não avança aqui, aguarda o timer acabar para chamar nextQuestion()
+    // Mostra feedback visual da resposta selecionada
+    Array.from(answersBox.children).forEach(btn => {
+      if (btn.textContent === selected) {
+        if (selected === correct || (Array.isArray(correct) && correct.includes(selected))) {
+          btn.style.backgroundColor = "#4CAF50"; // Verde para correto
+        } else {
+          btn.style.backgroundColor = "#f44336"; // Vermelho para incorreto
+        }
+      }
+      if (btn.textContent === correct || (Array.isArray(correct) && correct.includes(btn.textContent))) {
+        btn.style.backgroundColor = "#4CAF50"; // Verde para a resposta correta
+      }
+    });
+
+    // O timer continua a correr até chegar a 0, só então avança para a próxima pergunta
   }
 
   function nextQuestion() {
