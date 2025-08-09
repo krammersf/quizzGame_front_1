@@ -77,7 +77,7 @@ function waitForPlayers() {
     if (!data) return;
 
     gameConfig = data.config;
-    const players = data.players;
+    const players = data.players || {};
     const totalPlayers = gameConfig.totalPlayers;
     const connectedPlayers = Object.keys(players).length;
 
@@ -86,16 +86,28 @@ function waitForPlayers() {
 
     playerNameDisplay.textContent = `Jogador: ${playerName} (${connectedPlayers}/${totalPlayers} jogadores)`;
 
-	if (connectedPlayers >= totalPlayers && !data.gameStarted) {
-	update(ref(db, `games/${gameId}`), { gameStarted: true });
-	waitingBox.style.display = "none";
-	startGame(gameConfig);
-	}
+    // Se já começou o jogo, só mostra a informação (podes adaptar para bloquear entrada)
+    if (data.gameStarted) {
+      waitingBox.style.display = "none";
+      // Aqui podes chamar startGame() se quiseres continuar o jogo no cliente
+      // startGame(gameConfig);
+      return; // Sai para evitar reiniciar
+    }
+
+    // Se o número de jogadores estiver completo e o jogo ainda não começou
+    if (connectedPlayers >= totalPlayers && !data.gameStarted) {
+      // Marca o jogo como iniciado na base de dados
+      update(ref(db, `games/${gameId}`), { gameStarted: true });
+
+      // Esconde a espera e inicia o jogo localmente
+      waitingBox.style.display = "none";
+      startGame(gameConfig);
+    }
   });
 }
 
 async function loadQuestions() {
-	const files = ["cards/card_1.json", "cards/card_2.json"];
+	const files = ["cards/card_1.json"];
 	let allQuestions = [];
 
 	for (let file of files) {
