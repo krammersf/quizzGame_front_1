@@ -102,24 +102,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const files = ["cards/card_1.json"];
     let allQuestions = [];
 
+    console.log("Carregando perguntas dos ficheiros:", files);
+
     for (let file of files) {
-      const res = await fetch(file);
-      const data = await res.json();
-      allQuestions = allQuestions.concat(data.perguntas);
+      try {
+        const res = await fetch(file);
+        const data = await res.json();
+        console.log(`Ficheiro ${file} carregado:`, data.perguntas.length, "perguntas");
+        allQuestions = allQuestions.concat(data.perguntas);
+      } catch (error) {
+        console.warn(`Erro ao carregar ${file}:`, error);
+      }
     }
 
+    console.log("Total de perguntas antes de baralhar:", allQuestions.length);
     allQuestions.sort(() => Math.random() - 0.5);
     questions = allQuestions.slice(0, gameConfig.maxQuestions);
+    console.log("Perguntas selecionadas para o jogo:", questions.length);
   }
 
   function showQuestion() {
+    console.log("showQuestion chamada - currentQuestionIndex:", currentQuestionIndex, "total questions:", questions.length);
+    
     if (currentQuestionIndex >= questions.length) {
+      console.log("Fim do jogo - todas as perguntas respondidas");
       alert("Fim do jogo!");
       showFinalRanking();
       return;
     }
 
     const q = questions[currentQuestionIndex];
+    console.log("Mostrando pergunta:", q.pergunta);
     document.getElementById("questionBox").style.display = "block";
 
     if (q.imagem) {
@@ -147,20 +160,24 @@ document.addEventListener("DOMContentLoaded", () => {
       answersBox.appendChild(btn);
     });
 
+    console.log("Botões criados, iniciando timer");
     startTimer();
   }
 
   function startTimer() {
     timeLeft = 10;
     answered = false;
+    console.log("Timer iniciado - timeLeft:", timeLeft, "answered:", answered);
     document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
 
     clearInterval(timer);
     timer = setInterval(() => {
       timeLeft--;
+      console.log("Timer tick - timeLeft:", timeLeft, "answered:", answered);
       document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
 
       if (timeLeft <= 0) {
+        console.log("Timer acabou - avançando para próxima pergunta");
         clearInterval(timer);
         nextQuestion();  // Só avança aqui
       }
@@ -168,50 +185,69 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function checkAnswer(selected, correct) {
-    if (answered) return;  // Já respondeu? Ignora
+    console.log("checkAnswer chamada - selected:", selected, "correct:", correct, "answered:", answered);
+    
+    if (answered) {
+      console.log("Resposta já foi dada, ignorando");
+      return;  // Já respondeu? Ignora
+    }
+    
     answered = true;
+    console.log("Marcando como respondido - answered:", answered);
 
     // Calcula pontuação
     if (Array.isArray(correct)) {
       if (correct.includes(selected)) {
         score += gameConfig.pointsCorrect;
+        console.log("Resposta correta (array) - pontos adicionados:", gameConfig.pointsCorrect);
       } else {
         score += gameConfig.pointsWrong;
+        console.log("Resposta incorreta (array) - pontos adicionados:", gameConfig.pointsWrong);
       }
     } else {
       if (selected === correct) {
         score += gameConfig.pointsCorrect;
+        console.log("Resposta correta - pontos adicionados:", gameConfig.pointsCorrect);
       } else {
         score += gameConfig.pointsWrong;
+        console.log("Resposta incorreta - pontos adicionados:", gameConfig.pointsWrong);
       }
     }
 
+    console.log("Score atual:", score);
     document.getElementById("scoreDisplay").textContent = `Pontuação: ${score}`;
     update(ref(db, `games/${gameId}/players/${playerName}`), { score });
 
     // Desativa todos os botões para impedir mais cliques
     const answersBox = document.getElementById("answersBox");
     Array.from(answersBox.children).forEach(btn => btn.disabled = true);
+    console.log("Botões desativados");
 
     // Mostra feedback visual da resposta selecionada
     Array.from(answersBox.children).forEach(btn => {
       if (btn.textContent === selected) {
         if (selected === correct || (Array.isArray(correct) && correct.includes(selected))) {
           btn.style.backgroundColor = "#4CAF50"; // Verde para correto
+          console.log("Botão selecionado marcado como correto (verde)");
         } else {
           btn.style.backgroundColor = "#f44336"; // Vermelho para incorreto
+          console.log("Botão selecionado marcado como incorreto (vermelho)");
         }
       }
       if (btn.textContent === correct || (Array.isArray(correct) && correct.includes(btn.textContent))) {
         btn.style.backgroundColor = "#4CAF50"; // Verde para a resposta correta
+        console.log("Resposta correta marcada a verde:", btn.textContent);
       }
     });
 
+    console.log("Timer continua a correr... timeLeft:", timeLeft);
     // O timer continua a correr até chegar a 0, só então avança para a próxima pergunta
   }
 
   function nextQuestion() {
+    console.log("nextQuestion chamada - currentQuestionIndex:", currentQuestionIndex);
     currentQuestionIndex++;
+    console.log("Avançando para pergunta:", currentQuestionIndex + 1);
     showQuestion();
   }
 
