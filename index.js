@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para gerar perguntas (similar ao quiz.js)
   async function generateQuestionsForGame() {
-    const files = ["cards/card_1.json"];
+    const files = ["cards/card_2.json"];
     let allQuestions = [];
 
     for (let file of files) {
