@@ -152,7 +152,8 @@ window.addEventListener('DOMContentLoaded', () => {
           gameEnded: true,
           currentQuestionIndex: currentQuestion,
           timeLeft: 0,
-          questionStartTime: null
+          questionStartTime: null,
+          showingResults: false
         });
         return;
       }
@@ -164,19 +165,34 @@ window.addEventListener('DOMContentLoaded', () => {
         currentQuestionIndex: currentQuestion,
         timeLeft: 10,
         questionStartTime: questionStartTime,
-        gameEnded: false
+        gameEnded: false,
+        showingResults: false
       }).then(() => {
-        console.log(`Host: Estado atualizado no Firebase para pergunta ${currentQuestion + 1}`);
+        console.log(`Host: Pergunta ${currentQuestion + 1} iniciada`);
       }).catch(err => {
         console.error("Erro ao atualizar estado:", err);
       });
       
       console.log(`Host: Pergunta ${currentQuestion + 1}/${maxQuestions} iniciada às ${new Date(questionStartTime).toLocaleTimeString()}`);
       
-      // Timer de 10 segundos para próxima pergunta
+      // Timer de 10 segundos para a pergunta
       setTimeout(() => {
-        currentQuestion++;
-        nextQuestion();
+        // Mostrar resultados por 2 segundos
+        console.log("Host: Mostrando resultados...");
+        update(ref(db, `games/${createdGameId}/gameState`), {
+          currentQuestionIndex: currentQuestion,
+          timeLeft: 0,
+          questionStartTime: questionStartTime,
+          gameEnded: false,
+          showingResults: true,
+          resultsStartTime: Date.now()
+        });
+        
+        // Aguardar 2 segundos e avançar para próxima pergunta
+        setTimeout(() => {
+          currentQuestion++;
+          nextQuestion();
+        }, 2000);
       }, 10000);
     }
     
@@ -184,7 +200,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       console.log("Host: Iniciando primeira pergunta...");
       nextQuestion();
-    }, 3000); // 3 segundos de delay
+    }, 3000);
   }
 
   const openPlayer1Btn = document.getElementById("openPlayer1Btn");

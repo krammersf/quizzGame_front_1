@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let score = 0;
   let timer;
   let timeLeft = 10;
-  let answered = false; // controla se o jogador já respondeu à pergunta atual
   let gameStarted = false; // controla se o jogo já foi iniciado para evitar reiniciar
   let listeningForGameStart = false; // controla se já está a ouvir mudanças do Firebase
   let listeningForGameState = false; // controla se já está a ouvir o estado do jogo
   let timerInterval = null; // controla o interval do timer para evitar múltiplos
+  let playerAnswer = null; // guarda a resposta do jogador para mostrar depois
 
   const enterNameBox = document.getElementById("enterNameBox");
   const waitingBox = document.getElementById("waitingBox");
@@ -137,9 +137,17 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       
+      // Verificar se está a mostrar resultados
+      if (gameState.showingResults && playerAnswer) {
+        console.log("Mostrando resultados da pergunta");
+        showAnswerResults();
+        return;
+      }
+      
       // Sincronizar pergunta atual
       if (gameState.currentQuestionIndex !== currentQuestionIndex) {
         currentQuestionIndex = gameState.currentQuestionIndex;
+        playerAnswer = null; // Reset da resposta para nova pergunta
         console.log(`Jogador: Sincronizando para pergunta ${currentQuestionIndex + 1}/${questions.length}`);
         
         // Limpar timer anterior
@@ -190,6 +198,48 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Iniciar imediatamente
     updateTimer();
+  }
+
+  // Função para mostrar os resultados da resposta
+  function showAnswerResults() {
+    if (!playerAnswer) return;
+    
+    console.log("Mostrando resultado da resposta:", playerAnswer);
+    
+    const answersBox = document.getElementById("answersBox");
+    Array.from(answersBox.children).forEach(btn => {
+      // Limpar estilos anteriores
+      btn.style.backgroundColor = "";
+      btn.style.color = "";
+      
+      // Mostrar resposta do jogador
+      if (btn.textContent === playerAnswer.selected) {
+        if (playerAnswer.isCorrect) {
+          btn.style.backgroundColor = "#4CAF50"; // Verde para correto
+          btn.style.color = "white";
+          console.log("Resposta do jogador está correta (verde)");
+        } else {
+          btn.style.backgroundColor = "#f44336"; // Vermelho para incorreto
+          btn.style.color = "white";
+          console.log("Resposta do jogador está incorreta (vermelho)");
+        }
+      }
+      
+      // Sempre mostrar a resposta correta
+      const correct = playerAnswer.correct;
+      if (btn.textContent === correct || (Array.isArray(correct) && correct.includes(btn.textContent))) {
+        if (btn.textContent !== playerAnswer.selected || !playerAnswer.isCorrect) {
+          btn.style.backgroundColor = "#4CAF50"; // Verde para a resposta correta
+          btn.style.color = "white";
+          btn.style.border = "3px solid #2E7D32"; // Borda mais escura para destacar
+          console.log("Resposta correta destacada:", btn.textContent);
+        }
+      }
+    });
+    
+    // Mostrar mensagem no timer
+    document.getElementById("timerDisplay").textContent = playerAnswer.isCorrect ? 
+      "✅ Correto!" : "❌ Incorreto!";
   }
 
   async function loadQuestions() {
@@ -254,10 +304,14 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.onclick = () => checkAnswer(option, q.resposta);
       btn.disabled = false;  // ativa botões para nova pergunta
       btn.style.backgroundColor = ""; // limpa cor de fundo
+      btn.style.color = ""; // limpa cor do texto
+      btn.style.border = ""; // limpa borda
       answersBox.appendChild(btn);
     });
 
     console.log("Botões criados - timer controlado pelo Firebase");
+    // Reset da resposta para nova pergunta
+    playerAnswer = null;
     // startTimer() removido - timer é sincronizado via Firebase
   }
 
@@ -270,8 +324,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function checkAnswer(selected, correct) {
     console.log("checkAnswer chamada - selected:", selected, "correct:", correct);
     
-    // Permitir que qualquer jogador responda a qualquer momento
-    // (remover verificação de answered que estava a bloquear outros jogadores)
+    // Verificar se já respondeu a esta pergunta
+    if (playerAnswer !== null) {
+      console.log("Jogador já respondeu a esta pergunta");
+      return;
+    }
+    
+    // Guardar resposta para mostrar resultado depois
+    playerAnswer = {
+      selected: selected,
+      correct: correct,
+      isCorrect: Array.isArray(correct) ? correct.includes(selected) : selected === correct
+    };
     
     // Calcula pontuação
     if (Array.isArray(correct)) {
@@ -300,29 +364,17 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(() => console.log("Score atualizado no Firebase com sucesso"))
       .catch(err => console.error("Erro ao atualizar score:", err));
 
-    // Desativa todos os botões APENAS para este jogador (não globalmente)
+    // Desativa todos os botões para este jogador (sem mostrar resultado ainda)
     const answersBox = document.getElementById("answersBox");
-    Array.from(answersBox.children).forEach(btn => btn.disabled = true);
-    console.log("Botões desativados para este jogador");
-
-    // Mostra feedback visual da resposta selecionada
     Array.from(answersBox.children).forEach(btn => {
       if (btn.textContent === selected) {
-        if (selected === correct || (Array.isArray(correct) && correct.includes(selected))) {
-          btn.style.backgroundColor = "#4CAF50"; // Verde para correto
-          console.log("Botão selecionado marcado como correto (verde)");
-        } else {
-          btn.style.backgroundColor = "#f44336"; // Vermelho para incorreto
-          console.log("Botão selecionado marcado como incorreto (vermelho)");
-        }
+        btn.style.backgroundColor = "#cccccc"; // Cinzento para mostrar que foi selecionado
+        btn.style.color = "#666666";
       }
-      if (btn.textContent === correct || (Array.isArray(correct) && correct.includes(btn.textContent))) {
-        btn.style.backgroundColor = "#4CAF50"; // Verde para a resposta correta
-        console.log("Resposta correta marcada a verde:", btn.textContent);
-      }
+      btn.disabled = true;
     });
-
-    console.log("Resposta registada - aguardando timer global");
+    
+    console.log("Resposta registada - aguardando fim do timer para mostrar resultado");
   }
 
   function nextQuestion() {
