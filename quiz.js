@@ -140,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Sincronizar pergunta atual
       if (gameState.currentQuestionIndex !== currentQuestionIndex) {
         currentQuestionIndex = gameState.currentQuestionIndex;
-        answered = false; // Reset para nova pergunta
         console.log(`Jogador: Sincronizando para pergunta ${currentQuestionIndex + 1}/${questions.length}`);
         
         // Limpar timer anterior
@@ -158,9 +157,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
       
-      // Atualizar timer em tempo real
+      // SEMPRE atualizar timer - mesmo se a pergunta não mudou
       if (gameState.questionStartTime && !gameState.gameEnded) {
-        console.log("Jogador: Iniciando timer sincronizado para pergunta", currentQuestionIndex + 1);
+        console.log("Jogador: Atualizando timer sincronizado para pergunta", currentQuestionIndex + 1);
         updateTimerDisplay(gameState.questionStartTime);
       }
     });
@@ -185,8 +184,11 @@ document.addEventListener("DOMContentLoaded", () => {
         timerInterval = setTimeout(updateTimer, 200); // Atualizar a cada 200ms
       } else {
         timerInterval = null;
+        console.log("Timer chegou a 0");
       }
     };
+    
+    // Iniciar imediatamente
     updateTimer();
   }
 
@@ -266,16 +268,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function checkAnswer(selected, correct) {
-    console.log("checkAnswer chamada - selected:", selected, "correct:", correct, "answered:", answered);
+    console.log("checkAnswer chamada - selected:", selected, "correct:", correct);
     
-    if (answered) {
-      console.log("Resposta já foi dada, ignorando");
-      return;  // Já respondeu? Ignora
-    }
+    // Permitir que qualquer jogador responda a qualquer momento
+    // (remover verificação de answered que estava a bloquear outros jogadores)
     
-    answered = true;
-    console.log("Marcando como respondido - answered:", answered);
-
     // Calcula pontuação
     if (Array.isArray(correct)) {
       if (correct.includes(selected)) {
@@ -303,10 +300,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(() => console.log("Score atualizado no Firebase com sucesso"))
       .catch(err => console.error("Erro ao atualizar score:", err));
 
-    // Desativa todos os botões para impedir mais cliques
+    // Desativa todos os botões APENAS para este jogador (não globalmente)
     const answersBox = document.getElementById("answersBox");
     Array.from(answersBox.children).forEach(btn => btn.disabled = true);
-    console.log("Botões desativados");
+    console.log("Botões desativados para este jogador");
 
     // Mostra feedback visual da resposta selecionada
     Array.from(answersBox.children).forEach(btn => {
@@ -325,8 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    console.log("Timer continua a correr... timeLeft:", timeLeft);
-    // O timer continua a correr até chegar a 0, só então avança para a próxima pergunta
+    console.log("Resposta registada - aguardando timer global");
   }
 
   function nextQuestion() {

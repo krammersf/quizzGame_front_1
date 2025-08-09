@@ -150,7 +150,9 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log("Host: Jogo terminado");
         update(ref(db, `games/${createdGameId}/gameState`), {
           gameEnded: true,
-          currentQuestionIndex: currentQuestion
+          currentQuestionIndex: currentQuestion,
+          timeLeft: 0,
+          questionStartTime: null
         });
         return;
       }
@@ -161,7 +163,12 @@ window.addEventListener('DOMContentLoaded', () => {
       update(ref(db, `games/${createdGameId}/gameState`), {
         currentQuestionIndex: currentQuestion,
         timeLeft: 10,
-        questionStartTime: questionStartTime
+        questionStartTime: questionStartTime,
+        gameEnded: false
+      }).then(() => {
+        console.log(`Host: Estado atualizado no Firebase para pergunta ${currentQuestion + 1}`);
+      }).catch(err => {
+        console.error("Erro ao atualizar estado:", err);
       });
       
       console.log(`Host: Pergunta ${currentQuestion + 1}/${maxQuestions} iniciada às ${new Date(questionStartTime).toLocaleTimeString()}`);
@@ -177,7 +184,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       console.log("Host: Iniciando primeira pergunta...");
       nextQuestion();
-    }, 3000); // Aumentar para 3 segundos
+    }, 3000); // 3 segundos de delay
   }
 
   const openPlayer1Btn = document.getElementById("openPlayer1Btn");
