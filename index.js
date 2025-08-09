@@ -1,15 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
 import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
-// ⚠️ Coloca aqui as tuas credenciais Firebase
 const firebaseConfig = {
-	apiKey: "A_TUA_API_KEY",
-	authDomain: "O_TEUDO.firebaseapp.com",
-	databaseURL: "https://O_TEUDO.firebaseio.com",
-	projectId: "O_TEUDO",
-	storageBucket: "O_TEUDO.appspot.com",
-	messagingSenderId: "ID_REMETENTE",
-	appId: "APP_ID"
+  apiKey: "AIzaSyDkhUnWFDUio5ebqfxal2TR-fI5wFmgBqc",
+  authDomain: "quizzgamefb.firebaseapp.com",
+  databaseURL: "https://quizzgamefb-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "quizzgamefb",
+  storageBucket: "quizzgamefb.firebasestorage.app",
+  messagingSenderId: "282180005873",
+  appId: "1:282180005873:web:e941f64e2660a60cf99e50",
+  measurementId: "G-RQZQXT0EYP"
 };
 
 const app = initializeApp(firebaseConfig);

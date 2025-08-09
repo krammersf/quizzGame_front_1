@@ -1,0 +1,22 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDkhUnWFDUio5ebqfxal2TR-fI5wFmgBqc",
+  authDomain: "quizzgamefb.firebaseapp.com",
+  databaseURL: "https://quizzgamefb-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "quizzgamefb",
+  storageBucket: "quizzgamefb.firebasestorage.app",
+  messagingSenderId: "282180005873",
+  appId: "1:282180005873:web:e941f64e2660a60cf99e50",
+  measurementId: "G-RQZQXT0EYP"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
