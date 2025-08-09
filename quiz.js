@@ -12,6 +12,42 @@ const firebaseConfig = {
   measurementId: "G-RQZQXT0EYP"
 };
 
+function showFinalRanking() {
+  // Esconder quiz
+  document.getElementById("quizSection").style.display = "none";
+
+  // Mostrar tabela
+  const scoreSection = document.getElementById("scoreSection");
+  scoreSection.style.display = "block";
+
+  const playersRef = ref(db, `games/${gameId}/players`);
+
+  onValue(playersRef, (snapshot) => {
+    if (!snapshot.exists()) return;
+
+    const data = snapshot.val();
+    const playersArray = Object.keys(data).map(name => ({
+      name,
+      score: data[name].score || 0
+    }));
+
+    playersArray.sort((a, b) => b.score - a.score);
+
+    const tbody = document.querySelector("#scoreTable tbody");
+    tbody.innerHTML = "";
+
+    playersArray.forEach((player, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${player.name}</td>
+        <td>${player.score}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  });
+}
+
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
@@ -108,11 +144,11 @@ async function loadQuestions() {
 }
 
 function showQuestion() {
-  if (currentQuestionIndex >= questions.length) {
-    alert("Fim do jogo!");
-    window.location.href = `scoreboard.html?gameId=${gameId}`;
-    return;
-  }
+	if (currentQuestionIndex >= questions.length) {
+	alert("Fim do jogo!");
+	showFinalRanking();
+	return;
+	}
 
   const q = questions[currentQuestionIndex];
   document.getElementById("questionBox").style.display = "block";
