@@ -74,7 +74,8 @@ window.addEventListener('DOMContentLoaded', () => {
         sessionStorage.setItem("gameId", gameId);
         sessionStorage.setItem("playerName", playerName);
 
-        const link = `${window.location.origin}/quiz.html?gameId=${gameId}`;
+        const repoName = "quizzGame_front_1";  // nome do teu repo no GitHub
+        const link = `${window.location.origin}/${repoName}/quiz.html?gameId=${gameId}`;
         document.getElementById("shareLink").style.display = "block";
         const gameLinkInput = document.getElementById("gameLink");
         gameLinkInput.value = link;
