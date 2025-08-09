@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let gameStarted = false; // controla se o jogo já foi iniciado para evitar reiniciar
   let listeningForGameStart = false; // controla se já está a ouvir mudanças do Firebase
   let listeningForGameState = false; // controla se já está a ouvir o estado do jogo
+  let timerInterval = null; // controla o interval do timer para evitar múltiplos
 
   const enterNameBox = document.getElementById("enterNameBox");
   const waitingBox = document.getElementById("waitingBox");
@@ -129,32 +130,61 @@ document.addEventListener("DOMContentLoaded", () => {
       const gameState = snapshot.val();
       console.log("Estado do jogo atualizado:", gameState);
       
+      // Verificar se o jogo terminou
+      if (gameState.gameEnded) {
+        console.log("Jogo terminou");
+        showFinalRanking();
+        return;
+      }
+      
       // Sincronizar pergunta atual
       if (gameState.currentQuestionIndex !== currentQuestionIndex) {
         currentQuestionIndex = gameState.currentQuestionIndex;
-        console.log("Sincronizando para pergunta:", currentQuestionIndex);
-        showQuestion();
+        answered = false; // Reset para nova pergunta
+        console.log(`Jogador: Sincronizando para pergunta ${currentQuestionIndex + 1}/${questions.length}`);
+        
+        // Limpar timer anterior
+        if (timerInterval) {
+          clearTimeout(timerInterval);
+          timerInterval = null;
+        }
+        
+        if (currentQuestionIndex < questions.length) {
+          showQuestion();
+        } else {
+          console.log("Todas as perguntas foram respondidas");
+          showFinalRanking();
+          return;
+        }
       }
       
-      // Sincronizar timer baseado no tempo servidor
-      if (gameState.questionStartTime) {
-        const elapsed = Math.floor((Date.now() - gameState.questionStartTime) / 1000);
-        timeLeft = Math.max(0, 10 - elapsed);
-        console.log("Timer sincronizado - timeLeft:", timeLeft);
-        document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
+      // Atualizar timer em tempo real
+      if (gameState.questionStartTime && !gameState.gameEnded) {
+        console.log("Jogador: Iniciando timer sincronizado para pergunta", currentQuestionIndex + 1);
+        updateTimerDisplay(gameState.questionStartTime);
       }
     });
   }
 
   // Função para atualizar o display do timer baseado no tempo do servidor
   function updateTimerDisplay(questionStartTime) {
+    // Limpar timer anterior se existir
+    if (timerInterval) {
+      clearTimeout(timerInterval);
+      timerInterval = null;
+    }
+    
     const updateTimer = () => {
       const elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
       timeLeft = Math.max(0, 10 - elapsed);
       document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
       
+      console.log(`Timer atualizado: ${timeLeft}s (elapsed: ${elapsed}s)`);
+      
       if (timeLeft > 0) {
-        setTimeout(updateTimer, 100); // Atualizar a cada 100ms para suavidade
+        timerInterval = setTimeout(updateTimer, 200); // Atualizar a cada 200ms
+      } else {
+        timerInterval = null;
       }
     };
     updateTimer();
@@ -225,8 +255,8 @@ document.addEventListener("DOMContentLoaded", () => {
       answersBox.appendChild(btn);
     });
 
-    console.log("Botões criados, iniciando timer");
-    startTimer();
+    console.log("Botões criados - timer controlado pelo Firebase");
+    // startTimer() removido - timer é sincronizado via Firebase
   }
 
   function startTimer() {

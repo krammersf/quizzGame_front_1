@@ -142,9 +142,12 @@ window.addEventListener('DOMContentLoaded', () => {
     let currentQuestion = 0;
     const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
     
+    console.log(`Host: Iniciando controlador do jogo com ${maxQuestions} perguntas`);
+    
     function nextQuestion() {
       if (currentQuestion >= maxQuestions) {
         // Fim do jogo
+        console.log("Host: Jogo terminado");
         update(ref(db, `games/${createdGameId}/gameState`), {
           gameEnded: true,
           currentQuestionIndex: currentQuestion
@@ -152,14 +155,16 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
+      const questionStartTime = Date.now();
+      
       // Avançar para próxima pergunta
       update(ref(db, `games/${createdGameId}/gameState`), {
         currentQuestionIndex: currentQuestion,
         timeLeft: 10,
-        questionStartTime: Date.now()
+        questionStartTime: questionStartTime
       });
       
-      console.log(`Host: Pergunta ${currentQuestion + 1} iniciada`);
+      console.log(`Host: Pergunta ${currentQuestion + 1}/${maxQuestions} iniciada às ${new Date(questionStartTime).toLocaleTimeString()}`);
       
       // Timer de 10 segundos para próxima pergunta
       setTimeout(() => {
@@ -168,10 +173,11 @@ window.addEventListener('DOMContentLoaded', () => {
       }, 10000);
     }
     
-    // Iniciar primeira pergunta após um pequeno delay
+    // Iniciar primeira pergunta após um pequeno delay para todos se conectarem
     setTimeout(() => {
+      console.log("Host: Iniciando primeira pergunta...");
       nextQuestion();
-    }, 2000);
+    }, 3000); // Aumentar para 3 segundos
   }
 
   const openPlayer1Btn = document.getElementById("openPlayer1Btn");
