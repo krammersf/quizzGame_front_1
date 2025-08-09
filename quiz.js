@@ -72,11 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("testRankingBtn")?.addEventListener("click", showFinalRanking);
   
-  // Event listeners para tela final
-  document.getElementById("showRankingBtn")?.addEventListener("click", () => {
-    console.log("Botão Ver Classificação clicado - redirecionando para scoreboard.html");
-    window.location.href = "scoreboard.html";
-  });
   document.getElementById("backToGameBtn")?.addEventListener("click", () => {
     // Voltar ao menu inicial
     document.getElementById("scoreSection").style.display = "none";
@@ -443,6 +438,35 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mostrar tela de fim
     document.getElementById("gameEndBox").style.display = "block";
     document.getElementById("finalScoreDisplay").textContent = `Pontuação Final: ${score}`;
+    
+    // Adicionar event listener ao botão Ver Classificação aqui
+    const showRankingButton = document.getElementById("showRankingBtn");
+    console.log("Botão showRankingBtn encontrado na tela final:", showRankingButton);
+    
+    if (showRankingButton) {
+      // Remover event listeners antigos para evitar duplicação
+      showRankingButton.replaceWith(showRankingButton.cloneNode(true));
+      const newButton = document.getElementById("showRankingBtn");
+      
+      newButton.addEventListener("click", () => {
+        console.log("Botão Ver Classificação clicado na tela final");
+        console.log("GameId atual:", gameId);
+        
+        // Garantir que gameId está no sessionStorage
+        if (gameId) {
+          sessionStorage.setItem("gameId", gameId);
+          console.log("GameId guardado no sessionStorage:", gameId);
+          console.log("Redirecionando para scoreboard.html");
+          window.location.href = "scoreboard.html";
+        } else {
+          console.error("GameId não encontrado!");
+          alert("Erro: ID do jogo não encontrado!");
+        }
+      });
+      console.log("Event listener adicionado ao botão Ver Classificação");
+    } else {
+      console.error("Botão showRankingBtn não encontrado na tela final!");
+    }
     
     console.log(`Jogo terminado! Pontuação final: ${score}`);
   }
