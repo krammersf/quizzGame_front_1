@@ -509,15 +509,9 @@ window.addEventListener('DOMContentLoaded', () => {
       imgElement.style.display = "none";
     }
     
-    // Mostrar opções de resposta (usar 'hipoteses_resposta' array)
+    // Atualizar botões com o texto das respostas (sem mostrar A), B), C), D))
     const options = question.hipoteses_resposta;
     if (options && options.length >= 4) {
-      document.getElementById("answerA").textContent = `A) ${options[0]}`;
-      document.getElementById("answerB").textContent = `B) ${options[1]}`;
-      document.getElementById("answerC").textContent = `C) ${options[2]}`;
-      document.getElementById("answerD").textContent = `D) ${options[3]}`;
-      
-      // Atualizar botões com o texto das respostas (sem A), B), C), D))
       const answerButtons = document.querySelectorAll(".player1-answer-btn");
       answerButtons[0].textContent = options[0]; // Só o texto
       answerButtons[1].textContent = options[1];
@@ -525,10 +519,6 @@ window.addEventListener('DOMContentLoaded', () => {
       answerButtons[3].textContent = options[3];
     } else {
       console.error("❌ Opções de resposta não encontradas:", question);
-      document.getElementById("answerA").textContent = "A) Erro";
-      document.getElementById("answerB").textContent = "B) Erro";
-      document.getElementById("answerC").textContent = "C) Erro";
-      document.getElementById("answerD").textContent = "D) Erro";
     }
     
     // Mostrar secções relevantes
