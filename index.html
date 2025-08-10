@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <title>Início do Quiz</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4wxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSiklKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
+  <link rel="icon" type="imag    <p style="font-size: 12px; color: #666; margin-top: 5px; margin-bottom: 15px;">
+        💡 Dica: Segura Ctrl (Windows) ou Cmd (Mac) para selecionar múltiplos cards
+    </p>
+    </div> <!-- Fim da secção de configurações -->
+
+    <button id="startGameBtn">🚀 Criar Jogo</button>" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4wxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSiklKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
   <link rel="stylesheet" href="style.css" />
   <style>
     #beginGameBtn { display: none; margin-top: 10px; }
@@ -142,14 +147,47 @@
         margin-bottom: 0;
       }
     }
+
+    /* Estilos para toggle das configurações */
+    #configSection {
+      transition: all 0.4s ease-in-out;
+      overflow: hidden;
+      max-height: 1000px; /* Altura máxima quando visível */
+      opacity: 1;
+    }
+
+    #configSection.hidden {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    #toggleConfigBtn {
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    #toggleConfigBtn:hover {
+      background-color: #5a6268 !important;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🎯 Criar Novo Quiz</h1>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h1>🎯 Criar Novo Quiz</h1>
+      <button id="toggleConfigBtn" style="background-color: #6c757d; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 20px; cursor: pointer; display: none;">+</button>
+    </div>
 
-    <label>Nome do Jogador 1:</label>
-    <input type="text" id="playerName" placeholder="Ex: João" required />
+    <!-- Secção de Configurações -->
+    <div id="configSection">
+      <label>Nome do Jogador 1:</label>
+      <input type="text" id="playerName" placeholder="Ex: João" required />
 
     <!-- Números em linha -->
     <div class="input-row">
@@ -298,6 +336,59 @@
       alert('⚠️ Nenhum jogo ativo encontrado! Crie um jogo primeiro.');
     }
   ">📊 Mostrar Classificação Final</button>
+
+  <script>
+    // JavaScript para toggle das configurações
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('toggleConfigBtn');
+      const configSection = document.getElementById('configSection');
+      const startGameBtn = document.getElementById('startGameBtn');
+      const shareLink = document.getElementById('shareLink');
+      
+      // Função para esconder configurações após criar jogo
+      function hideConfigurationsAfterGameCreation() {
+        configSection.classList.add('hidden');
+        toggleBtn.style.display = 'block';
+        toggleBtn.textContent = '+';
+        toggleBtn.title = 'Mostrar configurações';
+      }
+      
+      // Toggle das configurações
+      toggleBtn.addEventListener('click', function() {
+        const isHidden = configSection.classList.contains('hidden');
+        
+        if (isHidden) {
+          // Mostrar configurações
+          configSection.classList.remove('hidden');
+          toggleBtn.textContent = '−';
+          toggleBtn.title = 'Esconder configurações';
+        } else {
+          // Esconder configurações
+          configSection.classList.add('hidden');
+          toggleBtn.textContent = '+';
+          toggleBtn.title = 'Mostrar configurações';
+        }
+      });
+      
+      // Observer para detectar quando o link de partilha aparece
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+            if (shareLink.style.display !== 'none' && !shareLink.style.display.includes('none')) {
+              hideConfigurationsAfterGameCreation();
+              observer.disconnect(); // Parar de observar após esconder
+            }
+          }
+        });
+      });
+      
+      // Começar a observar mudanças no elemento shareLink
+      observer.observe(shareLink, {
+        attributes: true,
+        attributeFilter: ['style']
+      });
+    });
+  </script>
 
   <script type="module" src="index.js"></script>
 </body>
