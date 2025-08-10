@@ -396,6 +396,16 @@ window.addEventListener('DOMContentLoaded', () => {
     // Ativar controlos manuais para o host
     document.getElementById("manualControls").style.display = "block";
     setupManualControls();
+    
+    // Tentar carregar perguntas a cada 3 segundos se ainda não existirem
+    const questionsInterval = setInterval(async () => {
+      if (integratedQuestions.length === 0) {
+        console.log("🔄 Tentando carregar perguntas novamente...");
+        await loadIntegratedQuestions();
+      } else {
+        clearInterval(questionsInterval);
+      }
+    }, 3000);
   }
 
   // Função para carregar perguntas para o jogo integrado
@@ -409,7 +419,14 @@ window.addEventListener('DOMContentLoaded', () => {
       if (snapshot.exists()) {
         integratedQuestions = snapshot.val();
         console.log("📚 Perguntas carregadas:", integratedQuestions.length);
-        document.getElementById("statusText").textContent = `📚 ${integratedQuestions.length} perguntas carregadas`;
+        document.getElementById("statusText").textContent = `📚 ${integratedQuestions.length} perguntas carregadas - Clica "▶️ Iniciar Jogo" para começar!`;
+        
+        // Mostrar primeira pergunta logo que carregue
+        if (integratedQuestions.length > 0) {
+          showIntegratedQuestion();
+        }
+      } else {
+        document.getElementById("statusText").textContent = "⚠️ Inicia o jogo primeiro para carregar as perguntas";
       }
     } catch (error) {
       console.error("❌ Erro ao carregar perguntas:", error);
@@ -422,10 +439,19 @@ window.addEventListener('DOMContentLoaded', () => {
     const gameStateRef = ref(db, `games/${createdGameId}/gameState`);
     
     onValue(gameStateRef, (snapshot) => {
-      if (!snapshot.exists()) return;
+      if (!snapshot.exists()) {
+        // Se não há gameState ainda, aguardar
+        document.getElementById("statusText").textContent = "⏳ Aguardando início do jogo...";
+        return;
+      }
       
       const gameState = snapshot.val();
       console.log("🔄 Estado atualizado:", gameState);
+      
+      // Se o jogo começou, mostrar que está ativo
+      if (gameState.questionStartTime) {
+        document.getElementById("statusText").textContent = "🎮 Jogo ativo!";
+      }
       
       if (gameState.gameEnded) {
         showIntegratedFinalResults();
@@ -441,7 +467,13 @@ window.addEventListener('DOMContentLoaded', () => {
       if (gameState.currentQuestionIndex !== integratedCurrentQuestion) {
         integratedCurrentQuestion = gameState.currentQuestionIndex;
         integratedPlayerAnswer = null;
-        showIntegratedQuestion();
+        
+        // Recarregar perguntas se necessário
+        if (integratedQuestions.length === 0) {
+          loadIntegratedQuestions();
+        } else {
+          showIntegratedQuestion();
+        }
       }
       
       // Atualizar timer
