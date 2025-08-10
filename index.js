@@ -674,6 +674,20 @@ window.addEventListener('DOMContentLoaded', () => {
         answerButtons[1].textContent = options[1];
         answerButtons[2].textContent = options[2];
         answerButtons[3].textContent = options[3];
+        
+        // DESBLOQUEAR todos os botões para nova pergunta
+        answerButtons.forEach((btn, index) => {
+          btn.disabled = false;
+          btn.style.cursor = "pointer";
+          btn.style.opacity = "1";
+          btn.style.backgroundColor = "";
+          btn.style.color = "";
+          btn.style.borderColor = "";
+          btn.style.fontWeight = "";
+          btn.dataset.answer = String.fromCharCode(65 + index); // A, B, C, D
+        });
+        
+        console.log("🔓 Botões do jogador 1 desbloqueados para nova pergunta");
       }
     } else {
       console.error("❌ Opções de resposta não encontradas:", question);
@@ -683,9 +697,12 @@ window.addEventListener('DOMContentLoaded', () => {
     if (currentQuestionDisplay) currentQuestionDisplay.style.display = "block";
     document.getElementById("player1AnswerSection").style.display = "block";
     
-    // Reset da resposta
+    // Reset da resposta para nova pergunta
+    integratedPlayerAnswer = null; // Reset da variável de resposta
     document.getElementById("player1Answer").textContent = "";
     resetIntegratedAnswerButtons();
+    
+    console.log("🔄 Resposta do jogador 1 resetada para nova pergunta");
     
     // Atualizar status
     document.getElementById("statusText").textContent = 
@@ -699,6 +716,10 @@ window.addEventListener('DOMContentLoaded', () => {
       btn.style.backgroundColor = "white";
       btn.style.color = "black";
       btn.style.borderColor = "#ddd";
+      btn.style.fontWeight = "";
+      btn.style.opacity = "1";
+      btn.style.cursor = "pointer";
+      btn.disabled = false;
     });
   }
 
@@ -881,21 +902,38 @@ window.addEventListener('DOMContentLoaded', () => {
     // Botões de resposta do Jogador 1
     document.querySelectorAll(".player1-answer-btn").forEach(btn => {
       btn.addEventListener("click", (e) => {
+        // Verificar se já respondeu - BLOQUEAR mudanças
+        if (integratedPlayerAnswer) {
+          console.log("🚫 Jogador 1 já respondeu - não pode mudar a resposta");
+          return;
+        }
+        
         const answer = e.target.dataset.answer;
         integratedPlayerAnswer = answer;
         
         // Visual feedback - resetar todos os botões primeiro
         resetIntegratedAnswerButtons();
         
-        // Marcar apenas a cinzento a opção selecionada (sem bloquear)
+        // Marcar a opção selecionada
         e.target.style.backgroundColor = "#E0E0E0"; // Cinzento claro
         e.target.style.color = "#424242"; // Texto cinzento escuro
         e.target.style.borderColor = "#9E9E9E"; // Borda cinzenta
         
+        // BLOQUEAR TODOS OS BOTÕES após primeira resposta
+        document.querySelectorAll(".player1-answer-btn").forEach(button => {
+          button.disabled = true;
+          button.style.cursor = "not-allowed";
+          button.style.opacity = "0.7";
+        });
+        
+        // Destacar apenas o botão selecionado
+        e.target.style.opacity = "1";
+        e.target.style.fontWeight = "bold";
+        
         // Remover a mensagem "Selecionaste" - apenas log interno
         document.getElementById("player1Answer").textContent = "";
         
-        console.log(`✅ Jogador 1 respondeu: ${answer} (${e.target.textContent})`);
+        console.log(`✅ Jogador 1 respondeu: ${answer} (${e.target.textContent}) - BLOQUEADO`);
       });
     });
     
