@@ -58,6 +58,33 @@
       width: 80% !important;
       display: inline-block !important;
     }
+
+    /* Estilos para seleção de cards */
+    #cardSelection {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 12px;
+      background-color: #f9f9f9;
+    }
+
+    #cardSelection > div {
+      display: flex;
+      align-items: center;
+      padding: 6px 0;
+    }
+
+    #cardSelection input[type="checkbox"] {
+      width: auto !important;
+      margin: 0 !important;
+      margin-right: 8px !important;
+    }
+
+    #cardSelection label {
+      margin: 0 !important;
+      font-weight: normal !important;
+      cursor: pointer;
+      flex: 1;
+    }
   </style>
 </head>
 <body>
@@ -78,6 +105,28 @@
 
     <label>Pontos por resposta errada:</label>
     <input type="number" id="pointsWrong" value="-4" />
+
+    <label>Selecionar Cards de Perguntas:</label>
+    <div id="cardSelection" style="margin-bottom: 15px;">
+        <div style="margin-bottom: 8px;">
+            <input type="checkbox" id="card1" value="card_1" checked>
+            <label for="card1" style="display: inline; margin-left: 8px; font-weight: normal;">
+                📚 Card 1 - Conhecimentos Gerais (12 perguntas básicas)
+            </label>
+        </div>
+        <div style="margin-bottom: 8px;">
+            <input type="checkbox" id="card2" value="card_2" checked>
+            <label for="card2" style="display: inline; margin-left: 8px; font-weight: normal;">
+                🧠 Card 2 - Avançado (150 perguntas: ciência, história, literatura)
+            </label>
+        </div>
+        <div style="margin-bottom: 8px;">
+            <input type="checkbox" id="card3" value="card_3">
+            <label for="card3" style="display: inline; margin-left: 8px; font-weight: normal;">
+                🖼️ Card 3 - Com Imagens (4 perguntas básicas)
+            </label>
+        </div>
+    </div>
 
     <button id="startGameBtn">🚀 Criar Jogo</button>
     <button id="beginGameBtn">▶️ Iniciar Jogo</button>

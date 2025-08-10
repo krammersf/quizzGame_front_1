@@ -29,8 +29,18 @@ window.addEventListener('DOMContentLoaded', () => {
     const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
     const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
 
+    // Verificar cards selecionados
+    const selectedCards = [];
+    if (document.getElementById("card1").checked) selectedCards.push("cards/card_1.json");
+    if (document.getElementById("card2").checked) selectedCards.push("cards/card_2.json");
+    if (document.getElementById("card3").checked) selectedCards.push("cards/card_3.json");
+
     if (!playerName) {
       alert("Por favor insere o teu nome!");
+      return;
+    }
+    if (selectedCards.length === 0) {
+      alert("Por favor seleciona pelo menos um card de perguntas!");
       return;
     }
     if (isNaN(totalPlayers) || totalPlayers < 1) {
@@ -62,7 +72,8 @@ window.addEventListener('DOMContentLoaded', () => {
         totalPlayers,
         maxQuestions,
         pointsCorrect,
-        pointsWrong
+        pointsWrong,
+        selectedCards
       },
       players,
       gameStarted: false
@@ -116,23 +127,34 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para gerar perguntas (similar ao quiz.js)
   async function generateQuestionsForGame() {
-    const files = ["cards/card_2.json"];
+    // Obter os cards selecionados
+    const selectedCards = [];
+    if (document.getElementById("card1").checked) selectedCards.push("cards/card_1.json");
+    if (document.getElementById("card2").checked) selectedCards.push("cards/card_2.json");
+    if (document.getElementById("card3").checked) selectedCards.push("cards/card_3.json");
+
     let allQuestions = [];
 
-    for (let file of files) {
+    for (let file of selectedCards) {
       try {
         const res = await fetch(file);
         const data = await res.json();
         allQuestions = allQuestions.concat(data.perguntas);
+        console.log(`Carregadas ${data.perguntas.length} perguntas de ${file}`);
       } catch (error) {
         console.warn(`Erro ao carregar ${file}:`, error);
       }
     }
 
+    console.log(`Total de perguntas disponíveis: ${allQuestions.length}`);
+
     // Baralhar e selecionar o número correto de perguntas
     allQuestions.sort(() => Math.random() - 0.5);
     const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
-    return allQuestions.slice(0, maxQuestions);
+    const selectedQuestions = allQuestions.slice(0, maxQuestions);
+    
+    console.log(`Selecionadas ${selectedQuestions.length} perguntas para o jogo`);
+    return selectedQuestions;
   }
 
   // Função para controlar o jogo (apenas para o host)
