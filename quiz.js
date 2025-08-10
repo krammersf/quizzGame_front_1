@@ -306,6 +306,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const q = questions[currentQuestionIndex];
     console.log("Mostrando pergunta:", q.pergunta);
+    
+    // Atualizar contador de perguntas
+    const questionNumber = currentQuestionIndex + 1;
+    const totalQuestions = questions.length;
+    document.getElementById("questionCounter").textContent = `Pergunta ${questionNumber} / ${totalQuestions}`;
+    
     document.getElementById("questionBox").style.display = "block";
 
     if (q.imagem) {
