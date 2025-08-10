@@ -118,15 +118,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
       
-      alert("Jogo iniciado! IMPORTANTE: Mantenha esta aba SEMPRE VISÍVEL durante o jogo!");
-      
       // Mostrar aviso visual
       showControlWarning();
-      
-      // Avisar novamente após 5 segundos
-      setTimeout(() => {
-        alert("LEMBRETE: Para o jogo funcionar automaticamente, esta aba (index.html) deve permanecer VISÍVEL e ATIVA durante todo o jogo!");
-      }, 5000);
       
       // Iniciar controlador automático
       startGameController();
