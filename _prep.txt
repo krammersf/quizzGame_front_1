@@ -35,4 +35,4 @@ bandeiras
 tmepo da pergunta
 timestnmp resposta
 jogador / 2 areedonda para baixo
-boleano para bonus de tempo
+boleano para bonus de tempo 
