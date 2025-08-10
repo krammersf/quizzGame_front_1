@@ -768,7 +768,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     if (!integratedPlayerAnswer) {
       console.log("🚫 Jogador 1 não respondeu - aplicando 0 pontos");
-      document.getElementById("statusText").textContent = "⏸️ Não respondeste a tempo!";
+      // Não mostrar mensagem ao jogador 1
       
       // Ausência de resposta = 0 pontos (não usar pointsWrong)
       const pointsForNoAnswer = 0;
@@ -837,11 +837,11 @@ window.addEventListener('DOMContentLoaded', () => {
     if (isCorrect) {
       const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
       integratedPlayerScore += pointsCorrect;
-      document.getElementById("statusText").textContent = `✅ Correto! +${pointsCorrect} pontos`;
+      // Não mostrar mensagem ao jogador 1
     } else {
       const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
       integratedPlayerScore += pointsWrong;
-      document.getElementById("statusText").textContent = `❌ Errado! ${pointsWrong} pontos (Correto: ${correctAnswer})`;
+      // Não mostrar mensagem ao jogador 1
     }
     
     // Calcular pontos ganhos nesta ronda
