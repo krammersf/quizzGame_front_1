@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getDatabase, ref, set, push, update } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+import { getDatabase, ref, set, push, update, get, onValue } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDkhUnWFDUio5ebqfxal2TR-fI5wFmgBqc",
@@ -347,16 +347,270 @@ window.addEventListener('DOMContentLoaded', () => {
       alert("Cria um jogo primeiro!");
       return;
     }
-    // Abre nova aba com o link do quiz para jogador 1 (já com nome guardado)
-    const url = `${window.location.origin}/quizzGame_front_1/quiz.html?gameId=${createdGameId}`;
     
-    // Guardar o playerName na sessão da nova aba pode ser feito usando URL ou localStorage no quiz.js
-    // Aqui vamos usar URL com parâmetro playerName para facilitar:
-    const playerName = creatorName;
-    const fullUrl = `${url}&playerName=${encodeURIComponent(playerName)}`;
-
-    window.open(fullUrl, '_blank');
+    // Em vez de abrir nova aba, mostrar interface integrada
+    console.log("🎮 Ativando painel integrado do Jogador 1");
+    activateIntegratedPlayer1Panel();
   });
+
+  // Função para ativar o painel integrado do Jogador 1
+  function activateIntegratedPlayer1Panel() {
+    // Mostrar a secção de quiz integrada
+    document.getElementById("integratedQuizSection").style.display = "block";
+    
+    // Ocultar o botão "Abrir Jogador 1" 
+    document.getElementById("openPlayer1Btn").style.display = "none";
+    
+    // Inicializar como jogador 1 integrado
+    initializeIntegratedPlayer1();
+  }
+
+  // Variáveis para o jogo integrado
+  let integratedQuestions = [];
+  let integratedCurrentQuestion = 0;
+  let integratedPlayerScore = 0;
+  let integratedPlayerAnswer = null;
+  let integratedGameActive = false;
+
+  // Função para inicializar o Jogador 1 integrado
+  async function initializeIntegratedPlayer1() {
+    console.log("🎯 Inicializando Jogador 1 integrado");
+    
+    // Adicionar jogador à base de dados
+    await update(ref(db, `games/${createdGameId}/players/${creatorName}`), {
+      name: creatorName,
+      score: 0,
+      isHost: true,
+      joinedAt: Date.now()
+    });
+
+    // Atualizar status
+    document.getElementById("statusText").textContent = "✅ Conectado como Jogador 1 (Host)";
+    
+    // Carregar perguntas
+    await loadIntegratedQuestions();
+    
+    // Escutar estado do jogo
+    listenToIntegratedGameState();
+    
+    // Ativar controlos manuais para o host
+    document.getElementById("manualControls").style.display = "block";
+    setupManualControls();
+  }
+
+  // Função para carregar perguntas para o jogo integrado
+  async function loadIntegratedQuestions() {
+    try {
+      const questionsRef = ref(db, `games/${createdGameId}/questions`);
+      const snapshot = await new Promise((resolve) => {
+        get(questionsRef).then(resolve);
+      });
+      
+      if (snapshot.exists()) {
+        integratedQuestions = snapshot.val();
+        console.log("📚 Perguntas carregadas:", integratedQuestions.length);
+        document.getElementById("statusText").textContent = `📚 ${integratedQuestions.length} perguntas carregadas`;
+      }
+    } catch (error) {
+      console.error("❌ Erro ao carregar perguntas:", error);
+      document.getElementById("statusText").textContent = "❌ Erro ao carregar perguntas";
+    }
+  }
+
+  // Função para escutar mudanças no estado do jogo integrado
+  function listenToIntegratedGameState() {
+    const gameStateRef = ref(db, `games/${createdGameId}/gameState`);
+    
+    onValue(gameStateRef, (snapshot) => {
+      if (!snapshot.exists()) return;
+      
+      const gameState = snapshot.val();
+      console.log("🔄 Estado atualizado:", gameState);
+      
+      if (gameState.gameEnded) {
+        showIntegratedFinalResults();
+        return;
+      }
+      
+      if (gameState.showingResults) {
+        showIntegratedAnswerResults();
+        return;
+      }
+      
+      // Nova pergunta
+      if (gameState.currentQuestionIndex !== integratedCurrentQuestion) {
+        integratedCurrentQuestion = gameState.currentQuestionIndex;
+        integratedPlayerAnswer = null;
+        showIntegratedQuestion();
+      }
+      
+      // Atualizar timer
+      if (gameState.questionStartTime && !gameState.gameEnded) {
+        updateIntegratedTimer(gameState.questionStartTime);
+      }
+    });
+  }
+
+  // Função para mostrar pergunta no painel integrado
+  function showIntegratedQuestion() {
+    if (integratedCurrentQuestion >= integratedQuestions.length) {
+      document.getElementById("statusText").textContent = "🏁 Todas as perguntas foram respondidas";
+      return;
+    }
+    
+    const question = integratedQuestions[integratedCurrentQuestion];
+    
+    // Atualizar título
+    document.getElementById("questionTitle").textContent = 
+      `Pergunta ${integratedCurrentQuestion + 1} de ${integratedQuestions.length}`;
+    
+    // Mostrar pergunta
+    document.getElementById("questionText").textContent = question.question;
+    
+    // Mostrar imagem se existir
+    const imgElement = document.getElementById("questionImage");
+    if (question.image) {
+      imgElement.src = question.image;
+      imgElement.style.display = "block";
+    } else {
+      imgElement.style.display = "none";
+    }
+    
+    // Mostrar opções de resposta
+    document.getElementById("answerA").textContent = `A) ${question.options.A}`;
+    document.getElementById("answerB").textContent = `B) ${question.options.B}`;
+    document.getElementById("answerC").textContent = `C) ${question.options.C}`;
+    document.getElementById("answerD").textContent = `D) ${question.options.D}`;
+    
+    // Mostrar secções relevantes
+    document.getElementById("currentQuestionDisplay").style.display = "block";
+    document.getElementById("player1AnswerSection").style.display = "block";
+    
+    // Reset da resposta
+    document.getElementById("player1Answer").textContent = "";
+    resetIntegratedAnswerButtons();
+    
+    // Atualizar status
+    document.getElementById("statusText").textContent = 
+      `🎯 Pergunta ${integratedCurrentQuestion + 1}: Responde!`;
+  }
+
+  // Função para reset dos botões de resposta
+  function resetIntegratedAnswerButtons() {
+    const buttons = document.querySelectorAll(".player1-answer-btn");
+    buttons.forEach(btn => {
+      btn.style.backgroundColor = "white";
+      btn.style.color = "black";
+      btn.style.borderColor = "#ddd";
+    });
+  }
+
+  // Função para atualizar timer integrado
+  function updateIntegratedTimer(questionStartTime) {
+    const updateTimer = () => {
+      const elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
+      const timeLeft = Math.max(0, 10 - elapsed);
+      
+      document.getElementById("timerDisplay").textContent = `⏰ ${timeLeft}s`;
+      
+      if (timeLeft > 0) {
+        setTimeout(updateTimer, 200);
+      } else {
+        document.getElementById("timerDisplay").textContent = "⏰ Tempo Esgotado!";
+      }
+    };
+    
+    updateTimer();
+  }
+
+  // Função para mostrar resultados da resposta integrada
+  function showIntegratedAnswerResults() {
+    if (!integratedPlayerAnswer) {
+      document.getElementById("statusText").textContent = "⏸️ Não respondeste a tempo!";
+      return;
+    }
+    
+    const question = integratedQuestions[integratedCurrentQuestion];
+    const isCorrect = integratedPlayerAnswer === question.correct;
+    
+    if (isCorrect) {
+      const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
+      integratedPlayerScore += pointsCorrect;
+      document.getElementById("statusText").textContent = `✅ Correto! +${pointsCorrect} pontos`;
+    } else {
+      const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
+      integratedPlayerScore += pointsWrong;
+      document.getElementById("statusText").textContent = `❌ Errado! ${pointsWrong} pontos`;
+    }
+    
+    // Atualizar pontuação
+    document.getElementById("scoreDisplay").textContent = `Tua Pontuação: ${integratedPlayerScore}`;
+    
+    // Atualizar pontuação na base de dados
+    update(ref(db, `games/${createdGameId}/players/${creatorName}`), {
+      score: integratedPlayerScore
+    });
+  }
+
+  // Função para mostrar resultados finais integrados
+  function showIntegratedFinalResults() {
+    document.getElementById("statusText").textContent = "🏁 Jogo Terminado!";
+    document.getElementById("currentQuestionDisplay").style.display = "none";
+    document.getElementById("player1AnswerSection").style.display = "none";
+    document.getElementById("timerDisplay").textContent = "🎉 Fim do Jogo!";
+  }
+
+  // Configurar controlos manuais
+  function setupManualControls() {
+    // Botões de resposta do Jogador 1
+    document.querySelectorAll(".player1-answer-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const answer = e.target.dataset.answer;
+        integratedPlayerAnswer = answer;
+        
+        // Visual feedback
+        resetIntegratedAnswerButtons();
+        e.target.style.backgroundColor = "#4CAF50";
+        e.target.style.color = "white";
+        e.target.style.borderColor = "#4CAF50";
+        
+        document.getElementById("player1Answer").textContent = `Resposta selecionada: ${answer}`;
+        
+        console.log(`✅ Jogador 1 respondeu: ${answer}`);
+      });
+    });
+    
+    // Controlo manual próxima pergunta
+    document.getElementById("manualNextBtn").addEventListener("click", () => {
+      if (integratedCurrentQuestion < integratedQuestions.length - 1) {
+        console.log("⏭️ Avançar manualmente para próxima pergunta");
+        const nextIndex = integratedCurrentQuestion + 1;
+        
+        update(ref(db, `games/${createdGameId}/gameState`), {
+          currentQuestionIndex: nextIndex,
+          timeLeft: 10,
+          questionStartTime: Date.now(),
+          gameEnded: false,
+          showingResults: false
+        });
+      }
+    });
+    
+    // Controlo manual terminar jogo
+    document.getElementById("manualEndBtn").addEventListener("click", () => {
+      if (confirm("Tens certeza que queres terminar o jogo?")) {
+        console.log("🏁 Terminar jogo manualmente");
+        
+        update(ref(db, `games/${createdGameId}/gameState`), {
+          gameEnded: true,
+          currentQuestionIndex: integratedCurrentQuestion,
+          timeLeft: 0,
+          questionStartTime: null,
+          showingResults: false
+        });
+      }
+    });
+  }
 
   document.getElementById("copyBtn").addEventListener("click", () => {
     const gameLinkInput = document.getElementById("gameLink");

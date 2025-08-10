@@ -186,7 +186,7 @@
     </p>
 
     <button id="startGameBtn">🚀 Criar Jogo</button>
-    <button id="openPlayer1Btn" style="display:none;">👤 Abrir como Jogador 1</button>
+    <button id="openPlayer1Btn" style="display:none;">🎮 Ativar Painel do Jogador 1</button>
     <button id="beginGameBtn">▶️ Iniciar Jogo</button>
 
     <div id="shareLink" style="display:none; margin-top:20px;">
@@ -195,6 +195,56 @@
         <button id="copyBtn" style="width:18%;">Copiar</button>
         <span id="copyMsg" style="display:none; color:green; margin-left:10px;">Copiado!</span>
     </div>
+    <!-- Secção de quiz integrada para o Jogador 1 -->
+    <div id="integratedQuizSection" style="display:none; margin-top: 30px; padding: 20px; border: 2px solid #4CAF50; border-radius: 10px; background-color: #f9fff9;">
+        <h2 style="color: #4CAF50; text-align: center;">🎮 Painel do Jogador 1 (Controlador)</h2>
+        
+        <!-- Status do jogo -->
+        <div id="gameStatus" style="text-align: center; margin-bottom: 20px; padding: 10px; background-color: #e8f5e8; border-radius: 5px;">
+            <p id="statusText">🔄 A preparar jogo...</p>
+        </div>
+        
+        <!-- Pergunta atual -->
+        <div id="currentQuestionDisplay" style="display: none;">
+            <h3 id="questionTitle">Pergunta 1 de 10</h3>
+            <div id="questionContent">
+                <img id="questionImage" style="display:none; max-width: 300px; margin: 10px auto; display: block;">
+                <p id="questionText" style="font-size: 18px; font-weight: bold; margin: 15px 0;"></p>
+                <div id="answersDisplay">
+                    <div class="answer-option" id="answerA" style="margin: 10px 0; padding: 10px; background-color: #f0f0f0; border-radius: 5px;">A) ...</div>
+                    <div class="answer-option" id="answerB" style="margin: 10px 0; padding: 10px; background-color: #f0f0f0; border-radius: 5px;">B) ...</div>
+                    <div class="answer-option" id="answerC" style="margin: 10px 0; padding: 10px; background-color: #f0f0f0; border-radius: 5px;">C) ...</div>
+                    <div class="answer-option" id="answerD" style="margin: 10px 0; padding: 10px; background-color: #f0f0f0; border-radius: 5px;">D) ...</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seleção de resposta do Jogador 1 -->
+        <div id="player1AnswerSection" style="display: none; margin: 20px 0;">
+            <h4>Tua resposta:</h4>
+            <div id="player1Answers">
+                <button class="player1-answer-btn" data-answer="A" style="margin: 5px; padding: 10px 20px; border: 2px solid #ddd; background-color: white; border-radius: 5px; cursor: pointer;">A</button>
+                <button class="player1-answer-btn" data-answer="B" style="margin: 5px; padding: 10px 20px; border: 2px solid #ddd; background-color: white; border-radius: 5px; cursor: pointer;">B</button>
+                <button class="player1-answer-btn" data-answer="C" style="margin: 5px; padding: 10px 20px; border: 2px solid #ddd; background-color: white; border-radius: 5px; cursor: pointer;">C</button>
+                <button class="player1-answer-btn" data-answer="D" style="margin: 5px; padding: 10px 20px; border: 2px solid #ddd; background-color: white; border-radius: 5px; cursor: pointer;">D</button>
+            </div>
+            <p id="player1Answer" style="margin-top: 10px; font-weight: bold;"></p>
+        </div>
+        
+        <!-- Timer e controlo -->
+        <div id="gameControls" style="text-align: center; margin: 20px 0;">
+            <p id="timerDisplay" style="font-size: 24px; font-weight: bold; color: #333;">⏰ --</p>
+            <p id="scoreDisplay">Tua Pontuação: 0</p>
+        </div>
+        
+        <!-- Botões de controlo manual (emergência) -->
+        <div id="manualControls" style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #fff3cd; border-radius: 5px;">
+            <p style="color: #856404; margin-bottom: 10px;"><strong>⚠️ Controlos Manuais (só usar se necessário)</strong></p>
+            <button id="manualNextBtn" style="margin: 5px; padding: 8px 15px; background-color: #ffc107; border: none; border-radius: 3px; cursor: pointer;">➡️ Próxima Pergunta</button>
+            <button id="manualEndBtn" style="margin: 5px; padding: 8px 15px; background-color: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer;">🏁 Terminar Jogo</button>
+        </div>
+    </div>
+    
     <!-- Secção de classificação, escondida inicialmente -->
     <div id="quizSection">
     <!-- Aqui vai o quiz: perguntas, respostas, etc -->
