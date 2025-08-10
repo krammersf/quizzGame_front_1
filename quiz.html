@@ -2,6 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz Multiplayer</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4wxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSiklKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
@@ -9,6 +10,103 @@
   <style>
     #waitingBox { margin-top: 20px; }
     #questionBox { display: none; margin-top: 20px; }
+    
+    /* Melhorias para mobile */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+        margin: 10px;
+      }
+      
+      h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+      
+      h3, h4 {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+      
+      #timerDisplay {
+        font-size: 20px;
+        padding: 10px;
+        background-color: #ffe0e0;
+        border-radius: 8px;
+        margin: 15px 0;
+        text-align: center;
+      }
+      
+      #questionCounter {
+        font-size: 16px;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+      
+      #questionText {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 15px 0;
+        text-align: left;
+      }
+      
+      #answersBox button {
+        font-size: 15px;
+        padding: 15px;
+        margin: 8px 0;
+        text-align: left;
+        word-wrap: break-word;
+        white-space: normal;
+        min-height: 50px;
+      }
+      
+      #questionImage {
+        max-width: 100%;
+        height: auto;
+        margin: 15px 0;
+      }
+      
+      /* Tabela de classificação responsiva */
+      #scoreTable {
+        font-size: 14px;
+        width: 100%;
+      }
+      
+      #scoreTable th,
+      #scoreTable td {
+        padding: 8px 4px;
+        word-wrap: break-word;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        margin: 5px;
+        padding: 10px;
+      }
+      
+      h1 {
+        font-size: 20px;
+      }
+      
+      #questionText {
+        font-size: 15px;
+      }
+      
+      #answersBox button {
+        font-size: 14px;
+        padding: 12px;
+      }
+      
+      #scoreTable {
+        font-size: 12px;
+      }
+      
+      #scoreTable th,
+      #scoreTable td {
+        padding: 6px 2px;
+      }
+    }
   </style>
 </head>
 <body>

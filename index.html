@@ -2,6 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Início do Quiz</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4xxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSikkKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
@@ -128,7 +129,7 @@
     }
 
     /* Responsivo - em ecrãs pequenos volta a ser coluna */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .input-row {
         flex-direction: column;
         gap: 0;
@@ -140,6 +141,53 @@
       
       .input-group:last-child {
         margin-bottom: 0;
+      }
+      
+      /* Ajustes específicos para mobile */
+      .container {
+        padding: 15px;
+        margin: 10px;
+      }
+      
+      #cardSelection {
+        height: 200px !important;
+        font-size: 14px;
+      }
+      
+      /* Botões melhor organizados em mobile */
+      #copyBtn {
+        width: 30% !important;
+        font-size: 14px;
+        padding: 10px 5px;
+      }
+      
+      #gameLink {
+        width: 68% !important;
+        font-size: 14px;
+      }
+    }
+    
+    /* Para telemóveis muito pequenos */
+    @media (max-width: 480px) {
+      .container {
+        margin: 5px;
+        padding: 10px;
+      }
+      
+      #cardSelection {
+        height: 180px !important;
+        font-size: 13px;
+      }
+      
+      #copyBtn, #gameLink {
+        width: 100% !important;
+        margin: 5px 0;
+        display: block !important;
+      }
+      
+      .container button {
+        font-size: 14px;
+        padding: 12px;
       }
     }
 
