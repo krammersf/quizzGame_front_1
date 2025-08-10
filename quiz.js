@@ -554,8 +554,13 @@ document.addEventListener("DOMContentLoaded", () => {
     showQuestion();
   }
 
-  // Função para controlo automático do jogo (backup se o host sair)
+  // Função para controlo automático do jogo - TOTALMENTE INDEPENDENTE
   function initializeGameController() {
+    let isController = false;
+    let controllerTimeout = null;
+    
+    console.log("Inicializando controlo automático do jogo");
+    
     const gameStateRef = ref(db, `games/${gameId}/gameState`);
     
     onValue(gameStateRef, (snapshot) => {
@@ -563,77 +568,114 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const gameState = snapshot.val();
       
-      // Se não há questionStartTime ou o jogo está parado há muito tempo, assumir controlo
-      if (gameState.autoController && gameState.questionStartTime) {
-        const timeSinceStart = Date.now() - gameState.questionStartTime;
-        
-        // Se passou mais de 15 segundos desde o início da pergunta e não está a mostrar resultados
-        if (timeSinceStart > 15000 && !gameState.showingResults && !gameState.gameEnded) {
-          console.log("Controlo automático: Forçando resultados após timeout");
-          
-          // Forçar mostrar resultados
-          update(ref(db, `games/${gameId}/gameState`), {
-            ...gameState,
-            showingResults: true,
-            timeLeft: 0,
-            resultsStartTime: Date.now()
-          });
-          
-          // Avançar para próxima pergunta após 2 segundos
-          setTimeout(() => {
-            const nextQuestionIndex = gameState.currentQuestionIndex + 1;
-            if (nextQuestionIndex >= questions.length) {
-              // Fim do jogo
-              update(ref(db, `games/${gameId}/gameState`), {
-                gameEnded: true,
-                currentQuestionIndex: nextQuestionIndex,
-                timeLeft: 0,
-                questionStartTime: null,
-                showingResults: false
-              });
-            } else {
-              // Próxima pergunta
-              update(ref(db, `games/${gameId}/gameState`), {
-                currentQuestionIndex: nextQuestionIndex,
-                timeLeft: 10,
-                questionStartTime: Date.now(),
-                gameEnded: false,
-                showingResults: false
-              });
-            }
-          }, 2000);
-        }
-        
-        // Se está a mostrar resultados há mais de 5 segundos, avançar
-        if (gameState.showingResults && gameState.resultsStartTime) {
-          const timeSinceResults = Date.now() - gameState.resultsStartTime;
-          if (timeSinceResults > 5000) {
-            console.log("Controlo automático: Avançando após resultados");
-            
-            const nextQuestionIndex = gameState.currentQuestionIndex + 1;
-            if (nextQuestionIndex >= questions.length) {
-              // Fim do jogo
-              update(ref(db, `games/${gameId}/gameState`), {
-                gameEnded: true,
-                currentQuestionIndex: nextQuestionIndex,
-                timeLeft: 0,
-                questionStartTime: null,
-                showingResults: false
-              });
-            } else {
-              // Próxima pergunta
-              update(ref(db, `games/${gameId}/gameState`), {
-                currentQuestionIndex: nextQuestionIndex,
-                timeLeft: 10,
-                questionStartTime: Date.now(),
-                gameEnded: false,
-                showingResults: false
-              });
-            }
-          }
-        }
+      // Se o jogo terminou, não fazer nada
+      if (gameState.gameEnded) return;
+      
+      // Verificar se precisa assumir controlo
+      const now = Date.now();
+      const timeSinceStart = gameState.questionStartTime ? now - gameState.questionStartTime : 999999;
+      const timeSinceResults = gameState.resultsStartTime ? now - gameState.resultsStartTime : 999999;
+      
+      // Lógica para assumir controlo do jogo
+      let shouldTakeControl = false;
+      
+      if (!gameState.questionStartTime && !gameState.showingResults) {
+        // Jogo iniciado mas sem timer - assumir controlo imediatamente
+        shouldTakeControl = true;
+        console.log("Controlo automático: Jogo sem timer, assumindo controlo");
+      } else if (timeSinceStart > 12000 && !gameState.showingResults) {
+        // Pergunta há mais de 12 segundos sem mostrar resultados
+        shouldTakeControl = true;
+        console.log("Controlo automático: Pergunta há mais de 12s, forçando resultados");
+      } else if (gameState.showingResults && timeSinceResults > 3000) {
+        // Resultados há mais de 3 segundos - avançar
+        shouldTakeControl = true;
+        console.log("Controlo automático: Resultados há mais de 3s, avançando");
+      }
+      
+      if (shouldTakeControl && !isController) {
+        isController = true;
+        console.log("ASSUMINDO CONTROLO DO JOGO");
+        takeGameControl(gameState);
       }
     });
+    
+    // Função para assumir controlo completo
+    function takeGameControl(gameState) {
+      const currentQuestion = gameState.currentQuestionIndex || 0;
+      
+      if (gameState.showingResults) {
+        // Se está a mostrar resultados, avançar para próxima pergunta
+        advanceToNextQuestion(currentQuestion);
+      } else {
+        // Se está numa pergunta, mostrar resultados primeiro
+        showQuestionResults(gameState);
+      }
+    }
+    
+    function showQuestionResults(gameState) {
+      console.log("Controlo: Mostrando resultados da pergunta");
+      
+      update(ref(db, `games/${gameId}/gameState`), {
+        ...gameState,
+        showingResults: true,
+        timeLeft: 0,
+        resultsStartTime: Date.now()
+      }).then(() => {
+        // Agendar avanço para próxima pergunta
+        setTimeout(() => {
+          advanceToNextQuestion(gameState.currentQuestionIndex);
+        }, 2000);
+      });
+    }
+    
+    function advanceToNextQuestion(currentQuestionIndex) {
+      const nextQuestion = currentQuestionIndex + 1;
+      
+      console.log(`Controlo: Avançando para pergunta ${nextQuestion + 1}`);
+      
+      if (nextQuestion >= questions.length) {
+        // Fim do jogo
+        console.log("Controlo: Terminando jogo");
+        update(ref(db, `games/${gameId}/gameState`), {
+          gameEnded: true,
+          currentQuestionIndex: nextQuestion,
+          timeLeft: 0,
+          questionStartTime: null,
+          showingResults: false,
+          resultsStartTime: null
+        }).then(() => {
+          isController = false;
+        });
+      } else {
+        // Próxima pergunta
+        update(ref(db, `games/${gameId}/gameState`), {
+          currentQuestionIndex: nextQuestion,
+          timeLeft: 10,
+          questionStartTime: Date.now(),
+          gameEnded: false,
+          showingResults: false,
+          resultsStartTime: null,
+          autoController: true
+        }).then(() => {
+          // Agendar próximo controlo
+          setTimeout(() => {
+            isController = false; // Permitir que outros assumam controlo se necessário
+          }, 1000);
+          
+          // Agendar mostrar resultados automaticamente
+          setTimeout(() => {
+            if (!isController) {
+              isController = true;
+              showQuestionResults({
+                currentQuestionIndex: nextQuestion,
+                questionStartTime: Date.now()
+              });
+            }
+          }, 10000);
+        });
+      }
+    }
   }
 
 });

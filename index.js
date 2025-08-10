@@ -118,10 +118,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
       
-      alert("Jogo iniciado!");
-      
-      // Iniciar controlador automático
-      startGameController();
+      alert("Jogo iniciado! O controlo automático está ativo nos jogadores.");
     } catch (error) {
       console.error("Erro ao iniciar o jogo:", error);
       alert("Erro ao iniciar o jogo. Veja a consola.");
@@ -156,77 +153,6 @@ window.addEventListener('DOMContentLoaded', () => {
     
     console.log(`Selecionadas ${selectedQuestions.length} perguntas para o jogo`);
     return selectedQuestions;
-  }
-
-  // Função para controlar o jogo (apenas para o host)
-  function startGameController() {
-    if (!createdGameId) return;
-    
-    let currentQuestion = 0;
-    const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
-    
-    console.log(`Host: Iniciando controlador do jogo com ${maxQuestions} perguntas`);
-    
-    function nextQuestion() {
-      console.log(`Host: nextQuestion chamada - currentQuestion: ${currentQuestion}, maxQuestions: ${maxQuestions}`);
-      
-      if (currentQuestion >= maxQuestions) {
-        // Fim do jogo
-        console.log("Host: Jogo terminado");
-        update(ref(db, `games/${createdGameId}/gameState`), {
-          gameEnded: true,
-          currentQuestionIndex: currentQuestion,
-          timeLeft: 0,
-          questionStartTime: null,
-          showingResults: false
-        });
-        return;
-      }
-      
-      const questionStartTime = Date.now();
-      
-      // Avançar para próxima pergunta
-      update(ref(db, `games/${createdGameId}/gameState`), {
-        currentQuestionIndex: currentQuestion,
-        timeLeft: 10,
-        questionStartTime: questionStartTime,
-        gameEnded: false,
-        showingResults: false
-      }).then(() => {
-        console.log(`Host: Pergunta ${currentQuestion + 1} iniciada`);
-      }).catch(err => {
-        console.error("Erro ao atualizar estado:", err);
-      });
-      
-      console.log(`Host: Pergunta ${currentQuestion + 1}/${maxQuestions} iniciada às ${new Date(questionStartTime).toLocaleTimeString()}`);
-      
-      // Timer de 10 segundos para a pergunta
-      setTimeout(() => {
-        // Mostrar resultados por 2 segundos
-        console.log(`Host: Timer acabou para pergunta ${currentQuestion + 1}. Mostrando resultados...`);
-        update(ref(db, `games/${createdGameId}/gameState`), {
-          currentQuestionIndex: currentQuestion,
-          timeLeft: 0,
-          questionStartTime: questionStartTime,
-          gameEnded: false,
-          showingResults: true,
-          resultsStartTime: Date.now()
-        });
-        
-        // Aguardar 2 segundos e avançar para próxima pergunta
-        setTimeout(() => {
-          console.log(`Host: Avançando da pergunta ${currentQuestion + 1} para ${currentQuestion + 2}`);
-          currentQuestion++;
-          nextQuestion();
-        }, 2000);
-      }, 10000);
-    }
-    
-    // Iniciar primeira pergunta após um pequeno delay para todos se conectarem
-    setTimeout(() => {
-      console.log("Host: Iniciando primeira pergunta...");
-      nextQuestion();
-    }, 3000);
   }
 
   const openPlayer1Btn = document.getElementById("openPlayer1Btn");
