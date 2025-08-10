@@ -400,6 +400,406 @@
 			"pergunta": "Em que ano terminou a Segunda Guerra Mundial?",
 			"hipoteses_resposta": ["1944", "1945", "1946", "1947"],
 			"resposta": "1945"
+		},
+		{
+			"numero": "A000100",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o número atómico do urânio?",
+			"hipoteses_resposta": ["90", "92", "94", "96"],
+			"resposta": "92"
+		},
+		{
+			"numero": "A000101",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem formulou o princípio da incerteza na mecânica quântica?",
+			"hipoteses_resposta": ["Schrödinger", "Heisenberg", "Bohr", "Planck"],
+			"resposta": "Heisenberg"
+		},
+		{
+			"numero": "A000102",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital do Cazaquistão?",
+			"hipoteses_resposta": ["Almaty", "Nur-Sultan", "Shymkent", "Aktobe"],
+			"resposta": "Nur-Sultan"
+		},
+		{
+			"numero": "A000103",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi descoberto o bosão de Higgs?",
+			"hipoteses_resposta": ["2010", "2012", "2014", "2016"],
+			"resposta": "2012"
+		},
+		{
+			"numero": "A000104",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filósofo escreveu 'Ser e Tempo'?",
+			"hipoteses_resposta": ["Sartre", "Heidegger", "Husserl", "Merleau-Ponty"],
+			"resposta": "Heidegger"
+		},
+		{
+			"numero": "A000105",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a constante de Avogadro (aproximadamente)?",
+			"hipoteses_resposta": ["6,02 × 10²³", "3,14 × 10²³", "9,81 × 10²³", "2,71 × 10²³"],
+			"resposta": "6,02 × 10²³"
+		},
+		{
+			"numero": "A000106",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que batalha Napoleão foi definitivamente derrotado?",
+			"hipoteses_resposta": ["Austerlitz", "Leipzig", "Waterloo", "Borodino"],
+			"resposta": "Waterloo"
+		},
+		{
+			"numero": "A000107",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da lua maior de Saturno?",
+			"hipoteses_resposta": ["Europa", "Titã", "Ganimedes", "Io"],
+			"resposta": "Titã"
+		},
+		{
+			"numero": "A000108",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem compôs 'O Anel do Nibelungo'?",
+			"hipoteses_resposta": ["Wagner", "Verdi", "Puccini", "Strauss"],
+			"resposta": "Wagner"
+		},
+		{
+			"numero": "A000109",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a fórmula da lei de Ohm?",
+			"hipoteses_resposta": ["V = I × R", "P = V × I", "E = mc²", "F = ma"],
+			"resposta": "V = I × R"
+		},
+		{
+			"numero": "A000110",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assinado o Tratado de Versalhes?",
+			"hipoteses_resposta": ["1918", "1919", "1920", "1921"],
+			"resposta": "1919"
+		},
+		{
+			"numero": "A000111",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o metal mais abundante na crosta terrestre?",
+			"hipoteses_resposta": ["Ferro", "Alumínio", "Cobre", "Zinco"],
+			"resposta": "Alumínio"
+		},
+		{
+			"numero": "A000112",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Ulisses'?",
+			"hipoteses_resposta": ["Oscar Wilde", "James Joyce", "Samuel Beckett", "W.B. Yeats"],
+			"resposta": "James Joyce"
+		},
+		{
+			"numero": "A000113",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital do Myanmar?",
+			"hipoteses_resposta": ["Yangon", "Naypyidaw", "Mandalay", "Bagan"],
+			"resposta": "Naypyidaw"
+		},
+		{
+			"numero": "A000114",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual partícula mediadora da força forte?",
+			"hipoteses_resposta": ["Fotão", "Gluão", "Bosão W", "Gravitão"],
+			"resposta": "Gluão"
+		},
+		{
+			"numero": "A000115",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano ocorreu a Revolução dos Cravos em Portugal?",
+			"hipoteses_resposta": ["1973", "1974", "1975", "1976"],
+			"resposta": "1974"
+		},
+		{
+			"numero": "A000116",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior satélite de Júpiter?",
+			"hipoteses_resposta": ["Europa", "Io", "Ganimedes", "Calisto"],
+			"resposta": "Ganimedes"
+		},
+		{
+			"numero": "A000117",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'As Meninas'?",
+			"hipoteses_resposta": ["El Greco", "Velázquez", "Goya", "Murillo"],
+			"resposta": "Velázquez"
+		},
+		{
+			"numero": "A000118",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o isótopo mais comum do carbono?",
+			"hipoteses_resposta": ["Carbono-12", "Carbono-13", "Carbono-14", "Carbono-11"],
+			"resposta": "Carbono-12"
+		},
+		{
+			"numero": "A000119",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que cidade nasceu Leonardo da Vinci?",
+			"hipoteses_resposta": ["Florença", "Milão", "Vinci", "Roma"],
+			"resposta": "Vinci"
+		},
+		{
+			"numero": "A000120",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a unidade SI para medir a radioatividade?",
+			"hipoteses_resposta": ["Becquerel", "Gray", "Sievert", "Curie"],
+			"resposta": "Becquerel"
+		},
+		{
+			"numero": "A000121",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem formulou as leis da termodinâmica?",
+			"hipoteses_resposta": ["Carnot", "Clausius", "Kelvin", "Todos os anteriores"],
+			"resposta": "Todos os anteriores"
+		},
+		{
+			"numero": "A000122",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Etiópia?",
+			"hipoteses_resposta": ["Addis Abeba", "Dire Dawa", "Mekelle", "Bahir Dar"],
+			"resposta": "Addis Abeba"
+		},
+		{
+			"numero": "A000123",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi publicado 'A Origem das Espécies'?",
+			"hipoteses_resposta": ["1857", "1859", "1861", "1863"],
+			"resposta": "1859"
+		},
+		{
+			"numero": "A000124",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do processo de divisão celular que produz gametas?",
+			"hipoteses_resposta": ["Mitose", "Meiose", "Fissão binária", "Gemulação"],
+			"resposta": "Meiose"
+		},
+		{
+			"numero": "A000125",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem compôs a 'Sinfonia do Novo Mundo'?",
+			"hipoteses_resposta": ["Brahms", "Dvořák", "Tchaikovsky", "Mahler"],
+			"resposta": "Dvořák"
+		},
+		{
+			"numero": "A000126",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o número de Euler (aproximadamente)?",
+			"hipoteses_resposta": ["2,718", "3,141", "1,618", "2,302"],
+			"resposta": "2,718"
+		},
+		{
+			"numero": "A000127",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que continente se localiza o Monte Aconcágua?",
+			"hipoteses_resposta": ["América do Norte", "América do Sul", "Ásia", "África"],
+			"resposta": "América do Sul"
+		},
+		{
+			"numero": "A000128",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Em Busca do Tempo Perdido'?",
+			"hipoteses_resposta": ["Flaubert", "Proust", "Balzac", "Zola"],
+			"resposta": "Proust"
+		},
+		{
+			"numero": "A000129",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a moeda oficial da Suíça?",
+			"hipoteses_resposta": ["Euro", "Franco suíço", "Coroa suíça", "Marco suíço"],
+			"resposta": "Franco suíço"
+		},
+		{
+			"numero": "A000130",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual físico propôs a equação E=mc²?",
+			"hipoteses_resposta": ["Newton", "Einstein", "Planck", "Heisenberg"],
+			"resposta": "Einstein"
+		},
+		{
+			"numero": "A000131",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi construído o Muro de Berlim?",
+			"hipoteses_resposta": ["1959", "1961", "1963", "1965"],
+			"resposta": "1961"
+		},
+		{
+			"numero": "A000132",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o elemento químico com símbolo 'Hg'?",
+			"hipoteses_resposta": ["Hidrogénio", "Hélio", "Mercúrio", "Magnésio"],
+			"resposta": "Mercúrio"
+		},
+		{
+			"numero": "A000133",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'A Escola de Atenas'?",
+			"hipoteses_resposta": ["Michelangelo", "Rafael", "Leonardo", "Donatello"],
+			"resposta": "Rafael"
+		},
+		{
+			"numero": "A000134",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a distância média da Terra ao Sol?",
+			"hipoteses_resposta": ["150 milhões km", "100 milhões km", "200 milhões km", "250 milhões km"],
+			"resposta": "150 milhões km"
+		},
+		{
+			"numero": "A000135",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assinada a Magna Carta?",
+			"hipoteses_resposta": ["1214", "1215", "1216", "1217"],
+			"resposta": "1215"
+		},
+		{
+			"numero": "A000136",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da proteína que transporta oxigénio no sangue?",
+			"hipoteses_resposta": ["Albumina", "Hemoglobina", "Insulina", "Fibrinogénio"],
+			"resposta": "Hemoglobina"
+		},
+		{
+			"numero": "A000137",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem compôs 'A Sagração da Primavera'?",
+			"hipoteses_resposta": ["Debussy", "Ravel", "Stravinsky", "Prokofiev"],
+			"resposta": "Stravinsky"
+		},
+		{
+			"numero": "A000138",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital do Bangladesh?",
+			"hipoteses_resposta": ["Chittagong", "Dhaka", "Sylhet", "Khulna"],
+			"resposta": "Dhaka"
+		},
+		{
+			"numero": "A000139",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano ocorreu a Batalha de Hastings?",
+			"hipoteses_resposta": ["1064", "1066", "1068", "1070"],
+			"resposta": "1066"
+		},
+		{
+			"numero": "A000140",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do modelo atómico proposto por Rutherford?",
+			"hipoteses_resposta": ["Modelo planetário", "Modelo de pudim", "Modelo quântico", "Modelo de orbitais"],
+			"resposta": "Modelo planetário"
+		},
+		{
+			"numero": "A000141",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Nome da Rosa'?",
+			"hipoteses_resposta": ["Italo Calvino", "Umberto Eco", "Pier Paolo Pasolini", "Alberto Moravia"],
+			"resposta": "Umberto Eco"
+		},
+		{
+			"numero": "A000142",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior vulcão do sistema solar?",
+			"hipoteses_resposta": ["Monte Vesúvio", "Monte Olimpo", "Mauna Kea", "Monte Fuji"],
+			"resposta": "Monte Olimpo"
+		},
+		{
+			"numero": "A000143",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi descoberta a penicilina?",
+			"hipoteses_resposta": ["1926", "1928", "1930", "1932"],
+			"resposta": "1928"
+		},
+		{
+			"numero": "A000144",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da teoria que explica a deriva continental?",
+			"hipoteses_resposta": ["Tectónica de placas", "Teoria da relatividade", "Teoria quântica", "Lei da gravitação"],
+			"resposta": "Tectónica de placas"
+		},
+		{
+			"numero": "A000145",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'O Grito'?",
+			"hipoteses_resposta": ["Van Gogh", "Picasso", "Munch", "Monet"],
+			"resposta": "Munch"
+		},
+		{
+			"numero": "A000146",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a constante gravitacional universal (aproximadamente)?",
+			"hipoteses_resposta": ["6,67 × 10⁻¹¹", "9,81 × 10⁻¹¹", "3,00 × 10⁸", "1,38 × 10⁻²³"],
+			"resposta": "6,67 × 10⁻¹¹"
+		},
+		{
+			"numero": "A000147",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que cidade se realizaram os primeiros Jogos Olímpicos modernos?",
+			"hipoteses_resposta": ["Paris", "Londres", "Atenas", "Roma"],
+			"resposta": "Atenas"
+		},
+		{
+			"numero": "A000148",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do processo pelo qual as estrelas produzem energia?",
+			"hipoteses_resposta": ["Fissão nuclear", "Fusão nuclear", "Combustão", "Radioatividade"],
+			"resposta": "Fusão nuclear"
+		},
+		{
+			"numero": "A000149",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem formulou as três leis do movimento planetário?",
+			"hipoteses_resposta": ["Galileu", "Newton", "Kepler", "Copérnico"],
+			"resposta": "Kepler"
 		}
 	]
 }
