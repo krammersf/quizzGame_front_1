@@ -800,6 +800,406 @@
 			"pergunta": "Quem formulou as três leis do movimento planetário?",
 			"hipoteses_resposta": ["Galileu", "Newton", "Kepler", "Copérnico"],
 			"resposta": "Kepler"
+		},
+		{
+			"numero": "A000150",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Revolução Francesa?",
+			"hipoteses_resposta": ["1787", "1789", "1791", "1793"],
+			"resposta": "1789"
+		},
+		{
+			"numero": "A000151",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual imperador romano legalizou o cristianismo?",
+			"hipoteses_resposta": ["Nero", "Constantino", "Augusto", "Trajano"],
+			"resposta": "Constantino"
+		},
+		{
+			"numero": "A000152",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assassinado o arquiduque Francisco Fernando?",
+			"hipoteses_resposta": ["1913", "1914", "1915", "1916"],
+			"resposta": "1914"
+		},
+		{
+			"numero": "A000153",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual civilização construiu Angkor Wat?",
+			"hipoteses_resposta": ["Tailandesa", "Khmer", "Vietnamita", "Birmana"],
+			"resposta": "Khmer"
+		},
+		{
+			"numero": "A000154",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano terminou a Guerra dos Cem Anos?",
+			"hipoteses_resposta": ["1451", "1453", "1455", "1457"],
+			"resposta": "1453"
+		},
+		{
+			"numero": "A000155",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem foi o primeiro imperador da China unificada?",
+			"hipoteses_resposta": ["Qin Shi Huang", "Wu Zetian", "Kangxi", "Yongzheng"],
+			"resposta": "Qin Shi Huang"
+		},
+		{
+			"numero": "A000156",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que batalha morreu o rei Ricardo III de Inglaterra?",
+			"hipoteses_resposta": ["Agincourt", "Bosworth", "Towton", "Barnet"],
+			"resposta": "Bosworth"
+		},
+		{
+			"numero": "A000157",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual faraó mandou construir a Grande Pirâmide de Gizé?",
+			"hipoteses_resposta": ["Khufu", "Khafre", "Menkaure", "Djoser"],
+			"resposta": "Khufu"
+		},
+		{
+			"numero": "A000158",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi fundado o Império Bizantino?",
+			"hipoteses_resposta": ["330", "476", "395", "527"],
+			"resposta": "330"
+		},
+		{
+			"numero": "A000159",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem liderou a expedição que circum-navegou pela primeira vez o globo?",
+			"hipoteses_resposta": ["Colombo", "Magalhães", "Vasco da Gama", "Cabral"],
+			"resposta": "Magalhães"
+		},
+		{
+			"numero": "A000160",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assinado o Tratado de Tordesilhas?",
+			"hipoteses_resposta": ["1492", "1494", "1496", "1498"],
+			"resposta": "1494"
+		},
+		{
+			"numero": "A000161",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a primeira capital do Império Russo?",
+			"hipoteses_resposta": ["Moscovo", "São Petersburgo", "Kiev", "Novgorod"],
+			"resposta": "Moscovo"
+		},
+		{
+			"numero": "A000162",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano ocorreu a Batalha de Salamina?",
+			"hipoteses_resposta": ["480 a.C.", "490 a.C.", "479 a.C.", "481 a.C."],
+			"resposta": "480 a.C."
+		},
+		{
+			"numero": "A000163",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem foi o último imperador do Império Romano do Ocidente?",
+			"hipoteses_resposta": ["Júlio Nepos", "Rômulo Augusto", "Odoacro", "Majoriano"],
+			"resposta": "Rômulo Augusto"
+		},
+		{
+			"numero": "A000164",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi conquistada Constantinopla pelos otomanos?",
+			"hipoteses_resposta": ["1451", "1453", "1455", "1457"],
+			"resposta": "1453"
+		},
+		{
+			"numero": "A000165",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinastia chinesa construiu a Cidade Proibida?",
+			"hipoteses_resposta": ["Tang", "Song", "Ming", "Qing"],
+			"resposta": "Ming"
+		},
+		{
+			"numero": "A000166",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi abolida a escravatura nos Estados Unidos?",
+			"hipoteses_resposta": ["1863", "1865", "1867", "1869"],
+			"resposta": "1865"
+		},
+		{
+			"numero": "A000167",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem foi o líder dos hunos que invadiu a Europa?",
+			"hipoteses_resposta": ["Gengis Khan", "Átila", "Batu Khan", "Timur"],
+			"resposta": "Átila"
+		},
+		{
+			"numero": "A000168",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assinada a Declaração de Independência dos EUA?",
+			"hipoteses_resposta": ["1774", "1775", "1776", "1777"],
+			"resposta": "1776"
+		},
+		{
+			"numero": "A000169",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a primeira dinastia imperial do Japão?",
+			"hipoteses_resposta": ["Yamato", "Fujiwara", "Kamakura", "Heian"],
+			"resposta": "Yamato"
+		},
+		{
+			"numero": "A000170",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Revolução Industrial?",
+			"hipoteses_resposta": ["1750", "1760", "1770", "1780"],
+			"resposta": "1760"
+		},
+		{
+			"numero": "A000171",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem fundou o Império Mongol?",
+			"hipoteses_resposta": ["Kublai Khan", "Gengis Khan", "Ögedei Khan", "Tolui"],
+			"resposta": "Gengis Khan"
+		},
+		{
+			"numero": "A000172",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assinado o Tratado de Westfália?",
+			"hipoteses_resposta": ["1646", "1648", "1650", "1652"],
+			"resposta": "1648"
+		},
+		{
+			"numero": "A000173",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a primeira universidade fundada na Europa?",
+			"hipoteses_resposta": ["Bolonha", "Paris", "Oxford", "Salamanca"],
+			"resposta": "Bolonha"
+		},
+		{
+			"numero": "A000174",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano morreu Alexandre, o Grande?",
+			"hipoteses_resposta": ["324 a.C.", "323 a.C.", "322 a.C.", "321 a.C."],
+			"resposta": "323 a.C."
+		},
+		{
+			"numero": "A000175",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem foi o primeiro presidente dos Estados Unidos?",
+			"hipoteses_resposta": ["Thomas Jefferson", "George Washington", "John Adams", "Benjamin Franklin"],
+			"resposta": "George Washington"
+		},
+		{
+			"numero": "A000176",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi fundada a cidade de Roma?",
+			"hipoteses_resposta": ["753 a.C.", "751 a.C.", "755 a.C.", "749 a.C."],
+			"resposta": "753 a.C."
+		},
+		{
+			"numero": "A000177",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual rainha egípcia se aliou a Júlio César?",
+			"hipoteses_resposta": ["Hatshepsut", "Nefertiti", "Cleópatra", "Ankhesenamun"],
+			"resposta": "Cleópatra"
+		},
+		{
+			"numero": "A000178",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Guerra Civil Espanhola?",
+			"hipoteses_resposta": ["1935", "1936", "1937", "1938"],
+			"resposta": "1936"
+		},
+		{
+			"numero": "A000179",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem foi o fundador do Império Persa?",
+			"hipoteses_resposta": ["Dario I", "Xerxes", "Ciro, o Grande", "Cambises"],
+			"resposta": "Ciro, o Grande"
+		},
+		{
+			"numero": "A000180",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi coroado Carlos Magno imperador?",
+			"hipoteses_resposta": ["798", "800", "802", "804"],
+			"resposta": "800"
+		},
+		{
+			"numero": "A000181",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a última dinastia chinesa?",
+			"hipoteses_resposta": ["Ming", "Yuan", "Qing", "Song"],
+			"resposta": "Qing"
+		},
+		{
+			"numero": "A000182",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi executado o rei Luís XVI de França?",
+			"hipoteses_resposta": ["1792", "1793", "1794", "1795"],
+			"resposta": "1793"
+		},
+		{
+			"numero": "A000183",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem liderou a revolta dos escravos em Roma?",
+			"hipoteses_resposta": ["Catilina", "Espártaco", "Bruto", "Cássio"],
+			"resposta": "Espártaco"
+		},
+		{
+			"numero": "A000184",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi descoberta a América por Colombo?",
+			"hipoteses_resposta": ["1490", "1491", "1492", "1493"],
+			"resposta": "1492"
+		},
+		{
+			"numero": "A000185",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual sultão otomano conquistou Constantinopla?",
+			"hipoteses_resposta": ["Orhan", "Murad I", "Bayezid I", "Mehmed II"],
+			"resposta": "Mehmed II"
+		},
+		{
+			"numero": "A000186",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assinado o Tratado de Viena?",
+			"hipoteses_resposta": ["1813", "1814", "1815", "1816"],
+			"resposta": "1815"
+		},
+		{
+			"numero": "A000187",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem foi o último czar da Rússia?",
+			"hipoteses_resposta": ["Alexandre III", "Nicolau II", "Alexandre II", "Paulo I"],
+			"resposta": "Nicolau II"
+		},
+		{
+			"numero": "A000188",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Primeira Cruzada?",
+			"hipoteses_resposta": ["1095", "1096", "1097", "1098"],
+			"resposta": "1096"
+		},
+		{
+			"numero": "A000189",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual civilização inventou a escrita cuneiforme?",
+			"hipoteses_resposta": ["Egípcia", "Suméria", "Babilónica", "Assíria"],
+			"resposta": "Suméria"
+		},
+		{
+			"numero": "A000190",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi proclamada a República no Brasil?",
+			"hipoteses_resposta": ["1888", "1889", "1890", "1891"],
+			"resposta": "1889"
+		},
+		{
+			"numero": "A000191",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem foi o primeiro imperador romano?",
+			"hipoteses_resposta": ["Júlio César", "Augusto", "Tibério", "Calígula"],
+			"resposta": "Augusto"
+		},
+		{
+			"numero": "A000192",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assassinado Júlio César?",
+			"hipoteses_resposta": ["46 a.C.", "45 a.C.", "44 a.C.", "43 a.C."],
+			"resposta": "44 a.C."
+		},
+		{
+			"numero": "A000193",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o primeiro país a abolir a escravatura?",
+			"hipoteses_resposta": ["França", "Inglaterra", "Haiti", "Dinamarca"],
+			"resposta": "Haiti"
+		},
+		{
+			"numero": "A000194",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi fundada a Liga das Nações?",
+			"hipoteses_resposta": ["1918", "1919", "1920", "1921"],
+			"resposta": "1920"
+		},
+		{
+			"numero": "A000195",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem unificou a Alemanha no século XIX?",
+			"hipoteses_resposta": ["Bismarck", "Guilherme I", "Guilherme II", "Metternich"],
+			"resposta": "Bismarck"
+		},
+		{
+			"numero": "A000196",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi construído o primeiro trecho da Muralha da China?",
+			"hipoteses_resposta": ["220 a.C.", "210 a.C.", "214 a.C.", "206 a.C."],
+			"resposta": "220 a.C."
+		},
+		{
+			"numero": "A000197",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a capital do Império Inca?",
+			"hipoteses_resposta": ["Cusco", "Machu Picchu", "Quito", "La Paz"],
+			"resposta": "Cusco"
+		},
+		{
+			"numero": "A000198",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assinada a Paz de Augsburgo?",
+			"hipoteses_resposta": ["1553", "1555", "1557", "1559"],
+			"resposta": "1555"
+		},
+		{
+			"numero": "A000199",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem foi conhecido como 'O Rei Sol'?",
+			"hipoteses_resposta": ["Luís XIII", "Luís XIV", "Luís XV", "Luís XVI"],
+			"resposta": "Luís XIV"
 		}
 	]
 }
