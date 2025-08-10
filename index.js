@@ -144,18 +144,36 @@ window.addEventListener('DOMContentLoaded', () => {
     const questionCounter = document.getElementById("questionCounter");
     
     if (!integratedQuizSection || !currentQuestionDisplay || !questionText || !questionCounter) {
-      console.error("❌ Elementos HTML não encontrados para countdown do jogador 1");
-      // Continuar com o jogo sem interface visual para o jogador 1
-      setTimeout(() => {
-        update(ref(db, `games/${createdGameId}/gameState`), {
-          currentQuestionIndex: 0,
-          timeLeft: 10,
-          questionStartTime: Date.now(),
-          countdown: false,
-          countdownTime: 0
-        });
-        startGameController();
-      }, 10000);
+      console.warn("⚠️ Alguns elementos HTML não encontrados para countdown do jogador 1 - usando modo simplificado");
+      
+      // Modo simplificado - só mostrar o countdown no Firebase para outros jogadores
+      const countdownInterval = setInterval(() => {
+        countdownTime--;
+        
+        if (countdownTime > 0) {
+          // Atualizar contador no Firebase para outros jogadores
+          update(ref(db, `games/${createdGameId}/gameState`), {
+            countdownTime: countdownTime
+          });
+          console.log(`⏰ Contador simplificado: ${countdownTime}`);
+        } else {
+          // Acabou o contador - iniciar primeira pergunta
+          clearInterval(countdownInterval);
+          console.log("🏁 Contador terminado - iniciando primeira pergunta!");
+          
+          // Atualizar Firebase para iniciar primeira pergunta
+          update(ref(db, `games/${createdGameId}/gameState`), {
+            currentQuestionIndex: 0,
+            timeLeft: 10,
+            questionStartTime: Date.now(),
+            countdown: false,
+            countdownTime: 0
+          });
+          
+          // Iniciar controlador automático
+          startGameController();
+        }
+      }, 1000);
       return;
     }
     
@@ -536,29 +554,12 @@ window.addEventListener('DOMContentLoaded', () => {
       if (gameState.countdown && gameState.countdownTime > 0) {
         console.log(`⏰ Contador regressivo: ${gameState.countdownTime}`);
         
-        // Verificar se elementos existem antes de usar
-        const questionCounter = document.getElementById("questionCounter");
-        const questionText = document.getElementById("questionText");
+        // Para o jogador 1, não precisamos fazer nada especial aqui
+        // porque o countdown é controlado localmente no startCountdown()
+        // Só vamos atualizar o status se necessário
         const statusText = document.getElementById("statusText");
-        
-        // Mostrar contador no jogador 1 (se não for o host que já está mostrando)
-        if (questionCounter && questionCounter.textContent !== gameState.countdownTime.toString()) {
-          const integratedQuizSection = document.getElementById("integratedQuizSection");
-          const currentQuestionDisplay = document.getElementById("currentQuestionDisplay");
-          const player1AnswerSection = document.getElementById("player1AnswerSection");
-          
-          if (integratedQuizSection) integratedQuizSection.style.display = "block";
-          if (currentQuestionDisplay) currentQuestionDisplay.style.display = "block";
-          if (player1AnswerSection) player1AnswerSection.style.display = "none";
-          
-          if (questionText) questionText.textContent = "🎮 O jogo vai começar em...";
-          questionCounter.textContent = gameState.countdownTime;
-          questionCounter.style.fontSize = "48px";
-          questionCounter.style.color = "#FF6B35";
-          questionCounter.style.textAlign = "center";
-          questionCounter.style.fontWeight = "bold";
-          
-          if (statusText) statusText.textContent = `⏰ Iniciando em ${gameState.countdownTime}s...`;
+        if (statusText) {
+          statusText.textContent = `⏰ Iniciando em ${gameState.countdownTime}s...`;
         }
         return;
       }
