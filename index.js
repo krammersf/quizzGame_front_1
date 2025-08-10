@@ -30,10 +30,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
 
     // Verificar cards selecionados
-    const selectedCards = [];
-    if (document.getElementById("card1").checked) selectedCards.push("cards/card_1.json");
-    if (document.getElementById("card2").checked) selectedCards.push("cards/card_2.json");
-    if (document.getElementById("card3").checked) selectedCards.push("cards/card_3.json");
+    const cardSelect = document.getElementById("cardSelection");
+    const selectedCards = Array.from(cardSelect.selectedOptions).map(option => `cards/${option.value}.json`);
 
     if (!playerName) {
       alert("Por favor insere o teu nome!");
@@ -128,10 +126,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // Função para gerar perguntas (similar ao quiz.js)
   async function generateQuestionsForGame() {
     // Obter os cards selecionados
-    const selectedCards = [];
-    if (document.getElementById("card1").checked) selectedCards.push("cards/card_1.json");
-    if (document.getElementById("card2").checked) selectedCards.push("cards/card_2.json");
-    if (document.getElementById("card3").checked) selectedCards.push("cards/card_3.json");
+    const cardSelect = document.getElementById("cardSelection");
+    const selectedCards = Array.from(cardSelect.selectedOptions).map(option => `cards/${option.value}.json`);
 
     let allQuestions = [];
 
