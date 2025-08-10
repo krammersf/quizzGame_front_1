@@ -118,10 +118,15 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
       
-      alert("Jogo iniciado! Mantenha esta aba aberta para controlo automático.");
+      alert("Jogo iniciado! IMPORTANTE: Mantenha esta aba SEMPRE VISÍVEL durante o jogo!");
       
       // Mostrar aviso visual
       showControlWarning();
+      
+      // Avisar novamente após 5 segundos
+      setTimeout(() => {
+        alert("LEMBRETE: Para o jogo funcionar automaticamente, esta aba (index.html) deve permanecer VISÍVEL e ATIVA durante todo o jogo!");
+      }, 5000);
       
       // Iniciar controlador automático
       startGameController();
@@ -178,53 +183,112 @@ window.addEventListener('DOMContentLoaded', () => {
       z-index: 1000;
       font-size: 14px;
     `;
-    warningDiv.innerHTML = '🎮 CONTROLO ATIVO - Mantenha esta aba aberta!';
+    warningDiv.innerHTML = '🎮 CONTROLO ATIVO - NÃO MUDES DE ABA! Jogo em progresso...';
     document.body.appendChild(warningDiv);
     
-    // Piscar o aviso a cada 10 segundos
+    // Piscar o aviso a cada 5 segundos (mais frequente)
     setInterval(() => {
-      warningDiv.style.opacity = warningDiv.style.opacity === "0.5" ? "1" : "0.5";
-    }, 10000);
+      warningDiv.style.backgroundColor = warningDiv.style.backgroundColor === 'rgb(255, 87, 34)' ? '#ff9800' : '#ff5722';
+    }, 5000);
   }
 
-  // Função para controlar o jogo (apenas para o host) com sistema anti-bloqueio
+  // Função para controlar o jogo (apenas para o host) com sistema anti-bloqueio AGRESSIVO
   function startGameController() {
     if (!createdGameId) return;
     
     let currentQuestion = 0;
     const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
+    let gameActive = true;
     
     console.log(`Host: Iniciando controlador do jogo com ${maxQuestions} perguntas`);
     
-    // Sistema de heartbeat a cada 30 segundos para evitar bloqueio
-    const heartbeatInterval = setInterval(() => {
-      console.log("Host: Heartbeat - mantendo controlo ativo");
-      // Pequena atividade para manter a página ativa
-      document.title = `Quiz Control - ${new Date().toLocaleTimeString()}`;
-      
-      // Piscar um elemento para manter a página ativa
-      const startBtn = document.getElementById("startGameBtn");
-      if (startBtn) {
-        startBtn.style.opacity = startBtn.style.opacity === "0.9" ? "1" : "0.9";
-      }
-    }, 30000);
+    // SISTEMA ANTI-BLOQUEIO AGRESSIVO
+    let animationId;
+    let keepAliveInterval;
     
-    // Sistema de verificação a cada 5 segundos para detectar bloqueios
-    let lastHeartbeat = Date.now();
-    const healthCheck = setInterval(() => {
-      const now = Date.now();
-      if (now - lastHeartbeat > 35000) {
-        console.warn("Host: Possível bloqueio detectado, reiniciando controlo");
+    function keepPageActive() {
+      // Força a página a permanecer ativa
+      animationId = requestAnimationFrame(keepPageActive);
+      
+      // Pequenas mudanças no DOM para manter atividade
+      const timestamp = Date.now();
+      document.body.setAttribute('data-timestamp', timestamp);
+    }
+    
+    // Iniciar loop de manter ativo
+    keepPageActive();
+    
+    // Sistema de heartbeat MUITO frequente
+    keepAliveInterval = setInterval(() => {
+      if (!gameActive) return;
+      
+      console.log("Host: Heartbeat ATIVO - ", new Date().toLocaleTimeString());
+      document.title = `🎮 CONTROLO ATIVO ${new Date().toLocaleTimeString()}`;
+      
+      // Audio silencioso para manter aba ativa (se necessário)
+      try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        gainNode.gain.value = 0; // Volume zero
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + 0.01);
+      } catch (e) {
+        // Ignora erro de audio
       }
-      lastHeartbeat = now;
-    }, 5000);
+    }, 5000); // A cada 5 segundos
+    
+    // Detectar quando a aba fica inativa e forçar reativação
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        console.warn("Host: Aba ficou inativa! REATIVANDO...");
+        // Tentar reativar imediatamente
+        setTimeout(() => {
+          window.focus();
+          console.log("Host: Tentando refocar aba");
+        }, 100);
+      } else {
+        console.log("Host: Aba reativada!");
+      }
+    });
+    
+    // Detectar perda de foco e tentar recuperar
+    window.addEventListener('blur', function() {
+      console.warn("Host: Janela perdeu foco, tentando recuperar...");
+      setTimeout(() => {
+        window.focus();
+      }, 500);
+    });
+    
+    // Sistema de recuperação automática
+    setInterval(() => {
+      if (gameActive && document.hidden) {
+        console.warn("Host: Aba ainda está oculta, forçando ativação");
+        window.focus();
+        // Criar evento de mouse para "simular" atividade
+        const event = new MouseEvent('mousemove', {
+          view: window,
+          bubbles: true,
+          cancelable: true
+        });
+        document.dispatchEvent(event);
+      }
+    }, 10000);
     
     function nextQuestion() {
       console.log(`Host: nextQuestion chamada - currentQuestion: ${currentQuestion}, maxQuestions: ${maxQuestions}`);
       
       if (currentQuestion >= maxQuestions) {
         // Fim do jogo
-        console.log("Host: Jogo terminado");
+        console.log("Host: Jogo terminado - limpando sistema anti-bloqueio");
+        gameActive = false;
+        
+        // Parar sistema anti-bloqueio
+        if (animationId) cancelAnimationFrame(animationId);
+        if (keepAliveInterval) clearInterval(keepAliveInterval);
+        
         update(ref(db, `games/${createdGameId}/gameState`), {
           gameEnded: true,
           currentQuestionIndex: currentQuestion,
@@ -232,6 +296,8 @@ window.addEventListener('DOMContentLoaded', () => {
           questionStartTime: null,
           showingResults: false
         });
+        
+        document.title = "Quiz Terminado";
         return;
       }
       

@@ -567,9 +567,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (gameState.autoController && gameState.questionStartTime) {
         const timeSinceStart = Date.now() - gameState.questionStartTime;
         
-        // Se passou mais de 15 segundos desde o início da pergunta e não está a mostrar resultados
-        if (timeSinceStart > 15000 && !gameState.showingResults && !gameState.gameEnded) {
-          console.log("Controlo automático: Forçando resultados após timeout");
+        // Se passou mais de 8 segundos desde o início da pergunta e não está a mostrar resultados
+        if (timeSinceStart > 8000 && !gameState.showingResults && !gameState.gameEnded) {
+          console.log("Controlo automático: Forçando resultados após 8s (backup ativo)");
           
           // Forçar mostrar resultados
           update(ref(db, `games/${gameId}/gameState`), {
@@ -604,11 +604,11 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 2000);
         }
         
-        // Se está a mostrar resultados há mais de 5 segundos, avançar
+        // Se está a mostrar resultados há mais de 3 segundos, avançar
         if (gameState.showingResults && gameState.resultsStartTime) {
           const timeSinceResults = Date.now() - gameState.resultsStartTime;
-          if (timeSinceResults > 5000) {
-            console.log("Controlo automático: Avançando após resultados");
+          if (timeSinceResults > 3000) {
+            console.log("Controlo automático: Avançando após 3s de resultados (backup ativo)");
             
             const nextQuestionIndex = gameState.currentQuestionIndex + 1;
             if (nextQuestionIndex >= questions.length) {
