@@ -124,6 +124,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Funções para mostrar/esconder tela de contador regressivo
+  function showCountdownScreen(countdownTime) {
+    // Esconder outras telas
+    waitingBox.style.display = "none";
+    document.getElementById("questionBox").style.display = "none";
+    
+    // Criar ou atualizar tela de countdown
+    let countdownScreen = document.getElementById("countdownScreen");
+    if (!countdownScreen) {
+      countdownScreen = document.createElement("div");
+      countdownScreen.id = "countdownScreen";
+      countdownScreen.style.cssText = `
+        text-align: center;
+        margin-top: 50px;
+        padding: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      `;
+      
+      countdownScreen.innerHTML = `
+        <h2 style="margin-bottom: 20px; font-size: 24px;">🎮 O jogo vai começar!</h2>
+        <div id="countdownNumber" style="font-size: 72px; font-weight: bold; margin: 30px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">${countdownTime}</div>
+        <p style="font-size: 18px; margin-top: 20px;">Prepara-te para a primeira pergunta...</p>
+      `;
+      
+      document.querySelector(".container").appendChild(countdownScreen);
+    } else {
+      // Atualizar apenas o número
+      document.getElementById("countdownNumber").textContent = countdownTime;
+      countdownScreen.style.display = "block";
+    }
+  }
+  
+  function hideCountdownScreen() {
+    const countdownScreen = document.getElementById("countdownScreen");
+    if (countdownScreen) {
+      countdownScreen.style.display = "none";
+    }
+  }
+
   // Nova função para sincronizar com o estado do jogo
   function listenToGameState() {
     if (listeningForGameState) return;
@@ -136,6 +178,18 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const gameState = snapshot.val();
       console.log("Estado do jogo atualizado:", gameState);
+      
+      // Verificar se está em contador regressivo
+      if (gameState.countdown && gameState.countdownTime > 0) {
+        console.log(`⏰ Contador regressivo: ${gameState.countdownTime}`);
+        showCountdownScreen(gameState.countdownTime);
+        return;
+      }
+      
+      // Se saiu do countdown, esconder tela de countdown
+      if (!gameState.countdown && document.getElementById("countdownScreen")) {
+        hideCountdownScreen();
+      }
       
       // Verificar se o jogo terminou
       if (gameState.gameEnded) {

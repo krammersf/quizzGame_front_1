@@ -105,29 +105,86 @@ window.addEventListener('DOMContentLoaded', () => {
       console.log("Host gerando perguntas para o jogo...");
       const questions = await generateQuestionsForGame();
       
-      // Atualizar o Firebase com as perguntas, gameStarted e estado inicial
+      // Marcar o jogo como iniciado mas ainda sem começar perguntas
       await update(ref(db, `games/${createdGameId}`), { 
         gameStarted: true,
         questions: questions,
         gameState: {
-          currentQuestionIndex: 0,
+          currentQuestionIndex: -1, // -1 indica contador regressivo
           timeLeft: 10,
-          questionStartTime: Date.now(),
+          questionStartTime: null,
           totalQuestions: questions.length,
-          autoController: true // Ativar controlo automático
+          autoController: true,
+          countdown: true, // Flag para indicar contador regressivo
+          countdownTime: 10 // Contador inicial
         }
       });
       
       // Mostrar aviso visual
       showControlWarning();
       
-      // Iniciar controlador automático
-      startGameController();
+      // Iniciar contador regressivo
+      startCountdown();
     } catch (error) {
       console.error("Erro ao iniciar o jogo:", error);
       alert("Erro ao iniciar o jogo. Veja a consola.");
     }
   });
+
+  // Função para iniciar contador regressivo
+  function startCountdown() {
+    console.log("🚀 Iniciando contador regressivo...");
+    let countdownTime = 10;
+    
+    // Mostrar contador no painel integrado do jogador 1
+    document.getElementById("integratedQuizSection").style.display = "block";
+    document.getElementById("currentQuestionDisplay").style.display = "block";
+    document.getElementById("player1AnswerSection").style.display = "none";
+    
+    // Mostrar contador
+    document.getElementById("questionText").textContent = "🎮 O jogo vai começar em...";
+    document.getElementById("questionCounter").textContent = countdownTime;
+    document.getElementById("questionCounter").style.fontSize = "48px";
+    document.getElementById("questionCounter").style.color = "#FF6B35";
+    document.getElementById("questionCounter").style.textAlign = "center";
+    document.getElementById("questionCounter").style.fontWeight = "bold";
+    
+    const countdownInterval = setInterval(() => {
+      countdownTime--;
+      
+      if (countdownTime > 0) {
+        // Atualizar contador no Firebase para outros jogadores
+        update(ref(db, `games/${createdGameId}/gameState`), {
+          countdownTime: countdownTime
+        });
+        
+        // Atualizar display do jogador 1
+        document.getElementById("questionCounter").textContent = countdownTime;
+        console.log(`⏰ Contador: ${countdownTime}`);
+      } else {
+        // Acabou o contador - iniciar primeira pergunta
+        clearInterval(countdownInterval);
+        console.log("🏁 Contador terminado - iniciando primeira pergunta!");
+        
+        // Resetar estilo do contador
+        document.getElementById("questionCounter").style.fontSize = "";
+        document.getElementById("questionCounter").style.color = "";
+        document.getElementById("questionCounter").style.fontWeight = "";
+        
+        // Atualizar Firebase para iniciar primeira pergunta
+        update(ref(db, `games/${createdGameId}/gameState`), {
+          currentQuestionIndex: 0,
+          timeLeft: 10,
+          questionStartTime: Date.now(),
+          countdown: false,
+          countdownTime: 0
+        });
+        
+        // Iniciar controlador automático
+        startGameController();
+      }
+    }, 1000);
+  }
 
   // Função para gerar perguntas (similar ao quiz.js)
   async function generateQuestionsForGame() {
@@ -448,8 +505,35 @@ window.addEventListener('DOMContentLoaded', () => {
       const gameState = snapshot.val();
       console.log("🔄 Estado atualizado:", gameState);
       
-      // Se o jogo começou, mostrar que está ativo
-      if (gameState.questionStartTime) {
+      // Verificar se está em countdown
+      if (gameState.countdown && gameState.countdownTime > 0) {
+        console.log(`⏰ Contador regressivo: ${gameState.countdownTime}`);
+        
+        // Mostrar contador no jogador 1 (se não for o host que já está mostrando)
+        if (document.getElementById("questionCounter").textContent !== gameState.countdownTime.toString()) {
+          document.getElementById("integratedQuizSection").style.display = "block";
+          document.getElementById("currentQuestionDisplay").style.display = "block";
+          document.getElementById("player1AnswerSection").style.display = "none";
+          
+          document.getElementById("questionText").textContent = "🎮 O jogo vai começar em...";
+          document.getElementById("questionCounter").textContent = gameState.countdownTime;
+          document.getElementById("questionCounter").style.fontSize = "48px";
+          document.getElementById("questionCounter").style.color = "#FF6B35";
+          document.getElementById("questionCounter").style.textAlign = "center";
+          document.getElementById("questionCounter").style.fontWeight = "bold";
+          
+          document.getElementById("statusText").textContent = `⏰ Iniciando em ${gameState.countdownTime}s...`;
+        }
+        return;
+      }
+      
+      // Se o jogo começou (saiu do countdown), mostrar que está ativo
+      if (gameState.questionStartTime && !gameState.countdown) {
+        // Resetar estilo do contador se estava em countdown
+        document.getElementById("questionCounter").style.fontSize = "";
+        document.getElementById("questionCounter").style.color = "";
+        document.getElementById("questionCounter").style.fontWeight = "";
+        
         document.getElementById("statusText").textContent = "🎮 Jogo ativo!";
       }
       
@@ -463,8 +547,8 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
-      // Nova pergunta
-      if (gameState.currentQuestionIndex !== integratedCurrentQuestion) {
+      // Nova pergunta (apenas se não estiver em countdown)
+      if (!gameState.countdown && gameState.currentQuestionIndex !== integratedCurrentQuestion) {
         integratedCurrentQuestion = gameState.currentQuestionIndex;
         integratedPlayerAnswer = null;
         
