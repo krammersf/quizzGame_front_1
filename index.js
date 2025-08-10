@@ -1,5 +1,21 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getDatabase, ref, set, push, update } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+import { getData      // Atualizar o Firebase com as perguntas, gameStarted e estado inicial
+      await update(ref(db, `games/${createdGameId}`), { 
+        gameStarted: true,
+        questions: questions,
+        gameState: {
+          currentQuestionIndex: 0,
+          timeLeft: 10,
+          questionStartTime: Date.now(),
+          totalQuestions: questions.length,
+          autoController: true // Flag para controlo automático
+        }
+      });
+      
+      alert("Jogo iniciado!");
+      
+      // Iniciar controlador automático
+      startGameController();push, update } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDkhUnWFDUio5ebqfxal2TR-fI5wFmgBqc",
@@ -113,7 +129,8 @@ window.addEventListener('DOMContentLoaded', () => {
           currentQuestionIndex: 0,
           timeLeft: 10,
           questionStartTime: Date.now(),
-          totalQuestions: questions.length
+          totalQuestions: questions.length,
+          autoController: true // Ativar controlo automático
         }
       });
       
@@ -167,6 +184,8 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log(`Host: Iniciando controlador do jogo com ${maxQuestions} perguntas`);
     
     function nextQuestion() {
+      console.log(`Host: nextQuestion chamada - currentQuestion: ${currentQuestion}, maxQuestions: ${maxQuestions}`);
+      
       if (currentQuestion >= maxQuestions) {
         // Fim do jogo
         console.log("Host: Jogo terminado");
@@ -200,7 +219,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Timer de 10 segundos para a pergunta
       setTimeout(() => {
         // Mostrar resultados por 2 segundos
-        console.log("Host: Mostrando resultados...");
+        console.log(`Host: Timer acabou para pergunta ${currentQuestion + 1}. Mostrando resultados...`);
         update(ref(db, `games/${createdGameId}/gameState`), {
           currentQuestionIndex: currentQuestion,
           timeLeft: 0,
@@ -212,6 +231,7 @@ window.addEventListener('DOMContentLoaded', () => {
         
         // Aguardar 2 segundos e avançar para próxima pergunta
         setTimeout(() => {
+          console.log(`Host: Avançando da pergunta ${currentQuestion + 1} para ${currentQuestion + 2}`);
           currentQuestion++;
           nextQuestion();
         }, 2000);

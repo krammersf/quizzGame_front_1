@@ -547,7 +547,93 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("startGame() chamado - gameStarted flag:", gameStarted);
     await loadQuestions();
     listenToGameState(); // Começar a ouvir mudanças no estado do jogo
+    
+    // Iniciar controlo automático se for o primeiro jogador (backup do host)
+    initializeGameController();
+    
     showQuestion();
+  }
+
+  // Função para controlo automático do jogo (backup se o host sair)
+  function initializeGameController() {
+    const gameStateRef = ref(db, `games/${gameId}/gameState`);
+    
+    onValue(gameStateRef, (snapshot) => {
+      if (!snapshot.exists()) return;
+      
+      const gameState = snapshot.val();
+      
+      // Se não há questionStartTime ou o jogo está parado há muito tempo, assumir controlo
+      if (gameState.autoController && gameState.questionStartTime) {
+        const timeSinceStart = Date.now() - gameState.questionStartTime;
+        
+        // Se passou mais de 15 segundos desde o início da pergunta e não está a mostrar resultados
+        if (timeSinceStart > 15000 && !gameState.showingResults && !gameState.gameEnded) {
+          console.log("Controlo automático: Forçando resultados após timeout");
+          
+          // Forçar mostrar resultados
+          update(ref(db, `games/${gameId}/gameState`), {
+            ...gameState,
+            showingResults: true,
+            timeLeft: 0,
+            resultsStartTime: Date.now()
+          });
+          
+          // Avançar para próxima pergunta após 2 segundos
+          setTimeout(() => {
+            const nextQuestionIndex = gameState.currentQuestionIndex + 1;
+            if (nextQuestionIndex >= questions.length) {
+              // Fim do jogo
+              update(ref(db, `games/${gameId}/gameState`), {
+                gameEnded: true,
+                currentQuestionIndex: nextQuestionIndex,
+                timeLeft: 0,
+                questionStartTime: null,
+                showingResults: false
+              });
+            } else {
+              // Próxima pergunta
+              update(ref(db, `games/${gameId}/gameState`), {
+                currentQuestionIndex: nextQuestionIndex,
+                timeLeft: 10,
+                questionStartTime: Date.now(),
+                gameEnded: false,
+                showingResults: false
+              });
+            }
+          }, 2000);
+        }
+        
+        // Se está a mostrar resultados há mais de 5 segundos, avançar
+        if (gameState.showingResults && gameState.resultsStartTime) {
+          const timeSinceResults = Date.now() - gameState.resultsStartTime;
+          if (timeSinceResults > 5000) {
+            console.log("Controlo automático: Avançando após resultados");
+            
+            const nextQuestionIndex = gameState.currentQuestionIndex + 1;
+            if (nextQuestionIndex >= questions.length) {
+              // Fim do jogo
+              update(ref(db, `games/${gameId}/gameState`), {
+                gameEnded: true,
+                currentQuestionIndex: nextQuestionIndex,
+                timeLeft: 0,
+                questionStartTime: null,
+                showingResults: false
+              });
+            } else {
+              // Próxima pergunta
+              update(ref(db, `games/${gameId}/gameState`), {
+                currentQuestionIndex: nextQuestionIndex,
+                timeLeft: 10,
+                questionStartTime: Date.now(),
+                gameEnded: false,
+                showingResults: false
+              });
+            }
+          }
+        }
+      }
+    });
   }
 
 });
