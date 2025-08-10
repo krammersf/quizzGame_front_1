@@ -117,6 +117,16 @@
       background-color: #FFB300 !important;
     }
 
+    #openPlayer1Btn {
+      background-color: #FF9800 !important;
+      color: white !important;
+      font-weight: bold !important;
+    }
+
+    #openPlayer1Btn:hover {
+      background-color: #F57C00 !important;
+    }
+
     /* Responsivo - em ecrãs pequenos volta a ser coluna */
     @media (max-width: 600px) {
       .input-row {
@@ -176,6 +186,7 @@
     </p>
 
     <button id="startGameBtn">🚀 Criar Jogo</button>
+    <button id="openPlayer1Btn" style="display:none;">👤 Abrir como Jogador 1</button>
     <button id="beginGameBtn">▶️ Iniciar Jogo</button>
 
     <div id="shareLink" style="display:none; margin-top:20px;">
@@ -183,8 +194,6 @@
         <input type="text" id="gameLink" readonly style="width:80%;" />
         <button id="copyBtn" style="width:18%;">Copiar</button>
         <span id="copyMsg" style="display:none; color:green; margin-left:10px;">Copiado!</span>
-
-        <button id="openPlayer1Btn" style="margin-top:10px;">Abrir como Jogador 1</button>
     </div>
     <!-- Secção de classificação, escondida inicialmente -->
     <div id="quizSection">

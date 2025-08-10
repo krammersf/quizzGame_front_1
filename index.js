@@ -79,6 +79,10 @@ window.addEventListener('DOMContentLoaded', () => {
       sessionStorage.setItem("gameId", createdGameId);
       sessionStorage.setItem("playerName", creatorName);
 
+      // Esconder botão "Criar Jogo" e mostrar botão "Abrir como Jogador 1"
+      document.getElementById("startGameBtn").style.display = "none";
+      document.getElementById("openPlayer1Btn").style.display = "inline-block";
+
       document.getElementById("shareLink").style.display = "block";
       document.getElementById("gameLink").value = `${window.location.origin}/quizzGame_front_1/quiz.html?gameId=${createdGameId}`;
 

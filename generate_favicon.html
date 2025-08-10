@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+canvas { border: 1px solid #000; }
+</style>
+</head>
+<body>
+
+<canvas id="faviconCanvas" width="32" height="32"></canvas>
+
+<script>
+const canvas = document.getElementById('faviconCanvas');
+const ctx = canvas.getContext('2d');
+
+// Fundo vermelho
+ctx.fillStyle = '#DC143C';
+ctx.fillRect(0, 0, 32, 32);
+
+// Texto Q em amarelo
+ctx.fillStyle = '#FFD700';
+ctx.font = 'bold 20px Arial';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+ctx.fillText('Q', 16, 16);
+
+// Converter para blob e download
+canvas.toBlob(function(blob) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'favicon.png';
+    a.click();
+});
+</script>
+
+</body>
+</html>
