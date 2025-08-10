@@ -491,28 +491,38 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     const question = integratedQuestions[integratedCurrentQuestion];
+    console.log("🎯 Mostrando pergunta:", question);
     
     // Atualizar título
     document.getElementById("questionTitle").textContent = 
       `Pergunta ${integratedCurrentQuestion + 1} de ${integratedQuestions.length}`;
     
-    // Mostrar pergunta
-    document.getElementById("questionText").textContent = question.question;
+    // Mostrar pergunta (usar 'pergunta' em vez de 'question')
+    document.getElementById("questionText").textContent = question.pergunta;
     
-    // Mostrar imagem se existir
+    // Mostrar imagem se existir (usar 'imagem' em vez de 'image')
     const imgElement = document.getElementById("questionImage");
-    if (question.image) {
-      imgElement.src = question.image;
+    if (question.imagem) {
+      imgElement.src = question.imagem;
       imgElement.style.display = "block";
     } else {
       imgElement.style.display = "none";
     }
     
-    // Mostrar opções de resposta
-    document.getElementById("answerA").textContent = `A) ${question.options.A}`;
-    document.getElementById("answerB").textContent = `B) ${question.options.B}`;
-    document.getElementById("answerC").textContent = `C) ${question.options.C}`;
-    document.getElementById("answerD").textContent = `D) ${question.options.D}`;
+    // Mostrar opções de resposta (usar 'hipoteses_resposta' array)
+    const options = question.hipoteses_resposta;
+    if (options && options.length >= 4) {
+      document.getElementById("answerA").textContent = `A) ${options[0]}`;
+      document.getElementById("answerB").textContent = `B) ${options[1]}`;
+      document.getElementById("answerC").textContent = `C) ${options[2]}`;
+      document.getElementById("answerD").textContent = `D) ${options[3]}`;
+    } else {
+      console.error("❌ Opções de resposta não encontradas:", question);
+      document.getElementById("answerA").textContent = "A) Erro";
+      document.getElementById("answerB").textContent = "B) Erro";
+      document.getElementById("answerC").textContent = "C) Erro";
+      document.getElementById("answerD").textContent = "D) Erro";
+    }
     
     // Mostrar secções relevantes
     document.getElementById("currentQuestionDisplay").style.display = "block";
@@ -563,16 +573,23 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     const question = integratedQuestions[integratedCurrentQuestion];
-    const isCorrect = integratedPlayerAnswer === question.correct;
+    
+    // Converter letra para índice (A=0, B=1, C=2, D=3)
+    const answerIndex = integratedPlayerAnswer.charCodeAt(0) - 65; // A=65 em ASCII
+    const selectedAnswer = question.hipoteses_resposta[answerIndex];
+    const correctAnswer = question.resposta;
+    
+    const isCorrect = selectedAnswer === correctAnswer;
+    console.log(`🔍 Resposta: ${selectedAnswer}, Correta: ${correctAnswer}, Está certo: ${isCorrect}`);
     
     if (isCorrect) {
       const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
       integratedPlayerScore += pointsCorrect;
-      document.getElementById("statusText").textContent = `✅ Correto! +${pointsCorrect} pontos`;
+      document.getElementById("statusText").textContent = `✅ Correto! +${pointsCorrect} pontos (Resposta: ${correctAnswer})`;
     } else {
       const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
       integratedPlayerScore += pointsWrong;
-      document.getElementById("statusText").textContent = `❌ Errado! ${pointsWrong} pontos`;
+      document.getElementById("statusText").textContent = `❌ Errado! ${pointsWrong} pontos (Correto: ${correctAnswer})`;
     }
     
     // Atualizar pontuação
