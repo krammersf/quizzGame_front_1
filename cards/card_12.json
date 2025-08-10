@@ -1,0 +1,405 @@
+{
+	"card": "Geografia Mundial",
+	"perguntas": [
+		{
+			"numero": "G001000",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país com maior área do mundo?",
+			"hipoteses_resposta": ["Rússia", "Canadá", "China", "Estados Unidos"],
+			"resposta": "Rússia"
+		},
+		{
+			"numero": "G001001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a montanha mais alta do mundo?",
+			"hipoteses_resposta": ["Monte Everest", "K2", "Kangchenjunga", "Lhotse"],
+			"resposta": "Monte Everest"
+		},
+		{
+			"numero": "G001002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos continentes existem?",
+			"hipoteses_resposta": ["7", "6", "5", "8"],
+			"resposta": "7"
+		},
+		{
+			"numero": "G001003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o rio mais longo do mundo?",
+			"hipoteses_resposta": ["Nilo", "Amazonas", "Yangtze", "Mississippi"],
+			"resposta": "Nilo"
+		},
+		{
+			"numero": "G001004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que continente se localiza o Egipto?",
+			"hipoteses_resposta": ["África", "Ásia", "Europa", "Oceania"],
+			"resposta": "África"
+		},
+		{
+			"numero": "G001005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da França?",
+			"hipoteses_resposta": ["Paris", "Lyon", "Marselha", "Nice"],
+			"resposta": "Paris"
+		},
+		{
+			"numero": "G001006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior oceano do mundo?",
+			"hipoteses_resposta": ["Pacífico", "Atlântico", "Índico", "Ártico"],
+			"resposta": "Pacífico"
+		},
+		{
+			"numero": "G001007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localiza a cidade de Sydney?",
+			"hipoteses_resposta": ["Austrália", "Nova Zelândia", "África do Sul", "Canadá"],
+			"resposta": "Austrália"
+		},
+		{
+			"numero": "G001008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o deserto mais seco do mundo?",
+			"hipoteses_resposta": ["Atacama", "Saara", "Gobi", "Kalahari"],
+			"resposta": "Atacama"
+		},
+		{
+			"numero": "G001009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos países fazem parte da União Europeia atualmente?",
+			"hipoteses_resposta": ["27", "28", "25", "30"],
+			"resposta": "27"
+		},
+		{
+			"numero": "G001010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Espanha?",
+			"hipoteses_resposta": ["Madrid", "Barcelona", "Sevilha", "Valência"],
+			"resposta": "Madrid"
+		},
+		{
+			"numero": "G001011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localizam as Cataratas do Niágara?",
+			"hipoteses_resposta": ["Estados Unidos e Canadá", "Brasil e Argentina", "Zâmbia e Zimbabwe", "Venezuela e Guiana"],
+			"resposta": "Estados Unidos e Canadá"
+		},
+		{
+			"numero": "G001012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país mais populoso do mundo?",
+			"hipoteses_resposta": ["China", "Índia", "Estados Unidos", "Indonésia"],
+			"resposta": "China"
+		},
+		{
+			"numero": "G001013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital do Brasil?",
+			"hipoteses_resposta": ["Brasília", "Rio de Janeiro", "São Paulo", "Salvador"],
+			"resposta": "Brasília"
+		},
+		{
+			"numero": "G001014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que continente se localiza a Índia?",
+			"hipoteses_resposta": ["Ásia", "África", "Europa", "Oceania"],
+			"resposta": "Ásia"
+		},
+		{
+			"numero": "G000066",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior lago do mundo?",
+			"hipoteses_resposta": ["Mar Cáspio", "Lago Superior", "Lago Vitória", "Lago Baikal"],
+			"resposta": "Mar Cáspio"
+		},
+		{
+			"numero": "G000067",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Itália?",
+			"hipoteses_resposta": ["Roma", "Milão", "Nápoles", "Florença"],
+			"resposta": "Roma"
+		},
+		{
+			"numero": "G000068",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localiza Machu Picchu?",
+			"hipoteses_resposta": ["Peru", "Bolívia", "Equador", "Colômbia"],
+			"resposta": "Peru"
+		},
+		{
+			"numero": "G000069",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país mais pequeno do mundo?",
+			"hipoteses_resposta": ["Vaticano", "Mónaco", "San Marino", "Liechtenstein"],
+			"resposta": "Vaticano"
+		},
+		{
+			"numero": "G000070",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que oceano se localizam as ilhas Maldivas?",
+			"hipoteses_resposta": ["Índico", "Pacífico", "Atlântico", "Ártico"],
+			"resposta": "Índico"
+		},
+		{
+			"numero": "G000071",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Alemanha?",
+			"hipoteses_resposta": ["Berlim", "Munique", "Hamburgo", "Frankfurt"],
+			"resposta": "Berlim"
+		},
+		{
+			"numero": "G000072",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o ponto mais baixo da Terra?",
+			"hipoteses_resposta": ["Mar Morto", "Vale da Morte", "Depressão de Qattara", "Lago Assal"],
+			"resposta": "Mar Morto"
+		},
+		{
+			"numero": "G000073",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localiza a Grande Muralha?",
+			"hipoteses_resposta": ["China", "Mongólia", "Coreia do Norte", "Japão"],
+			"resposta": "China"
+		},
+		{
+			"numero": "G000074",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital do Reino Unido?",
+			"hipoteses_resposta": ["Londres", "Edimburgo", "Cardiff", "Belfast"],
+			"resposta": "Londres"
+		},
+		{
+			"numero": "G000075",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior deserto do mundo?",
+			"hipoteses_resposta": ["Antártida", "Saara", "Arábia", "Gobi"],
+			"resposta": "Antártida"
+		},
+		{
+			"numero": "G000076",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localizam as pirâmides de Gizé?",
+			"hipoteses_resposta": ["Egipto", "Sudão", "Líbia", "Etiópia"],
+			"resposta": "Egipto"
+		},
+		{
+			"numero": "G000077",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Rússia?",
+			"hipoteses_resposta": ["Moscovo", "São Petersburgo", "Novosibirsk", "Ecaterimburgo"],
+			"resposta": "Moscovo"
+		},
+		{
+			"numero": "G000078",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a ilha mais grande do mundo?",
+			"hipoteses_resposta": ["Gronelândia", "Nova Guiné", "Bornéu", "Madagáscar"],
+			"resposta": "Gronelândia"
+		},
+		{
+			"numero": "G000079",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que continente se localiza o Chile?",
+			"hipoteses_resposta": ["América do Sul", "América do Norte", "África", "Oceania"],
+			"resposta": "América do Sul"
+		},
+		{
+			"numero": "G000080",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital dos Estados Unidos?",
+			"hipoteses_resposta": ["Washington D.C.", "Nova York", "Los Angeles", "Chicago"],
+			"resposta": "Washington D.C."
+		},
+		{
+			"numero": "G000081",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o vulcão mais alto do mundo?",
+			"hipoteses_resposta": ["Ojos del Salado", "Monte Kilimanjaro", "Monte Fuji", "Vesúvio"],
+			"resposta": "Ojos del Salado"
+		},
+		{
+			"numero": "G000082",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localiza a cidade de Mumbai?",
+			"hipoteses_resposta": ["Índia", "Paquistão", "Bangladesh", "Sri Lanka"],
+			"resposta": "Índia"
+		},
+		{
+			"numero": "G000083",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital do Japão?",
+			"hipoteses_resposta": ["Tóquio", "Osaka", "Quioto", "Hiroshima"],
+			"resposta": "Tóquio"
+		},
+		{
+			"numero": "G000084",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o estreito que separa a Europa da África?",
+			"hipoteses_resposta": ["Gibraltar", "Bósforo", "Dardanelos", "Ormuz"],
+			"resposta": "Gibraltar"
+		},
+		{
+			"numero": "G000085",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localiza a cidade de Istambul?",
+			"hipoteses_resposta": ["Turquia", "Grécia", "Bulgária", "Síria"],
+			"resposta": "Turquia"
+		},
+		{
+			"numero": "G000086",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Austrália?",
+			"hipoteses_resposta": ["Camberra", "Sydney", "Melbourne", "Perth"],
+			"resposta": "Camberra"
+		},
+		{
+			"numero": "G000087",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país com mais ilhas no mundo?",
+			"hipoteses_resposta": ["Finlândia", "Suécia", "Noruega", "Dinamarca"],
+			"resposta": "Finlândia"
+		},
+		{
+			"numero": "G000088",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localiza o Canal de Suez?",
+			"hipoteses_resposta": ["Egipto", "Israel", "Jordânia", "Arábia Saudita"],
+			"resposta": "Egipto"
+		},
+		{
+			"numero": "G000089",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital do Canadá?",
+			"hipoteses_resposta": ["Ottawa", "Toronto", "Montreal", "Vancouver"],
+			"resposta": "Ottawa"
+		},
+		{
+			"numero": "G000090",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a cordilheira mais extensa do mundo?",
+			"hipoteses_resposta": ["Andes", "Himalaias", "Montanhas Rochosas", "Alpes"],
+			"resposta": "Andes"
+		},
+		{
+			"numero": "G000091",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localiza a cidade de Casablanca?",
+			"hipoteses_resposta": ["Marrocos", "Argélia", "Tunísia", "Líbia"],
+			"resposta": "Marrocos"
+		},
+		{
+			"numero": "G000092",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Argentina?",
+			"hipoteses_resposta": ["Buenos Aires", "Córdoba", "Rosário", "Mendoza"],
+			"resposta": "Buenos Aires"
+		},
+		{
+			"numero": "G000093",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país onde nasce o rio Amazonas?",
+			"hipoteses_resposta": ["Peru", "Brasil", "Colômbia", "Equador"],
+			"resposta": "Peru"
+		},
+		{
+			"numero": "G000094",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que continente se localiza a Groenlândia?",
+			"hipoteses_resposta": ["América do Norte", "Europa", "Ásia", "Antártida"],
+			"resposta": "América do Norte"
+		},
+		{
+			"numero": "G000095",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Holanda?",
+			"hipoteses_resposta": ["Amesterdão", "Haia", "Roterdão", "Utrecht"],
+			"resposta": "Amesterdão"
+		},
+		{
+			"numero": "G000096",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país onde se localiza o Monte Kilimanjaro?",
+			"hipoteses_resposta": ["Tanzânia", "Quénia", "Uganda", "Etiópia"],
+			"resposta": "Tanzânia"
+		},
+		{
+			"numero": "G000097",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital da Suíça?",
+			"hipoteses_resposta": ["Berna", "Zurique", "Genebra", "Basileia"],
+			"resposta": "Berna"
+		},
+		{
+			"numero": "G000098",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país se localiza a Patagónia?",
+			"hipoteses_resposta": ["Argentina e Chile", "Brasil e Uruguai", "Peru e Bolívia", "Paraguai e Brasil"],
+			"resposta": "Argentina e Chile"
+		},
+		{
+			"numero": "G000099",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capital do México?",
+			"hipoteses_resposta": ["Cidade do México", "Guadalajara", "Monterrey", "Cancún"],
+			"resposta": "Cidade do México"
+		},
+		{
+			"numero": "G001049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país com maior número de fusos horários?",
+			"hipoteses_resposta": ["França", "Rússia", "Estados Unidos", "Reino Unido"],
+			"resposta": "França"
+		}
+	]
+}

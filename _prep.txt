@@ -25,3 +25,9 @@ quiz/
   script.js         ← Lógica principal do quiz
   scoreboard.js     ← Gestão de pontuações
   style.css
+
+
+temas a fazer
+astronomia
+arte
+bandeiras
