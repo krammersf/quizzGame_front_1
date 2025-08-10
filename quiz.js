@@ -282,6 +282,52 @@ document.addEventListener("DOMContentLoaded", () => {
     
     console.log("Resposta correta:", correctAnswer);
     
+    // Guardar registo de que o jogador não respondeu
+    const roundData = {
+      questionIndex: currentQuestionIndex,
+      questionText: currentQuestion.pergunta,
+      selectedAnswer: null, // Nenhuma resposta selecionada
+      correctAnswer: correctAnswer,
+      isCorrect: false,
+      pointsEarned: gameConfig.pointsWrong, // Pontos por não responder
+      timestamp: Date.now(),
+      timeExpired: true // Flag para indicar que o tempo expirou
+    };
+    
+    // Atualizar pontuação por não responder
+    score += gameConfig.pointsWrong;
+    
+    // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
+    const questionData = {
+      question: currentQuestion.pergunta,
+      options: currentQuestion.hipoteses_resposta,
+      correctAnswer: correctAnswer,
+      questionIndex: currentQuestionIndex
+    };
+    
+    // Dados da resposta do jogador (tempo esgotado)
+    const playerAnswerData = {
+      answer: null,
+      points: gameConfig.pointsWrong,
+      isCorrect: false,
+      timestamp: Date.now(),
+      timeExpired: true
+    };
+    
+    // Atualizar ambas as estruturas no Firebase
+    const updates = {};
+    updates[`games/${gameId}/players/${playerName}/score`] = score;
+    updates[`games/${gameId}/players/${playerName}/rounds/${currentQuestionIndex}`] = roundData;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/question`] = questionData.question;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/options`] = questionData.options;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/correctAnswer`] = questionData.correctAnswer;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/questionIndex`] = questionData.questionIndex;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/playerAnswers/${playerName}`] = playerAnswerData;
+    
+    update(ref(db), updates)
+      .then(() => console.log("Registo de tempo esgotado e resultado da pergunta guardados no Firebase"))
+      .catch(err => console.error("Erro ao guardar registo:", err));
+    
     const answersBox = document.getElementById("answersBox");
     Array.from(answersBox.children).forEach(btn => {
       // Limpar estilos anteriores
@@ -450,10 +496,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Score atual:", score);
     
-    // Atualizar score no Firebase
-    update(ref(db, `games/${gameId}/players/${playerName}`), { score })
-      .then(() => console.log("Score atualizado no Firebase"))
-      .catch(err => console.error("Erro ao atualizar score:", err));
+    // Calcular pontos ganhos nesta ronda
+    const pointsThisRound = isCorrect ? gameConfig.pointsCorrect : gameConfig.pointsWrong;
+    
+    // Guardar resposta detalhada desta ronda na base de dados (estrutura antiga - mantida para compatibilidade)
+    const roundData = {
+      questionIndex: currentQuestionIndex,
+      questionText: questions[currentQuestionIndex].pergunta,
+      selectedAnswer: selected,
+      correctAnswer: correct,
+      isCorrect: isCorrect,
+      pointsEarned: pointsThisRound,
+      timestamp: Date.now()
+    };
+    
+    // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
+    const questionResultRef = ref(db, `games/${gameId}/questionResults/${currentQuestionIndex}`);
+    const currentQuestion = questions[currentQuestionIndex];
+    
+    // Primeiro, garantir que a pergunta existe na estrutura
+    const questionData = {
+      question: currentQuestion.pergunta,
+      options: currentQuestion.hipoteses_resposta,
+      correctAnswer: currentQuestion.resposta,
+      questionIndex: currentQuestionIndex
+    };
+    
+    // Dados da resposta do jogador
+    const playerAnswerData = {
+      answer: selected,
+      points: pointsThisRound,
+      isCorrect: isCorrect,
+      timestamp: Date.now()
+    };
+    
+    // Atualizar ambas as estruturas no Firebase
+    const updates = {};
+    updates[`games/${gameId}/players/${playerName}/score`] = score;
+    updates[`games/${gameId}/players/${playerName}/rounds/${currentQuestionIndex}`] = roundData;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/question`] = questionData.question;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/options`] = questionData.options;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/correctAnswer`] = questionData.correctAnswer;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/questionIndex`] = questionData.questionIndex;
+    updates[`games/${gameId}/questionResults/${currentQuestionIndex}/playerAnswers/${playerName}`] = playerAnswerData;
+    
+    update(ref(db), updates)
+      .then(() => console.log("Score, resposta da ronda e resultado da pergunta atualizados no Firebase"))
+      .catch(err => console.error("Erro ao atualizar dados no Firebase:", err));
 
     // APENAS desativar botões e marcar seleção (SEM cores de resultado)
     const answersBox = document.getElementById("answersBox");
@@ -620,7 +709,7 @@ document.addEventListener("DOMContentLoaded", () => {
             resultsStartTime: Date.now()
           });
           
-          // Avançar para próxima pergunta após 2 segundos
+          // Avançar para próxima pergunta após 5 segundos
           setTimeout(() => {
             const nextQuestionIndex = gameState.currentQuestionIndex + 1;
             if (nextQuestionIndex >= questions.length) {
@@ -642,14 +731,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 showingResults: false
               });
             }
-          }, 2000);
+          }, 5000);
         }
         
-        // Se está a mostrar resultados há mais de 3 segundos, avançar
+        // Se está a mostrar resultados há mais de 6 segundos, avançar
         if (gameState.showingResults && gameState.resultsStartTime) {
           const timeSinceResults = Date.now() - gameState.resultsStartTime;
-          if (timeSinceResults > 3000) {
-            console.log("Controlo automático: Avançando após 3s de resultados (backup ativo)");
+          if (timeSinceResults > 6000) {
+            console.log("Controlo automático: Avançando após 6s de resultados (backup ativo)");
             
             const nextQuestionIndex = gameState.currentQuestionIndex + 1;
             if (nextQuestionIndex >= questions.length) {

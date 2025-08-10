@@ -313,7 +313,7 @@ window.addEventListener('DOMContentLoaded', () => {
       
       // Timer de 10 segundos para a pergunta
       setTimeout(() => {
-        // Mostrar resultados por 2 segundos
+        // Mostrar resultados por 5 segundos
         console.log(`Host: Timer acabou para pergunta ${currentQuestion + 1}. Mostrando resultados...`);
         update(ref(db, `games/${createdGameId}/gameState`), {
           currentQuestionIndex: currentQuestion,
@@ -324,12 +324,12 @@ window.addEventListener('DOMContentLoaded', () => {
           resultsStartTime: Date.now()
         });
         
-        // Aguardar 2 segundos e avançar para próxima pergunta
+        // Aguardar 5 segundos e avançar para próxima pergunta
         setTimeout(() => {
           console.log(`Host: Avançando da pergunta ${currentQuestion + 1} para ${currentQuestion + 2}`);
           currentQuestion++;
           nextQuestion();
-        }, 2000);
+        }, 5000);
       }, 10000);
     }
     
@@ -586,6 +586,53 @@ window.addEventListener('DOMContentLoaded', () => {
     
     if (!integratedPlayerAnswer) {
       document.getElementById("statusText").textContent = "⏸️ Não respondeste a tempo!";
+      
+      // Guardar registo de que o jogador 1 não respondeu
+      const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
+      integratedPlayerScore += pointsWrong;
+      
+      const roundData = {
+        questionIndex: integratedCurrentQuestionIndex,
+        questionText: question.pergunta,
+        selectedAnswer: null, // Nenhuma resposta selecionada
+        correctAnswer: correctAnswer,
+        isCorrect: false,
+        pointsEarned: pointsWrong,
+        timestamp: Date.now(),
+        timeExpired: true // Flag para indicar que o tempo expirou
+      };
+      
+      // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
+      const questionData = {
+        question: question.pergunta,
+        options: question.hipoteses_resposta,
+        correctAnswer: correctAnswer,
+        questionIndex: integratedCurrentQuestionIndex
+      };
+      
+      // Dados da resposta do jogador 1 (tempo esgotado)
+      const playerAnswerData = {
+        answer: null,
+        points: pointsWrong,
+        isCorrect: false,
+        timestamp: Date.now(),
+        timeExpired: true
+      };
+      
+      // Atualizar ambas as estruturas no Firebase
+      const updates = {};
+      updates[`games/${createdGameId}/players/${creatorName}/score`] = integratedPlayerScore;
+      updates[`games/${createdGameId}/players/${creatorName}/rounds/${integratedCurrentQuestionIndex}`] = roundData;
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/question`] = questionData.question;
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/options`] = questionData.options;
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/correctAnswer`] = questionData.correctAnswer;
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/questionIndex`] = questionData.questionIndex;
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/playerAnswers/${creatorName}`] = playerAnswerData;
+      
+      update(ref(db), updates)
+        .then(() => console.log("Registo de tempo esgotado e resultado da pergunta do jogador 1 guardados"))
+        .catch(err => console.error("Erro ao guardar registo do jogador 1:", err));
+      
       return;
     }
     
@@ -613,10 +660,51 @@ window.addEventListener('DOMContentLoaded', () => {
       document.getElementById("statusText").textContent = `❌ Errado! ${pointsWrong} pontos (Correto: ${correctAnswer})`;
     }
     
-    // Atualizar pontuação na base de dados (mas não mostrar no painel)
-    update(ref(db, `games/${createdGameId}/players/${creatorName}`), {
-      score: integratedPlayerScore
-    });
+    // Calcular pontos ganhos nesta ronda
+    const pointsThisRound = isCorrect ? 
+      parseInt(document.getElementById("pointsCorrect").value) : 
+      parseInt(document.getElementById("pointsWrong").value);
+    
+    // Guardar resposta detalhada desta ronda na base de dados (estrutura antiga - mantida para compatibilidade)
+    const roundData = {
+      questionIndex: integratedCurrentQuestionIndex,
+      questionText: question.pergunta,
+      selectedAnswer: selectedAnswer,
+      correctAnswer: correctAnswer,
+      isCorrect: isCorrect,
+      pointsEarned: pointsThisRound,
+      timestamp: Date.now()
+    };
+    
+    // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
+    const questionData = {
+      question: question.pergunta,
+      options: question.hipoteses_resposta,
+      correctAnswer: correctAnswer,
+      questionIndex: integratedCurrentQuestionIndex
+    };
+    
+    // Dados da resposta do jogador 1
+    const playerAnswerData = {
+      answer: selectedAnswer,
+      points: pointsThisRound,
+      isCorrect: isCorrect,
+      timestamp: Date.now()
+    };
+    
+    // Atualizar ambas as estruturas no Firebase
+    const updates = {};
+    updates[`games/${createdGameId}/players/${creatorName}/score`] = integratedPlayerScore;
+    updates[`games/${createdGameId}/players/${creatorName}/rounds/${integratedCurrentQuestionIndex}`] = roundData;
+    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/question`] = questionData.question;
+    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/options`] = questionData.options;
+    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/correctAnswer`] = questionData.correctAnswer;
+    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/questionIndex`] = questionData.questionIndex;
+    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestionIndex}/playerAnswers/${creatorName}`] = playerAnswerData;
+    
+    update(ref(db), updates)
+      .then(() => console.log("Score, resposta da ronda e resultado da pergunta do jogador 1 atualizados"))
+      .catch(err => console.error("Erro ao atualizar dados do jogador 1:", err));
   }
 
   // Função para mostrar resultados finais integrados
