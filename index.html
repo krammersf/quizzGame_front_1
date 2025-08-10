@@ -85,6 +85,42 @@
       cursor: pointer;
       flex: 1;
     }
+
+    /* Estilos para campos em linha */
+    .input-row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .input-group {
+      flex: 1;
+    }
+
+    .input-group label {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      margin-bottom: 0;
+    }
+
+    /* Responsivo - em ecrãs pequenos volta a ser coluna */
+    @media (max-width: 600px) {
+      .input-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .input-group {
+        margin-bottom: 15px;
+      }
+      
+      .input-group:last-child {
+        margin-bottom: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -94,17 +130,29 @@
     <label>Nome do Jogador 1:</label>
     <input type="text" id="playerName" placeholder="Ex: João" required />
 
-    <label>Número total de jogadores (incluindo o Jogador 1):</label>
-    <input type="number" id="totalPlayers" value="2" min="1" />
+    <!-- Números em linha -->
+    <div class="input-row">
+      <div class="input-group">
+        <label>Número total de jogadores (incluindo o Jogador 1):</label>
+        <input type="number" id="totalPlayers" value="2" min="1" />
+      </div>
+      <div class="input-group">
+        <label>Número máximo de perguntas:</label>
+        <input type="number" id="maxQuestions" value="10" min="1" />
+      </div>
+    </div>
 
-    <label>Número máximo de perguntas:</label>
-    <input type="number" id="maxQuestions" value="10" min="1" />
-
-    <label>Pontos por resposta certa:</label>
-    <input type="number" id="pointsCorrect" value="4" />
-
-    <label>Pontos por resposta errada:</label>
-    <input type="number" id="pointsWrong" value="-4" />
+    <!-- Pontos em linha -->
+    <div class="input-row">
+      <div class="input-group">
+        <label>Pontos por resposta certa:</label>
+        <input type="number" id="pointsCorrect" value="4" />
+      </div>
+      <div class="input-group">
+        <label>Pontos por resposta errada:</label>
+        <input type="number" id="pointsWrong" value="-4" />
+      </div>
+    </div>
 
     <label>Selecionar Cards de Perguntas:</label>
     <div id="cardSelection" style="margin-bottom: 15px;">
