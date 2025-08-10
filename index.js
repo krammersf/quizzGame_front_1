@@ -564,21 +564,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para mostrar resultados da resposta integrada
   function showIntegratedAnswerResults() {
-    console.log("🎯 showIntegratedAnswerResults chamada");
-    console.log("📊 Estado atual:", {
-      integratedCurrentQuestion,
-      integratedPlayerScore,
-      integratedPlayerAnswer,
-      creatorName,
-      createdGameId
-    });
-    
     const question = integratedQuestions[integratedCurrentQuestion];
-    if (!question) {
-      console.error("❌ Pergunta não encontrada para índice:", integratedCurrentQuestion);
-      return;
-    }
-    
     const correctAnswer = question.resposta;
     const answerButtons = document.querySelectorAll(".player1-answer-btn");
     
@@ -599,7 +585,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     if (!integratedPlayerAnswer) {
-      console.log("⏰ Jogador 1 não respondeu a tempo - registando timeout");
       document.getElementById("statusText").textContent = "⏸️ Não respondeste a tempo!";
       
       // Guardar registo de que o jogador 1 não respondeu
@@ -645,19 +630,8 @@ window.addEventListener('DOMContentLoaded', () => {
       updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/playerAnswers/${creatorName}`] = playerAnswerData;
       
       update(ref(db), updates)
-        .then(() => {
-          console.log("✅ Registo de tempo esgotado e resultado da pergunta do jogador 1 guardados");
-          console.log("📊 Dados de timeout guardados:", {
-            score: integratedPlayerScore,
-            questionIndex: integratedCurrentQuestion,
-            timeExpired: true,
-            points: pointsWrong
-          });
-        })
-        .catch(err => {
-          console.error("❌ Erro ao guardar registo do jogador 1:", err);
-          console.error("📋 Updates que falharam:", updates);
-        });
+        .then(() => console.log("✅ Registo de tempo esgotado e resultado da pergunta do jogador 1 guardados"))
+        .catch(err => console.error("❌ Erro ao guardar registo do jogador 1:", err));
       
       return;
     }
@@ -668,7 +642,6 @@ window.addEventListener('DOMContentLoaded', () => {
     
     const isCorrect = selectedAnswer === correctAnswer;
     console.log(`🔍 Resposta: ${selectedAnswer}, Correta: ${correctAnswer}, Está certo: ${isCorrect}`);
-    console.log("💾 Guardando resposta do jogador 1...");
     
     // Se resposta errada, destacar em VERMELHO
     if (!isCorrect && answerIndex >= 0) {
@@ -729,27 +702,9 @@ window.addEventListener('DOMContentLoaded', () => {
     updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/questionIndex`] = questionData.questionIndex;
     updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/playerAnswers/${creatorName}`] = playerAnswerData;
     
-    console.log("🔥 TESTE: Antes do update Firebase");
-    console.log("🔥 createdGameId:", createdGameId);
-    console.log("🔥 creatorName:", creatorName);
-    console.log("🔥 integratedPlayerScore:", integratedPlayerScore);
-    console.log("🔥 Updates a enviar:", updates);
-    
     update(ref(db), updates)
-      .then(() => {
-        console.log("✅ Score e resposta da ronda e resultado da pergunta do jogador 1 atualizados");
-        console.log("📊 Dados guardados:", {
-          score: integratedPlayerScore,
-          questionIndex: integratedCurrentQuestion,
-          answer: selectedAnswer,
-          isCorrect: isCorrect,
-          points: pointsThisRound
-        });
-      })
-      .catch(err => {
-        console.error("❌ Erro ao atualizar dados do jogador 1:", err);
-        console.error("📋 Updates que falharam:", updates);
-      });
+      .then(() => console.log("✅ Score, resposta da ronda e resultado da pergunta do jogador 1 atualizados"))
+      .catch(err => console.error("❌ Erro ao atualizar dados do jogador 1:", err));
   }
 
   // Função para mostrar resultados finais integrados
