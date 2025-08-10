@@ -4,12 +4,7 @@
   <meta charset="UTF-8" />
   <title>Início do Quiz</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="imag    <p style="font-size: 12px; color: #666; margin-top: 5px; margin-bottom: 15px;">
-        💡 Dica: Segura Ctrl (Windows) ou Cmd (Mac) para selecionar múltiplos cards
-    </p>
-    </div> <!-- Fim da secção de configurações -->
-
-    <button id="startGameBtn">🚀 Criar Jogo</button>" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4wxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSiklKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4xxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSikkKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
   <link rel="stylesheet" href="style.css" />
   <style>
     #beginGameBtn { display: none; margin-top: 10px; }
@@ -189,39 +184,40 @@
       <label>Nome do Jogador 1:</label>
       <input type="text" id="playerName" placeholder="Ex: João" required />
 
-    <!-- Números em linha -->
-    <div class="input-row">
-      <div class="input-group">
-        <label>Total de jogadores (incluindo o Jogador 1):</label>
-        <input type="number" id="totalPlayers" value="2" min="1" />
+      <!-- Números em linha -->
+      <div class="input-row">
+        <div class="input-group">
+          <label>Total de jogadores (incluindo o Jogador 1):</label>
+          <input type="number" id="totalPlayers" value="2" min="1" />
+        </div>
+        <div class="input-group">
+          <label>Número máximo de perguntas:</label>
+          <input type="number" id="maxQuestions" value="10" min="1" />
+        </div>
       </div>
-      <div class="input-group">
-        <label>Número máximo de perguntas:</label>
-        <input type="number" id="maxQuestions" value="10" min="1" />
-      </div>
-    </div>
 
-    <!-- Pontos em linha -->
-    <div class="input-row">
-      <div class="input-group">
-        <label>Pontos por resposta certa:</label>
-        <input type="number" id="pointsCorrect" value="4" />
+      <!-- Pontos em linha -->
+      <div class="input-row">
+        <div class="input-group">
+          <label>Pontos por resposta certa:</label>
+          <input type="number" id="pointsCorrect" value="4" />
+        </div>
+        <div class="input-group">
+          <label>Pontos por resposta errada:</label>
+          <input type="number" id="pointsWrong" value="-4" />
+        </div>
       </div>
-      <div class="input-group">
-        <label>Pontos por resposta errada:</label>
-        <input type="number" id="pointsWrong" value="-4" />
-      </div>
-    </div>
 
-    <label>Selecionar Cards de Perguntas:</label>
-    <select id="cardSelection" multiple style="margin-bottom: 15px; height: 120px; padding: 8px; font-size: 14px; border: 2px solid #ddd; border-radius: 5px; width: 100%; box-sizing: border-box;">
-        <option value="card_1" selected>📚 Card 1 - Conhecimentos Gerais (12 perguntas básicas)</option>
-        <option value="card_2">🧠 Card 2 - Avançado (150 perguntas: ciência, história, literatura)</option>
-        <option value="card_3">🖼️ Card 3 - Com Imagens (4 perguntas básicas)</option>
-    </select>
-    <p style="font-size: 12px; color: #666; margin-top: 5px; margin-bottom: 15px;">
-        � Dica: Segura Ctrl (Windows) ou Cmd (Mac) para selecionar múltiplos cards
-    </p>
+      <label>Selecionar Cards de Perguntas:</label>
+      <select id="cardSelection" multiple style="margin-bottom: 15px; height: 120px; padding: 8px; font-size: 14px; border: 2px solid #ddd; border-radius: 5px; width: 100%; box-sizing: border-box;">
+          <option value="card_1" selected>📚 Card 1 - Conhecimentos Gerais (12 perguntas básicas)</option>
+          <option value="card_2">🧠 Card 2 - Avançado (150 perguntas: ciência, história, literatura)</option>
+          <option value="card_3">🖼️ Card 3 - Com Imagens (4 perguntas básicas)</option>
+      </select>
+      <p style="font-size: 12px; color: #666; margin-top: 5px; margin-bottom: 15px;">
+          💡 Dica: Segura Ctrl (Windows) ou Cmd (Mac) para selecionar múltiplos cards
+      </p>
+    </div> <!-- Fim da secção de configurações -->
 
     <button id="startGameBtn">🚀 Criar Jogo</button>
     <button id="openPlayer1Btn" style="display:none;">🎮 Ativar Painel do Jogador 1</button>
@@ -264,27 +260,22 @@
             </div>
         </div>
         
-        <!-- Seleção de resposta do Jogador 1 -->
-        <div id="player1AnswerSection" style="display: none; margin: 20px 0;">
-            <h4>Tua resposta:</h4>
-            <div id="player1Answers">
-                <button class="player1-answer-btn" data-answer="A" style="margin: 5px; padding: 10px 15px; border: 2px solid #ddd; background-color: white; border-radius: 5px; cursor: pointer; width: 100%; text-align: left; font-size: 16px;"></button>
-                <button class="player1-answer-btn" data-answer="B" style="margin: 5px; padding: 10px 15px; border: 2px solid #ddd; background-color: white; border-radius: 5px; cursor: pointer; width: 100%; text-align: left; font-size: 16px;"></button>
-                <button class="player1-answer-btn" data-answer="C" style="margin: 5px; padding: 10px 15px; border: 2px solid #ddd; background-color: white; border-radius: 5px; cursor: pointer; width: 100%; text-align: left; font-size: 16px;"></button>
-                <button class="player1-answer-btn" data-answer="D" style="margin: 5px; padding: 10px 15px; border: 2px solid #ddd; background-color: white; border-radius: 5px; cursor: pointer; width: 100%; text-align: left; font-size: 16px;"></button>
+        <!-- Respostas do Jogador 1 -->
+        <div id="player1AnswerSection" style="display: none; margin-top: 20px; padding: 15px; background-color: #fff; border-radius: 5px; border: 1px solid #ddd;">
+            <h4 style="margin-top: 0; color: #333;">🎯 Escolhe a tua resposta:</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <button class="player1-answer-btn" data-answer="A" style="padding: 15px; border: 2px solid #ddd; border-radius: 5px; background-color: white; cursor: pointer; font-size: 14px; text-align: left;">A) Opção A</button>
+                <button class="player1-answer-btn" data-answer="B" style="padding: 15px; border: 2px solid #ddd; border-radius: 5px; background-color: white; cursor: pointer; font-size: 14px; text-align: left;">B) Opção B</button>
+                <button class="player1-answer-btn" data-answer="C" style="padding: 15px; border: 2px solid #ddd; border-radius: 5px; background-color: white; cursor: pointer; font-size: 14px; text-align: left;">C) Opção C</button>
+                <button class="player1-answer-btn" data-answer="D" style="padding: 15px; border: 2px solid #ddd; border-radius: 5px; background-color: white; cursor: pointer; font-size: 14px; text-align: left;">D) Opção D</button>
             </div>
-            <p id="player1Answer" style="margin-top: 10px; font-weight: bold;"></p>
+            <p id="player1Answer" style="margin-top: 15px; font-weight: bold; color: #4CAF50;"></p>
         </div>
         
-        <!-- Timer e controlo -->
-        <div id="gameControls" style="text-align: center; margin: 20px 0;">
-            <p id="timerDisplay" style="font-size: 24px; font-weight: bold; color: #333;">⏰ --</p>
-        </div>
-        
-        <!-- Botões de controlo manual (emergência) -->
-        <div id="manualControls" style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #fff3cd; border-radius: 5px;">
-            <p style="color: #856404; margin-bottom: 10px;"><strong>⚠️ Controlos Manuais (só usar se necessário)</strong></p>
-            <button id="manualNextBtn" style="margin: 5px; padding: 8px 15px; background-color: #ffc107; border: none; border-radius: 3px; cursor: pointer;">➡️ Próxima Pergunta</button>
+        <!-- Controlos manuais para o Host -->
+        <div id="manualControls" style="display: none; margin-top: 20px; padding: 15px; background-color: #fff3e0; border-radius: 5px; border: 1px solid #ff9800;">
+            <h4 style="margin-top: 0; color: #ff9800;">🎛️ Controlos do Host</h4>
+            <button id="manualNextBtn" style="margin: 5px; padding: 8px 15px; background-color: #2196F3; color: white; border: none; border-radius: 3px; cursor: pointer;">➡️ Próxima Pergunta</button>
             <button id="manualEndBtn" style="margin: 5px; padding: 8px 15px; background-color: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer;">🏁 Terminar Jogo</button>
         </div>
     </div>
@@ -296,24 +287,16 @@
         <img id="questionImage" style="display:none; max-width: 300px;">
         <p id="questionTextSecondary"></p>
         <div id="answersBox"></div>
-        <p id="timerDisplay"></p>
-        <p id="scoreDisplay">Pontuação: 0</p>
-    </div>
     </div>
 
-    <div id="scoreSection" style="display:none; margin-top: 30px;">
-    <h2>🏆 Classificação Final</h2>
-    <table id="scoreTable" border="1" cellpadding="8">
-        <thead>
-        <tr>
-            <th>Posição</th>
-            <th>Jogador</th>
-            <th>Pontuação</th>
-        </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <button onclick="window.location.href='index.html'">Voltar ao Início</button>
+    <div id="resultsBox" style="display:none;">
+        <h2>Resultados:</h2>
+        <p id="finalScore">Pontuação final: 0</p>
+        <div id="finalRanking">
+            <h3>Classificação final:</h3>
+            <ol id="rankingList"></ol>
+        </div>
+        <button onclick="window.location.href='index.html'">Voltar ao Início</button>
     </div>
   </div>
 
