@@ -516,6 +516,13 @@ window.addEventListener('DOMContentLoaded', () => {
       document.getElementById("answerB").textContent = `B) ${options[1]}`;
       document.getElementById("answerC").textContent = `C) ${options[2]}`;
       document.getElementById("answerD").textContent = `D) ${options[3]}`;
+      
+      // Atualizar botões com o texto das respostas (sem A), B), C), D))
+      const answerButtons = document.querySelectorAll(".player1-answer-btn");
+      answerButtons[0].textContent = options[0]; // Só o texto
+      answerButtons[1].textContent = options[1];
+      answerButtons[2].textContent = options[2];
+      answerButtons[3].textContent = options[3];
     } else {
       console.error("❌ Opções de resposta não encontradas:", question);
       document.getElementById("answerA").textContent = "A) Erro";
@@ -567,35 +574,56 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para mostrar resultados da resposta integrada
   function showIntegratedAnswerResults() {
+    const question = integratedQuestions[integratedCurrentQuestion];
+    const correctAnswer = question.resposta;
+    const answerButtons = document.querySelectorAll(".player1-answer-btn");
+    
+    // Encontrar qual é a resposta correta (índice)
+    let correctIndex = -1;
+    for (let i = 0; i < question.hipoteses_resposta.length; i++) {
+      if (question.hipoteses_resposta[i] === correctAnswer) {
+        correctIndex = i;
+        break;
+      }
+    }
+    
+    // Destacar resposta correta em VERDE
+    if (correctIndex >= 0) {
+      answerButtons[correctIndex].style.backgroundColor = "#4CAF50";
+      answerButtons[correctIndex].style.color = "white";
+      answerButtons[correctIndex].style.borderColor = "#4CAF50";
+    }
+    
     if (!integratedPlayerAnswer) {
       document.getElementById("statusText").textContent = "⏸️ Não respondeste a tempo!";
       return;
     }
     
-    const question = integratedQuestions[integratedCurrentQuestion];
-    
     // Converter letra para índice (A=0, B=1, C=2, D=3)
     const answerIndex = integratedPlayerAnswer.charCodeAt(0) - 65; // A=65 em ASCII
     const selectedAnswer = question.hipoteses_resposta[answerIndex];
-    const correctAnswer = question.resposta;
     
     const isCorrect = selectedAnswer === correctAnswer;
     console.log(`🔍 Resposta: ${selectedAnswer}, Correta: ${correctAnswer}, Está certo: ${isCorrect}`);
     
+    // Se resposta errada, destacar em VERMELHO
+    if (!isCorrect && answerIndex >= 0) {
+      answerButtons[answerIndex].style.backgroundColor = "#f44336";
+      answerButtons[answerIndex].style.color = "white";
+      answerButtons[answerIndex].style.borderColor = "#f44336";
+    }
+    
     if (isCorrect) {
       const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
       integratedPlayerScore += pointsCorrect;
-      document.getElementById("statusText").textContent = `✅ Correto! +${pointsCorrect} pontos (Resposta: ${correctAnswer})`;
+      document.getElementById("statusText").textContent = `✅ Correto! +${pointsCorrect} pontos`;
     } else {
       const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
       integratedPlayerScore += pointsWrong;
       document.getElementById("statusText").textContent = `❌ Errado! ${pointsWrong} pontos (Correto: ${correctAnswer})`;
     }
     
-    // Atualizar pontuação
-    document.getElementById("scoreDisplay").textContent = `Tua Pontuação: ${integratedPlayerScore}`;
-    
-    // Atualizar pontuação na base de dados
+    // Atualizar pontuação na base de dados (mas não mostrar no painel)
     update(ref(db, `games/${createdGameId}/players/${creatorName}`), {
       score: integratedPlayerScore
     });
@@ -617,15 +645,17 @@ window.addEventListener('DOMContentLoaded', () => {
         const answer = e.target.dataset.answer;
         integratedPlayerAnswer = answer;
         
-        // Visual feedback
+        // Visual feedback - destacar seleção
         resetIntegratedAnswerButtons();
-        e.target.style.backgroundColor = "#4CAF50";
+        e.target.style.backgroundColor = "#2196F3";
         e.target.style.color = "white";
-        e.target.style.borderColor = "#4CAF50";
+        e.target.style.borderColor = "#2196F3";
         
-        document.getElementById("player1Answer").textContent = `Resposta selecionada: ${answer}`;
+        // Mostrar resposta selecionada
+        const selectedText = e.target.textContent;
+        document.getElementById("player1Answer").textContent = `✅ Selecionaste: ${selectedText}`;
         
-        console.log(`✅ Jogador 1 respondeu: ${answer}`);
+        console.log(`✅ Jogador 1 respondeu: ${answer} (${selectedText})`);
       });
     });
     
