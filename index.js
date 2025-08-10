@@ -118,7 +118,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
       
-      alert("Jogo iniciado! O controlo automático está ativo nos jogadores.");
+      alert("Jogo iniciado! Mantenha esta aba aberta para controlo automático.");
+      
+      // Mostrar aviso visual
+      showControlWarning();
+      
+      // Iniciar controlador automático
+      startGameController();
     } catch (error) {
       console.error("Erro ao iniciar o jogo:", error);
       alert("Erro ao iniciar o jogo. Veja a consola.");
@@ -153,6 +159,126 @@ window.addEventListener('DOMContentLoaded', () => {
     
     console.log(`Selecionadas ${selectedQuestions.length} perguntas para o jogo`);
     return selectedQuestions;
+  }
+
+  // Função para mostrar aviso de controlo
+  function showControlWarning() {
+    const warningDiv = document.createElement('div');
+    warningDiv.id = 'controlWarning';
+    warningDiv.style.cssText = `
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #ff9800;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-size: 14px;
+    `;
+    warningDiv.innerHTML = '🎮 CONTROLO ATIVO - Mantenha esta aba aberta!';
+    document.body.appendChild(warningDiv);
+    
+    // Piscar o aviso a cada 10 segundos
+    setInterval(() => {
+      warningDiv.style.opacity = warningDiv.style.opacity === "0.5" ? "1" : "0.5";
+    }, 10000);
+  }
+
+  // Função para controlar o jogo (apenas para o host) com sistema anti-bloqueio
+  function startGameController() {
+    if (!createdGameId) return;
+    
+    let currentQuestion = 0;
+    const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
+    
+    console.log(`Host: Iniciando controlador do jogo com ${maxQuestions} perguntas`);
+    
+    // Sistema de heartbeat a cada 30 segundos para evitar bloqueio
+    const heartbeatInterval = setInterval(() => {
+      console.log("Host: Heartbeat - mantendo controlo ativo");
+      // Pequena atividade para manter a página ativa
+      document.title = `Quiz Control - ${new Date().toLocaleTimeString()}`;
+      
+      // Piscar um elemento para manter a página ativa
+      const startBtn = document.getElementById("startGameBtn");
+      if (startBtn) {
+        startBtn.style.opacity = startBtn.style.opacity === "0.9" ? "1" : "0.9";
+      }
+    }, 30000);
+    
+    // Sistema de verificação a cada 5 segundos para detectar bloqueios
+    let lastHeartbeat = Date.now();
+    const healthCheck = setInterval(() => {
+      const now = Date.now();
+      if (now - lastHeartbeat > 35000) {
+        console.warn("Host: Possível bloqueio detectado, reiniciando controlo");
+      }
+      lastHeartbeat = now;
+    }, 5000);
+    
+    function nextQuestion() {
+      console.log(`Host: nextQuestion chamada - currentQuestion: ${currentQuestion}, maxQuestions: ${maxQuestions}`);
+      
+      if (currentQuestion >= maxQuestions) {
+        // Fim do jogo
+        console.log("Host: Jogo terminado");
+        update(ref(db, `games/${createdGameId}/gameState`), {
+          gameEnded: true,
+          currentQuestionIndex: currentQuestion,
+          timeLeft: 0,
+          questionStartTime: null,
+          showingResults: false
+        });
+        return;
+      }
+      
+      const questionStartTime = Date.now();
+      
+      // Avançar para próxima pergunta
+      update(ref(db, `games/${createdGameId}/gameState`), {
+        currentQuestionIndex: currentQuestion,
+        timeLeft: 10,
+        questionStartTime: questionStartTime,
+        gameEnded: false,
+        showingResults: false
+      }).then(() => {
+        console.log(`Host: Pergunta ${currentQuestion + 1} iniciada`);
+      }).catch(err => {
+        console.error("Erro ao atualizar estado:", err);
+      });
+      
+      console.log(`Host: Pergunta ${currentQuestion + 1}/${maxQuestions} iniciada às ${new Date(questionStartTime).toLocaleTimeString()}`);
+      
+      // Timer de 10 segundos para a pergunta
+      setTimeout(() => {
+        // Mostrar resultados por 2 segundos
+        console.log(`Host: Timer acabou para pergunta ${currentQuestion + 1}. Mostrando resultados...`);
+        update(ref(db, `games/${createdGameId}/gameState`), {
+          currentQuestionIndex: currentQuestion,
+          timeLeft: 0,
+          questionStartTime: questionStartTime,
+          gameEnded: false,
+          showingResults: true,
+          resultsStartTime: Date.now()
+        });
+        
+        // Aguardar 2 segundos e avançar para próxima pergunta
+        setTimeout(() => {
+          console.log(`Host: Avançando da pergunta ${currentQuestion + 1} para ${currentQuestion + 2}`);
+          currentQuestion++;
+          nextQuestion();
+        }, 2000);
+      }, 10000);
+    }
+    
+    // Iniciar primeira pergunta após um pequeno delay para todos se conectarem
+    setTimeout(() => {
+      console.log("Host: Iniciando primeira pergunta...");
+      nextQuestion();
+    }, 3000);
   }
 
   const openPlayer1Btn = document.getElementById("openPlayer1Btn");
