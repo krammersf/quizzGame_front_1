@@ -134,6 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Função para iniciar contador regressivo
   function startCountdown() {
     console.log("🚀 Iniciando contador regressivo...");
+    countdownActive = true; // Marcar countdown como ativo
     let countdownTime = 10;
     
     // Verificar se os elementos existem antes de tentar usá-los
@@ -160,6 +161,7 @@ window.addEventListener('DOMContentLoaded', () => {
           // Acabou o contador - iniciar primeira pergunta
           clearInterval(countdownInterval);
           console.log("🏁 Contador terminado - iniciando primeira pergunta!");
+          countdownActive = false; // Marcar countdown como terminado
           
           // Atualizar Firebase para iniciar primeira pergunta
           update(ref(db, `games/${createdGameId}/gameState`), {
@@ -208,6 +210,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // Acabou o contador - iniciar primeira pergunta
         clearInterval(countdownInterval);
         console.log("🏁 Contador terminado - iniciando primeira pergunta!");
+        countdownActive = false; // Marcar countdown como terminado
         
         // Resetar estilo do contador (com verificações)
         if (questionCounter) {
@@ -469,10 +472,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Variáveis para o jogo integrado
   let integratedQuestions = [];
-  let integratedCurrentQuestion = 0;
+  let integratedCurrentQuestion = -1; // Começar em -1 para detectar a primeira pergunta corretamente
   let integratedPlayerScore = 0;
   let integratedPlayerAnswer = null;
   let integratedGameActive = false;
+  let countdownActive = false; // Nova variável para rastrear countdown
 
   // Função para inicializar o Jogador 1 integrado
   async function initializeIntegratedPlayer1() {
@@ -523,10 +527,8 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log("📚 Perguntas carregadas:", integratedQuestions.length);
         document.getElementById("statusText").textContent = `📚 ${integratedQuestions.length} perguntas carregadas - Clica "▶️ Iniciar Jogo" para começar!`;
         
-        // Mostrar primeira pergunta logo que carregue
-        if (integratedQuestions.length > 0) {
-          showIntegratedQuestion();
-        }
+        // NÃO mostrar pergunta aqui - só quando o jogo começar e countdown terminar
+        console.log("✅ Perguntas prontas - aguardando início do jogo");
       } else {
         document.getElementById("statusText").textContent = "⚠️ Inicia o jogo primeiro para carregar as perguntas";
       }
@@ -553,6 +555,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Verificar se está em countdown
       if (gameState.countdown && gameState.countdownTime > 0) {
         console.log(`⏰ Contador regressivo: ${gameState.countdownTime}`);
+        countdownActive = true; // Marcar countdown como ativo
         
         // Para o jogador 1, não precisamos fazer nada especial aqui
         // porque o countdown é controlado localmente no startCountdown()
@@ -562,6 +565,12 @@ window.addEventListener('DOMContentLoaded', () => {
           statusText.textContent = `⏰ Iniciando em ${gameState.countdownTime}s...`;
         }
         return;
+      }
+      
+      // Se saiu do countdown
+      if (!gameState.countdown && countdownActive) {
+        console.log("✅ Countdown terminado - perguntas podem aparecer");
+        countdownActive = false;
       }
       
       // Se o jogo começou (saiu do countdown), mostrar que está ativo
@@ -591,13 +600,18 @@ window.addEventListener('DOMContentLoaded', () => {
       
       // Nova pergunta (apenas se não estiver em countdown)
       if (!gameState.countdown && gameState.currentQuestionIndex !== integratedCurrentQuestion) {
+        console.log(`🎯 Nova pergunta detectada: ${gameState.currentQuestionIndex} (anterior: ${integratedCurrentQuestion})`);
+        console.log(`🔍 Countdown ativo: ${gameState.countdown}`);
+        
         integratedCurrentQuestion = gameState.currentQuestionIndex;
         integratedPlayerAnswer = null;
         
         // Recarregar perguntas se necessário
         if (integratedQuestions.length === 0) {
+          console.log("📚 Recarregando perguntas...");
           loadIntegratedQuestions();
         } else {
+          console.log("📋 Mostrando pergunta integrada...");
           showIntegratedQuestion();
         }
       }
@@ -611,6 +625,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para mostrar pergunta no painel integrado
   function showIntegratedQuestion() {
+    // PROTEÇÃO EXTRA: Não mostrar se countdown ainda estiver ativo
+    if (countdownActive) {
+      console.log("🚫 Tentativa de mostrar pergunta durante countdown - bloqueada");
+      return;
+    }
+    
     if (integratedCurrentQuestion >= integratedQuestions.length) {
       const statusText = document.getElementById("statusText");
       if (statusText) statusText.textContent = "🏁 Todas as perguntas foram respondidas";
