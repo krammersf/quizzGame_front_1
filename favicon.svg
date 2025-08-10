@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Fundo vermelho com cantos arredondados -->
+  <rect width="32" height="32" fill="#DC143C" rx="6"/>
+  
+  <!-- Sombra para o texto -->
+  <text x="16.5" y="24.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#8B0000" opacity="0.3">Q</text>
+  
+  <!-- Texto Q principal em amarelo -->
+  <text x="16" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFD700">Q</text>
+  
+  <!-- Brilho sutil -->
+  <circle cx="10" cy="10" r="2" fill="#FFEB3B" opacity="0.4"/>
+</svg>
