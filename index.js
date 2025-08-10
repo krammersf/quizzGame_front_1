@@ -235,6 +235,38 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // Função para gerar perguntas (similar ao quiz.js)
+  // Função para criar um random com seed (para consistência entre jogadores)
+  function seededRandom(seed) {
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+  }
+
+  // Função para embaralhar array com seed
+  function shuffleArrayWithSeed(array, seed) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(seededRandom(seed + i) * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  // Função para embaralhar hipóteses de uma pergunta
+  function shuffleQuestionOptions(question, gameId) {
+    // Criar uma seed única baseada no gameId e no número da pergunta
+    const seed = gameId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) + 
+                 question.numero.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    
+    // Embaralhar as hipóteses mantendo a referência da resposta correta
+    const shuffledOptions = shuffleArrayWithSeed(question.hipoteses_resposta, seed);
+    
+    // Atualizar a pergunta com as hipóteses embaralhadas
+    return {
+      ...question,
+      hipoteses_resposta: shuffledOptions
+    };
+  }
+
   async function generateQuestionsForGame() {
     // Obter os cards selecionados
     const cardSelect = document.getElementById("cardSelection");
@@ -258,7 +290,20 @@ window.addEventListener('DOMContentLoaded', () => {
     // Baralhar e selecionar o número correto de perguntas
     allQuestions.sort(() => Math.random() - 0.5);
     const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
-    const selectedQuestions = allQuestions.slice(0, maxQuestions);
+    let selectedQuestions = allQuestions.slice(0, maxQuestions);
+    
+    // Embaralhar as hipóteses de cada pergunta usando o gameId como seed
+    if (createdGameId) {
+      selectedQuestions = selectedQuestions.map(question => {
+        const originalOptions = [...question.hipoteses_resposta];
+        const shuffledQuestion = shuffleQuestionOptions(question, createdGameId);
+        console.log(`Pergunta ${question.numero}:`);
+        console.log(`  Original: ${originalOptions.join(', ')}`);
+        console.log(`  Embaralhada: ${shuffledQuestion.hipoteses_resposta.join(', ')}`);
+        return shuffledQuestion;
+      });
+      console.log("Hipóteses embaralhadas para consistência entre jogadores");
+    }
     
     console.log(`Selecionadas ${selectedQuestions.length} perguntas para o jogo`);
     return selectedQuestions;
