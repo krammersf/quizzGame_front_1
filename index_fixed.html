@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Início do Quiz</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4xxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSikkKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #beginGameBtn { display: none; margin-top: 10px; }
+    
+    /* Estilos para organizar perguntas verticalmente */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .container label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .container input {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    .container button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .container button:hover {
+      background-color: #45a049;
+    }
+    
+    /* Estilos específicos para alguns botões */
+    #copyBtn {
+      width: 18% !important;
+      display: inline-block !important;
+    }
+    
+    #gameLink {
+      width: 80% !important;
+      display: inline-block !important;
+    }
+
+    /* Estilos para campos em linha */
+    .input-row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .input-group {
+      flex: 1;
+    }
+
+    .input-group label {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      margin-bottom: 0;
+    }
+
+    /* Estilos para a dropdown de cards */
+    #cardSelection {
+      background-color: #fff;
+      font-family: inherit;
+    }
+
+    #cardSelection option {
+      padding: 8px;
+      margin: 2px 0;
+    }
+
+    #cardSelection option:checked {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    /* Estilos específicos para botões */
+    #beginGameBtn {
+      background-color: #2196F3 !important;
+      color: white !important;
+    }
+
+    #beginGameBtn:hover {
+      background-color: #1976D2 !important;
+    }
+
+    #testRankingBtn {
+      background-color: #FFC107 !important;
+      color: #333 !important;
+      font-weight: bold !important;
+    }
+
+    #testRankingBtn:hover {
+      background-color: #FFB300 !important;
+    }
+
+    #openPlayer1Btn {
+      background-color: #FF9800 !important;
+      color: white !important;
+      font-weight: bold !important;
+    }
+
+    #openPlayer1Btn:hover {
+      background-color: #F57C00 !important;
+    }
+
+    /* Responsivo - em ecrãs pequenos volta a ser coluna */
+    @media (max-width: 600px) {
+      .input-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .input-group {
+        margin-bottom: 15px;
+      }
+      
+      .input-group:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    /* Estilos para toggle das configurações */
+    #configSection {
+      transition: all 0.4s ease-in-out;
+      overflow: hidden;
+      max-height: 1000px; /* Altura máxima quando visível */
+      opacity: 1;
+    }
+
+    #configSection.hidden {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    #toggleConfigBtn {
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    #toggleConfigBtn:hover {
+      background-color: #5a6268 !important;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h1>🎯 Criar Novo Quiz</h1>
+      <button id="toggleConfigBtn" style="background-color: #6c757d; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 20px; cursor: pointer; display: none;">+</button>
+    </div>
+
+    <!-- Secção de Configurações -->
+    <div id="configSection">
+      <label>Nome do Jogador 1:</label>
+      <input type="text" id="playerName" placeholder="Ex: João" required />
+
+      <!-- Números em linha -->
+      <div class="input-row">
+        <div class="input-group">
+          <label>Total de jogadores (incluindo o Jogador 1):</label>
+          <input type="number" id="totalPlayers" value="2" min="1" />
+        </div>
+        <div class="input-group">
+          <label>Número máximo de perguntas:</label>
+          <input type="number" id="maxQuestions" value="10" min="1" />
+        </div>
+      </div>
+
+      <!-- Pontos em linha -->
+      <div class="input-row">
+        <div class="input-group">
+          <label>Pontos por resposta certa:</label>
+          <input type="number" id="pointsCorrect" value="4" />
+        </div>
+        <div class="input-group">
+          <label>Pontos por resposta errada:</label>
+          <input type="number" id="pointsWrong" value="-4" />
+        </div>
+      </div>
+
+      <label>Selecionar Cards de Perguntas:</label>
+      <select id="cardSelection" multiple style="margin-bottom: 15px; height: 120px; padding: 8px; font-size: 14px; border: 2px solid #ddd; border-radius: 5px; width: 100%; box-sizing: border-box;">
+          <option value="card_1" selected>📚 Card 1 - Conhecimentos Gerais (12 perguntas básicas)</option>
+          <option value="card_2">🧠 Card 2 - Avançado (150 perguntas: ciência, história, literatura)</option>
+          <option value="card_3">🖼️ Card 3 - Com Imagens (4 perguntas básicas)</option>
+      </select>
+      <p style="font-size: 12px; color: #666; margin-top: 5px; margin-bottom: 15px;">
+          💡 Dica: Segura Ctrl (Windows) ou Cmd (Mac) para selecionar múltiplos cards
+      </p>
+    </div> <!-- Fim da secção de configurações -->
+
+    <button id="startGameBtn">🚀 Criar Jogo</button>
+    <button id="openPlayer1Btn" style="display:none;">🎮 Ativar Painel do Jogador 1</button>
+    <button id="beginGameBtn">▶️ Iniciar Jogo</button>
+
+    <div id="shareLink" style="display:none; margin-top:20px;">
+        <p>Partilha este link com os outros jogadores:</p>
+        <input type="text" id="gameLink" readonly style="width:80%;" />
+        <button id="copyBtn" style="width:18%;">Copiar</button>
+        <span id="copyMsg" style="display:none; color:green; margin-left:10px;">Copiado!</span>
+    </div>
+    <!-- Secção de quiz integrada para o Jogador 1 -->
+    <div id="integratedQuizSection" style="display:none; margin-top: 30px; padding: 20px; border: 2px solid #4CAF50; border-radius: 10px; background-color: #f9fff9;">
+        <h2 style="color: #4CAF50; text-align: center;">🎮 Painel do Jogador 1 (Controlador)</h2>
+        
+        <!-- Status do jogo -->
+        <div id="gameStatus" style="text-align: center; margin-bottom: 20px; padding: 10px; background-color: #e8f5e8; border-radius: 5px;">
+            <p id="statusText">🔄 A preparar jogo...</p>
+        </div>
+        
+        <!-- Pergunta atual -->
+        <div id="currentQuestionDisplay" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h3 id="questionTitle">Pergunta 1 de 10</h3>
+                <div style="display: flex; gap: 15px; align-items: center;">
+                    <span id="questionCounter" style="font-weight: bold; color: #666;">1/10</span>
+                    <span id="timerDisplay" style="background-color: #ff6b35; color: white; padding: 5px 10px; border-radius: 15px; font-weight: bold;">⏰ 10s</span>
+                </div>
+            </div>
+            <div id="questionContent">
+                <img id="questionImage" style="display:none; max-width: 300px; margin: 10px auto; display: block;">
+                <p id="questionText" style="font-size: 18px; font-weight: bold; margin: 15px 0;"></p>
+                <!-- Opções A), B), C), D) escondidas -->
+                <div id="answersDisplay" style="display: none;">
+                    <div class="answer-option" id="answerA" style="margin: 10px 0; padding: 10px; background-color: #f0f0f0; border-radius: 5px;">A) ...</div>
+                    <div class="answer-option" id="answerB" style="margin: 10px 0; padding: 10px; background-color: #f0f0f0; border-radius: 5px;">B) ...</div>
+                    <div class="answer-option" id="answerC" style="margin: 10px 0; padding: 10px; background-color: #f0f0f0; border-radius: 5px;">C) ...</div>
+                    <div class="answer-option" id="answerD" style="margin: 10px 0; padding: 10px; background-color: #f0f0f0; border-radius: 5px;">D) ...</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Respostas do Jogador 1 -->
+        <div id="player1AnswerSection" style="display: none; margin-top: 20px; padding: 15px; background-color: #fff; border-radius: 5px; border: 1px solid #ddd;">
+            <h4 style="margin-top: 0; color: #333;">🎯 Escolhe a tua resposta:</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <button class="player1-answer-btn" data-answer="A" style="padding: 15px; border: 2px solid #ddd; border-radius: 5px; background-color: white; cursor: pointer; font-size: 14px; text-align: left;">A) Opção A</button>
+                <button class="player1-answer-btn" data-answer="B" style="padding: 15px; border: 2px solid #ddd; border-radius: 5px; background-color: white; cursor: pointer; font-size: 14px; text-align: left;">B) Opção B</button>
+                <button class="player1-answer-btn" data-answer="C" style="padding: 15px; border: 2px solid #ddd; border-radius: 5px; background-color: white; cursor: pointer; font-size: 14px; text-align: left;">C) Opção C</button>
+                <button class="player1-answer-btn" data-answer="D" style="padding: 15px; border: 2px solid #ddd; border-radius: 5px; background-color: white; cursor: pointer; font-size: 14px; text-align: left;">D) Opção D</button>
+            </div>
+            <p id="player1Answer" style="margin-top: 15px; font-weight: bold; color: #4CAF50;"></p>
+        </div>
+        
+        <!-- Controlos manuais para o Host -->
+        <div id="manualControls" style="display: none; margin-top: 20px; padding: 15px; background-color: #fff3e0; border-radius: 5px; border: 1px solid #ff9800;">
+            <h4 style="margin-top: 0; color: #ff9800;">🎛️ Controlos do Host</h4>
+            <button id="manualNextBtn" style="margin: 5px; padding: 8px 15px; background-color: #2196F3; color: white; border: none; border-radius: 3px; cursor: pointer;">➡️ Próxima Pergunta</button>
+            <button id="manualEndBtn" style="margin: 5px; padding: 8px 15px; background-color: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer;">🏁 Terminar Jogo</button>
+        </div>
+    </div>
+    
+    <!-- Secção de classificação, escondida inicialmente -->
+    <div id="quizSection">
+    <!-- Aqui vai o quiz: perguntas, respostas, etc -->
+    <div id="questionBox" style="display:none;">
+        <img id="questionImage" style="display:none; max-width: 300px;">
+        <p id="questionTextSecondary"></p>
+        <div id="answersBox"></div>
+    </div>
+
+    <div id="resultsBox" style="display:none;">
+        <h2>Resultados:</h2>
+        <p id="finalScore">Pontuação final: 0</p>
+        <div id="finalRanking">
+            <h3>Classificação final:</h3>
+            <ol id="rankingList"></ol>
+        </div>
+        <button onclick="window.location.href='index.html'">Voltar ao Início</button>
+    </div>
+  </div>
+
+  <div id="enterNameBox" style="display:none;">
+    <input type="text" id="playerNameInput" placeholder="Insere o teu nome" />
+    <button id="enterGameBtn">Entrar no Jogo</button>
+  </div>
+
+  <div id="waitingBox" style="display:none;">
+    <p id="playerNameDisplay"></p>
+    <p>A aguardar os outros jogadores...</p>
+  </div>
+
+  <button id="testRankingBtn" onclick="
+    const currentGameId = sessionStorage.getItem('gameId');
+    if (currentGameId) {
+      console.log('Abrindo classificação para o jogo:', currentGameId);
+      window.open('scoreboard.html', '_blank');
+    } else {
+      alert('⚠️ Nenhum jogo ativo encontrado! Crie um jogo primeiro.');
+    }
+  ">📊 Mostrar Classificação Final</button>
+
+  <script>
+    // JavaScript para toggle das configurações
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('toggleConfigBtn');
+      const configSection = document.getElementById('configSection');
+      const startGameBtn = document.getElementById('startGameBtn');
+      const shareLink = document.getElementById('shareLink');
+      
+      // Função para esconder configurações após criar jogo
+      function hideConfigurationsAfterGameCreation() {
+        configSection.classList.add('hidden');
+        toggleBtn.style.display = 'block';
+        toggleBtn.textContent = '+';
+        toggleBtn.title = 'Mostrar configurações';
+      }
+      
+      // Toggle das configurações
+      toggleBtn.addEventListener('click', function() {
+        const isHidden = configSection.classList.contains('hidden');
+        
+        if (isHidden) {
+          // Mostrar configurações
+          configSection.classList.remove('hidden');
+          toggleBtn.textContent = '−';
+          toggleBtn.title = 'Esconder configurações';
+        } else {
+          // Esconder configurações
+          configSection.classList.add('hidden');
+          toggleBtn.textContent = '+';
+          toggleBtn.title = 'Mostrar configurações';
+        }
+      });
+      
+      // Observer para detectar quando o link de partilha aparece
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+            if (shareLink.style.display !== 'none' && !shareLink.style.display.includes('none')) {
+              hideConfigurationsAfterGameCreation();
+              observer.disconnect(); // Parar de observar após esconder
+            }
+          }
+        });
+      });
+      
+      // Começar a observar mudanças no elemento shareLink
+      observer.observe(shareLink, {
+        attributes: true,
+        attributeFilter: ['style']
+      });
+    });
+  </script>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>

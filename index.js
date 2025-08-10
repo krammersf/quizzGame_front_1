@@ -767,11 +767,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     if (!integratedPlayerAnswer) {
+      console.log("🚫 Jogador 1 não respondeu - aplicando 0 pontos");
       document.getElementById("statusText").textContent = "⏸️ Não respondeste a tempo!";
       
-      // Guardar registo de que o jogador 1 não respondeu
-      const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
-      integratedPlayerScore += pointsWrong;
+      // Ausência de resposta = 0 pontos (não usar pointsWrong)
+      const pointsForNoAnswer = 0;
+      integratedPlayerScore += pointsForNoAnswer;
+      console.log(`📊 Pontuação do jogador 1: ${integratedPlayerScore} (adicionados ${pointsForNoAnswer} por ausência de resposta)`);
       
       const roundData = {
         questionIndex: integratedCurrentQuestion,
@@ -779,7 +781,7 @@ window.addEventListener('DOMContentLoaded', () => {
         selectedAnswer: null, // Nenhuma resposta selecionada
         correctAnswer: correctAnswer,
         isCorrect: false,
-        pointsEarned: pointsWrong,
+        pointsEarned: pointsForNoAnswer, // 0 pontos para ausência de resposta
         timestamp: Date.now(),
         timeExpired: true // Flag para indicar que o tempo expirou
       };

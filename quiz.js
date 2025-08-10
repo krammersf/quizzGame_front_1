@@ -325,6 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Nova função para mostrar apenas a resposta correta quando o jogador não respondeu
   function showCorrectAnswerOnly() {
     console.log("=== MOSTRANDO APENAS RESPOSTA CORRETA ===");
+    console.log("🚫 Jogador não respondeu - aplicando 0 pontos");
     
     if (!questions[currentQuestionIndex]) {
       console.log("Pergunta atual não encontrada");
@@ -343,13 +344,14 @@ document.addEventListener("DOMContentLoaded", () => {
       selectedAnswer: null, // Nenhuma resposta selecionada
       correctAnswer: correctAnswer,
       isCorrect: false,
-      pointsEarned: gameConfig.pointsWrong, // Pontos por não responder
+      pointsEarned: 0, // Ausência de resposta = 0 pontos (não usar pointsWrong)
       timestamp: Date.now(),
       timeExpired: true // Flag para indicar que o tempo expirou
     };
     
-    // Atualizar pontuação por não responder
-    score += gameConfig.pointsWrong;
+    // Atualizar pontuação por não responder (0 pontos)
+    score += 0; // Ausência de resposta = 0 pontos
+    console.log(`📊 Pontuação do jogador: ${score} (adicionados 0 por ausência de resposta)`);
     
     // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
     const questionData = {
