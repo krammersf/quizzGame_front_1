@@ -402,7 +402,6 @@ document.addEventListener("DOMContentLoaded", () => {
     playerAnswer.isCorrect = isCorrect;
 
     console.log("Score atual:", score);
-    document.getElementById("scoreDisplay").textContent = `Pontuação: ${score}`;
     
     // Atualizar score no Firebase
     update(ref(db, `games/${gameId}/players/${playerName}`), { score })
