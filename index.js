@@ -271,27 +271,118 @@ window.addEventListener('DOMContentLoaded', () => {
     // Obter os cards selecionados
     const cardSelect = document.getElementById("cardSelection");
     const selectedCards = Array.from(cardSelect.selectedOptions).map(option => `cards/${option.value}.json`);
+    const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
 
-    let allQuestions = [];
+    if (selectedCards.length === 0) {
+      console.error("Nenhum card selecionado");
+      return [];
+    }
 
+    console.log(`Cards selecionados: ${selectedCards.length}`);
+    console.log(`Máximo de perguntas solicitado: ${maxQuestions}`);
+
+    let cardQuestions = []; // Array para armazenar perguntas por card
+
+    // Carregar perguntas de cada card separadamente
     for (let file of selectedCards) {
       try {
         const res = await fetch(file);
         const data = await res.json();
-        allQuestions = allQuestions.concat(data.perguntas);
+        cardQuestions.push({
+          file: file,
+          cardName: data.card || file,
+          questions: data.perguntas || []
+        });
         console.log(`Carregadas ${data.perguntas.length} perguntas de ${file}`);
       } catch (error) {
         console.warn(`Erro ao carregar ${file}:`, error);
+        // Adicionar card vazio em caso de erro para manter a contagem
+        cardQuestions.push({
+          file: file,
+          cardName: file,
+          questions: []
+        });
       }
     }
 
-    console.log(`Total de perguntas disponíveis: ${allQuestions.length}`);
+    // Filtrar cards que realmente têm perguntas
+    cardQuestions = cardQuestions.filter(card => card.questions.length > 0);
+    const numCardsWithQuestions = cardQuestions.length;
 
-    // Baralhar e selecionar o número correto de perguntas
-    allQuestions.sort(() => Math.random() - 0.5);
-    const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
-    let selectedQuestions = allQuestions.slice(0, maxQuestions);
-    
+    if (numCardsWithQuestions === 0) {
+      console.error("Nenhum card tem perguntas válidas");
+      return [];
+    }
+
+    console.log(`Cards com perguntas válidas: ${numCardsWithQuestions}`);
+
+    let selectedQuestions = [];
+
+    if (numCardsWithQuestions === 1) {
+      // Se só há 1 card, usar todas as perguntas dele
+      const card = cardQuestions[0];
+      card.questions.sort(() => Math.random() - 0.5); // Embaralhar
+      selectedQuestions = card.questions.slice(0, maxQuestions);
+      console.log(`1 card selecionado: ${selectedQuestions.length} perguntas de ${card.cardName}`);
+    } else {
+      // Múltiplos cards: distribuir perguntas de forma equilibrada
+      
+      // Calcular quantas perguntas por card (garantindo pelo menos 1 por card)
+      const questionsPerCard = Math.floor(maxQuestions / numCardsWithQuestions);
+      const remainingQuestions = maxQuestions % numCardsWithQuestions;
+      
+      console.log(`Distribuição: ${questionsPerCard} perguntas por card, ${remainingQuestions} perguntas extras`);
+
+      // Garantir que cada card contribui com pelo menos 1 pergunta
+      for (let i = 0; i < cardQuestions.length; i++) {
+        const card = cardQuestions[i];
+        card.questions.sort(() => Math.random() - 0.5); // Embaralhar perguntas do card
+        
+        let questionsToTake = Math.max(1, questionsPerCard); // Pelo menos 1 pergunta
+        
+        // Distribuir perguntas extras aos primeiros cards
+        if (i < remainingQuestions) {
+          questionsToTake += 1;
+        }
+        
+        // Não exceder o número de perguntas disponíveis no card
+        questionsToTake = Math.min(questionsToTake, card.questions.length);
+        
+        const cardSelectedQuestions = card.questions.slice(0, questionsToTake);
+        selectedQuestions = selectedQuestions.concat(cardSelectedQuestions);
+        
+        console.log(`Card ${card.cardName}: selecionadas ${cardSelectedQuestions.length} perguntas`);
+      }
+
+      // Se ainda não temos perguntas suficientes, pegar mais aleatoriamente
+      if (selectedQuestions.length < maxQuestions) {
+        const remainingNeeded = maxQuestions - selectedQuestions.length;
+        const usedQuestionNumbers = new Set(selectedQuestions.map(q => q.numero));
+        
+        // Coletar todas as perguntas restantes não utilizadas
+        let availableQuestions = [];
+        cardQuestions.forEach(card => {
+          card.questions.forEach(question => {
+            if (!usedQuestionNumbers.has(question.numero)) {
+              availableQuestions.push(question);
+            }
+          });
+        });
+        
+        // Embaralhar e pegar as que faltam
+        availableQuestions.sort(() => Math.random() - 0.5);
+        const additionalQuestions = availableQuestions.slice(0, remainingNeeded);
+        selectedQuestions = selectedQuestions.concat(additionalQuestions);
+        
+        console.log(`Adicionadas ${additionalQuestions.length} perguntas extras para completar ${maxQuestions}`);
+      }
+
+      // Embaralhar a ordem final das perguntas selecionadas
+      selectedQuestions.sort(() => Math.random() - 0.5);
+    }
+
+    console.log(`Total de perguntas selecionadas: ${selectedQuestions.length}`);
+
     // Embaralhar as hipóteses de cada pergunta usando o gameId como seed
     if (createdGameId) {
       selectedQuestions = selectedQuestions.map(question => {
