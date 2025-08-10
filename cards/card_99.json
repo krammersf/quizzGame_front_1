@@ -1,0 +1,45 @@
+{
+	"card": "card_1",
+	"perguntas": [
+		{
+			"numero": "A000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/pergunta1.png",
+			"pergunta": "Qual é a capital de Portugal?",
+			"hipoteses_resposta": ["Lisboa", "Porto", "Faro", "Coimbra"],
+			"resposta": "Lisboa"
+		},
+		{
+			"numero": "B000002",
+			"tipo_pergunta": "letra",
+			"imagem": null,
+			"pergunta": "Escolhe a letra correta para a capital da França:",
+			"hipoteses_resposta": ["Paris", "Lyon", "Marselha", "Bordéus"],
+			"resposta": "P"
+		},
+		{
+			"numero": "C000003",
+			"tipo_pergunta": "ordenar",
+			"imagem": null,
+			"pergunta": "Ordena os planetas do mais próximo para o mais distante do Sol:",
+			"hipoteses_resposta": ["Terra", "Marte", "Vénus", "Mercúrio"],
+			"resposta": ["Mercúrio", "Vénus", "Terra", "Marte"]
+		},
+		{
+			"numero": "D000004",
+			"tipo_pergunta": "varios_certos",
+			"imagem": null,
+			"pergunta": "Quais destes são mamíferos?",
+			"hipoteses_resposta": ["Golfinho", "Tubarão", "Morcego", "Cobra"],
+			"resposta": ["Golfinho", "Morcego"]
+		},
+		{
+			"numero": "E000005",
+			"tipo_pergunta": "sim_nao",
+			"imagem": null,
+			"pergunta": "A água ferve a 100°C ao nível do mar?",
+			"hipoteses_resposta": ["Sim", "Não"],
+			"resposta": "Sim"
+		}
+	]
+}

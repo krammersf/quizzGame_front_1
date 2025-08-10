@@ -1,0 +1,405 @@
+{
+	"card": "Historia Mundial",
+	"perguntas": [
+		{
+			"numero": "W000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Primeira Guerra Mundial?",
+			"hipoteses_resposta": ["1914", "1912", "1916", "1918"],
+			"resposta": "1914"
+		},
+		{
+			"numero": "W000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual imperador romano construiu o Coliseu?",
+			"hipoteses_resposta": ["Vespasiano", "Nero", "Augusto", "Trajano"],
+			"resposta": "Vespasiano"
+		},
+		{
+			"numero": "W000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano caiu o Muro de Berlim?",
+			"hipoteses_resposta": ["1989", "1987", "1991", "1985"],
+			"resposta": "1989"
+		},
+		{
+			"numero": "W000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a primeira civilização a usar a escrita?",
+			"hipoteses_resposta": ["Suméria", "Egípcia", "Chinesa", "Grega"],
+			"resposta": "Suméria"
+		},
+		{
+			"numero": "W000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que século viveu Napoleão Bonaparte?",
+			"hipoteses_resposta": ["XVIII-XIX", "XVII-XVIII", "XIX-XX", "XVI-XVII"],
+			"resposta": "XVIII-XIX"
+		},
+		{
+			"numero": "W000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual faraó mandou construir a Grande Pirâmide de Gizé?",
+			"hipoteses_resposta": ["Quéops", "Quéfren", "Miquerinos", "Ramsés II"],
+			"resposta": "Quéops"
+		},
+		{
+			"numero": "W000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assinada a Magna Carta?",
+			"hipoteses_resposta": ["1215", "1213", "1217", "1220"],
+			"resposta": "1215"
+		},
+		{
+			"numero": "W000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a capital do Império Bizantino?",
+			"hipoteses_resposta": ["Constantinopla", "Roma", "Alexandria", "Antioquia"],
+			"resposta": "Constantinopla"
+		},
+		{
+			"numero": "W000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano Cristóvão Colombo chegou à América?",
+			"hipoteses_resposta": ["1492", "1490", "1494", "1488"],
+			"resposta": "1492"
+		},
+		{
+			"numero": "W000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinastia chinesa construiu a Cidade Proibida?",
+			"hipoteses_resposta": ["Ming", "Tang", "Qing", "Song"],
+			"resposta": "Ming"
+		},
+		{
+			"numero": "W000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Revolução Francesa?",
+			"hipoteses_resposta": ["1789", "1787", "1791", "1785"],
+			"resposta": "1789"
+		},
+		{
+			"numero": "W000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual conquistador macedónio criou um dos maiores impérios da antiguidade?",
+			"hipoteses_resposta": ["Alexandre, o Grande", "Filipe II", "Pirro", "Antígono"],
+			"resposta": "Alexandre, o Grande"
+		},
+		{
+			"numero": "W000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que século ocorreu a Peste Negra na Europa?",
+			"hipoteses_resposta": ["XIV", "XIII", "XV", "XII"],
+			"resposta": "XIV"
+		},
+		{
+			"numero": "W000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o primeiro país a abolir oficialmente a escravatura?",
+			"hipoteses_resposta": ["Haiti", "França", "Inglaterra", "Estados Unidos"],
+			"resposta": "Haiti"
+		},
+		{
+			"numero": "W000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano terminou a Segunda Guerra Mundial?",
+			"hipoteses_resposta": ["1945", "1943", "1947", "1944"],
+			"resposta": "1945"
+		},
+		{
+			"numero": "W000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual civilização construiu Machu Picchu?",
+			"hipoteses_resposta": ["Inca", "Maia", "Asteca", "Nazca"],
+			"resposta": "Inca"
+		},
+		{
+			"numero": "W000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi fundada a ONU?",
+			"hipoteses_resposta": ["1945", "1943", "1947", "1950"],
+			"resposta": "1945"
+		},
+		{
+			"numero": "W000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a última dinastia da China imperial?",
+			"hipoteses_resposta": ["Qing", "Ming", "Tang", "Song"],
+			"resposta": "Qing"
+		},
+		{
+			"numero": "W000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Guerra dos Cem Anos?",
+			"hipoteses_resposta": ["1337", "1335", "1340", "1332"],
+			"resposta": "1337"
+		},
+		{
+			"numero": "W000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual imperador romano legalizou o cristianismo?",
+			"hipoteses_resposta": ["Constantino", "Teodósio", "Diocleciano", "Justiniano"],
+			"resposta": "Constantino"
+		},
+		{
+			"numero": "W000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assinado o Tratado de Versalhes?",
+			"hipoteses_resposta": ["1919", "1917", "1921", "1920"],
+			"resposta": "1919"
+		},
+		{
+			"numero": "W000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a primeira capital dos Estados Unidos?",
+			"hipoteses_resposta": ["Nova York", "Filadélfia", "Boston", "Washington D.C."],
+			"resposta": "Nova York"
+		},
+		{
+			"numero": "W000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi descoberta a tumba de Tutancâmon?",
+			"hipoteses_resposta": ["1922", "1920", "1924", "1918"],
+			"resposta": "1922"
+		},
+		{
+			"numero": "W000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o nome do primeiro homem no espaço?",
+			"hipoteses_resposta": ["Yuri Gagarin", "Neil Armstrong", "John Glenn", "Alan Shepard"],
+			"resposta": "Yuri Gagarin"
+		},
+		{
+			"numero": "W000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Revolução Industrial?",
+			"hipoteses_resposta": ["1760", "1750", "1770", "1740"],
+			"resposta": "1760"
+		},
+		{
+			"numero": "W000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual imperador fundou o Império Romano?",
+			"hipoteses_resposta": ["Augusto", "Júlio César", "Pompeio", "Marco António"],
+			"resposta": "Augusto"
+		},
+		{
+			"numero": "W000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi assassinado John F. Kennedy?",
+			"hipoteses_resposta": ["1963", "1961", "1965", "1962"],
+			"resposta": "1963"
+		},
+		{
+			"numero": "W000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a primeira cidade a ser bombardeada com bomba atómica?",
+			"hipoteses_resposta": ["Hiroshima", "Nagasaki", "Tóquio", "Kyoto"],
+			"resposta": "Hiroshima"
+		},
+		{
+			"numero": "W000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que século viveu Marco Polo?",
+			"hipoteses_resposta": ["XIII", "XIV", "XII", "XV"],
+			"resposta": "XIII"
+		},
+		{
+			"numero": "W000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o último czar da Rússia?",
+			"hipoteses_resposta": ["Nicolau II", "Alexandre III", "Nicolau I", "Alexandre II"],
+			"resposta": "Nicolau II"
+		},
+		{
+			"numero": "W000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Guerra do Vietname?",
+			"hipoteses_resposta": ["1955", "1953", "1957", "1960"],
+			"resposta": "1955"
+		},
+		{
+			"numero": "W000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filósofo grego foi professor de Alexandre, o Grande?",
+			"hipoteses_resposta": ["Aristóteles", "Platão", "Sócrates", "Epicuro"],
+			"resposta": "Aristóteles"
+		},
+		{
+			"numero": "W000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi proclamada a independência da Índia?",
+			"hipoteses_resposta": ["1947", "1945", "1949", "1950"],
+			"resposta": "1947"
+		},
+		{
+			"numero": "W000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual civilização inventou o papel?",
+			"hipoteses_resposta": ["Chinesa", "Egípcia", "Mesopotâmica", "Grega"],
+			"resposta": "Chinesa"
+		},
+		{
+			"numero": "W000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano começou a Guerra Civil Americana?",
+			"hipoteses_resposta": ["1861", "1859", "1863", "1860"],
+			"resposta": "1861"
+		},
+		{
+			"numero": "W000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o nome da operação do Dia D na Segunda Guerra Mundial?",
+			"hipoteses_resposta": ["Operação Overlord", "Operação Barbarossa", "Operação Market Garden", "Operação Husky"],
+			"resposta": "Operação Overlord"
+		},
+		{
+			"numero": "W000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi construído o primeiro computador eletrónico?",
+			"hipoteses_resposta": ["1946", "1944", "1948", "1950"],
+			"resposta": "1946"
+		},
+		{
+			"numero": "W000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual líder mongol conquistou o maior império contíguo da história?",
+			"hipoteses_resposta": ["Genghis Khan", "Kublai Khan", "Ögedei Khan", "Möngke Khan"],
+			"resposta": "Genghis Khan"
+		},
+		{
+			"numero": "W000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi abolida a escravatura nos Estados Unidos?",
+			"hipoteses_resposta": ["1865", "1863", "1867", "1860"],
+			"resposta": "1865"
+		},
+		{
+			"numero": "W000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a primeira mulher a governar como faraó do Egipto?",
+			"hipoteses_resposta": ["Hatshepsut", "Cleópatra", "Nefertiti", "Ankhesenamun"],
+			"resposta": "Hatshepsut"
+		},
+		{
+			"numero": "W000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi lançado o Sputnik?",
+			"hipoteses_resposta": ["1957", "1955", "1959", "1960"],
+			"resposta": "1957"
+		},
+		{
+			"numero": "W000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o nome da pandemia que assolou a Europa no século XIV?",
+			"hipoteses_resposta": ["Peste Negra", "Cólera", "Varíola", "Gripe Espanhola"],
+			"resposta": "Peste Negra"
+		},
+		{
+			"numero": "W000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi fundado o Império Otomano?",
+			"hipoteses_resposta": ["1299", "1301", "1297", "1305"],
+			"resposta": "1299"
+		},
+		{
+			"numero": "W000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual rainha inglesa reinou por mais tempo antes de Isabel II?",
+			"hipoteses_resposta": ["Vitória", "Isabel I", "Ana", "Maria I"],
+			"resposta": "Vitória"
+		},
+		{
+			"numero": "W000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi a Revolução Russa?",
+			"hipoteses_resposta": ["1917", "1915", "1919", "1920"],
+			"resposta": "1917"
+		},
+		{
+			"numero": "W000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual civilização desenvolveu o primeiro sistema de escrita alfabética?",
+			"hipoteses_resposta": ["Fenícia", "Grega", "Romana", "Hebraica"],
+			"resposta": "Fenícia"
+		},
+		{
+			"numero": "W000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano Neil Armstrong pisou na Lua?",
+			"hipoteses_resposta": ["1969", "1967", "1971", "1968"],
+			"resposta": "1969"
+		},
+		{
+			"numero": "W000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o nome do navio que levou Charles Darwin na sua viagem científica?",
+			"hipoteses_resposta": ["HMS Beagle", "HMS Endeavour", "HMS Victory", "HMS Bounty"],
+			"resposta": "HMS Beagle"
+		},
+		{
+			"numero": "W000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano caiu o Império Romano do Ocidente?",
+			"hipoteses_resposta": ["476", "478", "474", "480"],
+			"resposta": "476"
+		},
+		{
+			"numero": "W000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o primeiro país a conceder o direito de voto às mulheres?",
+			"hipoteses_resposta": ["Nova Zelândia", "Austrália", "Finlândia", "Noruega"],
+			"resposta": "Nova Zelândia"
+		}
+	]
+}

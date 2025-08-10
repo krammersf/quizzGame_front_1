@@ -1,0 +1,405 @@
+{
+	"card": "Trivialidades",
+	"perguntas": [
+		{
+			"numero": "T000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a cor que se obtém misturando azul e amarelo?",
+			"hipoteses_resposta": ["Verde", "Roxo", "Laranja", "Rosa"],
+			"resposta": "Verde"
+		},
+		{
+			"numero": "T000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos lados tem um hexágono?",
+			"hipoteses_resposta": ["6", "5", "7", "8"],
+			"resposta": "6"
+		},
+		{
+			"numero": "T000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o animal mais rápido do mundo?",
+			"hipoteses_resposta": ["Guepardo", "Falcão peregrino", "Antílope", "Avestruz"],
+			"resposta": "Falcão peregrino"
+		},
+		{
+			"numero": "T000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos minutos tem uma hora?",
+			"hipoteses_resposta": ["60", "50", "70", "100"],
+			"resposta": "60"
+		},
+		{
+			"numero": "T000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior mamífero do mundo?",
+			"hipoteses_resposta": ["Baleia azul", "Elefante africano", "Girafa", "Hipopótamo"],
+			"resposta": "Baleia azul"
+		},
+		{
+			"numero": "T000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos dias tem o mês de fevereiro num ano bissexto?",
+			"hipoteses_resposta": ["29", "28", "30", "27"],
+			"resposta": "29"
+		},
+		{
+			"numero": "T000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a fruta que contém mais vitamina C?",
+			"hipoteses_resposta": ["Acerola", "Laranja", "Limão", "Kiwi"],
+			"resposta": "Acerola"
+		},
+		{
+			"numero": "T000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos olhos tem uma aranha comum?",
+			"hipoteses_resposta": ["8", "6", "4", "2"],
+			"resposta": "8"
+		},
+		{
+			"numero": "T000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país com mais fusos horários?",
+			"hipoteses_resposta": ["França", "Rússia", "Estados Unidos", "China"],
+			"resposta": "França"
+		},
+		{
+			"numero": "T000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas pernas tem um inseto?",
+			"hipoteses_resposta": ["6", "4", "8", "2"],
+			"resposta": "6"
+		},
+		{
+			"numero": "T000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o animal que nunca dorme?",
+			"hipoteses_resposta": ["Tubarão", "Golfinho", "Baleia", "Polvo"],
+			"resposta": "Tubarão"
+		},
+		{
+			"numero": "T000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos dentes tem um adulto humano normal?",
+			"hipoteses_resposta": ["32", "28", "30", "34"],
+			"resposta": "32"
+		},
+		{
+			"numero": "T000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o único mamífero capaz de voar?",
+			"hipoteses_resposta": ["Morcego", "Esquilo voador", "Lemur voador", "Peixe voador"],
+			"resposta": "Morcego"
+		},
+		{
+			"numero": "T000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos continentes existem?",
+			"hipoteses_resposta": ["7", "5", "6", "8"],
+			"resposta": "7"
+		},
+		{
+			"numero": "T000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a bebida mais consumida no mundo depois da água?",
+			"hipoteses_resposta": ["Chá", "Café", "Refrigerante", "Cerveja"],
+			"resposta": "Chá"
+		},
+		{
+			"numero": "T000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos estômagos tem uma vaca?",
+			"hipoteses_resposta": ["4", "2", "3", "1"],
+			"resposta": "4"
+		},
+		{
+			"numero": "T000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o metal líquido à temperatura ambiente?",
+			"hipoteses_resposta": ["Mercúrio", "Gálio", "Césio", "Rubídio"],
+			"resposta": "Mercúrio"
+		},
+		{
+			"numero": "T000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas cordas tem uma guitarra clássica?",
+			"hipoteses_resposta": ["6", "4", "5", "7"],
+			"resposta": "6"
+		},
+		{
+			"numero": "T000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o único alimento que não se estraga?",
+			"hipoteses_resposta": ["Mel", "Arroz", "Sal", "Açúcar"],
+			"resposta": "Mel"
+		},
+		{
+			"numero": "T000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos anos tem um século?",
+			"hipoteses_resposta": ["100", "50", "1000", "10"],
+			"resposta": "100"
+		},
+		{
+			"numero": "T000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o planeta mais próximo do Sol?",
+			"hipoteses_resposta": ["Mercúrio", "Vénus", "Terra", "Marte"],
+			"resposta": "Mercúrio"
+		},
+		{
+			"numero": "T000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas teclas pretas tem um piano?",
+			"hipoteses_resposta": ["36", "32", "40", "44"],
+			"resposta": "36"
+		},
+		{
+			"numero": "T000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior órgão interno do corpo humano?",
+			"hipoteses_resposta": ["Fígado", "Pulmão", "Coração", "Rim"],
+			"resposta": "Fígado"
+		},
+		{
+			"numero": "T000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos graus tem um círculo completo?",
+			"hipoteses_resposta": ["360", "180", "270", "90"],
+			"resposta": "360"
+		},
+		{
+			"numero": "T000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o único metal que é líquido à temperatura ambiente?",
+			"hipoteses_resposta": ["Mercúrio", "Gálio", "Chumbo", "Estanho"],
+			"resposta": "Mercúrio"
+		},
+		{
+			"numero": "T000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas patas tem uma aranha?",
+			"hipoteses_resposta": ["8", "6", "10", "4"],
+			"resposta": "8"
+		},
+		{
+			"numero": "T000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a ave que não consegue voar mas é a mais rápida a correr?",
+			"hipoteses_resposta": ["Avestruz", "Emu", "Casuar", "Pinguim"],
+			"resposta": "Avestruz"
+		},
+		{
+			"numero": "T000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos lados tem um triângulo?",
+			"hipoteses_resposta": ["3", "4", "5", "2"],
+			"resposta": "3"
+		},
+		{
+			"numero": "T000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior oceano do mundo?",
+			"hipoteses_resposta": ["Pacífico", "Atlântico", "Índico", "Ártico"],
+			"resposta": "Pacífico"
+		},
+		{
+			"numero": "T000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos dedos tem uma mão humana normal?",
+			"hipoteses_resposta": ["5", "4", "6", "10"],
+			"resposta": "5"
+		},
+		{
+			"numero": "T000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o animal terrestre mais alto?",
+			"hipoteses_resposta": ["Girafa", "Elefante", "Rinoceronte", "Camelo"],
+			"resposta": "Girafa"
+		},
+		{
+			"numero": "T000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos meses do ano têm 31 dias?",
+			"hipoteses_resposta": ["7", "6", "8", "5"],
+			"resposta": "7"
+		},
+		{
+			"numero": "T000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a cidade mais populosa do mundo?",
+			"hipoteses_resposta": ["Tóquio", "Nova York", "São Paulo", "Mumbai"],
+			"resposta": "Tóquio"
+		},
+		{
+			"numero": "T000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos zeros tem um milhão?",
+			"hipoteses_resposta": ["6", "5", "7", "8"],
+			"resposta": "6"
+		},
+		{
+			"numero": "T000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o idioma mais falado no mundo?",
+			"hipoteses_resposta": ["Chinês mandarim", "Inglês", "Espanhol", "Hindi"],
+			"resposta": "Chinês mandarim"
+		},
+		{
+			"numero": "T000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas faces tem um cubo?",
+			"hipoteses_resposta": ["6", "4", "8", "12"],
+			"resposta": "6"
+		},
+		{
+			"numero": "T000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o animal que produz leite rosa?",
+			"hipoteses_resposta": ["Hipopótamo", "Flamingo", "Porco", "Vaca"],
+			"resposta": "Hipopótamo"
+		},
+		{
+			"numero": "T000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos segundos tem um minuto?",
+			"hipoteses_resposta": ["60", "50", "100", "30"],
+			"resposta": "60"
+		},
+		{
+			"numero": "T000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o país com mais ilhas no mundo?",
+			"hipoteses_resposta": ["Finlândia", "Suécia", "Noruega", "Dinamarca"],
+			"resposta": "Finlândia"
+		},
+		{
+			"numero": "T000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas cores tem o arco-íris?",
+			"hipoteses_resposta": ["7", "6", "8", "5"],
+			"resposta": "7"
+		},
+		{
+			"numero": "T000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o único continente sem abelhas?",
+			"hipoteses_resposta": ["Antártida", "Austrália", "África", "Ásia"],
+			"resposta": "Antártida"
+		},
+		{
+			"numero": "T000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos planetas tem o nosso sistema solar?",
+			"hipoteses_resposta": ["8", "9", "7", "10"],
+			"resposta": "8"
+		},
+		{
+			"numero": "T000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o animal que tem a língua mais comprida em relação ao corpo?",
+			"hipoteses_resposta": ["Camaleão", "Anteater", "Girafa", "Cobra"],
+			"resposta": "Camaleão"
+		},
+		{
+			"numero": "T000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas semanas tem um ano?",
+			"hipoteses_resposta": ["52", "50", "54", "48"],
+			"resposta": "52"
+		},
+		{
+			"numero": "T000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o órgão que continua a crescer durante toda a vida?",
+			"hipoteses_resposta": ["Nariz", "Orelha", "Olho", "Língua"],
+			"resposta": "Nariz"
+		},
+		{
+			"numero": "T000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas pontas tem uma estrela tradicional?",
+			"hipoteses_resposta": ["5", "6", "4", "8"],
+			"resposta": "5"
+		},
+		{
+			"numero": "T000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o único mamífero que põe ovos?",
+			"hipoteses_resposta": ["Ornitorrinco", "Equidna", "Canguru", "Coala"],
+			"resposta": "Ornitorrinco"
+		},
+		{
+			"numero": "T000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos buracos tem uma bola de bowling?",
+			"hipoteses_resposta": ["3", "2", "4", "5"],
+			"resposta": "3"
+		},
+		{
+			"numero": "T000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a moeda oficial do Japão?",
+			"hipoteses_resposta": ["Iene", "Won", "Yuan", "Dong"],
+			"resposta": "Iene"
+		},
+		{
+			"numero": "T000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas cordas vocais tem um ser humano?",
+			"hipoteses_resposta": ["2", "4", "1", "3"],
+			"resposta": "2"
+		}
+	]
+}

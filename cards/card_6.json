@@ -1,0 +1,405 @@
+{
+	"card": "Ciências",
+	"perguntas": [
+		{
+			"numero": "S000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o elemento químico mais abundante no universo?",
+			"hipoteses_resposta": ["Hidrogénio", "Hélio", "Oxigénio", "Carbono"],
+			"resposta": "Hidrogénio"
+		},
+		{
+			"numero": "S000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos ossos tem o corpo humano adulto?",
+			"hipoteses_resposta": ["206", "208", "204", "210"],
+			"resposta": "206"
+		},
+		{
+			"numero": "S000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a velocidade da luz no vácuo?",
+			"hipoteses_resposta": ["299.792.458 m/s", "300.000.000 m/s", "299.000.000 m/s", "298.792.458 m/s"],
+			"resposta": "299.792.458 m/s"
+		},
+		{
+			"numero": "S000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual planeta do sistema solar tem mais luas?",
+			"hipoteses_resposta": ["Saturno", "Júpiter", "Urano", "Neptuno"],
+			"resposta": "Saturno"
+		},
+		{
+			"numero": "S000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior órgão do corpo humano?",
+			"hipoteses_resposta": ["Pele", "Fígado", "Pulmões", "Intestino"],
+			"resposta": "Pele"
+		},
+		{
+			"numero": "S000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a fórmula química da água?",
+			"hipoteses_resposta": ["H2O", "H2O2", "HO2", "H3O"],
+			"resposta": "H2O"
+		},
+		{
+			"numero": "S000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a teoria que explica a origem do universo?",
+			"hipoteses_resposta": ["Big Bang", "Estado Estacionário", "Universo Cíclico", "Inflação Eterna"],
+			"resposta": "Big Bang"
+		},
+		{
+			"numero": "S000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos cromossomas tem uma célula humana normal?",
+			"hipoteses_resposta": ["46", "44", "48", "42"],
+			"resposta": "46"
+		},
+		{
+			"numero": "S000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o metal mais abundante na crosta terrestre?",
+			"hipoteses_resposta": ["Alumínio", "Ferro", "Cálcio", "Magnésio"],
+			"resposta": "Alumínio"
+		},
+		{
+			"numero": "S000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a unidade de medida da corrente eléctrica?",
+			"hipoteses_resposta": ["Ampere", "Volt", "Watt", "Ohm"],
+			"resposta": "Ampere"
+		},
+		{
+			"numero": "S000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o gás mais abundante na atmosfera terrestre?",
+			"hipoteses_resposta": ["Azoto", "Oxigénio", "Árgon", "Dióxido de carbono"],
+			"resposta": "Azoto"
+		},
+		{
+			"numero": "S000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual cientista formulou a teoria da relatividade?",
+			"hipoteses_resposta": ["Albert Einstein", "Isaac Newton", "Galileu Galilei", "Stephen Hawking"],
+			"resposta": "Albert Einstein"
+		},
+		{
+			"numero": "S000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a temperatura de ebulição da água ao nível do mar?",
+			"hipoteses_resposta": ["100°C", "98°C", "102°C", "105°C"],
+			"resposta": "100°C"
+		},
+		{
+			"numero": "S000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o processo pelo qual as plantas produzem energia?",
+			"hipoteses_resposta": ["Fotossíntese", "Respiração", "Fermentação", "Digestão"],
+			"resposta": "Fotossíntese"
+		},
+		{
+			"numero": "S000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o número atómico do carbono?",
+			"hipoteses_resposta": ["6", "4", "8", "12"],
+			"resposta": "6"
+		},
+		{
+			"numero": "S000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a força que mantém os planetas em órbita?",
+			"hipoteses_resposta": ["Gravidade", "Magnetismo", "Força nuclear", "Força centrífuga"],
+			"resposta": "Gravidade"
+		},
+		{
+			"numero": "S000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o ácido presente no estômago humano?",
+			"hipoteses_resposta": ["Ácido clorídrico", "Ácido sulfúrico", "Ácido acético", "Ácido nítrico"],
+			"resposta": "Ácido clorídrico"
+		},
+		{
+			"numero": "S000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a estrela mais próxima da Terra?",
+			"hipoteses_resposta": ["Sol", "Proxima Centauri", "Alpha Centauri", "Sirius"],
+			"resposta": "Sol"
+		},
+		{
+			"numero": "S000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a partícula subatómica com carga positiva?",
+			"hipoteses_resposta": ["Protão", "Eletrão", "Neutrão", "Fóton"],
+			"resposta": "Protão"
+		},
+		{
+			"numero": "S000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o sistema circulatório responsável pelo transporte de oxigénio?",
+			"hipoteses_resposta": ["Sistema cardiovascular", "Sistema linfático", "Sistema digestivo", "Sistema nervoso"],
+			"resposta": "Sistema cardiovascular"
+		},
+		{
+			"numero": "S000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a camada da atmosfera onde ocorre a maior parte do tempo?",
+			"hipoteses_resposta": ["Troposfera", "Estratosfera", "Mesosfera", "Termosfera"],
+			"resposta": "Troposfera"
+		},
+		{
+			"numero": "S000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o elemento químico com símbolo Au?",
+			"hipoteses_resposta": ["Ouro", "Prata", "Alumínio", "Árgon"],
+			"resposta": "Ouro"
+		},
+		{
+			"numero": "S000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a unidade de medida da energia?",
+			"hipoteses_resposta": ["Joule", "Watt", "Newton", "Pascal"],
+			"resposta": "Joule"
+		},
+		{
+			"numero": "S000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o tipo de rocha formada por magma solidificado?",
+			"hipoteses_resposta": ["Ígnea", "Sedimentar", "Metamórfica", "Vulcânica"],
+			"resposta": "Ígnea"
+		},
+		{
+			"numero": "S000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a molécula que carrega a informação genética?",
+			"hipoteses_resposta": ["DNA", "RNA", "Proteína", "Lipídio"],
+			"resposta": "DNA"
+		},
+		{
+			"numero": "S000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o fenómeno que causa as marés?",
+			"hipoteses_resposta": ["Atração gravitacional da Lua", "Rotação da Terra", "Vento solar", "Campo magnético terrestre"],
+			"resposta": "Atração gravitacional da Lua"
+		},
+		{
+			"numero": "S000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o processo de divisão celular que produz gametas?",
+			"hipoteses_resposta": ["Meiose", "Mitose", "Citocinese", "Interfase"],
+			"resposta": "Meiose"
+		},
+		{
+			"numero": "S000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a escala usada para medir a acidez?",
+			"hipoteses_resposta": ["pH", "pKa", "pOH", "Molaridade"],
+			"resposta": "pH"
+		},
+		{
+			"numero": "S000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o planeta mais quente do sistema solar?",
+			"hipoteses_resposta": ["Vénus", "Mercúrio", "Marte", "Júpiter"],
+			"resposta": "Vénus"
+		},
+		{
+			"numero": "S000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a lei que afirma que a energia não se cria nem se destrói?",
+			"hipoteses_resposta": ["Lei da conservação da energia", "Lei de Newton", "Lei de Ohm", "Lei de Boyle"],
+			"resposta": "Lei da conservação da energia"
+		},
+		{
+			"numero": "S000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o hormônio produzido pelo pâncreas que regula o açúcar no sangue?",
+			"hipoteses_resposta": ["Insulina", "Glucagon", "Adrenalina", "Cortisol"],
+			"resposta": "Insulina"
+		},
+		{
+			"numero": "S000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o fenómeno onde a luz muda de direção ao passar de um meio para outro?",
+			"hipoteses_resposta": ["Refração", "Reflexão", "Difração", "Interferência"],
+			"resposta": "Refração"
+		},
+		{
+			"numero": "S000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a unidade básica da vida?",
+			"hipoteses_resposta": ["Célula", "Átomo", "Molécula", "Tecido"],
+			"resposta": "Célula"
+		},
+		{
+			"numero": "S000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o estudo dos terremotos?",
+			"hipoteses_resposta": ["Sismologia", "Geologia", "Vulcanologia", "Meteorologia"],
+			"resposta": "Sismologia"
+		},
+		{
+			"numero": "S000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o gás produzido durante a fotossíntese?",
+			"hipoteses_resposta": ["Oxigénio", "Dióxido de carbono", "Azoto", "Hidrogénio"],
+			"resposta": "Oxigénio"
+		},
+		{
+			"numero": "S000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a força que se opõe ao movimento?",
+			"hipoteses_resposta": ["Atrito", "Gravidade", "Inércia", "Momentum"],
+			"resposta": "Atrito"
+		},
+		{
+			"numero": "S000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o estudo da hereditariedade?",
+			"hipoteses_resposta": ["Genética", "Evolução", "Ecologia", "Anatomia"],
+			"resposta": "Genética"
+		},
+		{
+			"numero": "S000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a distância média da Terra ao Sol?",
+			"hipoteses_resposta": ["150 milhões de km", "100 milhões de km", "200 milhões de km", "250 milhões de km"],
+			"resposta": "150 milhões de km"
+		},
+		{
+			"numero": "S000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o processo onde um sólido se transforma diretamente em gás?",
+			"hipoteses_resposta": ["Sublimação", "Evaporação", "Fusão", "Condensação"],
+			"resposta": "Sublimação"
+		},
+		{
+			"numero": "S000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o órgão responsável pela produção de insulina?",
+			"hipoteses_resposta": ["Pâncreas", "Fígado", "Rim", "Estômago"],
+			"resposta": "Pâncreas"
+		},
+		{
+			"numero": "S000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a camada protetora da Terra contra radiação ultravioleta?",
+			"hipoteses_resposta": ["Camada de ozono", "Atmosfera", "Magnetosfera", "Ionosfera"],
+			"resposta": "Camada de ozono"
+		},
+		{
+			"numero": "S000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a ciência que estuda os fungos?",
+			"hipoteses_resposta": ["Micologia", "Botânica", "Zoologia", "Bacteriologia"],
+			"resposta": "Micologia"
+		},
+		{
+			"numero": "S000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a unidade de medida da frequência?",
+			"hipoteses_resposta": ["Hertz", "Watt", "Ampere", "Volt"],
+			"resposta": "Hertz"
+		},
+		{
+			"numero": "S000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o processo de formação de gametas masculinos?",
+			"hipoteses_resposta": ["Espermatogénese", "Ovogénese", "Mitose", "Fertilização"],
+			"resposta": "Espermatogénese"
+		},
+		{
+			"numero": "S000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o estudo do comportamento animal?",
+			"hipoteses_resposta": ["Etologia", "Zoologia", "Ecologia", "Biologia"],
+			"resposta": "Etologia"
+		},
+		{
+			"numero": "S000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a propriedade da matéria que resiste à mudança de movimento?",
+			"hipoteses_resposta": ["Inércia", "Massa", "Peso", "Densidade"],
+			"resposta": "Inércia"
+		},
+		{
+			"numero": "S000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o menor osso do corpo humano?",
+			"hipoteses_resposta": ["Estribo", "Martelo", "Bigorna", "Escafoide"],
+			"resposta": "Estribo"
+		},
+		{
+			"numero": "S000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a ciência que estuda as rochas?",
+			"hipoteses_resposta": ["Petrologia", "Mineralogia", "Geologia", "Paleontologia"],
+			"resposta": "Petrologia"
+		},
+		{
+			"numero": "S000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o tipo de ligação química mais forte?",
+			"hipoteses_resposta": ["Ligação covalente", "Ligação iónica", "Ligação metálica", "Força de Van der Waals"],
+			"resposta": "Ligação covalente"
+		},
+		{
+			"numero": "S000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o fenómeno que explica a cor do céu?",
+			"hipoteses_resposta": ["Dispersão de Rayleigh", "Refração", "Reflexão", "Absorção"],
+			"resposta": "Dispersão de Rayleigh"
+		}
+	]
+}

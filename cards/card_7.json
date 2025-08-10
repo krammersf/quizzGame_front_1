@@ -1,0 +1,405 @@
+{
+	"card": "Literatura",
+	"perguntas": [
+		{
+			"numero": "L000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Os Lusíadas'?",
+			"hipoteses_resposta": ["Luís de Camões", "Gil Vicente", "Fernando Pessoa", "Eça de Queirós"],
+			"resposta": "Luís de Camões"
+		},
+		{
+			"numero": "L000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o primeiro livro da saga 'Harry Potter'?",
+			"hipoteses_resposta": ["A Pedra Filosofal", "A Câmara Secreta", "O Prisioneiro de Azkaban", "O Cálice de Fogo"],
+			"resposta": "A Pedra Filosofal"
+		},
+		{
+			"numero": "L000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Dom Quixote'?",
+			"hipoteses_resposta": ["Miguel de Cervantes", "Federico García Lorca", "Pablo Neruda", "Jorge Luis Borges"],
+			"resposta": "Miguel de Cervantes"
+		},
+		{
+			"numero": "L000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual escritor português criou o heterónimo Alberto Caeiro?",
+			"hipoteses_resposta": ["Fernando Pessoa", "José Saramago", "António Lobo Antunes", "Vergílio Ferreira"],
+			"resposta": "Fernando Pessoa"
+		},
+		{
+			"numero": "L000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que século viveu William Shakespeare?",
+			"hipoteses_resposta": ["XVI-XVII", "XV-XVI", "XVII-XVIII", "XIV-XV"],
+			"resposta": "XVI-XVII"
+		},
+		{
+			"numero": "L000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o romance mais famoso de Jane Austen?",
+			"hipoteses_resposta": ["Orgulho e Preconceito", "Emma", "Razão e Sensibilidade", "Persuasão"],
+			"resposta": "Orgulho e Preconceito"
+		},
+		{
+			"numero": "L000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Cem Anos de Solidão'?",
+			"hipoteses_resposta": ["Gabriel García Márquez", "Mario Vargas Llosa", "Jorge Amado", "Isabel Allende"],
+			"resposta": "Gabriel García Márquez"
+		},
+		{
+			"numero": "L000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual obra de José Saramago ganhou o Prémio Nobel?",
+			"hipoteses_resposta": ["Ensaio sobre a Cegueira", "Memorial do Convento", "O Ano da Morte de Ricardo Reis", "A Jangada de Pedra"],
+			"resposta": "Ensaio sobre a Cegueira"
+		},
+		{
+			"numero": "L000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Cortiço'?",
+			"hipoteses_resposta": ["Aluísio Azevedo", "Machado de Assis", "José de Alencar", "Raul Pompéia"],
+			"resposta": "Aluísio Azevedo"
+		},
+		{
+			"numero": "L000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a obra mais famosa de Victor Hugo?",
+			"hipoteses_resposta": ["Os Miseráveis", "O Corcunda de Notre-Dame", "Os Trabalhadores do Mar", "O Homem que Ri"],
+			"resposta": "Os Miseráveis"
+		},
+		{
+			"numero": "L000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'A Metamorfose'?",
+			"hipoteses_resposta": ["Franz Kafka", "Thomas Mann", "Hermann Hesse", "Rainer Maria Rilke"],
+			"resposta": "Franz Kafka"
+		},
+		{
+			"numero": "L000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual escritor português escreveu 'A Cidade e as Serras'?",
+			"hipoteses_resposta": ["Eça de Queirós", "Camilo Castelo Branco", "Ramalho Ortigão", "Antero de Quental"],
+			"resposta": "Eça de Queirós"
+		},
+		{
+			"numero": "L000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Crime e Castigo'?",
+			"hipoteses_resposta": ["Fiódor Dostoiévski", "Lev Tolstói", "Anton Tchékhov", "Ivan Turguéniev"],
+			"resposta": "Fiódor Dostoiévski"
+		},
+		{
+			"numero": "L000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a nacionalidade de Jorge Luis Borges?",
+			"hipoteses_resposta": ["Argentina", "Chile", "Uruguai", "Peru"],
+			"resposta": "Argentina"
+		},
+		{
+			"numero": "L000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Grande Gatsby'?",
+			"hipoteses_resposta": ["F. Scott Fitzgerald", "Ernest Hemingway", "John Steinbeck", "William Faulkner"],
+			"resposta": "F. Scott Fitzgerald"
+		},
+		{
+			"numero": "L000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual movimento literário caracterizou o século XVIII?",
+			"hipoteses_resposta": ["Iluminismo", "Romantismo", "Realismo", "Barroco"],
+			"resposta": "Iluminismo"
+		},
+		{
+			"numero": "L000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Ulisses'?",
+			"hipoteses_resposta": ["James Joyce", "Oscar Wilde", "George Bernard Shaw", "W.B. Yeats"],
+			"resposta": "James Joyce"
+		},
+		{
+			"numero": "L000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual obra de Machado de Assis é considerada sua obra-prima?",
+			"hipoteses_resposta": ["Dom Casmurro", "O Alienista", "Quincas Borba", "Memórias Póstumas de Brás Cubas"],
+			"resposta": "Dom Casmurro"
+		},
+		{
+			"numero": "L000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Nome da Rosa'?",
+			"hipoteses_resposta": ["Umberto Eco", "Italo Calvino", "Alberto Moravia", "Pier Paolo Pasolini"],
+			"resposta": "Umberto Eco"
+		},
+		{
+			"numero": "L000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual poetisa portuguesa escreveu 'Florbela Espanca'?",
+			"hipoteses_resposta": ["Florbela Espanca", "Sophia de Mello Breyner", "Natália Correia", "Irene Lisboa"],
+			"resposta": "Florbela Espanca"
+		},
+		{
+			"numero": "L000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Ensaio sobre a Lucidez'?",
+			"hipoteses_resposta": ["José Saramago", "António Lobo Antunes", "Vergílio Ferreira", "Agustina Bessa-Luís"],
+			"resposta": "José Saramago"
+		},
+		{
+			"numero": "L000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o primeiro livro da trilogia 'O Senhor dos Anéis'?",
+			"hipoteses_resposta": ["A Sociedade do Anel", "As Duas Torres", "O Regresso do Rei", "O Hobbit"],
+			"resposta": "A Sociedade do Anel"
+		},
+		{
+			"numero": "L000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Madame Bovary'?",
+			"hipoteses_resposta": ["Gustave Flaubert", "Émile Zola", "Honoré de Balzac", "Stendhal"],
+			"resposta": "Gustave Flaubert"
+		},
+		{
+			"numero": "L000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual escritor criou o detetive Hercule Poirot?",
+			"hipoteses_resposta": ["Agatha Christie", "Arthur Conan Doyle", "Raymond Chandler", "Dashiell Hammett"],
+			"resposta": "Agatha Christie"
+		},
+		{
+			"numero": "L000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que língua foi originalmente escrita 'A Divina Comédia'?",
+			"hipoteses_resposta": ["Italiano", "Latim", "Francês", "Espanhol"],
+			"resposta": "Italiano"
+		},
+		{
+			"numero": "L000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Retrato de Dorian Gray'?",
+			"hipoteses_resposta": ["Oscar Wilde", "Bram Stoker", "Robert Louis Stevenson", "H.G. Wells"],
+			"resposta": "Oscar Wilde"
+		},
+		{
+			"numero": "L000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual movimento literário português do século XIX criticava a sociedade?",
+			"hipoteses_resposta": ["Realismo", "Romantismo", "Simbolismo", "Parnasianismo"],
+			"resposta": "Realismo"
+		},
+		{
+			"numero": "L000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Anna Karenina'?",
+			"hipoteses_resposta": ["Lev Tolstói", "Fiódor Dostoiévski", "Anton Tchékhov", "Nikolai Gogol"],
+			"resposta": "Lev Tolstói"
+		},
+		{
+			"numero": "L000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual obra de George Orwell retrata uma sociedade totalitária?",
+			"hipoteses_resposta": ["1984", "A Revolução dos Bichos", "Dias em Birmânia", "A Filha do Reverendo"],
+			"resposta": "1984"
+		},
+		{
+			"numero": "L000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Processo'?",
+			"hipoteses_resposta": ["Franz Kafka", "Stefan Zweig", "Hermann Hesse", "Robert Musil"],
+			"resposta": "Franz Kafka"
+		},
+		{
+			"numero": "L000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual poeta português escreveu 'Mensagem'?",
+			"hipoteses_resposta": ["Fernando Pessoa", "Luís de Camões", "Antero de Quental", "Guerra Junqueiro"],
+			"resposta": "Fernando Pessoa"
+		},
+		{
+			"numero": "L000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Alquimista'?",
+			"hipoteses_resposta": ["Paulo Coelho", "Jorge Amado", "Clarice Lispector", "Lygia Fagundes Telles"],
+			"resposta": "Paulo Coelho"
+		},
+		{
+			"numero": "L000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a obra mais famosa de Dante Alighieri?",
+			"hipoteses_resposta": ["A Divina Comédia", "Vita Nuova", "Convívio", "De Monarchia"],
+			"resposta": "A Divina Comédia"
+		},
+		{
+			"numero": "L000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Moby Dick'?",
+			"hipoteses_resposta": ["Herman Melville", "Mark Twain", "Edgar Allan Poe", "Nathaniel Hawthorne"],
+			"resposta": "Herman Melville"
+		},
+		{
+			"numero": "L000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual escritora escreveu 'Jane Eyre'?",
+			"hipoteses_resposta": ["Charlotte Brontë", "Emily Brontë", "Anne Brontë", "George Eliot"],
+			"resposta": "Charlotte Brontë"
+		},
+		{
+			"numero": "L000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Perfume'?",
+			"hipoteses_resposta": ["Patrick Süskind", "Günter Grass", "Heinrich Böll", "Bernhard Schlink"],
+			"resposta": "Patrick Süskind"
+		},
+		{
+			"numero": "L000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual movimento literário valorizava a emoção e a natureza?",
+			"hipoteses_resposta": ["Romantismo", "Classicismo", "Realismo", "Naturalismo"],
+			"resposta": "Romantismo"
+		},
+		{
+			"numero": "L000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Estrangeiro'?",
+			"hipoteses_resposta": ["Albert Camus", "Jean-Paul Sartre", "André Gide", "Marcel Proust"],
+			"resposta": "Albert Camus"
+		},
+		{
+			"numero": "L000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual obra de Shakespeare tem a famosa frase 'Ser ou não ser'?",
+			"hipoteses_resposta": ["Hamlet", "Romeu e Julieta", "Macbeth", "Otelo"],
+			"resposta": "Hamlet"
+		},
+		{
+			"numero": "L000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Gabriela, Cravo e Canela'?",
+			"hipoteses_resposta": ["Jorge Amado", "Graciliano Ramos", "José Lins do Rego", "Rachel de Queiroz"],
+			"resposta": "Jorge Amado"
+		},
+		{
+			"numero": "L000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual escritor português ganhou o Prémio Nobel da Literatura em 1998?",
+			"hipoteses_resposta": ["José Saramago", "António Lobo Antunes", "Vergílio Ferreira", "Miguel Torga"],
+			"resposta": "José Saramago"
+		},
+		{
+			"numero": "L000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Pequeno Príncipe'?",
+			"hipoteses_resposta": ["Antoine de Saint-Exupéry", "Marcel Proust", "Jean Cocteau", "André Malraux"],
+			"resposta": "Antoine de Saint-Exupéry"
+		},
+		{
+			"numero": "L000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a obra principal de Cervantes?",
+			"hipoteses_resposta": ["Dom Quixote", "La Galatea", "Novelas Exemplares", "Os Trabalhos de Persiles"],
+			"resposta": "Dom Quixote"
+		},
+		{
+			"numero": "L000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Cem Anos de Solidão'?",
+			"hipoteses_resposta": ["Gabriel García Márquez", "Mario Vargas Llosa", "Octavio Paz", "Carlos Fuentes"],
+			"resposta": "Gabriel García Márquez"
+		},
+		{
+			"numero": "L000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual poetisa portuguesa foi inspiração para muitos fados?",
+			"hipoteses_resposta": ["Florbela Espanca", "Sophia de Mello Breyner", "Natália Correia", "Ana Luísa Amaral"],
+			"resposta": "Florbela Espanca"
+		},
+		{
+			"numero": "L000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'O Jogo da Amarelinha'?",
+			"hipoteses_resposta": ["Julio Cortázar", "Jorge Luis Borges", "Mario Vargas Llosa", "Gabriel García Márquez"],
+			"resposta": "Julio Cortázar"
+		},
+		{
+			"numero": "L000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual movimento literário português do século XX incluía Fernando Pessoa?",
+			"hipoteses_resposta": ["Modernismo", "Saudosismo", "Presencismo", "Neo-realismo"],
+			"resposta": "Modernismo"
+		},
+		{
+			"numero": "L000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'A Insustentável Leveza do Ser'?",
+			"hipoteses_resposta": ["Milan Kundera", "Václav Havel", "Karel Čapek", "Bohumil Hrabal"],
+			"resposta": "Milan Kundera"
+		},
+		{
+			"numero": "L000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual obra de Voltaire critica a sociedade através da sátira?",
+			"hipoteses_resposta": ["Cândido", "Zadig", "Micromegas", "O Ingénuo"],
+			"resposta": "Cândido"
+		},
+		{
+			"numero": "L000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem escreveu 'Ensaio sobre a Cegueira'?",
+			"hipoteses_resposta": ["José Saramago", "António Lobo Antunes", "Lídia Jorge", "Teolinda Gersão"],
+			"resposta": "José Saramago"
+		}
+	]
+}

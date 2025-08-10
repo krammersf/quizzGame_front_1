@@ -1,0 +1,405 @@
+{
+	"card": "Matematica",
+	"perguntas": [
+		{
+			"numero": "M000051",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 7 × 8?",
+			"hipoteses_resposta": ["56", "54", "48", "64"],
+			"resposta": "56"
+		},
+		{
+			"numero": "M000052",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o resultado de 144 ÷ 12?",
+			"hipoteses_resposta": ["12", "10", "14", "16"],
+			"resposta": "12"
+		},
+		{
+			"numero": "M000053",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 2³ (2 elevado a 3)?",
+			"hipoteses_resposta": ["8", "6", "9", "12"],
+			"resposta": "8"
+		},
+		{
+			"numero": "M000054",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a raiz quadrada de 64?",
+			"hipoteses_resposta": ["8", "6", "10", "7"],
+			"resposta": "8"
+		},
+		{
+			"numero": "M000055",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 15% de 200?",
+			"hipoteses_resposta": ["30", "25", "35", "20"],
+			"resposta": "30"
+		},
+		{
+			"numero": "M000056",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o perímetro de um quadrado com lado de 5 cm?",
+			"hipoteses_resposta": ["20 cm", "15 cm", "25 cm", "10 cm"],
+			"resposta": "20 cm"
+		},
+		{
+			"numero": "M000057",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 9 × 9?",
+			"hipoteses_resposta": ["81", "72", "90", "63"],
+			"resposta": "81"
+		},
+		{
+			"numero": "M000058",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a área de um retângulo de 6 cm por 4 cm?",
+			"hipoteses_resposta": ["24 cm²", "20 cm²", "10 cm²", "26 cm²"],
+			"resposta": "24 cm²"
+		},
+		{
+			"numero": "M000059",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 100 - 37?",
+			"hipoteses_resposta": ["63", "67", "73", "57"],
+			"resposta": "63"
+		},
+		{
+			"numero": "M000060",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o valor de π (pi) aproximadamente?",
+			"hipoteses_resposta": ["3,14", "3,41", "2,14", "4,13"],
+			"resposta": "3,14"
+		},
+		{
+			"numero": "M000061",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 5⁴ (5 elevado a 4)?",
+			"hipoteses_resposta": ["625", "500", "1000", "250"],
+			"resposta": "625"
+		},
+		{
+			"numero": "M000062",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a raiz quadrada de 36?",
+			"hipoteses_resposta": ["6", "8", "4", "9"],
+			"resposta": "6"
+		},
+		{
+			"numero": "M000063",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 25% de 80?",
+			"hipoteses_resposta": ["20", "25", "15", "30"],
+			"resposta": "20"
+		},
+		{
+			"numero": "M000064",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a soma dos ângulos internos de um triângulo?",
+			"hipoteses_resposta": ["180°", "360°", "90°", "270°"],
+			"resposta": "180°"
+		},
+		{
+			"numero": "M000065",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 12 × 11?",
+			"hipoteses_resposta": ["132", "121", "144", "120"],
+			"resposta": "132"
+		},
+		{
+			"numero": "M000066",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o resultado de 81 ÷ 9?",
+			"hipoteses_resposta": ["9", "8", "7", "10"],
+			"resposta": "9"
+		},
+		{
+			"numero": "M000067",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 3³ + 2³?",
+			"hipoteses_resposta": ["35", "25", "45", "30"],
+			"resposta": "35"
+		},
+		{
+			"numero": "M000068",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a área de um círculo com raio 3? (use π = 3,14)",
+			"hipoteses_resposta": ["28,26", "18,84", "9,42", "37,68"],
+			"resposta": "28,26"
+		},
+		{
+			"numero": "M000069",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 45 + 67?",
+			"hipoteses_resposta": ["112", "102", "122", "92"],
+			"resposta": "112"
+		},
+		{
+			"numero": "M000070",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior número primo menor que 20?",
+			"hipoteses_resposta": ["19", "17", "21", "15"],
+			"resposta": "19"
+		},
+		{
+			"numero": "M000071",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 6 × 7?",
+			"hipoteses_resposta": ["42", "48", "36", "35"],
+			"resposta": "42"
+		},
+		{
+			"numero": "M000072",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o resultado de 169 ÷ 13?",
+			"hipoteses_resposta": ["13", "12", "14", "11"],
+			"resposta": "13"
+		},
+		{
+			"numero": "M000073",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 50% de 150?",
+			"hipoteses_resposta": ["75", "50", "100", "125"],
+			"resposta": "75"
+		},
+		{
+			"numero": "M000074",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a raiz cúbica de 27?",
+			"hipoteses_resposta": ["3", "9", "6", "4"],
+			"resposta": "3"
+		},
+		{
+			"numero": "M000075",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 8 × 12?",
+			"hipoteses_resposta": ["96", "84", "108", "72"],
+			"resposta": "96"
+		},
+		{
+			"numero": "M000076",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o volume de um cubo com aresta de 4 cm?",
+			"hipoteses_resposta": ["64 cm³", "48 cm³", "16 cm³", "32 cm³"],
+			"resposta": "64 cm³"
+		},
+		{
+			"numero": "M000077",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 200 - 87?",
+			"hipoteses_resposta": ["113", "123", "103", "133"],
+			"resposta": "113"
+		},
+		{
+			"numero": "M000078",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o menor múltiplo comum de 4 e 6?",
+			"hipoteses_resposta": ["12", "24", "8", "18"],
+			"resposta": "12"
+		},
+		{
+			"numero": "M000079",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 4² × 3²?",
+			"hipoteses_resposta": ["144", "49", "36", "81"],
+			"resposta": "144"
+		},
+		{
+			"numero": "M000080",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a mediana de: 3, 7, 2, 9, 5?",
+			"hipoteses_resposta": ["5", "7", "3", "9"],
+			"resposta": "5"
+		},
+		{
+			"numero": "M000081",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 13 × 8?",
+			"hipoteses_resposta": ["104", "96", "112", "88"],
+			"resposta": "104"
+		},
+		{
+			"numero": "M000082",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o resultado de 225 ÷ 15?",
+			"hipoteses_resposta": ["15", "12", "18", "20"],
+			"resposta": "15"
+		},
+		{
+			"numero": "M000083",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 75% de 120?",
+			"hipoteses_resposta": ["90", "80", "100", "75"],
+			"resposta": "90"
+		},
+		{
+			"numero": "M000084",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a raiz quadrada de 100?",
+			"hipoteses_resposta": ["10", "50", "20", "5"],
+			"resposta": "10"
+		},
+		{
+			"numero": "M000085",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 2⁶ (2 elevado a 6)?",
+			"hipoteses_resposta": ["64", "32", "128", "16"],
+			"resposta": "64"
+		},
+		{
+			"numero": "M000086",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o perímetro de um triângulo equilátero com lado 6 cm?",
+			"hipoteses_resposta": ["18 cm", "12 cm", "24 cm", "36 cm"],
+			"resposta": "18 cm"
+		},
+		{
+			"numero": "M000087",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 89 + 56?",
+			"hipoteses_resposta": ["145", "135", "155", "125"],
+			"resposta": "145"
+		},
+		{
+			"numero": "M000088",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior divisor comum de 18 e 24?",
+			"hipoteses_resposta": ["6", "3", "9", "12"],
+			"resposta": "6"
+		},
+		{
+			"numero": "M000089",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 11 × 9?",
+			"hipoteses_resposta": ["99", "89", "109", "81"],
+			"resposta": "99"
+		},
+		{
+			"numero": "M000090",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a área de um triângulo com base 8 cm e altura 6 cm?",
+			"hipoteses_resposta": ["24 cm²", "48 cm²", "14 cm²", "32 cm²"],
+			"resposta": "24 cm²"
+		},
+		{
+			"numero": "M000091",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 300 - 156?",
+			"hipoteses_resposta": ["144", "154", "134", "164"],
+			"resposta": "144"
+		},
+		{
+			"numero": "M000092",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a raiz quadrada de 49?",
+			"hipoteses_resposta": ["7", "6", "8", "9"],
+			"resposta": "7"
+		},
+		{
+			"numero": "M000093",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 20% de 250?",
+			"hipoteses_resposta": ["50", "40", "60", "25"],
+			"resposta": "50"
+		},
+		{
+			"numero": "M000094",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o resultado de 121 ÷ 11?",
+			"hipoteses_resposta": ["11", "10", "12", "13"],
+			"resposta": "11"
+		},
+		{
+			"numero": "M000095",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 7² + 3²?",
+			"hipoteses_resposta": ["58", "52", "49", "40"],
+			"resposta": "58"
+		},
+		{
+			"numero": "M000096",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a circunferência de um círculo com raio 5? (use π = 3,14)",
+			"hipoteses_resposta": ["31,4", "15,7", "78,5", "25,12"],
+			"resposta": "31,4"
+		},
+		{
+			"numero": "M000097",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 15 × 6?",
+			"hipoteses_resposta": ["90", "80", "100", "75"],
+			"resposta": "90"
+		},
+		{
+			"numero": "M000098",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a moda de: 2, 3, 3, 4, 5, 3, 6?",
+			"hipoteses_resposta": ["3", "4", "5", "2"],
+			"resposta": "3"
+		},
+		{
+			"numero": "M000099",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quanto é 8³ (8 elevado a 3)?",
+			"hipoteses_resposta": ["512", "256", "64", "128"],
+			"resposta": "512"
+		},
+		{
+			"numero": "M000100",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o resultado de 196 ÷ 14?",
+			"hipoteses_resposta": ["14", "12", "16", "18"],
+			"resposta": "14"
+		}
+	]
+}

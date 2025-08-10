@@ -1,45 +1,405 @@
 {
-	"card": "card_1",
+	"card": "Desporto",
 	"perguntas": [
 		{
-			"numero": "A000001",
+			"numero": "D000001",
 			"tipo_pergunta": "hipotese",
-			"imagem": "imagens/pergunta1.png",
-			"pergunta": "Qual é a capital de Portugal?",
-			"hipoteses_resposta": ["Lisboa", "Porto", "Faro", "Coimbra"],
-			"resposta": "Lisboa"
+			"imagem": null,
+			"pergunta": "Em que ano o Sporting conquistou a sua única Taça dos Campeões Europeus?",
+			"hipoteses_resposta": ["1962", "1964", "1966", "1960"],
+			"resposta": "1962"
 		},
 		{
-			"numero": "B000002",
-			"tipo_pergunta": "letra",
+			"numero": "D000002",
+			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Escolhe a letra correta para a capital da França:",
-			"hipoteses_resposta": ["Paris", "Lyon", "Marselha", "Bordéus"],
-			"resposta": "P"
+			"pergunta": "Qual é o nome do estádio do FC Porto?",
+			"hipoteses_resposta": ["Estádio do Dragão", "Estádio da Luz", "Estádio José Alvalade", "Estádio do Bessa"],
+			"resposta": "Estádio do Dragão"
 		},
 		{
-			"numero": "C000003",
-			"tipo_pergunta": "ordenar",
+			"numero": "D000003",
+			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Ordena os planetas do mais próximo para o mais distante do Sol:",
-			"hipoteses_resposta": ["Terra", "Marte", "Vénus", "Mercúrio"],
-			"resposta": ["Mercúrio", "Vénus", "Terra", "Marte"]
+			"pergunta": "Quantas vezes Portugal ganhou o Campeonato Europeu de Futebol?",
+			"hipoteses_resposta": ["1", "0", "2", "3"],
+			"resposta": "1"
 		},
 		{
 			"numero": "D000004",
-			"tipo_pergunta": "varios_certos",
+			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Quais destes são mamíferos?",
-			"hipoteses_resposta": ["Golfinho", "Tubarão", "Morcego", "Cobra"],
-			"resposta": ["Golfinho", "Morcego"]
+			"pergunta": "Em que modalidade Michelle de Brito representou Portugal nos Jogos Olímpicos?",
+			"hipoteses_resposta": ["Atletismo", "Natação", "Ténis", "Ginástica"],
+			"resposta": "Ténis"
 		},
 		{
-			"numero": "E000005",
-			"tipo_pergunta": "sim_nao",
+			"numero": "D000005",
+			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "A água ferve a 100°C ao nível do mar?",
-			"hipoteses_resposta": ["Sim", "Não"],
-			"resposta": "Sim"
+			"pergunta": "Qual é o nome do piloto português que compete na Fórmula 1?",
+			"hipoteses_resposta": ["António Félix da Costa", "Filipe Albuquerque", "André Lotterer", "Nenhum atualmente"],
+			"resposta": "Nenhum atualmente"
+		},
+		{
+			"numero": "D000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano Rosa Mota ganhou a maratona olímpica?",
+			"hipoteses_resposta": ["1988", "1984", "1992", "1986"],
+			"resposta": "1988"
+		},
+		{
+			"numero": "D000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual clube português tem mais títulos de campeão nacional de futebol?",
+			"hipoteses_resposta": ["Benfica", "FC Porto", "Sporting", "Belenenses"],
+			"resposta": "Benfica"
+		},
+		{
+			"numero": "D000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Nélson Évora ganhou medalha de ouro olímpica?",
+			"hipoteses_resposta": ["Triplo salto", "Salto em altura", "Salto em comprimento", "Salto com vara"],
+			"resposta": "Triplo salto"
+		},
+		{
+			"numero": "D000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o primeiro clube português a ganhar uma competição europeia?",
+			"hipoteses_resposta": ["Sporting", "Benfica", "FC Porto", "Boavista"],
+			"resposta": "Sporting"
+		},
+		{
+			"numero": "D000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano Portugal organizou o Campeonato Europeu de Futebol?",
+			"hipoteses_resposta": ["2004", "2000", "2008", "2012"],
+			"resposta": "2004"
+		},
+		{
+			"numero": "D000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do complexo desportivo onde joga o Sporting?",
+			"hipoteses_resposta": ["Estádio José Alvalade", "Academia de Alcochete", "Cidade do Futebol", "Centro de Estágios"],
+			"resposta": "Estádio José Alvalade"
+		},
+		{
+			"numero": "D000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas medalhas olímpicas Carlos Lopes ganhou?",
+			"hipoteses_resposta": ["1", "2", "0", "3"],
+			"resposta": "1"
+		},
+		{
+			"numero": "D000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Portugal ganhou o Mundial de 2001?",
+			"hipoteses_resposta": ["Futebol de praia", "Futsal", "Hóquei em patins", "Andebol"],
+			"resposta": "Futebol de praia"
+		},
+		{
+			"numero": "D000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual surfista português é campeão mundial de surf?",
+			"hipoteses_resposta": ["Frederico Morais", "Vasco Ribeiro", "Nenhum", "Ítalo Ferreira"],
+			"resposta": "Nenhum"
+		},
+		{
+			"numero": "D000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que cidade fica o Estádio Nacional do Jamor?",
+			"hipoteses_resposta": ["Oeiras", "Lisboa", "Cascais", "Sintra"],
+			"resposta": "Oeiras"
+		},
+		{
+			"numero": "D000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador português tem mais golos pela seleção nacional?",
+			"hipoteses_resposta": ["Cristiano Ronaldo", "Eusébio", "Pauleta", "Luís Figo"],
+			"resposta": "Cristiano Ronaldo"
+		},
+		{
+			"numero": "D000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano o FC Porto ganhou a Liga dos Campeões pela primeira vez?",
+			"hipoteses_resposta": ["1987", "1985", "1989", "1983"],
+			"resposta": "1987"
+		},
+		{
+			"numero": "D000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a capacidade do Estádio da Luz?",
+			"hipoteses_resposta": ["65.647", "67.431", "62.000", "70.000"],
+			"resposta": "65.647"
+		},
+		{
+			"numero": "D000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Fernanda Ribeiro ganhou medalha de ouro olímpica?",
+			"hipoteses_resposta": ["10.000 metros", "5.000 metros", "Maratona", "1.500 metros"],
+			"resposta": "10.000 metros"
+		},
+		{
+			"numero": "D000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual clube ganhou a primeira edição da Taça de Portugal?",
+			"hipoteses_resposta": ["Carcavelinhos", "Sporting", "Benfica", "FC Porto"],
+			"resposta": "Carcavelinhos"
+		},
+		{
+			"numero": "D000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi criada a primeira liga portuguesa de futebol?",
+			"hipoteses_resposta": ["1934", "1932", "1936", "1930"],
+			"resposta": "1934"
+		},
+		{
+			"numero": "D000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual tenista portuguesa chegou mais alto no ranking mundial?",
+			"hipoteses_resposta": ["Michelle Larcher de Brito", "Maria João Koehler", "Catarina Lindqvist", "Frederica Piedade"],
+			"resposta": "Michelle Larcher de Brito"
+		},
+		{
+			"numero": "D000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Portugal ganhou medalha de bronze nos Jogos Olímpicos de 2016?",
+			"hipoteses_resposta": ["Judo", "Canoagem", "Vela", "Atletismo"],
+			"resposta": "Judo"
+		},
+		{
+			"numero": "D000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do estádio do Sporting de Braga?",
+			"hipoteses_resposta": ["Estádio Municipal de Braga", "Estádio AXA", "Estádio da Pedreira", "Estádio 1º de Maio"],
+			"resposta": "Estádio Municipal de Braga"
+		},
+		{
+			"numero": "D000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano Eusébio ganhou a Bola de Ouro?",
+			"hipoteses_resposta": ["1965", "1963", "1967", "1961"],
+			"resposta": "1965"
+		},
+		{
+			"numero": "D000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual ciclista português ganhou mais etapas na Volta a França?",
+			"hipoteses_resposta": ["Joaquim Agostinho", "Acácio da Silva", "José Azevedo", "Sérgio Paulinho"],
+			"resposta": "Joaquim Agostinho"
+		},
+		{
+			"numero": "D000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Pedro Figueiredo representa Portugal?",
+			"hipoteses_resposta": ["Golfe", "Ténis", "Atletismo", "Natação"],
+			"resposta": "Golfe"
+		},
+		{
+			"numero": "D000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual clube português ganhou mais Taças dos Campeões Europeus?",
+			"hipoteses_resposta": ["Benfica", "FC Porto", "Sporting", "Empate"],
+			"resposta": "Benfica"
+		},
+		{
+			"numero": "D000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi inaugurado o Estádio do Dragão?",
+			"hipoteses_resposta": ["2003", "2001", "2005", "2002"],
+			"resposta": "2003"
+		},
+		{
+			"numero": "D000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual boxeur português foi campeão europeu?",
+			"hipoteses_resposta": ["João Silva", "Carlos Takam", "Nenhum", "Fernando Monteiro"],
+			"resposta": "Fernando Monteiro"
+		},
+		{
+			"numero": "D000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Francis Obikwelu ganhou medalha olímpica?",
+			"hipoteses_resposta": ["100 metros", "200 metros", "400 metros", "110 metros barreiras"],
+			"resposta": "100 metros"
+		},
+		{
+			"numero": "D000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do complexo onde treina a seleção portuguesa de futebol?",
+			"hipoteses_resposta": ["Cidade do Futebol", "Academia das Seleções", "Centro de Estágios", "Quinta do Lago"],
+			"resposta": "Cidade do Futebol"
+		},
+		{
+			"numero": "D000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano Portugal disputou a sua primeira final de um Europeu?",
+			"hipoteses_resposta": ["2004", "2000", "2016", "1996"],
+			"resposta": "2004"
+		},
+		{
+			"numero": "D000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual nadadora portuguesa detém mais recordes nacionais?",
+			"hipoteses_resposta": ["Tamila Holub", "Sara Oliveira", "Diana Gomes", "Ana Catarina Monteiro"],
+			"resposta": "Tamila Holub"
+		},
+		{
+			"numero": "D000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade João Sousa representa Portugal?",
+			"hipoteses_resposta": ["Ténis", "Padel", "Squash", "Badminton"],
+			"resposta": "Ténis"
+		},
+		{
+			"numero": "D000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior estádio de Portugal?",
+			"hipoteses_resposta": ["Estádio da Luz", "Estádio do Dragão", "Estádio José Alvalade", "Estádio Nacional"],
+			"resposta": "Estádio da Luz"
+		},
+		{
+			"numero": "D000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano Portugal ganhou a Liga das Nações?",
+			"hipoteses_resposta": ["2019", "2017", "2021", "2018"],
+			"resposta": "2019"
+		},
+		{
+			"numero": "D000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual atleta português tem mais participações olímpicas?",
+			"hipoteses_resposta": ["Luís Monteiro", "João Rodrigues", "Fernanda Ribeiro", "Carlos Lopes"],
+			"resposta": "Luís Monteiro"
+		},
+		{
+			"numero": "D000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Patrícia Mamona ganhou medalha olímpica?",
+			"hipoteses_resposta": ["Triplo salto", "Salto em altura", "Salto em comprimento", "Salto com vara"],
+			"resposta": "Triplo salto"
+		},
+		{
+			"numero": "D000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual clube venceu a primeira Supertaça portuguesa?",
+			"hipoteses_resposta": ["Benfica", "FC Porto", "Sporting", "Belenenses"],
+			"resposta": "Benfica"
+		},
+		{
+			"numero": "D000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Pedro Pichardo ganhou medalha de ouro olímpica?",
+			"hipoteses_resposta": ["Triplo salto", "Salto em comprimento", "Decatlo", "Salto em altura"],
+			"resposta": "Triplo salto"
+		},
+		{
+			"numero": "D000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a alcunha da seleção portuguesa de futebol?",
+			"hipoteses_resposta": ["A Seleção das Quinas", "Os Navegadores", "Os Lusitanos", "A Squadra Azzurra"],
+			"resposta": "A Seleção das Quinas"
+		},
+		{
+			"numero": "D000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano o Benfica ganhou a primeira Taça dos Campeões Europeus?",
+			"hipoteses_resposta": ["1961", "1959", "1963", "1965"],
+			"resposta": "1961"
+		},
+		{
+			"numero": "D000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual ginasta portuguesa participou em mais Jogos Olímpicos?",
+			"hipoteses_resposta": ["Zita Macedo", "Ana Rente", "Luísa Portelada", "Cláudia Figueiredo"],
+			"resposta": "Zita Macedo"
+		},
+		{
+			"numero": "D000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Telma Monteiro representa Portugal?",
+			"hipoteses_resposta": ["Judo", "Karaté", "Taekwondo", "Luta"],
+			"resposta": "Judo"
+		},
+		{
+			"numero": "D000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do estádio do Vitória de Guimarães?",
+			"hipoteses_resposta": ["Estádio D. Afonso Henriques", "Estádio da Cidade", "Estádio Municipal", "Estádio dos Conquistadores"],
+			"resposta": "Estádio D. Afonso Henriques"
+		},
+		{
+			"numero": "D000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano Portugal participou pela primeira vez nos Jogos Olímpicos?",
+			"hipoteses_resposta": ["1912", "1908", "1920", "1924"],
+			"resposta": "1912"
+		},
+		{
+			"numero": "D000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual velocista português detém o recorde nacional dos 100 metros?",
+			"hipoteses_resposta": ["Francis Obikwelu", "Carlos Nascimento", "Arnaldo Abrantes", "Jorge Vieira"],
+			"resposta": "Francis Obikwelu"
+		},
+		{
+			"numero": "D000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que modalidade Gustavo Ribeiro representa Portugal?",
+			"hipoteses_resposta": ["Skate", "BMX", "Snowboard", "Surf"],
+			"resposta": "Skate"
+		},
+		{
+			"numero": "D000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual clube português tem o estádio com maior capacidade fora de Lisboa e Porto?",
+			"hipoteses_resposta": ["Sporting de Braga", "Vitória de Guimarães", "Boavista", "Marítimo"],
+			"resposta": "Sporting de Braga"
 		}
 	]
 }

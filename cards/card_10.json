@@ -1,0 +1,405 @@
+{
+	"card": "Paleontologia",
+	"perguntas": [
+		{
+			"numero": "P000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior dinossauro carnívoro conhecido?",
+			"hipoteses_resposta": ["Tyrannosaurus Rex", "Spinosaurus", "Giganotosaurus", "Allosaurus"],
+			"resposta": "Spinosaurus"
+		},
+		{
+			"numero": "P000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que era geológica viveram os dinossauros?",
+			"hipoteses_resposta": ["Mesozoica", "Paleozoica", "Cenozoica", "Pré-Cambriana"],
+			"resposta": "Mesozoica"
+		},
+		{
+			"numero": "P000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o primeiro fóssil de dinossauro oficialmente descoberto?",
+			"hipoteses_resposta": ["Megalosaurus", "Iguanodon", "Tyrannosaurus", "Triceratops"],
+			"resposta": "Megalosaurus"
+		},
+		{
+			"numero": "P000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Há quantos milhões de anos se extinguiram os dinossauros?",
+			"hipoteses_resposta": ["65", "100", "200", "150"],
+			"resposta": "65"
+		},
+		{
+			"numero": "P000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior dinossauro herbívoro conhecido?",
+			"hipoteses_resposta": ["Argentinosaurus", "Brachiosaurus", "Diplodocus", "Apatosaurus"],
+			"resposta": "Argentinosaurus"
+		},
+		{
+			"numero": "P000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que período da Era Mesozoica apareceram os primeiros dinossauros?",
+			"hipoteses_resposta": ["Triássico", "Jurássico", "Cretácico", "Permiano"],
+			"resposta": "Triássico"
+		},
+		{
+			"numero": "P000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro é conhecido por ter três chifres na cabeça?",
+			"hipoteses_resposta": ["Triceratops", "Styracosaurus", "Centrosaurus", "Protoceratops"],
+			"resposta": "Triceratops"
+		},
+		{
+			"numero": "P000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "O que significa a palavra 'dinossauro'?",
+			"hipoteses_resposta": ["Lagarto terrível", "Réptil gigante", "Besta antiga", "Monstro extinto"],
+			"resposta": "Lagarto terrível"
+		},
+		{
+			"numero": "P000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o menor dinossauro conhecido?",
+			"hipoteses_resposta": ["Microraptor", "Compsognathus", "Sinosauropteryx", "Epidexipteryx"],
+			"resposta": "Microraptor"
+		},
+		{
+			"numero": "P000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Os dinossauros eram animais de sangue:",
+			"hipoteses_resposta": ["Quente", "Frio", "Variável", "Inexistente"],
+			"resposta": "Quente"
+		},
+		{
+			"numero": "P000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha o pescoço mais longo?",
+			"hipoteses_resposta": ["Mamenchisaurus", "Brachiosaurus", "Diplodocus", "Camarasaurus"],
+			"resposta": "Mamenchisaurus"
+		},
+		{
+			"numero": "P000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que continente foram encontrados os primeiros ovos de dinossauro?",
+			"hipoteses_resposta": ["Ásia", "América do Norte", "Europa", "África"],
+			"resposta": "Ásia"
+		},
+		{
+			"numero": "P000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro é famoso pelas suas placas ósseas nas costas?",
+			"hipoteses_resposta": ["Stegosaurus", "Ankylosaurus", "Kentrosaurus", "Tuojiangosaurus"],
+			"resposta": "Stegosaurus"
+		},
+		{
+			"numero": "P000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que tipo de alimentação tinha o Tyrannosaurus Rex?",
+			"hipoteses_resposta": ["Carnívora", "Herbívora", "Omnívora", "Piscívora"],
+			"resposta": "Carnívora"
+		},
+		{
+			"numero": "P000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a principal causa da extinção dos dinossauros?",
+			"hipoteses_resposta": ["Impacto de asteroide", "Vulcanismo", "Mudanças climáticas", "Doenças"],
+			"resposta": "Impacto de asteroide"
+		},
+		{
+			"numero": "P000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro voador tinha a maior envergadura de asas?",
+			"hipoteses_resposta": ["Quetzalcoatlus", "Pteranodon", "Rhamphorhynchus", "Archaeopteryx"],
+			"resposta": "Quetzalcoatlus"
+		},
+		{
+			"numero": "P000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país foi descoberto o primeiro esqueleto completo de T. Rex?",
+			"hipoteses_resposta": ["Estados Unidos", "Canadá", "Argentina", "China"],
+			"resposta": "Estados Unidos"
+		},
+		{
+			"numero": "P000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha dentes em forma de folha para cortar plantas?",
+			"hipoteses_resposta": ["Iguanodon", "Parasaurolophus", "Edmontosaurus", "Maiasaura"],
+			"resposta": "Iguanodon"
+		},
+		{
+			"numero": "P000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos dedos tinha o Tyrannosaurus Rex em cada pata dianteira?",
+			"hipoteses_resposta": ["2", "3", "4", "5"],
+			"resposta": "2"
+		},
+		{
+			"numero": "P000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o fóssil mais antigo conhecido da Terra?",
+			"hipoteses_resposta": ["Estromatólitos", "Trilobites", "Arqueopterix", "Burgess Shale"],
+			"resposta": "Estromatólitos"
+		},
+		{
+			"numero": "P000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro é considerado a ligação entre répteis e aves?",
+			"hipoteses_resposta": ["Archaeopteryx", "Velociraptor", "Compsognathus", "Deinonychus"],
+			"resposta": "Archaeopteryx"
+		},
+		{
+			"numero": "P000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que tipo de rocha se formam principalmente os fósseis?",
+			"hipoteses_resposta": ["Sedimentar", "Ígnea", "Metamórfica", "Vulcânica"],
+			"resposta": "Sedimentar"
+		},
+		{
+			"numero": "P000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha uma crista oca que funcionava como amplificador de som?",
+			"hipoteses_resposta": ["Parasaurolophus", "Corythosaurus", "Lambeosaurus", "Tsintaosaurus"],
+			"resposta": "Parasaurolophus"
+		},
+		{
+			"numero": "P000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos períodos compõem a Era Mesozoica?",
+			"hipoteses_resposta": ["3", "2", "4", "5"],
+			"resposta": "3"
+		},
+		{
+			"numero": "P000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior predador terrestre de todos os tempos?",
+			"hipoteses_resposta": ["Spinosaurus", "Tyrannosaurus Rex", "Giganotosaurus", "Carcharodontosaurus"],
+			"resposta": "Spinosaurus"
+		},
+		{
+			"numero": "P000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Os mamutes viveram em que era geológica?",
+			"hipoteses_resposta": ["Cenozoica", "Mesozoica", "Paleozoica", "Pré-Cambriana"],
+			"resposta": "Cenozoica"
+		},
+		{
+			"numero": "P000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha uma cauda com espinhos como arma?",
+			"hipoteses_resposta": ["Stegosaurus", "Ankylosaurus", "Kentrosaurus", "Tuojiangosaurus"],
+			"resposta": "Stegosaurus"
+		},
+		{
+			"numero": "P000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país foi descoberto o maior cemitério de dinossauros?",
+			"hipoteses_resposta": ["Argentina", "Estados Unidos", "China", "Mongólia"],
+			"resposta": "Argentina"
+		},
+		{
+			"numero": "P000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o processo de transformação de restos orgânicos em fósseis?",
+			"hipoteses_resposta": ["Fossilização", "Mineralização", "Petrificação", "Sedimentação"],
+			"resposta": "Fossilização"
+		},
+		{
+			"numero": "P000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha o cérebro do tamanho de uma noz?",
+			"hipoteses_resposta": ["Stegosaurus", "Brontosaurus", "Diplodocus", "Camarasaurus"],
+			"resposta": "Stegosaurus"
+		},
+		{
+			"numero": "P000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos milhões de anos duraram os dinossauros na Terra?",
+			"hipoteses_resposta": ["165", "100", "200", "250"],
+			"resposta": "165"
+		},
+		{
+			"numero": "P000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o primeiro dinossauro a ser clonado... no cinema?",
+			"hipoteses_resposta": ["Velociraptor", "Tyrannosaurus Rex", "Triceratops", "Brachiosaurus"],
+			"resposta": "Velociraptor"
+		},
+		{
+			"numero": "P000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a ciência que estuda os fósseis?",
+			"hipoteses_resposta": ["Paleontologia", "Arqueologia", "Geologia", "Antropologia"],
+			"resposta": "Paleontologia"
+		},
+		{
+			"numero": "P000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha armadura óssea e uma clava na cauda?",
+			"hipoteses_resposta": ["Ankylosaurus", "Stegosaurus", "Triceratops", "Kentrosaurus"],
+			"resposta": "Ankylosaurus"
+		},
+		{
+			"numero": "P000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que continente NÃO foram encontrados fósseis de dinossauros?",
+			"hipoteses_resposta": ["Antártida", "África", "Austrália", "América do Sul"],
+			"resposta": "Antártida"
+		},
+		{
+			"numero": "P000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual era a principal diferença entre dinossauros saurópodes e terópodes?",
+			"hipoteses_resposta": ["Dieta", "Tamanho", "Habitat", "Época"],
+			"resposta": "Dieta"
+		},
+		{
+			"numero": "P000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha uma vela nas costas para regulação térmica?",
+			"hipoteses_resposta": ["Spinosaurus", "Dimetrodon", "Ouranosaurus", "Acrocanthosaurus"],
+			"resposta": "Spinosaurus"
+		},
+		{
+			"numero": "P000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos dentes podia ter um Tyrannosaurus Rex?",
+			"hipoteses_resposta": ["60", "40", "80", "100"],
+			"resposta": "60"
+		},
+		{
+			"numero": "P000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o fóssil de dinossauro mais completo já encontrado?",
+			"hipoteses_resposta": ["Sue (T. Rex)", "Stan (T. Rex)", "Jane (T. Rex)", "Scotty (T. Rex)"],
+			"resposta": "Sue (T. Rex)"
+		},
+		{
+			"numero": "P000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que período apareceram as primeiras flores na Terra?",
+			"hipoteses_resposta": ["Cretácico", "Jurássico", "Triássico", "Permiano"],
+			"resposta": "Cretácico"
+		},
+		{
+			"numero": "P000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha garras de até 1 metro de comprimento?",
+			"hipoteses_resposta": ["Therizinosaurus", "Deinonychus", "Utahraptor", "Velociraptor"],
+			"resposta": "Therizinosaurus"
+		},
+		{
+			"numero": "P000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Os trilobites viveram principalmente em que era?",
+			"hipoteses_resposta": ["Paleozoica", "Mesozoica", "Cenozoica", "Pré-Cambriana"],
+			"resposta": "Paleozoica"
+		},
+		{
+			"numero": "P000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior esqueleto de dinossauro em exposição no mundo?",
+			"hipoteses_resposta": ["Patagotitan", "Argentinosaurus", "Diplodocus", "Brachiosaurus"],
+			"resposta": "Patagotitan"
+		},
+		{
+			"numero": "P000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos ossos tem aproximadamente um esqueleto de Tyrannosaurus Rex?",
+			"hipoteses_resposta": ["300", "200", "400", "500"],
+			"resposta": "300"
+		},
+		{
+			"numero": "P000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o primeiro paleontólogo a descrever cientificamente um dinossauro?",
+			"hipoteses_resposta": ["William Buckland", "Richard Owen", "Gideon Mantell", "Othniel Marsh"],
+			"resposta": "William Buckland"
+		},
+		{
+			"numero": "P000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que formação geológica dos EUA foram encontrados muitos fósseis de dinossauros?",
+			"hipoteses_resposta": ["Hell Creek", "Morrison", "Judith River", "Lance"],
+			"resposta": "Morrison"
+		},
+		{
+			"numero": "P000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha o maior crânio conhecido?",
+			"hipoteses_resposta": ["Pentaceratops", "Triceratops", "Torosaurus", "Styracosaurus"],
+			"resposta": "Pentaceratops"
+		},
+		{
+			"numero": "P000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Os dinossauros coexistiram com que grupo de mamíferos primitivos?",
+			"hipoteses_resposta": ["Multituberculados", "Marsupiais", "Placentários", "Monotrématos"],
+			"resposta": "Multituberculados"
+		},
+		{
+			"numero": "P000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual dinossauro tinha penas mas não conseguia voar?",
+			"hipoteses_resposta": ["Sinosauropteryx", "Archaeopteryx", "Microraptor", "Anchiornis"],
+			"resposta": "Sinosauropteryx"
+		},
+		{
+			"numero": "P000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país foi descoberto o Vale dos Dinossauros?",
+			"hipoteses_resposta": ["Canadá", "Estados Unidos", "Argentina", "Mongólia"],
+			"resposta": "Canadá"
+		}
+	]
+}
