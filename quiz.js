@@ -210,8 +210,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       
-      // Sincronizar pergunta atual (nova pergunta)
-      if (gameState.currentQuestionIndex !== currentQuestionIndex || !gameState.showingResults) {
+      // Sincronizar pergunta atual (nova pergunta) - MAS SÓ SE NÃO ESTIVER EM COUNTDOWN
+      if (!gameState.countdown && (gameState.currentQuestionIndex !== currentQuestionIndex || !gameState.showingResults)) {
         currentQuestionIndex = gameState.currentQuestionIndex;
         playerAnswer = null; // Reset da resposta para nova pergunta
         console.log(`Jogador: Nova pergunta ${currentQuestionIndex + 1}/${questions.length}`);
@@ -231,8 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
       
-      // SEMPRE atualizar timer - mesmo se a pergunta não mudou
-      if (gameState.questionStartTime && !gameState.gameEnded) {
+      // SEMPRE atualizar timer - mesmo se a pergunta não mudou - MAS SÓ SE NÃO ESTIVER EM COUNTDOWN
+      if (!gameState.countdown && gameState.questionStartTime && !gameState.gameEnded) {
         console.log("Jogador: Atualizando timer sincronizado para pergunta", currentQuestionIndex + 1);
         updateTimerDisplay(gameState.questionStartTime);
       }
@@ -735,7 +735,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Iniciar controlo automático se for o primeiro jogador (backup do host)
     initializeGameController();
     
-    showQuestion();
+    // NÃO mostrar pergunta aqui - aguardar que o estado do jogo indique quando mostrar
+    console.log("🎮 Aguardando estado do jogo para mostrar perguntas...");
   }
 
   // Função para controlo automático do jogo (backup se o host sair)

@@ -136,18 +136,41 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log("🚀 Iniciando contador regressivo...");
     let countdownTime = 10;
     
+    // Verificar se os elementos existem antes de tentar usá-los
+    const integratedQuizSection = document.getElementById("integratedQuizSection");
+    const currentQuestionDisplay = document.getElementById("currentQuestionDisplay");
+    const player1AnswerSection = document.getElementById("player1AnswerSection");
+    const questionText = document.getElementById("questionText");
+    const questionCounter = document.getElementById("questionCounter");
+    
+    if (!integratedQuizSection || !currentQuestionDisplay || !questionText || !questionCounter) {
+      console.error("❌ Elementos HTML não encontrados para countdown do jogador 1");
+      // Continuar com o jogo sem interface visual para o jogador 1
+      setTimeout(() => {
+        update(ref(db, `games/${createdGameId}/gameState`), {
+          currentQuestionIndex: 0,
+          timeLeft: 10,
+          questionStartTime: Date.now(),
+          countdown: false,
+          countdownTime: 0
+        });
+        startGameController();
+      }, 10000);
+      return;
+    }
+    
     // Mostrar contador no painel integrado do jogador 1
-    document.getElementById("integratedQuizSection").style.display = "block";
-    document.getElementById("currentQuestionDisplay").style.display = "block";
-    document.getElementById("player1AnswerSection").style.display = "none";
+    integratedQuizSection.style.display = "block";
+    currentQuestionDisplay.style.display = "block";
+    if (player1AnswerSection) player1AnswerSection.style.display = "none";
     
     // Mostrar contador
-    document.getElementById("questionText").textContent = "🎮 O jogo vai começar em...";
-    document.getElementById("questionCounter").textContent = countdownTime;
-    document.getElementById("questionCounter").style.fontSize = "48px";
-    document.getElementById("questionCounter").style.color = "#FF6B35";
-    document.getElementById("questionCounter").style.textAlign = "center";
-    document.getElementById("questionCounter").style.fontWeight = "bold";
+    questionText.textContent = "🎮 O jogo vai começar em...";
+    questionCounter.textContent = countdownTime;
+    questionCounter.style.fontSize = "48px";
+    questionCounter.style.color = "#FF6B35";
+    questionCounter.style.textAlign = "center";
+    questionCounter.style.fontWeight = "bold";
     
     const countdownInterval = setInterval(() => {
       countdownTime--;
@@ -158,18 +181,22 @@ window.addEventListener('DOMContentLoaded', () => {
           countdownTime: countdownTime
         });
         
-        // Atualizar display do jogador 1
-        document.getElementById("questionCounter").textContent = countdownTime;
+        // Atualizar display do jogador 1 (com verificação)
+        if (questionCounter) {
+          questionCounter.textContent = countdownTime;
+        }
         console.log(`⏰ Contador: ${countdownTime}`);
       } else {
         // Acabou o contador - iniciar primeira pergunta
         clearInterval(countdownInterval);
         console.log("🏁 Contador terminado - iniciando primeira pergunta!");
         
-        // Resetar estilo do contador
-        document.getElementById("questionCounter").style.fontSize = "";
-        document.getElementById("questionCounter").style.color = "";
-        document.getElementById("questionCounter").style.fontWeight = "";
+        // Resetar estilo do contador (com verificações)
+        if (questionCounter) {
+          questionCounter.style.fontSize = "";
+          questionCounter.style.color = "";
+          questionCounter.style.fontWeight = "";
+        }
         
         // Atualizar Firebase para iniciar primeira pergunta
         update(ref(db, `games/${createdGameId}/gameState`), {
@@ -509,20 +536,29 @@ window.addEventListener('DOMContentLoaded', () => {
       if (gameState.countdown && gameState.countdownTime > 0) {
         console.log(`⏰ Contador regressivo: ${gameState.countdownTime}`);
         
+        // Verificar se elementos existem antes de usar
+        const questionCounter = document.getElementById("questionCounter");
+        const questionText = document.getElementById("questionText");
+        const statusText = document.getElementById("statusText");
+        
         // Mostrar contador no jogador 1 (se não for o host que já está mostrando)
-        if (document.getElementById("questionCounter").textContent !== gameState.countdownTime.toString()) {
-          document.getElementById("integratedQuizSection").style.display = "block";
-          document.getElementById("currentQuestionDisplay").style.display = "block";
-          document.getElementById("player1AnswerSection").style.display = "none";
+        if (questionCounter && questionCounter.textContent !== gameState.countdownTime.toString()) {
+          const integratedQuizSection = document.getElementById("integratedQuizSection");
+          const currentQuestionDisplay = document.getElementById("currentQuestionDisplay");
+          const player1AnswerSection = document.getElementById("player1AnswerSection");
           
-          document.getElementById("questionText").textContent = "🎮 O jogo vai começar em...";
-          document.getElementById("questionCounter").textContent = gameState.countdownTime;
-          document.getElementById("questionCounter").style.fontSize = "48px";
-          document.getElementById("questionCounter").style.color = "#FF6B35";
-          document.getElementById("questionCounter").style.textAlign = "center";
-          document.getElementById("questionCounter").style.fontWeight = "bold";
+          if (integratedQuizSection) integratedQuizSection.style.display = "block";
+          if (currentQuestionDisplay) currentQuestionDisplay.style.display = "block";
+          if (player1AnswerSection) player1AnswerSection.style.display = "none";
           
-          document.getElementById("statusText").textContent = `⏰ Iniciando em ${gameState.countdownTime}s...`;
+          if (questionText) questionText.textContent = "🎮 O jogo vai começar em...";
+          questionCounter.textContent = gameState.countdownTime;
+          questionCounter.style.fontSize = "48px";
+          questionCounter.style.color = "#FF6B35";
+          questionCounter.style.textAlign = "center";
+          questionCounter.style.fontWeight = "bold";
+          
+          if (statusText) statusText.textContent = `⏰ Iniciando em ${gameState.countdownTime}s...`;
         }
         return;
       }
@@ -530,11 +566,16 @@ window.addEventListener('DOMContentLoaded', () => {
       // Se o jogo começou (saiu do countdown), mostrar que está ativo
       if (gameState.questionStartTime && !gameState.countdown) {
         // Resetar estilo do contador se estava em countdown
-        document.getElementById("questionCounter").style.fontSize = "";
-        document.getElementById("questionCounter").style.color = "";
-        document.getElementById("questionCounter").style.fontWeight = "";
+        const questionCounter = document.getElementById("questionCounter");
+        const statusText = document.getElementById("statusText");
         
-        document.getElementById("statusText").textContent = "🎮 Jogo ativo!";
+        if (questionCounter) {
+          questionCounter.style.fontSize = "";
+          questionCounter.style.color = "";
+          questionCounter.style.fontWeight = "";
+        }
+        
+        if (statusText) statusText.textContent = "🎮 Jogo ativo!";
       }
       
       if (gameState.gameEnded) {
@@ -560,8 +601,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
       
-      // Atualizar timer
-      if (gameState.questionStartTime && !gameState.gameEnded) {
+      // Atualizar timer (apenas se não estiver em countdown)
+      if (!gameState.countdown && gameState.questionStartTime && !gameState.gameEnded) {
         updateIntegratedTimer(gameState.questionStartTime);
       }
     });
@@ -570,43 +611,55 @@ window.addEventListener('DOMContentLoaded', () => {
   // Função para mostrar pergunta no painel integrado
   function showIntegratedQuestion() {
     if (integratedCurrentQuestion >= integratedQuestions.length) {
-      document.getElementById("statusText").textContent = "🏁 Todas as perguntas foram respondidas";
+      const statusText = document.getElementById("statusText");
+      if (statusText) statusText.textContent = "🏁 Todas as perguntas foram respondidas";
       return;
     }
     
     const question = integratedQuestions[integratedCurrentQuestion];
     console.log("🎯 Mostrando pergunta:", question);
     
+    // Verificar se elementos existem antes de usar
+    const questionTitle = document.getElementById("questionTitle");
+    const questionText = document.getElementById("questionText");
+    const imgElement = document.getElementById("questionImage");
+    const currentQuestionDisplay = document.getElementById("currentQuestionDisplay");
+    
     // Atualizar título
-    document.getElementById("questionTitle").textContent = 
-      `Pergunta ${integratedCurrentQuestion + 1} de ${integratedQuestions.length}`;
+    if (questionTitle) {
+      questionTitle.textContent = 
+        `Pergunta ${integratedCurrentQuestion + 1} de ${integratedQuestions.length}`;
+    }
     
     // Mostrar pergunta (usar 'pergunta' em vez de 'question')
-    document.getElementById("questionText").textContent = question.pergunta;
+    if (questionText) questionText.textContent = question.pergunta;
     
     // Mostrar imagem se existir (usar 'imagem' em vez de 'image')
-    const imgElement = document.getElementById("questionImage");
-    if (question.imagem) {
-      imgElement.src = question.imagem;
-      imgElement.style.display = "block";
-    } else {
-      imgElement.style.display = "none";
+    if (imgElement) {
+      if (question.imagem) {
+        imgElement.src = question.imagem;
+        imgElement.style.display = "block";
+      } else {
+        imgElement.style.display = "none";
+      }
     }
     
     // Atualizar botões com o texto das respostas (sem mostrar A), B), C), D))
     const options = question.hipoteses_resposta;
     if (options && options.length >= 4) {
       const answerButtons = document.querySelectorAll(".player1-answer-btn");
-      answerButtons[0].textContent = options[0]; // Só o texto
-      answerButtons[1].textContent = options[1];
-      answerButtons[2].textContent = options[2];
-      answerButtons[3].textContent = options[3];
+      if (answerButtons.length >= 4) {
+        answerButtons[0].textContent = options[0]; // Só o texto
+        answerButtons[1].textContent = options[1];
+        answerButtons[2].textContent = options[2];
+        answerButtons[3].textContent = options[3];
+      }
     } else {
       console.error("❌ Opções de resposta não encontradas:", question);
     }
     
     // Mostrar secções relevantes
-    document.getElementById("currentQuestionDisplay").style.display = "block";
+    if (currentQuestionDisplay) currentQuestionDisplay.style.display = "block";
     document.getElementById("player1AnswerSection").style.display = "block";
     
     // Reset da resposta
@@ -634,12 +687,15 @@ window.addEventListener('DOMContentLoaded', () => {
       const elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
       const timeLeft = Math.max(0, 10 - elapsed);
       
-      document.getElementById("timerDisplay").textContent = `⏰ ${timeLeft}s`;
+      const timerDisplay = document.getElementById("timerDisplay");
+      if (timerDisplay) {
+        timerDisplay.textContent = `⏰ ${timeLeft}s`;
+      }
       
       if (timeLeft > 0) {
         setTimeout(updateTimer, 200);
       } else {
-        document.getElementById("timerDisplay").textContent = "⏰ Tempo Esgotado!";
+        if (timerDisplay) timerDisplay.textContent = "⏰ Tempo Esgotado!";
       }
     };
     
