@@ -150,8 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (playerAnswer) {
           showAnswerResults();
         } else {
-          console.log("Jogador não respondeu, aguardando...");
-          document.getElementById("timerDisplay").textContent = "Resultados...";
+          console.log("Jogador não respondeu, mostrando resposta correta...");
+          showCorrectAnswerOnly();
         }
         return;
       }
@@ -266,6 +266,47 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("timerDisplay").style.color = playerAnswer.isCorrect ? "#4CAF50" : "#f44336";
     
     console.log("=== FIM DOS RESULTADOS ===");
+  }
+
+  // Nova função para mostrar apenas a resposta correta quando o jogador não respondeu
+  function showCorrectAnswerOnly() {
+    console.log("=== MOSTRANDO APENAS RESPOSTA CORRETA ===");
+    
+    if (!questions[currentQuestionIndex]) {
+      console.log("Pergunta atual não encontrada");
+      return;
+    }
+    
+    const currentQuestion = questions[currentQuestionIndex];
+    const correctAnswer = currentQuestion.resposta;
+    
+    console.log("Resposta correta:", correctAnswer);
+    
+    const answersBox = document.getElementById("answersBox");
+    Array.from(answersBox.children).forEach(btn => {
+      // Limpar estilos anteriores
+      btn.style.backgroundColor = "";
+      btn.style.color = "";
+      btn.style.border = "";
+      btn.style.boxShadow = "";
+      
+      // Destacar apenas a resposta correta em verde
+      if (btn.textContent === correctAnswer || (Array.isArray(correctAnswer) && correctAnswer.includes(btn.textContent))) {
+        btn.style.backgroundColor = "#4CAF50"; // Verde para a resposta correta
+        btn.style.color = "white";
+        btn.style.border = "3px solid #2E7D32";
+        btn.style.boxShadow = "0 0 10px #4CAF50"; // Brilho extra
+        console.log("✅ Resposta correta destacada:", btn.textContent);
+      }
+    });
+    
+    // Mostrar feedback no timer
+    document.getElementById("timerDisplay").textContent = "⏰ Tempo esgotado!";
+    document.getElementById("timerDisplay").style.fontSize = "18px";
+    document.getElementById("timerDisplay").style.fontWeight = "bold";
+    document.getElementById("timerDisplay").style.color = "#FF9800"; // Laranja para tempo esgotado
+    
+    console.log("=== FIM - RESPOSTA CORRETA DESTACADA ===");
   }
 
   async function loadQuestions() {
