@@ -723,17 +723,18 @@ window.addEventListener('DOMContentLoaded', () => {
         const answer = e.target.dataset.answer;
         integratedPlayerAnswer = answer;
         
-        // Visual feedback - destacar seleção
+        // Visual feedback - resetar todos os botões primeiro
         resetIntegratedAnswerButtons();
-        e.target.style.backgroundColor = "#2196F3";
-        e.target.style.color = "white";
-        e.target.style.borderColor = "#2196F3";
         
-        // Mostrar resposta selecionada
-        const selectedText = e.target.textContent;
-        document.getElementById("player1Answer").textContent = `✅ Selecionaste: ${selectedText}`;
+        // Marcar apenas a cinzento a opção selecionada (sem bloquear)
+        e.target.style.backgroundColor = "#E0E0E0"; // Cinzento claro
+        e.target.style.color = "#424242"; // Texto cinzento escuro
+        e.target.style.borderColor = "#9E9E9E"; // Borda cinzenta
         
-        console.log(`✅ Jogador 1 respondeu: ${answer} (${selectedText})`);
+        // Remover a mensagem "Selecionaste" - apenas log interno
+        document.getElementById("player1Answer").textContent = "";
+        
+        console.log(`✅ Jogador 1 respondeu: ${answer} (${e.target.textContent})`);
       });
     });
     
