@@ -521,8 +521,76 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }, 10000);
     
+    // Função para mostrar estatísticas da pergunta
+    async function showQuestionStatistics(questionIndex) {
+      try {
+        console.log(`📊 Mostrando estatísticas da pergunta ${questionIndex + 1}`);
+        
+        // Obter dados dos jogadores da pergunta atual
+        const playersRef = ref(db, `games/${createdGameId}/players`);
+        const playersSnapshot = await get(playersRef);
+        
+        if (!playersSnapshot.exists()) {
+          console.log("⚠️ Nenhum jogador encontrado para estatísticas");
+          return;
+        }
+        
+        const playersData = playersSnapshot.val();
+        const currentQuestion = questions[questionIndex];
+        const correctAnswer = currentQuestion.resposta_correta;
+        
+        let correctCount = 0;
+        let wrongCount = 0;
+        let noAnswerCount = 0;
+        let totalPlayers = 0;
+        
+        // Contar respostas de cada jogador
+        Object.values(playersData).forEach(player => {
+          totalPlayers++;
+          
+          // Verificar se o jogador tem resposta para esta pergunta
+          if (player.rounds && player.rounds[questionIndex]) {
+            const playerAnswer = player.rounds[questionIndex].answer;
+            
+            if (playerAnswer === correctAnswer) {
+              correctCount++;
+            } else {
+              wrongCount++;
+            }
+          } else {
+            // Jogador não respondeu
+            noAnswerCount++;
+          }
+        });
+        
+        // Atualizar estado do jogo para mostrar estatísticas
+        await update(ref(db, `games/${createdGameId}/gameState`), {
+          showingStatistics: true,
+          statistics: {
+            questionNumber: questionIndex + 1,
+            totalPlayers: totalPlayers,
+            correctAnswers: correctCount,
+            wrongAnswers: wrongCount,
+            noAnswers: noAnswerCount,
+            correctPercentage: totalPlayers > 0 ? Math.round((correctCount / totalPlayers) * 100) : 0
+          }
+        });
+        
+        console.log(`📊 Estatísticas: ${correctCount} certas, ${wrongCount} erradas, ${noAnswerCount} sem resposta`);
+        
+      } catch (error) {
+        console.error("❌ Erro ao mostrar estatísticas:", error);
+      }
+    }
+    
     function nextQuestion() {
       console.log(`Host: nextQuestion chamada - currentQuestion: ${currentQuestion}, maxQuestions: ${maxQuestions}`);
+      
+      // Limpar estado de estatísticas da pergunta anterior
+      update(ref(db, `games/${createdGameId}/gameState`), {
+        showingStatistics: false,
+        statistics: null
+      });
       
       if (currentQuestion >= maxQuestions) {
         // Fim do jogo
@@ -575,11 +643,17 @@ window.addEventListener('DOMContentLoaded', () => {
           resultsStartTime: Date.now()
         });
         
-        // Aguardar 5 segundos e avançar para próxima pergunta
-        setTimeout(() => {
-          console.log(`Host: Avançando da pergunta ${currentQuestion + 1} para ${currentQuestion + 2}`);
-          currentQuestion++;
-          nextQuestion();
+        // Aguardar 5 segundos, mostrar estatísticas, e depois mais 5 segundos antes da próxima pergunta
+        setTimeout(async () => {
+          // Mostrar estatísticas por 5 segundos
+          await showQuestionStatistics(currentQuestion);
+          
+          // Aguardar mais 5 segundos e avançar para próxima pergunta
+          setTimeout(() => {
+            console.log(`Host: Avançando da pergunta ${currentQuestion + 1} para ${currentQuestion + 2}`);
+            currentQuestion++;
+            nextQuestion();
+          }, 5000);
         }, 5000);
       }, 10000);
     }
@@ -739,6 +813,12 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
+      // Verificar se deve mostrar estatísticas
+      if (gameState.showingStatistics && gameState.statistics) {
+        showIntegratedStatistics(gameState.statistics);
+        return;
+      }
+      
       if (gameState.showingResults) {
         showIntegratedAnswerResults();
         return;
@@ -775,6 +855,12 @@ window.addEventListener('DOMContentLoaded', () => {
     if (countdownActive) {
       console.log("🚫 Tentativa de mostrar pergunta durante countdown - bloqueada");
       return;
+    }
+    
+    // Esconder estatísticas se estiverem visíveis
+    const statsDisplay = document.getElementById("statisticsDisplay");
+    if (statsDisplay) {
+      statsDisplay.style.display = "none";
     }
     
     if (integratedCurrentQuestion >= integratedQuestions.length) {
@@ -890,6 +976,63 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     
     updateTimer();
+  }
+
+  // Função para mostrar estatísticas integradas
+  function showIntegratedStatistics(statistics) {
+    console.log("📊 Mostrando estatísticas integradas:", statistics);
+    
+    // Esconder pergunta atual
+    const questionDisplay = document.getElementById("currentQuestionDisplay");
+    const player1Section = document.getElementById("player1AnswerSection");
+    
+    if (questionDisplay) questionDisplay.style.display = "none";
+    if (player1Section) player1Section.style.display = "none";
+    
+    // Criar ou atualizar a exibição de estatísticas
+    let statsDisplay = document.getElementById("statisticsDisplay");
+    if (!statsDisplay) {
+      statsDisplay = document.createElement("div");
+      statsDisplay.id = "statisticsDisplay";
+      statsDisplay.className = "statistics-display";
+      document.querySelector(".game-panel").appendChild(statsDisplay);
+    }
+    
+    statsDisplay.style.display = "block";
+    statsDisplay.innerHTML = `
+      <div class="statistics-header">
+        <h3>📊 Estatísticas da Pergunta ${statistics.questionNumber}</h3>
+      </div>
+      <div class="statistics-content">
+        <div class="stat-item correct">
+          <div class="stat-icon">✅</div>
+          <div class="stat-info">
+            <div class="stat-number">${statistics.correctAnswers}</div>
+            <div class="stat-label">Respostas Certas</div>
+            <div class="stat-percentage">${statistics.correctPercentage}%</div>
+          </div>
+        </div>
+        <div class="stat-item wrong">
+          <div class="stat-icon">❌</div>
+          <div class="stat-info">
+            <div class="stat-number">${statistics.wrongAnswers}</div>
+            <div class="stat-label">Respostas Erradas</div>
+            <div class="stat-percentage">${Math.round((statistics.wrongAnswers / statistics.totalPlayers) * 100)}%</div>
+          </div>
+        </div>
+        <div class="stat-item no-answer">
+          <div class="stat-icon">⏰</div>
+          <div class="stat-info">
+            <div class="stat-number">${statistics.noAnswers}</div>
+            <div class="stat-label">Sem Resposta</div>
+            <div class="stat-percentage">${Math.round((statistics.noAnswers / statistics.totalPlayers) * 100)}%</div>
+          </div>
+        </div>
+      </div>
+      <div class="statistics-footer">
+        <p>Total de jogadores: <strong>${statistics.totalPlayers}</strong></p>
+      </div>
+    `;
   }
 
   // Função para mostrar resultados da resposta integrada

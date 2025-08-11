@@ -594,6 +594,108 @@
         margin: 5px 0;
       }
     }
+    
+    /* Estatísticas */
+    .statistics-display {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      border: 2px solid #e9ecef;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .statistics-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .statistics-header h3 {
+      color: #2e7d32;
+      font-size: 1.4rem;
+      margin: 0;
+    }
+    
+    .statistics-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .stat-item {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-item.correct {
+      border-color: #28a745;
+    }
+    
+    .stat-item.wrong {
+      border-color: #dc3545;
+    }
+    
+    .stat-item.no-answer {
+      border-color: #ffc107;
+    }
+    
+    .stat-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2d3748;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    
+    .stat-percentage {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2e7d32;
+    }
+    
+    .statistics-footer {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #e9ecef;
+    }
+    
+    .statistics-footer p {
+      color: #2d3748;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+      .statistics-content {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      .stat-item {
+        padding: 15px;
+      }
+      
+      .stat-number {
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
