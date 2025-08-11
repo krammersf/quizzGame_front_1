@@ -603,8 +603,12 @@
 
                 const gameData = snapshot.val();
                 const players = gameData.players || {};
-                const answers = gameData.answers || {};
+                const questionResults = gameData.questionResults || {};
                 const totalQuestions = gameData.totalQuestions || 0;
+
+                console.log("🔍 Debug - gameData:", gameData);
+                console.log("🔍 Debug - questionResults:", questionResults);
+                console.log("🔍 Debug - players:", players);
 
                 // Processar estatísticas por jogador
                 const playerStats = {};
@@ -619,12 +623,18 @@
                     };
                 });
 
-                // Analisar respostas
-                Object.keys(answers).forEach(questionKey => {
-                    const questionAnswers = answers[questionKey];
-                    Object.keys(questionAnswers).forEach(playerName => {
+                // Analisar respostas por pergunta
+                Object.keys(questionResults).forEach(questionIndex => {
+                    const questionData = questionResults[questionIndex];
+                    const playerAnswers = questionData.playerAnswers || {};
+                    
+                    console.log(`🔍 Debug - Pergunta ${questionIndex}:`, playerAnswers);
+                    
+                    Object.keys(playerAnswers).forEach(playerName => {
                         if (playerStats[playerName]) {
-                            const answer = questionAnswers[playerName];
+                            const answer = playerAnswers[playerName];
+                            console.log(`🔍 Debug - ${playerName} resposta:`, answer);
+                            
                             if (answer.isCorrect === true) {
                                 playerStats[playerName].correct++;
                             } else if (answer.isCorrect === false) {
