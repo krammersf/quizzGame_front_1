@@ -916,7 +916,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Ausência de resposta = 0 pontos (não usar pointsWrong)
       const pointsForNoAnswer = 0;
       integratedPlayerScore += pointsForNoAnswer;
-      console.log(`📊 Pontuação do jogador 1: ${integratedPlayerScore} (adicionados ${pointsForNoAnswer} por ausência de resposta)`);
+      console.log(`⏰ SEM RESPOSTA: +${pointsForNoAnswer} pontos | Total: ${integratedPlayerScore}`);
       
       const roundData = {
         questionIndex: integratedCurrentQuestion,
@@ -940,7 +940,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Dados da resposta do jogador 1 (tempo esgotado)
       const playerAnswerData = {
         answer: null,
-        points: pointsWrong,
+        points: pointsForNoAnswer, // Usar 0 pontos em vez de pointsWrong
         isCorrect: false,
         timestamp: Date.now(),
         timeExpired: true
@@ -976,10 +976,12 @@ window.addEventListener('DOMContentLoaded', () => {
     if (isCorrect) {
       const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
       integratedPlayerScore += pointsCorrect;
+      console.log(`✅ Resposta CERTA: +${pointsCorrect} pontos | Total: ${integratedPlayerScore}`);
       // Não mostrar mensagem ao jogador 1
     } else {
       const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
       integratedPlayerScore += pointsWrong;
+      console.log(`❌ Resposta ERRADA: ${pointsWrong} pontos | Total: ${integratedPlayerScore}`);
       // Não mostrar mensagem ao jogador 1
     }
     
