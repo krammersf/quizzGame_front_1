@@ -1086,4 +1086,17 @@ window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => (copyMsg.style.display = "none"), 2000);
     window.getSelection().removeAllRanges();
   });
+
+  // Event listener para o botão de ver classificação
+  const viewScoreboardBtn = document.getElementById("viewScoreboardBtn");
+  if (viewScoreboardBtn) {
+    viewScoreboardBtn.addEventListener("click", () => {
+      if (createdGameId) {
+        // Abrir classificação em nova aba
+        window.open(`scoreboard.html?gameId=${createdGameId}`, '_blank');
+      } else {
+        alert("ID do jogo não encontrado!");
+      }
+    });
+  }
 });
