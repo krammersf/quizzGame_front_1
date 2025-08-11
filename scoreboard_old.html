@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classificações</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4wxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSiklKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Estilos específicos para scoreboard mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            
+            #scoreTable {
+                font-size: 14px;
+                width: 100%;
+                border-collapse: collapse;
+            }
+            
+            #scoreTable th,
+            #scoreTable td {
+                padding: 10px 8px;
+                text-align: center;
+                border: 1px solid #ddd;
+            }
+            
+            #scoreTable th {
+                background-color: #4CAF50;
+                color: white;
+                font-weight: bold;
+            }
+            
+            button {
+                font-size: 16px;
+                padding: 15px;
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                margin: 5px;
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            #scoreTable {
+                font-size: 12px;
+            }
+            
+            #scoreTable th,
+            #scoreTable td {
+                padding: 8px 4px;
+            }
+            
+            button {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 Classificação do Quiz</h1>
+        <table id="scoreTable" border="1" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>Jogador</th>
+                    <th>Pontuação</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <br>
+        <button onclick="window.location.href='index.html'">Voltar ao Início</button>
+    </div>
+
+    <!-- REMOVE as duas linhas abaixo -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script> -->
+
+    <script type="module" src="scoreboard.js"></script>
+</body>
+</html>

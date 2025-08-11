@@ -15,6 +15,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
+// Mostrar loading inicial
+if (window.scoreboardUI) {
+  window.scoreboardUI.showLoading();
+}
+
 const gameId = sessionStorage.getItem("gameId");
 console.log("GameId recuperado do sessionStorage:", gameId);
 
@@ -46,6 +51,11 @@ onValue(playersRef, (snapshot) => {
     playersArray.sort((a, b) => b.score - a.score);
     console.log("Array ordenado:", playersArray);
 
+    // Mostrar tabela se houver dados
+    if (window.scoreboardUI) {
+      window.scoreboardUI.showScoreTable();
+    }
+
     const tbody = document.querySelector("#scoreTable tbody");
     console.log("Tbody encontrado:", tbody);
     
@@ -54,8 +64,21 @@ onValue(playersRef, (snapshot) => {
 
       playersArray.forEach((player, index) => {
         const tr = document.createElement("tr");
+        
+        // Aplicar classes especiais para as primeiras posições
+        if (index === 0) tr.classList.add('position-1');
+        else if (index === 1) tr.classList.add('position-2');
+        else if (index === 2) tr.classList.add('position-3');
+        
+        // Adicionar emojis para as primeiras posições
+        let positionText = index + 1;
+        if (index === 0) positionText = "🥇 1º";
+        else if (index === 1) positionText = "🥈 2º";
+        else if (index === 2) positionText = "🥉 3º";
+        else positionText = `${index + 1}º`;
+        
         tr.innerHTML = `
-          <td>${index + 1}</td>
+          <td>${positionText}</td>
           <td>${player.name}</td>
           <td>${player.score}</td>
         `;
@@ -68,5 +91,9 @@ onValue(playersRef, (snapshot) => {
     }
   } else {
     console.log("Nenhum dado encontrado no Firebase");
+    // Mostrar estado vazio se não houver dados
+    if (window.scoreboardUI) {
+      window.scoreboardUI.showEmptyState();
+    }
   }
 });
