@@ -167,7 +167,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!snapshot.exists()) return;
       
       const gameState = snapshot.val();
-      console.log("Estado do jogo atualizado:", gameState);
+      console.log("🔥 Estado do jogo atualizado:", gameState);
+      console.log("🔍 showingStatistics:", gameState.showingStatistics);
+      console.log("🔍 countdown:", gameState.countdown);
+      console.log("🔍 currentQuestionIndex:", gameState.currentQuestionIndex);
+      console.log("🔍 local currentQuestionIndex:", currentQuestionIndex);
       
       // Verificar se deve mostrar estatísticas
       if (gameState.showingStatistics && gameState.statistics) {
@@ -220,7 +224,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       // Sincronizar pergunta atual (nova pergunta) - MAS SÓ SE NÃO ESTIVER EM COUNTDOWN
+      console.log("🔍 Verificando nova pergunta...");
+      console.log("🔍 !gameState.countdown:", !gameState.countdown);
+      console.log("🔍 gameState.currentQuestionIndex !== currentQuestionIndex:", gameState.currentQuestionIndex !== currentQuestionIndex);
+      console.log("🔍 !gameState.showingResults:", !gameState.showingResults);
+      
       if (!gameState.countdown && (gameState.currentQuestionIndex !== currentQuestionIndex || !gameState.showingResults)) {
+        console.log("✅ CONDIÇÕES ATENDIDAS - Mostrando nova pergunta!");
         currentQuestionIndex = gameState.currentQuestionIndex;
         playerAnswer = null; // Reset da resposta para nova pergunta
         console.log(`Jogador: Nova pergunta ${currentQuestionIndex + 1}/${questions.length}`);
