@@ -164,6 +164,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const gameState = snapshot.val();
       console.log("Estado do jogo atualizado:", gameState);
       
+      // Verificar se deve mostrar estatísticas
+      if (gameState.showingStatistics && gameState.statistics) {
+        console.log("📊 Mostrando estatísticas da pergunta:", gameState.statistics);
+        showStatistics(gameState.statistics);
+        return;
+      }
+      
       // Verificar se está em contador regressivo
       if (gameState.countdown && gameState.countdownTime > 0) {
         console.log(`⏰ Contador regressivo: ${gameState.countdownTime}`);
@@ -258,6 +265,68 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Iniciar imediatamente
     updateTimer();
+  }
+
+  // Função para mostrar estatísticas da pergunta
+  function showStatistics(statistics) {
+    console.log("📊 Mostrando estatísticas:", statistics);
+    
+    // Esconder pergunta atual
+    const questionBox = document.getElementById("questionBox");
+    if (questionBox) {
+      questionBox.style.display = "none";
+      console.log("✅ QuestionBox escondido");
+    }
+    
+    // Criar ou atualizar a exibição de estatísticas
+    let statsDisplay = document.getElementById("statisticsDisplay");
+    if (!statsDisplay) {
+      console.log("🔧 Criando novo elemento de estatísticas");
+      statsDisplay = document.createElement("div");
+      statsDisplay.id = "statisticsDisplay";
+      statsDisplay.className = "statistics-display";
+      const container = document.querySelector(".quiz-container") || document.body;
+      container.appendChild(statsDisplay);
+      console.log("✅ Elemento de estatísticas criado e adicionado");
+    }
+    
+    statsDisplay.style.display = "block";
+    statsDisplay.innerHTML = `
+      <div class="statistics-header">
+        <h3>📊 Estatísticas da Pergunta ${statistics.questionNumber}</h3>
+      </div>
+      <div class="statistics-content">
+        <div class="stat-item correct">
+          <div class="stat-icon">✅</div>
+          <div class="stat-info">
+            <div class="stat-number">${statistics.correctAnswers}</div>
+            <div class="stat-label">Respostas Certas</div>
+            <div class="stat-percentage">${statistics.correctPercentage}%</div>
+          </div>
+        </div>
+        <div class="stat-item wrong">
+          <div class="stat-icon">❌</div>
+          <div class="stat-info">
+            <div class="stat-number">${statistics.wrongAnswers}</div>
+            <div class="stat-label">Respostas Erradas</div>
+            <div class="stat-percentage">${Math.round((statistics.wrongAnswers / statistics.totalPlayers) * 100)}%</div>
+          </div>
+        </div>
+        <div class="stat-item no-answer">
+          <div class="stat-icon">⏰</div>
+          <div class="stat-info">
+            <div class="stat-number">${statistics.noAnswers}</div>
+            <div class="stat-label">Sem Resposta</div>
+            <div class="stat-percentage">${Math.round((statistics.noAnswers / statistics.totalPlayers) * 100)}%</div>
+          </div>
+        </div>
+      </div>
+      <div class="statistics-footer">
+        <p>Total de jogadores: <strong>${statistics.totalPlayers}</strong></p>
+      </div>
+    `;
+    
+    console.log("📊 Estatísticas exibidas com sucesso!");
   }
 
   // Função para mostrar os resultados da resposta

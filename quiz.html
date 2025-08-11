@@ -477,6 +477,134 @@
     .hidden {
       display: none !important;
     }
+    
+    /* Estilos para exibição de estatísticas */
+    .statistics-display {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px 0;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 800px;
+      color: #2d3748;
+      display: none;
+    }
+    
+    .statistics-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    
+    .statistics-header h3 {
+      color: #2e7d32;
+      font-size: 1.8rem;
+      margin: 0;
+      font-weight: bold;
+    }
+    
+    .statistics-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin: 25px 0;
+    }
+    
+    .stat-item {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      border: 3px solid transparent;
+      transition: all 0.3s ease;
+      transform: scale(1);
+    }
+    
+    .stat-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .stat-item.correct {
+      border-color: #28a745;
+    }
+    
+    .stat-item.wrong {
+      border-color: #dc3545;
+    }
+    
+    .stat-item.no-answer {
+      border-color: #ffc107;
+    }
+    
+    .stat-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #2d3748;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .stat-percentage {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2e7d32;
+    }
+    
+    .statistics-footer {
+      text-align: center;
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 2px solid #e9ecef;
+    }
+    
+    .statistics-footer p {
+      color: #2d3748;
+      font-size: 1.3rem;
+      margin: 0;
+      font-weight: 600;
+    }
+    
+    /* Responsividade para statistics */
+    @media (max-width: 768px) {
+      .statistics-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .stat-item {
+        padding: 20px;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .stat-icon {
+        font-size: 2.5rem;
+      }
+      
+      .statistics-header h3 {
+        font-size: 1.5rem;
+      }
+      
+      .statistics-footer p {
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body>
