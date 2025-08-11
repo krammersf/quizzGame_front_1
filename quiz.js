@@ -20,7 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const gameId = urlParams.get("gameId");
 
-  let playerName = sessionStorage.getItem("playerName");
+  // Limpar sessionStorage para garantir que sempre pede nome novo
+  sessionStorage.removeItem("playerName");
+  let playerName = null;
 
   let gameConfig = null;
   let questions = [];
@@ -43,16 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "index.html";
   }
 
-  // Mostrar input para nome se não existir playerName na sessão
-  if (!playerName) {
-    enterNameBox.classList.remove("hidden");
-    waitingBox.style.display = "none";
-  } else {
-    enterNameBox.classList.add("hidden");
-    waitingBox.style.display = "block";
-    playerNameDisplay.textContent = `Jogador: ${playerName}`;
-    registerPlayerAndWait();
-  }
+  // SEMPRE mostrar input para nome (não usar sessionStorage)
+  console.log("Iniciando com tela de entrada de nome");
+  enterNameBox.classList.remove("hidden");
+  waitingBox.style.display = "none";
 
   document.getElementById("enterGameBtn").addEventListener("click", () => {
     const inputName = document.getElementById("playerNameInput").value.trim();
