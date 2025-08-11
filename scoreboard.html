@@ -349,6 +349,15 @@
         
         // Função para fazer hard refresh (Ctrl+Shift+R equivalente)
         function hardRefresh() {
+            // Preservar o gameId antes de limpar
+            const gameId = sessionStorage.getItem("gameId");
+            
+            if (!gameId) {
+                alert("ID do jogo não encontrado! Redirecionando para o início...");
+                window.location.href = "index.html";
+                return;
+            }
+            
             // Clear all caches and reload
             if ('caches' in window) {
                 caches.keys().then(function(names) {
@@ -361,6 +370,9 @@
             // Clear sessionStorage and localStorage
             sessionStorage.clear();
             localStorage.clear();
+            
+            // Restaurar o gameId no sessionStorage
+            sessionStorage.setItem("gameId", gameId);
             
             // Force reload without cache (forma moderna)
             window.location.href = window.location.href;
