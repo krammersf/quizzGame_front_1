@@ -539,27 +539,36 @@ window.addEventListener('DOMContentLoaded', () => {
         const currentQuestion = integratedQuestions[questionIndex];
         const correctAnswer = currentQuestion.resposta;
         
+        console.log(`🎯 Analisando pergunta ${questionIndex}: "${currentQuestion.pergunta}"`);
+        console.log(`✅ Resposta correta: "${correctAnswer}"`);
+        
         let correctCount = 0;
         let wrongCount = 0;
         let noAnswerCount = 0;
         let totalPlayers = 0;
         
         // Contar respostas de cada jogador
-        Object.values(playersData).forEach(player => {
+        Object.entries(playersData).forEach(([playerName, player]) => {
           totalPlayers++;
+          
+          console.log(`🔍 Verificando jogador ${playerName} para pergunta ${questionIndex}`);
           
           // Verificar se o jogador tem resposta para esta pergunta
           if (player.rounds && player.rounds[questionIndex]) {
             const playerAnswer = player.rounds[questionIndex].answer;
+            console.log(`📝 Jogador ${playerName} respondeu: "${playerAnswer}" | Correta: "${correctAnswer}"`);
             
             if (playerAnswer === correctAnswer) {
               correctCount++;
+              console.log(`✅ ${playerName}: Resposta CERTA`);
             } else {
               wrongCount++;
+              console.log(`❌ ${playerName}: Resposta ERRADA`);
             }
           } else {
             // Jogador não respondeu
             noAnswerCount++;
+            console.log(`⏰ ${playerName}: SEM RESPOSTA`);
           }
         });
         
@@ -645,7 +654,7 @@ window.addEventListener('DOMContentLoaded', () => {
         
         // Aguardar 5 segundos, mostrar estatísticas, e depois mais 5 segundos antes da próxima pergunta
         setTimeout(async () => {
-          // Mostrar estatísticas por 5 segundos
+          // Mostrar estatísticas da pergunta que acabou de terminar
           await showQuestionStatistics(currentQuestion);
           
           // Aguardar mais 5 segundos e avançar para próxima pergunta
