@@ -86,8 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
       document.getElementById("shareLink").style.display = "block";
       document.getElementById("gameLink").value = `${window.location.origin}/quizzGame_front_1/quiz.html?gameId=${createdGameId}`;
 
-      // Mostrar botão iniciar só para criador
-      beginGameBtn.style.display = "inline-block";
+      // Botão "Iniciar Jogo" só aparece após ativar painel do jogador 1
     }).catch((error) => {
       console.error("Erro ao criar o jogo:", error);
       alert("Erro ao criar o jogo. Veja a consola.");
