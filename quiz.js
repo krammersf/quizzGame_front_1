@@ -114,6 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (data.gameStarted && gameStarted) {
         console.log("Jogo já estava iniciado, ignorando nova chamada do Firebase");
         waitingBox.style.display = "none";
+        // GARANTIR que está a ouvir o estado do jogo (para jogadores que entram depois)
+        if (!listeningForGameState) {
+          console.log("🎯 Iniciando listener para jogador que entrou depois do jogo começar");
+          listenToGameState();
+        }
       } else {
         waitingBox.style.display = "block";
       }
