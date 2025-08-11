@@ -1099,4 +1099,54 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Funcionalidade de toggle das configurações
+  const toggleBtn = document.getElementById('toggleConfigBtn');
+  const configContent = document.getElementById('configContent');
+  const shareLink = document.getElementById('shareLink');
+  
+  function hideConfigurationsAfterGameCreation() {
+    // Esconder configurações
+    configContent.classList.add('hidden');
+    
+    // Mostrar botão toggle
+    toggleBtn.style.display = 'block';
+    toggleBtn.textContent = '+';
+    toggleBtn.title = 'Mostrar configurações';
+  }
+  
+  // Toggle das configurações
+  toggleBtn.addEventListener('click', function() {
+    const isHidden = configContent.classList.contains('hidden');
+    
+    if (isHidden) {
+      // Mostrar configurações
+      configContent.classList.remove('hidden');
+      toggleBtn.textContent = '−';
+      toggleBtn.title = 'Esconder configurações';
+    } else {
+      // Esconder configurações
+      configContent.classList.add('hidden');
+      toggleBtn.textContent = '+';
+      toggleBtn.title = 'Mostrar configurações';
+    }
+  });
+  
+  // Observer para detectar quando o link de partilha aparece
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+        if (shareLink.style.display !== 'none' && !shareLink.style.display.includes('none')) {
+          hideConfigurationsAfterGameCreation();
+          observer.disconnect(); // Parar de observar após esconder
+        }
+      }
+    });
+  });
+  
+  // Começar a observar mudanças no elemento shareLink
+  observer.observe(shareLink, {
+    attributes: true,
+    attributeFilter: ['style']
+  });
 });
