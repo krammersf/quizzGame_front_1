@@ -141,9 +141,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const currentQuestionDisplay = document.getElementById("currentQuestionDisplay");
     const player1AnswerSection = document.getElementById("player1AnswerSection");
     const questionText = document.getElementById("questionText");
-    const questionCounter = document.getElementById("questionCounter");
     
-    if (!integratedQuizSection || !currentQuestionDisplay || !questionText || !questionCounter) {
+    if (!integratedQuizSection || !currentQuestionDisplay || !questionText) {
       console.warn("⚠️ Alguns elementos HTML não encontrados para countdown do jogador 1 - usando modo simplificado");
       
       // Modo simplificado - só mostrar o countdown no Firebase para outros jogadores
@@ -183,13 +182,21 @@ window.addEventListener('DOMContentLoaded', () => {
     currentQuestionDisplay.style.display = "block";
     if (player1AnswerSection) player1AnswerSection.style.display = "none";
     
-    // Mostrar contador
+    // Mostrar contador - criar elemento temporário para o countdown
     questionText.textContent = "🎮 O jogo vai começar em...";
-    questionCounter.textContent = countdownTime;
-    questionCounter.style.fontSize = "48px";
-    questionCounter.style.color = "#FF6B35";
-    questionCounter.style.textAlign = "center";
-    questionCounter.style.fontWeight = "bold";
+    
+    // Criar elemento temporário para o número do countdown
+    const countdownElement = document.createElement("div");
+    countdownElement.id = "tempCountdown";
+    countdownElement.style.fontSize = "48px";
+    countdownElement.style.color = "#FF6B35";
+    countdownElement.style.textAlign = "center";
+    countdownElement.style.fontWeight = "bold";
+    countdownElement.style.marginTop = "20px";
+    countdownElement.textContent = countdownTime;
+    
+    // Adicionar o elemento depois do questionText
+    questionText.parentNode.appendChild(countdownElement);
     
     const countdownInterval = setInterval(() => {
       countdownTime--;
@@ -201,8 +208,9 @@ window.addEventListener('DOMContentLoaded', () => {
         });
         
         // Atualizar display do jogador 1 (com verificação)
-        if (questionCounter) {
-          questionCounter.textContent = countdownTime;
+        const tempCountdown = document.getElementById("tempCountdown");
+        if (tempCountdown) {
+          tempCountdown.textContent = countdownTime;
         }
         console.log(`⏰ Contador: ${countdownTime}`);
       } else {
@@ -211,11 +219,10 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log("🏁 Contador terminado - iniciando primeira pergunta!");
         countdownActive = false; // Marcar countdown como terminado
         
-        // Resetar estilo do contador (com verificações)
-        if (questionCounter) {
-          questionCounter.style.fontSize = "";
-          questionCounter.style.color = "";
-          questionCounter.style.fontWeight = "";
+        // Resetar estilo do contador (com verificações) - remover elemento temporário
+        const tempCountdown = document.getElementById("tempCountdown");
+        if (tempCountdown) {
+          tempCountdown.remove();
         }
         
         // Atualizar Firebase para iniciar primeira pergunta
@@ -712,14 +719,12 @@ window.addEventListener('DOMContentLoaded', () => {
       
       // Se o jogo começou (saiu do countdown), mostrar que está ativo
       if (gameState.questionStartTime && !gameState.countdown) {
-        // Resetar estilo do contador se estava em countdown
-        const questionCounter = document.getElementById("questionCounter");
+        // Resetar estilo do contador se estava em countdown - remover elemento temporário
+        const tempCountdown = document.getElementById("tempCountdown");
         const statusText = document.getElementById("statusText");
         
-        if (questionCounter) {
-          questionCounter.style.fontSize = "";
-          questionCounter.style.color = "";
-          questionCounter.style.fontWeight = "";
+        if (tempCountdown) {
+          tempCountdown.remove();
         }
         
         if (statusText) statusText.textContent = "🎮 Jogo ativo!";
@@ -783,10 +788,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const imgElement = document.getElementById("questionImage");
     const currentQuestionDisplay = document.getElementById("currentQuestionDisplay");
     
-    // Atualizar título
+    // Atualizar título com formato: "Pergunta X de 10 [2]" onde [2] é o número atual
     if (questionTitle) {
-      questionTitle.textContent = 
-        `Pergunta ${integratedCurrentQuestion + 1} de ${integratedQuestions.length}`;
+      questionTitle.innerHTML = 
+        `Pergunta ${integratedCurrentQuestion + 1} de ${integratedQuestions.length} <span style="font-size: 0.7em; color: rgba(255,255,255,0.7);">[${integratedCurrentQuestion + 1}]</span>`;
     }
     
     // Mostrar pergunta (usar 'pergunta' em vez de 'question')
@@ -1074,20 +1079,35 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para mostrar feedback final (quando tempo acaba)
   function applyIntegratedAnswerFeedback(correctAnswer) {
+    const question = integratedQuestions[integratedCurrentQuestion];
     const buttons = document.querySelectorAll(".player1-answer-btn");
     
+    // Encontrar qual letra (A, B, C, D) corresponde à resposta correta
+    let correctAnswerLetter = null;
+    for (let i = 0; i < question.hipoteses_resposta.length; i++) {
+      if (question.hipoteses_resposta[i] === correctAnswer) {
+        correctAnswerLetter = String.fromCharCode(65 + i); // A=65, B=66, C=67, D=68
+        break;
+      }
+    }
+    
+    console.log(`🎯 Resposta correta: "${correctAnswer}" = Letra: ${correctAnswerLetter}`);
+    console.log(`👤 Jogador escolheu: ${integratedPlayerAnswer}`);
+    
     buttons.forEach(button => {
-      const buttonAnswer = button.dataset.answer;
+      const buttonAnswer = button.dataset.answer; // A, B, C, ou D
       
       // Remover classe selected primeiro
       button.classList.remove('selected');
       
-      if (buttonAnswer === correctAnswer) {
-        // Resposta correta sempre verde
+      if (buttonAnswer === correctAnswerLetter) {
+        // Resposta correta sempre verde (independentemente da escolha do jogador)
         button.classList.add('correct');
-      } else if (buttonAnswer === integratedPlayerAnswer && integratedPlayerAnswer !== correctAnswer) {
-        // Resposta escolhida errada fica vermelha
+        console.log(`✅ Botão ${buttonAnswer} marcado como correto (verde)`);
+      } else if (buttonAnswer === integratedPlayerAnswer && integratedPlayerAnswer !== correctAnswerLetter) {
+        // Resposta escolhida errada fica vermelha (só se não for a correta)
         button.classList.add('incorrect');
+        console.log(`❌ Botão ${buttonAnswer} marcado como incorreto (vermelho)`);
       }
     });
   }
