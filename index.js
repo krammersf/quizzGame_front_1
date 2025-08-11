@@ -602,6 +602,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // Ocultar o botão "Abrir Jogador 1" 
     document.getElementById("openPlayer1Btn").style.display = "none";
     
+    // Mostrar o botão "Iniciar Jogo"
+    document.getElementById("beginGameBtn").style.display = "inline-block";
+    
     // Inicializar como jogador 1 integrado
     initializeIntegratedPlayer1();
   }
@@ -635,9 +638,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // Escutar estado do jogo
     listenToIntegratedGameState();
     
-    // Ativar controlos manuais para o host
-    document.getElementById("manualControls").style.display = "block";
-    setupManualControls();
+    // Configurar botões de resposta do Jogador 1
+    setupIntegratedPlayer1Answers();
     
     // Tentar carregar perguntas a cada 3 segundos se ainda não existirem
     const questionsInterval = setInterval(async () => {
@@ -1035,9 +1037,8 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("timerDisplay").textContent = "🎉 Fim do Jogo!";
   }
 
-  // Configurar controlos manuais
-  function setupManualControls() {
-    // Botões de resposta do Jogador 1
+  // Configurar botões de resposta do Jogador 1 integrado
+  function setupIntegratedPlayer1Answers() {
     document.querySelectorAll(".player1-answer-btn").forEach(btn => {
       btn.addEventListener("click", (e) => {
         // Verificar se já respondeu - BLOQUEAR mudanças
@@ -1073,37 +1074,6 @@ window.addEventListener('DOMContentLoaded', () => {
         
         console.log(`✅ Jogador 1 respondeu: ${answer} (${e.target.textContent}) - BLOQUEADO`);
       });
-    });
-    
-    // Controlo manual próxima pergunta
-    document.getElementById("manualNextBtn").addEventListener("click", () => {
-      if (integratedCurrentQuestion < integratedQuestions.length - 1) {
-        console.log("⏭️ Avançar manualmente para próxima pergunta");
-        const nextIndex = integratedCurrentQuestion + 1;
-        
-        update(ref(db, `games/${createdGameId}/gameState`), {
-          currentQuestionIndex: nextIndex,
-          timeLeft: 10,
-          questionStartTime: Date.now(),
-          gameEnded: false,
-          showingResults: false
-        });
-      }
-    });
-    
-    // Controlo manual terminar jogo
-    document.getElementById("manualEndBtn").addEventListener("click", () => {
-      if (confirm("Tens certeza que queres terminar o jogo?")) {
-        console.log("🏁 Terminar jogo manualmente");
-        
-        update(ref(db, `games/${createdGameId}/gameState`), {
-          gameEnded: true,
-          currentQuestionIndex: integratedCurrentQuestion,
-          timeLeft: 0,
-          questionStartTime: null,
-          showingResults: false
-        });
-      }
     });
   }
 
