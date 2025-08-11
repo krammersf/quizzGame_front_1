@@ -176,6 +176,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       
+      // Se não está mostrando estatísticas, esconder display de estatísticas
+      if (!gameState.showingStatistics) {
+        const statsDisplay = document.getElementById("statisticsDisplay");
+        if (statsDisplay) {
+          statsDisplay.style.display = "none";
+          console.log("📊 Estatísticas escondidas");
+        }
+      }
+      
       // Verificar se está em contador regressivo
       if (gameState.countdown && gameState.countdownTime > 0) {
         console.log(`⏰ Contador regressivo: ${gameState.countdownTime}`);
@@ -520,6 +529,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mostrar question box com nova classe
     const questionBox = document.getElementById("questionBox");
     questionBox.classList.remove("hidden");
+    questionBox.style.display = "block"; // Garantir que está visível
 
     // Configurar imagem
     const questionImage = document.getElementById("questionImage");
