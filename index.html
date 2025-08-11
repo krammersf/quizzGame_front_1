@@ -231,6 +231,46 @@
       transform: translateY(-2px);
     }
     
+    /* Game setup section toggle */
+    #gameSetupSection {
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    
+    #gameSetupSection.collapsed {
+      max-height: 0;
+      opacity: 0;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .setup-toggle-btn {
+      background: linear-gradient(45deg, #6c757d, #495057);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 20px 0;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .setup-toggle-btn:hover {
+      background: linear-gradient(45deg, #495057, #343a40);
+      box-shadow: 0 8px 25px rgba(108,117,125,0.4);
+      transform: translateY(-2px);
+    }
+    
+    #gameToggleSection {
+      text-align: center;
+      width: 100%;
+    }
+    
     /* Share Link Section */
     .share-section {
       background: rgba(40,167,69,0.1);
@@ -540,10 +580,12 @@
 </head>
 <body>
   <div class="main-container">
-    <div class="header">
-      <h1 class="main-title">🎯 Quiz Multiplayer</h1>
-      <p class="subtitle">Cria o teu jogo e convida amigos!</p>
-    </div>
+    <!-- Seção colapsável durante o jogo -->
+    <div id="gameSetupSection">
+      <div class="header">
+        <h1 class="main-title">🎯 Quiz Multiplayer</h1>
+        <p class="subtitle">Cria o teu jogo e convida amigos!</p>
+      </div>
 
     <div class="form-container">
       <div class="config-header">
@@ -624,6 +666,15 @@
     <button id="openPlayer1Btn" class="btn-warning btn-large" style="display:none;">🎮 Ativar Painel do Jogador 1</button>
     <button id="beginGameBtn" class="btn-success btn-large" style="display:none;">▶️ Iniciar Jogo</button>
     <button id="permanentScoreboardBtn" class="btn-info btn-large" style="display:none;">🏆 Classificação</button>
+    
+    </div> <!-- Fim de gameSetupSection -->
+    
+    <!-- Toggle para mostrar/esconder configurações durante o jogo -->
+    <div id="gameToggleSection" style="display: none;">
+      <button id="setupToggleBtn" class="setup-toggle-btn">
+        <span id="toggleIcon">−</span> Configurações
+      </button>
+    </div>
 
     <!-- Secção de quiz integrada para o Jogador 1 -->
     <div id="integratedQuizSection" class="game-panel" style="display:none;">

@@ -123,6 +123,9 @@ window.addEventListener('DOMContentLoaded', () => {
       // Mostrar aviso visual
       showControlWarning();
       
+      // Colapsar seções de configuração e mostrar toggle
+      collapseGameSetup();
+      
       // Iniciar contador regressivo
       startCountdown();
     } catch (error) {
@@ -1224,6 +1227,38 @@ window.addEventListener('DOMContentLoaded', () => {
       window.open(`scoreboard.html?gameId=${gameId}`, '_blank');
     } else {
       alert("Erro: ID do jogo não encontrado");
+    }
+  });
+
+  // Função para colapsar configurações quando o jogo inicia
+  function collapseGameSetup() {
+    const setupSection = document.getElementById("gameSetupSection");
+    const toggleSection = document.getElementById("gameToggleSection");
+    
+    // Colapsar seção de configurações
+    setupSection.classList.add("collapsed");
+    
+    // Mostrar botão de toggle
+    toggleSection.style.display = "block";
+    
+    console.log("🎮 Configurações colapsadas - jogo iniciado");
+  }
+
+  // Event listener para toggle das configurações durante o jogo
+  document.getElementById("setupToggleBtn").addEventListener("click", () => {
+    const setupSection = document.getElementById("gameSetupSection");
+    const toggleIcon = document.getElementById("toggleIcon");
+    
+    if (setupSection.classList.contains("collapsed")) {
+      // Expandir
+      setupSection.classList.remove("collapsed");
+      toggleIcon.textContent = "−";
+      console.log("📋 Configurações expandidas");
+    } else {
+      // Colapsar
+      setupSection.classList.add("collapsed");
+      toggleIcon.textContent = "+";
+      console.log("📁 Configurações colapsadas");
     }
   });
 });
