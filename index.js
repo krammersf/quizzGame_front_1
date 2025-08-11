@@ -557,36 +557,44 @@ window.addEventListener('DOMContentLoaded', () => {
           if (player.rounds && player.rounds[questionIndex]) {
             const playerAnswer = player.rounds[questionIndex].answer;
             const selectedAnswer = player.rounds[questionIndex].selectedAnswer;
+            const timeExpired = player.rounds[questionIndex].timeExpired;
             
-            console.log(`📝 Jogador ${playerName} - answer: "${playerAnswer}" | selectedAnswer: "${selectedAnswer}" | Correta: "${correctAnswer}"`);
+            console.log(`📝 Jogador ${playerName} - answer: "${playerAnswer}" | selectedAnswer: "${selectedAnswer}" | timeExpired: ${timeExpired} | Correta: "${correctAnswer}"`);
             
-            // Usar selectedAnswer (texto completo) se disponível, senão converter answer (letra) para texto
-            let playerAnswerText;
-            if (selectedAnswer) {
-              playerAnswerText = selectedAnswer;
-            } else if (playerAnswer) {
-              // Converter letra (A, B, C, D) para texto
-              const answerIndex = playerAnswer.charCodeAt(0) - 65; // A=0, B=1, C=2, D=3
-              if (answerIndex >= 0 && answerIndex < currentQuestion.hipoteses_resposta.length) {
-                playerAnswerText = currentQuestion.hipoteses_resposta[answerIndex];
+            // Verificar se realmente respondeu algo (não é null ou undefined)
+            if (!playerAnswer && !selectedAnswer) {
+              // Não respondeu - contabilizar como sem resposta
+              noAnswerCount++;
+              console.log(`⏰ ${playerName}: SEM RESPOSTA (answer e selectedAnswer são null)`);
+            } else {
+              // Tem uma resposta - verificar se está correta
+              let playerAnswerText;
+              if (selectedAnswer) {
+                playerAnswerText = selectedAnswer;
+              } else if (playerAnswer) {
+                // Converter letra (A, B, C, D) para texto
+                const answerIndex = playerAnswer.charCodeAt(0) - 65; // A=0, B=1, C=2, D=3
+                if (answerIndex >= 0 && answerIndex < currentQuestion.hipoteses_resposta.length) {
+                  playerAnswerText = currentQuestion.hipoteses_resposta[answerIndex];
+                } else {
+                  playerAnswerText = playerAnswer; // fallback
+                }
+              }
+              
+              console.log(`🔄 Resposta convertida: "${playerAnswerText}"`);
+              
+              if (playerAnswerText === correctAnswer) {
+                correctCount++;
+                console.log(`✅ ${playerName}: Resposta CERTA`);
               } else {
-                playerAnswerText = playerAnswer; // fallback
+                wrongCount++;
+                console.log(`❌ ${playerName}: Resposta ERRADA`);
               }
             }
-            
-            console.log(`🔄 Resposta convertida: "${playerAnswerText}"`);
-            
-            if (playerAnswerText === correctAnswer) {
-              correctCount++;
-              console.log(`✅ ${playerName}: Resposta CERTA`);
-            } else {
-              wrongCount++;
-              console.log(`❌ ${playerName}: Resposta ERRADA`);
-            }
           } else {
-            // Jogador não respondeu
+            // Jogador não tem registro para esta pergunta
             noAnswerCount++;
-            console.log(`⏰ ${playerName}: SEM RESPOSTA`);
+            console.log(`⏰ ${playerName}: SEM RESPOSTA (sem registro da ronda)`);
           }
         });
         
