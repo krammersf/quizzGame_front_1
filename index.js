@@ -556,9 +556,27 @@ window.addEventListener('DOMContentLoaded', () => {
           // Verificar se o jogador tem resposta para esta pergunta
           if (player.rounds && player.rounds[questionIndex]) {
             const playerAnswer = player.rounds[questionIndex].answer;
-            console.log(`📝 Jogador ${playerName} respondeu: "${playerAnswer}" | Correta: "${correctAnswer}"`);
+            const selectedAnswer = player.rounds[questionIndex].selectedAnswer;
             
-            if (playerAnswer === correctAnswer) {
+            console.log(`📝 Jogador ${playerName} - answer: "${playerAnswer}" | selectedAnswer: "${selectedAnswer}" | Correta: "${correctAnswer}"`);
+            
+            // Usar selectedAnswer (texto completo) se disponível, senão converter answer (letra) para texto
+            let playerAnswerText;
+            if (selectedAnswer) {
+              playerAnswerText = selectedAnswer;
+            } else if (playerAnswer) {
+              // Converter letra (A, B, C, D) para texto
+              const answerIndex = playerAnswer.charCodeAt(0) - 65; // A=0, B=1, C=2, D=3
+              if (answerIndex >= 0 && answerIndex < currentQuestion.hipoteses_resposta.length) {
+                playerAnswerText = currentQuestion.hipoteses_resposta[answerIndex];
+              } else {
+                playerAnswerText = playerAnswer; // fallback
+              }
+            }
+            
+            console.log(`🔄 Resposta convertida: "${playerAnswerText}"`);
+            
+            if (playerAnswerText === correctAnswer) {
               correctCount++;
               console.log(`✅ ${playerName}: Resposta CERTA`);
             } else {
