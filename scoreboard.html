@@ -604,11 +604,17 @@
                 const gameData = snapshot.val();
                 const players = gameData.players || {};
                 const questionResults = gameData.questionResults || {};
-                const totalQuestions = gameData.totalQuestions || 0;
+                let totalQuestions = gameData.totalQuestions || 0;
+
+                // Se totalQuestions não estiver definido, calcular pelo número de perguntas respondidas
+                if (totalQuestions === 0) {
+                    totalQuestions = Object.keys(questionResults).length;
+                }
 
                 console.log("🔍 Debug - gameData:", gameData);
                 console.log("🔍 Debug - questionResults:", questionResults);
                 console.log("🔍 Debug - players:", players);
+                console.log("🔍 Debug - totalQuestions:", totalQuestions);
 
                 // Processar estatísticas por jogador
                 const playerStats = {};
@@ -633,12 +639,15 @@
                     Object.keys(playerAnswers).forEach(playerName => {
                         if (playerStats[playerName]) {
                             const answer = playerAnswers[playerName];
-                            console.log(`🔍 Debug - ${playerName} resposta:`, answer);
+                            console.log(`🔍 Debug - ${playerName} resposta pergunta ${questionIndex}:`, answer);
                             
-                            if (answer.isCorrect === true) {
-                                playerStats[playerName].correct++;
-                            } else if (answer.isCorrect === false) {
-                                playerStats[playerName].wrong++;
+                            // Contar apenas respostas válidas
+                            if (answer && typeof answer.isCorrect === 'boolean') {
+                                if (answer.isCorrect === true) {
+                                    playerStats[playerName].correct++;
+                                } else {
+                                    playerStats[playerName].wrong++;
+                                }
                             }
                         }
                     });
@@ -647,7 +656,16 @@
                 // Calcular perguntas não respondidas
                 Object.keys(playerStats).forEach(playerName => {
                     const answered = playerStats[playerName].correct + playerStats[playerName].wrong;
-                    playerStats[playerName].noAnswer = totalQuestions - answered;
+                    // Garantir que não respondidas nunca seja negativo
+                    playerStats[playerName].noAnswer = Math.max(0, totalQuestions - answered);
+                    
+                    console.log(`🔍 Debug - ${playerName} final:`, {
+                        correct: playerStats[playerName].correct,
+                        wrong: playerStats[playerName].wrong,
+                        answered: answered,
+                        totalQuestions: totalQuestions,
+                        noAnswer: playerStats[playerName].noAnswer
+                    });
                 });
 
                 // Gerar HTML das estatísticas
