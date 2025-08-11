@@ -1250,12 +1250,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const toggleIcon = document.getElementById("toggleIcon");
     
     if (setupSection.classList.contains("collapsed")) {
-      // Expandir
+      // Expandir (estava colapsado com "+", agora vai expandir e mostrar "−")
       setupSection.classList.remove("collapsed");
       toggleIcon.textContent = "−";
       console.log("📋 Configurações expandidas");
     } else {
-      // Colapsar
+      // Colapsar (estava expandido com "−", agora vai colapsar e mostrar "+")
       setupSection.classList.add("collapsed");
       toggleIcon.textContent = "+";
       console.log("📁 Configurações colapsadas");
