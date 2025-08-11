@@ -641,12 +641,21 @@
                             const answer = playerAnswers[playerName];
                             console.log(`🔍 Debug - ${playerName} resposta pergunta ${questionIndex}:`, answer);
                             
-                            // Contar apenas respostas válidas
+                            // Verificar se é uma resposta válida
                             if (answer && typeof answer.isCorrect === 'boolean') {
                                 if (answer.isCorrect === true) {
                                     playerStats[playerName].correct++;
-                                } else {
-                                    playerStats[playerName].wrong++;
+                                } else if (answer.isCorrect === false) {
+                                    // Verificar se não respondeu (answer = null ou timeExpired = true)
+                                    if (answer.answer === null || answer.timeExpired === true) {
+                                        // Não respondeu - não contar como errada
+                                        // Será contabilizada automaticamente em noAnswer
+                                        console.log(`🔍 ${playerName} não respondeu à pergunta ${questionIndex}`);
+                                    } else {
+                                        // Respondeu mas errou
+                                        playerStats[playerName].wrong++;
+                                        console.log(`🔍 ${playerName} respondeu errado à pergunta ${questionIndex}`);
+                                    }
                                 }
                             }
                         }
