@@ -173,16 +173,19 @@ document.addEventListener("DOMContentLoaded", () => {
       if (gameState.showingStatistics && gameState.statistics) {
         console.log("📊 Mostrando estatísticas da pergunta:", gameState.statistics);
         showStatistics(gameState.statistics);
-        return;
-      }
-      
-      // Se não está mostrando estatísticas, esconder display de estatísticas
-      if (!gameState.showingStatistics) {
+        // NÃO fazer return aqui para permitir outras verificações
+      } else {
+        // Se não está mostrando estatísticas, esconder display de estatísticas
         const statsDisplay = document.getElementById("statisticsDisplay");
         if (statsDisplay) {
           statsDisplay.style.display = "none";
           console.log("📊 Estatísticas escondidas");
         }
+      }
+      
+      // Se está mostrando estatísticas, não processar mais nada
+      if (gameState.showingStatistics) {
+        return;
       }
       
       // Verificar se está em contador regressivo
