@@ -812,7 +812,9 @@ window.addEventListener('DOMContentLoaded', () => {
         answerButtons[2].textContent = options[2];
         answerButtons[3].textContent = options[3];
         
-        // DESBLOQUEAR todos os botões para nova pergunta
+        // DESBLOQUEAR todos os botões para nova pergunta e resetar classes CSS
+        resetIntegratedAnswerButtons();
+        
         answerButtons.forEach((btn, index) => {
           btn.disabled = false;
           btn.style.cursor = "pointer";
@@ -885,7 +887,9 @@ window.addEventListener('DOMContentLoaded', () => {
   function showIntegratedAnswerResults() {
     const question = integratedQuestions[integratedCurrentQuestion];
     const correctAnswer = question.resposta;
-    const answerButtons = document.querySelectorAll(".player1-answer-btn");
+    
+    // Usar a nova função para mostrar feedback visual
+    applyIntegratedAnswerFeedback(correctAnswer);
     
     // Encontrar qual é a resposta correta (índice)
     let correctIndex = -1;
@@ -894,13 +898,6 @@ window.addEventListener('DOMContentLoaded', () => {
         correctIndex = i;
         break;
       }
-    }
-    
-    // Destacar resposta correta em VERDE
-    if (correctIndex >= 0) {
-      answerButtons[correctIndex].style.backgroundColor = "#4CAF50";
-      answerButtons[correctIndex].style.color = "white";
-      answerButtons[correctIndex].style.borderColor = "#4CAF50";
     }
     
     if (!integratedPlayerAnswer) {
@@ -963,13 +960,6 @@ window.addEventListener('DOMContentLoaded', () => {
     
     const isCorrect = selectedAnswer === correctAnswer;
     console.log(`🔍 Resposta: ${selectedAnswer}, Correta: ${correctAnswer}, Está certo: ${isCorrect}`);
-    
-    // Se resposta errada, destacar em VERMELHO
-    if (!isCorrect && answerIndex >= 0) {
-      answerButtons[answerIndex].style.backgroundColor = "#f44336";
-      answerButtons[answerIndex].style.color = "white";
-      answerButtons[answerIndex].style.borderColor = "#f44336";
-    }
     
     if (isCorrect) {
       const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
@@ -1052,27 +1042,53 @@ window.addEventListener('DOMContentLoaded', () => {
         // Visual feedback - resetar todos os botões primeiro
         resetIntegratedAnswerButtons();
         
-        // Marcar a opção selecionada
-        e.target.style.backgroundColor = "#E0E0E0"; // Cinzento claro
-        e.target.style.color = "#424242"; // Texto cinzento escuro
-        e.target.style.borderColor = "#9E9E9E"; // Borda cinzenta
+        // Marcar a opção selecionada com classe CSS
+        e.target.classList.add('selected');
         
         // BLOQUEAR TODOS OS BOTÕES após primeira resposta
         document.querySelectorAll(".player1-answer-btn").forEach(button => {
           button.disabled = true;
           button.style.cursor = "not-allowed";
-          button.style.opacity = "0.7";
         });
-        
-        // Destacar apenas o botão selecionado
-        e.target.style.opacity = "1";
-        e.target.style.fontWeight = "bold";
         
         // Remover a mensagem "Selecionaste" - apenas log interno
         document.getElementById("player1Answer").textContent = "";
         
         console.log(`✅ Jogador 1 respondeu: ${answer} (${e.target.textContent}) - BLOQUEADO`);
       });
+    });
+  }
+
+  // Função para resetar os botões de resposta
+  function resetIntegratedAnswerButtons() {
+    document.querySelectorAll(".player1-answer-btn").forEach(button => {
+      // Remover todas as classes de feedback
+      button.classList.remove('selected', 'correct', 'incorrect');
+      // Restaurar estado original
+      button.disabled = false;
+      button.style.cursor = "pointer";
+      button.style.opacity = "1";
+      button.style.fontWeight = "bold";
+    });
+  }
+
+  // Função para mostrar feedback final (quando tempo acaba)
+  function applyIntegratedAnswerFeedback(correctAnswer) {
+    const buttons = document.querySelectorAll(".player1-answer-btn");
+    
+    buttons.forEach(button => {
+      const buttonAnswer = button.dataset.answer;
+      
+      // Remover classe selected primeiro
+      button.classList.remove('selected');
+      
+      if (buttonAnswer === correctAnswer) {
+        // Resposta correta sempre verde
+        button.classList.add('correct');
+      } else if (buttonAnswer === integratedPlayerAnswer && integratedPlayerAnswer !== correctAnswer) {
+        // Resposta escolhida errada fica vermelha
+        button.classList.add('incorrect');
+      }
     });
   }
 

@@ -344,6 +344,44 @@
       opacity: 0.7;
     }
     
+    /* Estados dos botões de resposta */
+    .answer-btn.selected {
+      background: #d3d3d3 !important; /* Cinzento claro */
+      color: black !important; /* Letra preta */
+      border: 3px solid #999 !important; /* Borda mais grossa */
+      transform: none !important;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2) !important;
+    }
+    
+    .answer-btn.correct {
+      background: #28a745 !important; /* Verde para certa */
+      color: white !important;
+      border: 8px solid #1e7e34 !important; /* Borda verde mais grossa */
+      box-shadow: 0 8px 25px rgba(40,167,69,0.5) !important;
+      animation: correctPulse 0.6s ease-in-out;
+    }
+    
+    .answer-btn.incorrect {
+      background: #dc3545 !important; /* Vermelho para errada */
+      color: white !important;
+      border: 5px solid #c82333 !important; /* Borda vermelha mais grossa */
+      box-shadow: 0 8px 25px rgba(220,53,69,0.5) !important;
+      animation: incorrectShake 0.6s ease-in-out;
+    }
+    
+    /* Animações para feedback */
+    @keyframes correctPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes incorrectShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    
     /* Tip text */
     .tip-text {
       font-size: 0.9rem;
