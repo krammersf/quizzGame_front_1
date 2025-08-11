@@ -426,10 +426,31 @@
         <input type="number" id="timePerQuestion" min="5" max="60" value="10" required />
       </div>
 
+      <!-- Campos necessários para o index.js -->
+      <div class="form-group">
+        <label for="totalPlayers">👥 Número Total de Jogadores:</label>
+        <input type="number" id="totalPlayers" min="1" max="10" value="4" required />
+      </div>
+
+      <div class="form-group">
+        <label for="maxQuestions">❓ Máximo de Perguntas:</label>
+        <input type="number" id="maxQuestions" min="1" max="50" value="10" required />
+      </div>
+
+      <div class="form-group">
+        <label for="pointsCorrect">✅ Pontos por Resposta Certa:</label>
+        <input type="number" id="pointsCorrect" min="1" max="100" value="10" required />
+      </div>
+
+      <div class="form-group">
+        <label for="pointsWrong">❌ Pontos por Resposta Errada:</label>
+        <input type="number" id="pointsWrong" min="-50" max="0" value="-5" required />
+      </div>
+
       <div class="form-group">
         <label for="cardSelection">🎴 Selecionar Cards:</label>
         <select id="cardSelection" multiple size="6" required>
-          <option value="card_1">🧠 Card 1 - Conhecimento Geral (50 perguntas)</option>
+          <option value="card_1" selected>🧠 Card 1 - Conhecimento Geral (50 perguntas)</option>
           <option value="card_2">🇵🇹 Card 2 - História de Portugal (50 perguntas)</option>
           <option value="card_3">🌍 Card 3 - História Mundial (50 perguntas)</option>
           <option value="card_4">⚽ Card 4 - Futebol Mundial (50 perguntas)</option>
