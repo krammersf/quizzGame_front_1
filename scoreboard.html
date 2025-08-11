@@ -362,8 +362,8 @@
             sessionStorage.clear();
             localStorage.clear();
             
-            // Force reload without cache
-            window.location.reload(true);
+            // Force reload without cache (forma moderna)
+            window.location.href = window.location.href;
         }
         
         // Função para mostrar estado de loading
