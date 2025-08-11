@@ -369,6 +369,13 @@
       animation: incorrectShake 0.6s ease-in-out;
     }
     
+    .answer-btn.correct-border-only {
+      /* Apenas borda verde, sem mudar cor de fundo (para quando não há resposta) */
+      border: 8px solid #1e7e34 !important; /* Borda verde grossa */
+      box-shadow: 0 8px 25px rgba(40,167,69,0.3) !important; /* Sombra sutil */
+      animation: correctPulse 0.6s ease-in-out;
+    }
+    
     /* Animações para feedback */
     @keyframes correctPulse {
       0% { transform: scale(1); }

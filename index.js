@@ -893,8 +893,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const question = integratedQuestions[integratedCurrentQuestion];
     const correctAnswer = question.resposta;
     
-    // Usar a nova função para mostrar feedback visual
-    applyIntegratedAnswerFeedback(correctAnswer);
+    // Usar a nova função para mostrar feedback visual (sem resposta = só borda)
+    applyIntegratedAnswerFeedback(correctAnswer, false); // false = sem resposta
     
     // Encontrar qual é a resposta correta (índice)
     let correctIndex = -1;
@@ -965,6 +965,9 @@ window.addEventListener('DOMContentLoaded', () => {
     
     const isCorrect = selectedAnswer === correctAnswer;
     console.log(`🔍 Resposta: ${selectedAnswer}, Correta: ${correctAnswer}, Está certo: ${isCorrect}`);
+    
+    // Aplicar feedback visual (com resposta = cores completas)
+    applyIntegratedAnswerFeedback(correctAnswer, true); // true = com resposta
     
     if (isCorrect) {
       const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
@@ -1068,7 +1071,7 @@ window.addEventListener('DOMContentLoaded', () => {
   function resetIntegratedAnswerButtons() {
     document.querySelectorAll(".player1-answer-btn").forEach(button => {
       // Remover todas as classes de feedback
-      button.classList.remove('selected', 'correct', 'incorrect');
+      button.classList.remove('selected', 'correct', 'incorrect', 'correct-border-only');
       // Restaurar estado original
       button.disabled = false;
       button.style.cursor = "pointer";
@@ -1078,7 +1081,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // Função para mostrar feedback final (quando tempo acaba)
-  function applyIntegratedAnswerFeedback(correctAnswer) {
+  function applyIntegratedAnswerFeedback(correctAnswer, hasAnswer = true) {
     const question = integratedQuestions[integratedCurrentQuestion];
     const buttons = document.querySelectorAll(".player1-answer-btn");
     
@@ -1093,19 +1096,26 @@ window.addEventListener('DOMContentLoaded', () => {
     
     console.log(`🎯 Resposta correta: "${correctAnswer}" = Letra: ${correctAnswerLetter}`);
     console.log(`👤 Jogador escolheu: ${integratedPlayerAnswer}`);
+    console.log(`📝 Tem resposta: ${hasAnswer}`);
     
     buttons.forEach(button => {
       const buttonAnswer = button.dataset.answer; // A, B, C, ou D
       
-      // Remover classe selected primeiro
-      button.classList.remove('selected');
+      // Remover todas as classes de feedback primeiro
+      button.classList.remove('selected', 'correct', 'incorrect', 'correct-border-only');
       
       if (buttonAnswer === correctAnswerLetter) {
-        // Resposta correta sempre verde (independentemente da escolha do jogador)
-        button.classList.add('correct');
-        console.log(`✅ Botão ${buttonAnswer} marcado como correto (verde)`);
-      } else if (buttonAnswer === integratedPlayerAnswer && integratedPlayerAnswer !== correctAnswerLetter) {
-        // Resposta escolhida errada fica vermelha (só se não for a correta)
+        if (hasAnswer) {
+          // Com resposta: mostrar cor verde completa
+          button.classList.add('correct');
+          console.log(`✅ Botão ${buttonAnswer} marcado como correto (verde completo)`);
+        } else {
+          // Sem resposta: apenas destacar borda (adicionar classe especial)
+          button.classList.add('correct-border-only');
+          console.log(`🔲 Botão ${buttonAnswer} marcado com borda correta apenas`);
+        }
+      } else if (hasAnswer && buttonAnswer === integratedPlayerAnswer && integratedPlayerAnswer !== correctAnswerLetter) {
+        // Só mostrar vermelho se houve resposta e foi errada
         button.classList.add('incorrect');
         console.log(`❌ Botão ${buttonAnswer} marcado como incorreto (vermelho)`);
       }
