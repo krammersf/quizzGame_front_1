@@ -5,156 +5,495 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz Multiplayer</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4wxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSiklKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAA50lEQVRYCe2WQQ6AIAxE6f2PrCvjypXGhSBgS2GmYQM2M+/3hxlmBmMMY4xxjqNtu33f7+Mwnt7rGkONAVAN3/cPZlkWZtnded3neR4cx3Gt67qWdV3LuqxlWZayzrKsZZZlLf/fFlmWdczz3HGe543jOG7v+7753w8A+LdN/zFWpVSM45jKskx938s4jqnt21TWdSpN05Smacpd17W862VZ1nEch9H3vZRSSiklKaXUdZ0Ugo5hGJqmabRSSkohr9fLGGOtMMZIKYyxVgphjLFSGmuttVIaY621UhprrLVWSmt5J9J1nRTCWmuFMNZYK4S11gohhHXWCiGstc5aa6211lprrfuPAP4DOAC+Dh64RwAAAABJRU5ErkJggg==">
   <style>
-    #waitingBox { margin-top: 20px; }
-    #questionBox { display: none; margin-top: 20px; }
+    /* Reset e Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     
-    /* Melhorias para mobile */
+    body {
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+      overflow-x: hidden;
+    }
+    
+    /* Container Principal */
+    .quiz-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Header do Quiz */
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    
+    .quiz-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .player-info {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    
+    /* Card de Countdown */
+    .countdown-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      margin-bottom: 30px;
+      min-width: 300px;
+      transform: scale(1);
+      transition: transform 0.3s ease;
+    }
+    
+    .countdown-card.pulse {
+      animation: pulse 1s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .countdown-number {
+      font-size: 5rem;
+      font-weight: bold;
+      color: #ff6b6b;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .countdown-text {
+      font-size: 1.5rem;
+      color: #666;
+      font-weight: 500;
+    }
+    
+    /* Timer Display Estilo Kahoot */
+    .timer-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ff6b6b;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 5px 20px rgba(255,107,107,0.4);
+      z-index: 100;
+      animation: timerBounce 2s infinite;
+    }
+    
+    @keyframes timerBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    .timer-container.warning {
+      background: #ff4757;
+      animation: timerUrgent 0.5s infinite;
+    }
+    
+    @keyframes timerUrgent {
+      0%, 100% { background: #ff4757; }
+      50% { background: #ff3742; }
+    }
+    
+    /* Question Card */
+    .question-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 800px;
+      color: #333;
+    }
+    
+    .question-counter {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    
+    .question-text {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    
+    .question-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    /* Answer Buttons Estilo Kahoot */
+    .answers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .answer-btn {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border: none;
+      border-radius: 15px;
+      padding: 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(102,126,234,0.3);
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .answer-btn:nth-child(1) {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    }
+    
+    .answer-btn:nth-child(2) {
+      background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    }
+    
+    .answer-btn:nth-child(3) {
+      background: linear-gradient(45deg, #45b7d1, #3498db);
+    }
+    
+    .answer-btn:nth-child(4) {
+      background: linear-gradient(45deg, #f39c12, #e67e22);
+    }
+    
+    .answer-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    .answer-btn:active {
+      transform: translateY(-2px);
+    }
+    
+    .answer-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .answer-btn:hover::before {
+      left: 100%;
+    }
+    
+    /* Waiting Screen */
+    .waiting-screen {
+      text-align: center;
+      padding: 40px;
+    }
+    
+    .waiting-animation {
+      width: 100px;
+      height: 100px;
+      border: 5px solid rgba(255,255,255,0.3);
+      border-top: 5px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .waiting-text {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+    
+    /* Enter Name Box */
+    .enter-name-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      color: #333;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    
+    .enter-name-card input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+    }
+    
+    .enter-name-card input:focus {
+      border-color: #667eea;
+      outline: none;
+    }
+    
+    .enter-name-card button {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border: none;
+      border-radius: 10px;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .enter-name-card button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+    }
+    
+    /* Game End Screen */
+    .game-end-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      color: #333;
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+    
+    .final-score {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #667eea;
+      margin: 20px 0;
+    }
+    
+    /* Score Table */
+    .score-table {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      margin-top: 20px;
+      width: 100%;
+      max-width: 600px;
+    }
+    
+    .score-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .score-table th {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 15px;
+      font-weight: bold;
+    }
+    
+    .score-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      color: #333;
+    }
+    
+    .score-table tr:hover {
+      background: #f8f9fa;
+    }
+    
+    /* Responsive Design */
     @media (max-width: 768px) {
-      .container {
+      .quiz-container {
         padding: 15px;
-        margin: 10px;
       }
       
-      h1 {
-        font-size: 24px;
-        margin-bottom: 15px;
+      .quiz-title {
+        font-size: 2rem;
       }
       
-      h3, h4 {
-        font-size: 18px;
-        margin: 10px 0;
+      .timer-container {
+        top: 10px;
+        right: 10px;
+        padding: 10px 15px;
+        font-size: 1.2rem;
       }
       
-      #timerDisplay {
-        font-size: 20px;
-        padding: 10px;
-        background-color: #ffe0e0;
-        border-radius: 8px;
-        margin: 15px 0;
-        text-align: center;
+      .question-card {
+        padding: 20px;
       }
       
-      #questionCounter {
-        font-size: 16px;
-        padding: 10px;
-        margin-bottom: 15px;
+      .question-text {
+        font-size: 1.2rem;
       }
       
-      #questionText {
-        font-size: 16px;
-        line-height: 1.5;
-        margin: 15px 0;
-        text-align: left;
+      .answers-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
       
-      #answersBox button {
-        font-size: 15px;
+      .answer-btn {
         padding: 15px;
-        margin: 8px 0;
-        text-align: left;
-        word-wrap: break-word;
-        white-space: normal;
-        min-height: 50px;
+        font-size: 1rem;
+        min-height: 60px;
       }
       
-      #questionImage {
-        max-width: 100%;
-        height: auto;
-        margin: 15px 0;
+      .countdown-card {
+        padding: 30px;
+        min-width: 250px;
       }
       
-      /* Tabela de classificação responsiva */
-      #scoreTable {
-        font-size: 14px;
-        width: 100%;
+      .countdown-number {
+        font-size: 4rem;
       }
       
-      #scoreTable th,
-      #scoreTable td {
-        padding: 8px 4px;
-        word-wrap: break-word;
+      .countdown-text {
+        font-size: 1.2rem;
       }
     }
     
     @media (max-width: 480px) {
-      .container {
-        margin: 5px;
-        padding: 10px;
+      .quiz-title {
+        font-size: 1.5rem;
       }
       
-      h1 {
-        font-size: 20px;
+      .countdown-number {
+        font-size: 3rem;
       }
       
-      #questionText {
-        font-size: 15px;
+      .question-text {
+        font-size: 1.1rem;
       }
       
-      #answersBox button {
-        font-size: 14px;
+      .answer-btn {
+        font-size: 0.9rem;
         padding: 12px;
       }
       
-      #scoreTable {
-        font-size: 12px;
+      .countdown-card {
+        padding: 20px;
+        min-width: 200px;
       }
-      
-      #scoreTable th,
-      #scoreTable td {
-        padding: 6px 2px;
-      }
+    }
+    
+    /* Hidden Classes */
+    .hidden {
+      display: none !important;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎯 Quiz Multiplayer</h1>
-    <h3 id="playerNameDisplay"></h3>
-    <h4 id="timerDisplay">Tempo: 10s</h4>
-
-    <div id="waitingBox">
-      <p>A aguardar que o jogo comece...</p>
+  <div class="quiz-container">
+    <!-- Timer fixo estilo Kahoot -->
+    <div id="timerDisplay" class="timer-container">⏱️ 10s</div>
+    
+    <!-- Header do Quiz -->
+    <div class="quiz-header">
+      <h1 class="quiz-title">🎯 Quiz Multiplayer</h1>
+      <div id="playerNameDisplay" class="player-info"></div>
     </div>
 
-    <div id="questionBox">
-      <div id="questionCounter" style="font-size: 18px; font-weight: bold; color: #666; margin-bottom: 10px; text-align: center;">
+    <!-- Card de Countdown -->
+    <div id="countdownCard" class="countdown-card hidden">
+      <div id="countdownNumber" class="countdown-number">3</div>
+      <div class="countdown-text">Preparar...</div>
+    </div>
+
+    <!-- Waiting Screen -->
+    <div id="waitingBox" class="waiting-screen">
+      <div class="waiting-animation"></div>
+      <div class="waiting-text">A aguardar que o jogo comece...</div>
+    </div>
+
+    <!-- Question Card -->
+    <div id="questionBox" class="question-card hidden">
+      <div id="questionCounter" class="question-counter">
         Pergunta 1 / 10
       </div>
-      <img id="questionImage" src="" alt="" style="max-width:200px; display:none;">
-      <p id="questionText"></p>
-      <div id="answersBox"></div>
+      <img id="questionImage" src="" alt="" class="question-image hidden">
+      <div id="questionText" class="question-text"></div>
+      <div id="answersBox" class="answers-grid"></div>
     </div>
 
-    <div id="enterNameBox" style="display:none;">
+    <!-- Enter Name Screen -->
+    <div id="enterNameBox" class="enter-name-card hidden">
+      <h2>Bem-vindo!</h2>
       <input type="text" id="playerNameInput" placeholder="Escreve o teu nome" />
       <button id="enterGameBtn">Entrar no Jogo</button>
     </div>
 
-    <div id="gameEndBox" style="display:none;">
+    <!-- Game End Screen -->
+    <div id="gameEndBox" class="game-end-card hidden">
       <h2>🏁 FIM DO JOGO</h2>
       <p>Parabéns! Completaste todas as perguntas.</p>
-      <h3 id="finalScoreDisplay">Pontuação Final: 0</h3>
-      <button id="showRankingBtn" style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">📊 Ver Classificação</button>
+      <div id="finalScoreDisplay" class="final-score">0</div>
+      <button id="showRankingBtn">📊 Ver Classificação</button>
     </div>
 
-    <!-- Seção de classificação -->
-    <div id="scoreSection" style="display:none;">
-      <h2>🏆 CLASSIFICAÇÃO FINAL</h2>
-      <table id="scoreTable" border="1" style="width: 100%; margin-top: 20px;">
+    <!-- Score Section -->
+    <div id="scoreSection" class="score-table hidden">
+      <h2 style="color: white; margin-bottom: 20px;">🏆 CLASSIFICAÇÃO FINAL</h2>
+      <table id="scoreTable">
         <thead>
-          <tr style="background-color: #f0f0f0;">
+          <tr>
             <th>Posição</th>
             <th>Jogador</th>
             <th>Pontuação</th>
           </tr>
         </thead>
-        <tbody>
-        </tbody>
+        <tbody></tbody>
       </table>
-      <button id="backToGameBtn" style="margin-top: 20px; padding: 10px 20px; background-color: #2196F3; color: white; border: none; border-radius: 5px; cursor: pointer;">🔙 Voltar</button>
+      <button id="backToGameBtn" style="margin-top: 20px; padding: 15px 30px; background: linear-gradient(45deg, #667eea, #764ba2); color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 1.1rem; font-weight: bold;">🔙 Voltar</button>
     </div>
   </div>
 

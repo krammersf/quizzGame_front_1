@@ -45,10 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mostrar input para nome se não existir playerName na sessão
   if (!playerName) {
-    enterNameBox.style.display = "block";
+    enterNameBox.classList.remove("hidden");
     waitingBox.style.display = "none";
   } else {
-    enterNameBox.style.display = "none";
+    enterNameBox.classList.add("hidden");
     waitingBox.style.display = "block";
     playerNameDisplay.textContent = `Jogador: ${playerName}`;
     registerPlayerAndWait();
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playerName = inputName;
     sessionStorage.setItem("playerName", playerName);
 
-    enterNameBox.style.display = "none";
+    enterNameBox.classList.add("hidden");
     waitingBox.style.display = "block";
     playerNameDisplay.textContent = `Jogador: ${playerName}`;
 
@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
   document.getElementById("backToGameBtn")?.addEventListener("click", () => {
     // Voltar ao menu inicial
-    document.getElementById("scoreSection").style.display = "none";
-    document.getElementById("gameEndBox").style.display = "none";
+    document.getElementById("scoreSection").classList.add("hidden");
+    document.getElementById("gameEndBox").classList.add("hidden");
     document.getElementById("waitingBox").style.display = "block";
   });
 
@@ -128,41 +128,30 @@ document.addEventListener("DOMContentLoaded", () => {
   function showCountdownScreen(countdownTime) {
     // Esconder outras telas
     waitingBox.style.display = "none";
-    document.getElementById("questionBox").style.display = "none";
+    document.getElementById("questionBox").classList.add("hidden");
     
-    // Criar ou atualizar tela de countdown
-    let countdownScreen = document.getElementById("countdownScreen");
-    if (!countdownScreen) {
-      countdownScreen = document.createElement("div");
-      countdownScreen.id = "countdownScreen";
-      countdownScreen.style.cssText = `
-        text-align: center;
-        margin-top: 50px;
-        padding: 40px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 15px;
-        color: white;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      `;
-      
-      countdownScreen.innerHTML = `
-        <h2 style="margin-bottom: 20px; font-size: 24px;">🎮 O jogo vai começar!</h2>
-        <div id="countdownNumber" style="font-size: 72px; font-weight: bold; margin: 30px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">${countdownTime}</div>
-        <p style="font-size: 18px; margin-top: 20px;">Prepara-te para a primeira pergunta...</p>
-      `;
-      
-      document.querySelector(".container").appendChild(countdownScreen);
+    // Mostrar e atualizar card de countdown
+    const countdownCard = document.getElementById("countdownCard");
+    const countdownNumber = document.getElementById("countdownNumber");
+    
+    countdownNumber.textContent = countdownTime;
+    countdownCard.classList.remove("hidden");
+    countdownCard.classList.add("pulse");
+    
+    // Atualizar texto baseado no tempo
+    const countdownText = countdownCard.querySelector(".countdown-text");
+    if (countdownTime > 1) {
+      countdownText.textContent = "Preparar...";
     } else {
-      // Atualizar apenas o número
-      document.getElementById("countdownNumber").textContent = countdownTime;
-      countdownScreen.style.display = "block";
+      countdownText.textContent = "COMEÇAR!";
     }
   }
   
   function hideCountdownScreen() {
-    const countdownScreen = document.getElementById("countdownScreen");
-    if (countdownScreen) {
-      countdownScreen.style.display = "none";
+    const countdownCard = document.getElementById("countdownCard");
+    if (countdownCard) {
+      countdownCard.classList.add("hidden");
+      countdownCard.classList.remove("pulse");
     }
   }
 
@@ -247,10 +236,19 @@ document.addEventListener("DOMContentLoaded", () => {
       timerInterval = null;
     }
     
+    const timerElement = document.getElementById("timerDisplay");
+    
     const updateTimer = () => {
       const elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
       timeLeft = Math.max(0, 10 - elapsed);
-      document.getElementById("timerDisplay").textContent = `Tempo: ${timeLeft}s`;
+      timerElement.textContent = `⏱️ ${timeLeft}s`;
+      
+      // Adicionar classe warning quando tempo < 5s
+      if (timeLeft <= 5) {
+        timerElement.classList.add("warning");
+      } else {
+        timerElement.classList.remove("warning");
+      }
       
       console.log(`Timer atualizado: ${timeLeft}s (elapsed: ${elapsed}s)`);
       
@@ -440,6 +438,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function showQuestion() {
     console.log("showQuestion chamada - currentQuestionIndex:", currentQuestionIndex, "total questions:", questions.length);
     
+    // Esconder countdown e waiting screen
+    hideCountdownScreen();
+    waitingBox.style.display = "none";
+    
     if (currentQuestionIndex >= questions.length) {
       console.log("Fim do jogo - todas as perguntas respondidas");
       alert("Fim do jogo!");
@@ -455,13 +457,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalQuestions = questions.length;
     document.getElementById("questionCounter").textContent = `Pergunta ${questionNumber} / ${totalQuestions}`;
     
-    document.getElementById("questionBox").style.display = "block";
+    // Mostrar question box com nova classe
+    const questionBox = document.getElementById("questionBox");
+    questionBox.classList.remove("hidden");
 
+    // Configurar imagem
+    const questionImage = document.getElementById("questionImage");
     if (q.imagem) {
-      document.getElementById("questionImage").src = q.imagem;
-      document.getElementById("questionImage").style.display = "block";
+      questionImage.src = q.imagem;
+      questionImage.classList.remove("hidden");
     } else {
-      document.getElementById("questionImage").style.display = "none";
+      questionImage.classList.add("hidden");
     }
 
     document.getElementById("questionText").textContent = q.pergunta;
@@ -473,29 +479,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     answersBox.innerHTML = "";
 
+    // Criar botões de resposta estilo Kahoot
     q.hipoteses_resposta.forEach(option => {
       const btn = document.createElement("button");
       btn.textContent = option;
+      btn.className = "answer-btn";
       btn.onclick = () => checkAnswer(option, q.resposta);
-      btn.disabled = false;  // ativa botões para nova pergunta
-      
-      // Limpar TODOS os estilos possíveis
-      btn.style.backgroundColor = "";
-      btn.style.color = "";
-      btn.style.border = "";
-      btn.style.boxShadow = "";
-      btn.style.fontSize = "";
-      btn.style.fontWeight = "";
+      btn.disabled = false;
       
       answersBox.appendChild(btn);
     });
 
-    // Limpar também o timer display
-    document.getElementById("timerDisplay").style.fontSize = "";
-    document.getElementById("timerDisplay").style.fontWeight = "";
-    document.getElementById("timerDisplay").style.color = "";
-
-    console.log("Botões criados e limpos - nova pergunta iniciada");
+    console.log("Botões criados - nova pergunta iniciada");
     // Reset da resposta para nova pergunta
     playerAnswer = null;
     console.log("playerAnswer resetado para nova pergunta");
@@ -622,13 +617,14 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Mostrando tela de fim de jogo");
     
     // Esconder todas as outras seções
-    document.getElementById("waitingBox").style.display = "none";
-    document.getElementById("questionBox").style.display = "none";
-    document.getElementById("scoreSection").style.display = "none";
+    waitingBox.style.display = "none";
+    document.getElementById("questionBox").classList.add("hidden");
+    document.getElementById("scoreSection").classList.add("hidden");
     
     // Mostrar tela de fim
-    document.getElementById("gameEndBox").style.display = "block";
-    document.getElementById("finalScoreDisplay").textContent = `Pontuação Final: ${score}`;
+    const gameEndBox = document.getElementById("gameEndBox");
+    gameEndBox.classList.remove("hidden");
+    document.getElementById("finalScoreDisplay").textContent = score;
     
     // Adicionar event listener ao botão Ver Classificação aqui
     const showRankingButton = document.getElementById("showRankingBtn");
@@ -672,13 +668,13 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Mostrando classificação final");
     
     // Esconder tela de fim
-    document.getElementById("gameEndBox").style.display = "none";
-    document.getElementById("waitingBox").style.display = "none";
-    document.getElementById("questionBox").style.display = "none";
+    document.getElementById("gameEndBox").classList.add("hidden");
+    waitingBox.style.display = "none";
+    document.getElementById("questionBox").classList.add("hidden");
 
     // Mostrar tabela de classificação
     const scoreSection = document.getElementById("scoreSection");
-    if (scoreSection) scoreSection.style.display = "block";
+    if (scoreSection) scoreSection.classList.remove("hidden");
 
     const playersRef = ref(db, `games/${gameId}/players`);
 
@@ -820,6 +816,26 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
       }
+    });
+  }
+
+  // Função auxiliar para countdown animado de pergunta
+  function startQuestionCountdown(duration = 3) {
+    return new Promise((resolve) => {
+      showCountdownScreen(duration);
+      
+      let timeRemaining = duration;
+      const countdownInterval = setInterval(() => {
+        timeRemaining--;
+        
+        if (timeRemaining > 0) {
+          showCountdownScreen(timeRemaining);
+        } else {
+          clearInterval(countdownInterval);
+          hideCountdownScreen();
+          resolve();
+        }
+      }, 1000);
     });
   }
 
