@@ -536,8 +536,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         
         const playersData = playersSnapshot.val();
-        const currentQuestion = questions[questionIndex];
-        const correctAnswer = currentQuestion.resposta_correta;
+        const currentQuestion = integratedQuestions[questionIndex];
+        const correctAnswer = currentQuestion.resposta;
         
         let correctCount = 0;
         let wrongCount = 0;
