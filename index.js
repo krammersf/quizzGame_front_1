@@ -795,7 +795,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Atualizar título com formato: "Pergunta X de 10 [numero_original]" onde [numero_original] é do card
     if (questionTitle) {
       questionTitle.innerHTML = 
-        `Pergunta ${integratedCurrentQuestion + 1} de ${integratedQuestions.length} <span style="font-size: 0.7em; color: rgba(255,255,255,0.7);">[${question.numero}]</span>`;
+        `Pergunta ${integratedCurrentQuestion + 1} de ${integratedQuestions.length} <span style="font-size: 0.7em; color: #2d3748; font-weight: 600;">[${question.numero}]</span>`;
     }
     
     // Mostrar pergunta (usar 'pergunta' em vez de 'question')
