@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Atualizar pontuação por não responder (0 pontos)
     score += 0; // Ausência de resposta = 0 pontos
-    console.log(`📊 Pontuação do jogador: ${score} (adicionados 0 por ausência de resposta)`);
+    console.log(`⏰ SEM RESPOSTA: +0 pontos | Total: ${score}`);
     
     // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
     const questionData = {
@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Dados da resposta do jogador (tempo esgotado)
     const playerAnswerData = {
       answer: null,
-      points: gameConfig.pointsWrong,
+      points: 0, // Usar 0 pontos em vez de gameConfig.pointsWrong
       isCorrect: false,
       timestamp: Date.now(),
       timeExpired: true
@@ -530,19 +530,19 @@ document.addEventListener("DOMContentLoaded", () => {
       if (correct.includes(selected)) {
         score += gameConfig.pointsCorrect;
         isCorrect = true;
-        console.log("Resposta correta (array) - pontos adicionados:", gameConfig.pointsCorrect);
+        console.log(`✅ Resposta CERTA (array): +${gameConfig.pointsCorrect} pontos | Total: ${score}`);
       } else {
         score += gameConfig.pointsWrong;
-        console.log("Resposta incorreta (array) - pontos adicionados:", gameConfig.pointsWrong);
+        console.log(`❌ Resposta ERRADA (array): ${gameConfig.pointsWrong} pontos | Total: ${score}`);
       }
     } else {
       if (selected === correct) {
         score += gameConfig.pointsCorrect;
         isCorrect = true;
-        console.log("Resposta correta - pontos adicionados:", gameConfig.pointsCorrect);
+        console.log(`✅ Resposta CERTA: +${gameConfig.pointsCorrect} pontos | Total: ${score}`);
       } else {
         score += gameConfig.pointsWrong;
-        console.log("Resposta incorreta - pontos adicionados:", gameConfig.pointsWrong);
+        console.log(`❌ Resposta ERRADA: ${gameConfig.pointsWrong} pontos | Total: ${score}`);
       }
     }
     
