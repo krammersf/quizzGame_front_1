@@ -82,6 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Esconder botão "Criar Jogo" e mostrar botão "Abrir como Jogador 1"
       document.getElementById("startGameBtn").style.display = "none";
       document.getElementById("openPlayer1Btn").style.display = "inline-block";
+      document.getElementById("permanentScoreboardBtn").style.display = "inline-block";
 
       document.getElementById("shareLink").style.display = "block";
       document.getElementById("gameLink").value = `${window.location.origin}/quizzGame_front_1/quiz.html?gameId=${createdGameId}`;
@@ -1032,6 +1033,9 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("currentQuestionDisplay").style.display = "none";
     document.getElementById("player1AnswerSection").style.display = "none";
     document.getElementById("timerDisplay").textContent = "🎉 Fim do Jogo!";
+    
+    // Mostrar botões finais
+    document.getElementById("finalButtons").style.display = "block";
   }
 
   // Configurar botões de resposta do Jogador 1 integrado
@@ -1194,5 +1198,32 @@ window.addEventListener('DOMContentLoaded', () => {
   observer.observe(shareLink, {
     attributes: true,
     attributeFilter: ['style']
+  });
+
+  // Event listeners para botões finais
+  document.getElementById("restartBtn").addEventListener("click", () => {
+    // Reset completo da aplicação
+    window.location.reload();
+  });
+
+  document.getElementById("scoreboardBtn").addEventListener("click", () => {
+    // Abrir scoreboard em nova aba
+    const gameId = createdGameId || document.getElementById("gameLink").value.split('=')[1];
+    if (gameId) {
+      window.open(`scoreboard.html?gameId=${gameId}`, '_blank');
+    } else {
+      alert("Erro: ID do jogo não encontrado");
+    }
+  });
+
+  // Event listener para botão permanente de classificação
+  document.getElementById("permanentScoreboardBtn").addEventListener("click", () => {
+    // Abrir scoreboard em nova aba
+    const gameId = createdGameId || document.getElementById("gameLink").value.split('=')[1];
+    if (gameId) {
+      window.open(`scoreboard.html?gameId=${gameId}`, '_blank');
+    } else {
+      alert("Erro: ID do jogo não encontrado");
+    }
   });
 });

@@ -183,6 +183,54 @@
       box-shadow: 0 10px 30px rgba(255,193,7,0.4);
     }
     
+    .btn-info {
+      background: linear-gradient(45deg, #17a2b8, #007bff);
+    }
+    
+    .btn-info:hover {
+      box-shadow: 0 10px 30px rgba(23,162,184,0.4);
+    }
+    
+    /* Final buttons section */
+    .final-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .action-btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: white;
+    }
+    
+    .restart-btn {
+      background: linear-gradient(45deg, #ff6b35, #f7931e);
+    }
+    
+    .restart-btn:hover {
+      box-shadow: 0 10px 30px rgba(255,107,53,0.4);
+      transform: translateY(-2px);
+    }
+    
+    .scoreboard-btn {
+      background: linear-gradient(45deg, #17a2b8, #007bff);
+    }
+    
+    .scoreboard-btn:hover {
+      box-shadow: 0 10px 30px rgba(23,162,184,0.4);
+      transform: translateY(-2px);
+    }
+    
     /* Share Link Section */
     .share-section {
       background: rgba(40,167,69,0.1);
@@ -575,6 +623,7 @@
 
     <button id="openPlayer1Btn" class="btn-warning btn-large" style="display:none;">🎮 Ativar Painel do Jogador 1</button>
     <button id="beginGameBtn" class="btn-success btn-large" style="display:none;">▶️ Iniciar Jogo</button>
+    <button id="permanentScoreboardBtn" class="btn-info btn-large" style="display:none;">🏆 Classificação</button>
 
     <!-- Secção de quiz integrada para o Jogador 1 -->
     <div id="integratedQuizSection" class="game-panel" style="display:none;">
@@ -583,6 +632,16 @@
       <!-- Status do jogo -->
       <div id="gameStatus" class="status-section">
         <p id="statusText">🔄 A preparar jogo...</p>
+        
+        <!-- Botões finais - aparecem quando o jogo termina -->
+        <div id="finalButtons" class="final-buttons" style="display: none;">
+          <button id="restartBtn" class="action-btn restart-btn">
+            🔄 Recomeçar Jogo
+          </button>
+          <button id="scoreboardBtn" class="action-btn scoreboard-btn">
+            🏆 Ver Classificação
+          </button>
+        </div>
       </div>
       
       <!-- Pergunta atual -->
