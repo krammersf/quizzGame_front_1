@@ -278,22 +278,16 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const answersBox = document.getElementById("answersBox");
     Array.from(answersBox.children).forEach(btn => {
-      // Limpar estilos de seleção anterior
-      btn.style.backgroundColor = "";
-      btn.style.color = "";
-      btn.style.border = "";
+      // Limpar todas as classes anteriores
+      btn.classList.remove('selected', 'correct', 'incorrect');
       
       // Mostrar resultado da resposta do jogador
       if (btn.textContent === playerAnswer.selected) {
         if (playerAnswer.isCorrect) {
-          btn.style.backgroundColor = "#4CAF50"; // Verde para correto
-          btn.style.color = "white";
-          btn.style.border = "3px solid #2E7D32";
+          btn.classList.add('correct');
           console.log("✅ Resposta do jogador CORRETA:", playerAnswer.selected);
         } else {
-          btn.style.backgroundColor = "#f44336"; // Vermelho para incorreto
-          btn.style.color = "white";
-          btn.style.border = "3px solid #c62828";
+          btn.classList.add('incorrect');
           console.log("❌ Resposta do jogador INCORRETA:", playerAnswer.selected);
         }
       }
@@ -302,20 +296,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const correct = playerAnswer.correct;
       if ((btn.textContent === correct || (Array.isArray(correct) && correct.includes(btn.textContent))) 
           && btn.textContent !== playerAnswer.selected) {
-        btn.style.backgroundColor = "#4CAF50"; // Verde para a resposta correta
-        btn.style.color = "white";
-        btn.style.border = "3px solid #2E7D32";
-        btn.style.boxShadow = "0 0 10px #4CAF50"; // Brilho extra
+        btn.classList.add('correct');
         console.log("✅ Resposta correta destacada:", btn.textContent);
       }
     });
     
-    // Mostrar feedback no timer
+    // Mostrar feedback no timer - manter texto branco sempre
     const resultText = playerAnswer.isCorrect ? "✅ CORRETO!" : "❌ INCORRETO!";
-    document.getElementById("timerDisplay").textContent = resultText;
-    document.getElementById("timerDisplay").style.fontSize = "18px";
-    document.getElementById("timerDisplay").style.fontWeight = "bold";
-    document.getElementById("timerDisplay").style.color = playerAnswer.isCorrect ? "#4CAF50" : "#f44336";
+    const timerDisplay = document.getElementById("timerDisplay");
+    timerDisplay.textContent = resultText;
+    // Timer sempre mantém cor branca conforme especificado
     
     console.log("=== FIM DOS RESULTADOS ===");
   }
@@ -487,6 +477,9 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.onclick = () => checkAnswer(option, q.resposta);
       btn.disabled = false;
       
+      // Garantir que todas as classes de estado são removidas
+      btn.classList.remove('selected', 'correct', 'incorrect');
+      
       answersBox.appendChild(btn);
     });
 
@@ -511,6 +504,17 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Jogador já respondeu a esta pergunta, ignorando clique");
       return;
     }
+    
+    // Marcar visualmente a resposta selecionada imediatamente
+    const answerButtons = document.getElementById("answersBox");
+    Array.from(answerButtons.children).forEach(btn => {
+      if (btn.textContent === selected) {
+        btn.classList.add('selected');
+        console.log("Botão marcado como selecionado:", selected);
+      }
+      // Desabilitar todos os botões para evitar múltiplas seleções
+      btn.disabled = true;
+    });
     
     // Guardar resposta para mostrar resultado depois (SEM calcular se está certa ainda)
     playerAnswer = {
