@@ -1,0 +1,305 @@
+{
+	"card": "Star Wars",
+	"perguntas": [
+		{
+			"pergunta": "Qual é o nome completo de Anakin Skywalker após se tornar Sith?",
+			"numero": "W000001",
+			"opcoes": ["Darth Maul", "Darth Sidious", "Darth Vader", "Darth Tyranus"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Em qual planeta nasceu Luke Skywalker?",
+			"numero": "W000002",
+			"opcoes": ["Naboo", "Coruscant", "Alderaan", "Tatooine"],
+			"respostaCerta": 3
+		},
+		{
+			"pergunta": "Qual é o nome da nave do Han Solo?",
+			"numero": "W000003",
+			"opcoes": ["X-wing", "TIE Fighter", "Millennium Falcon", "Star Destroyer"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Quem treinou Obi-Wan Kenobi?",
+			"numero": "W000004",
+			"opcoes": ["Yoda", "Mace Windu", "Qui-Gon Jinn", "Count Dooku"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Qual é o nome do Imperador Palpatine como Sith?",
+			"numero": "W000005",
+			"opcoes": ["Darth Vader", "Darth Sidious", "Darth Plagueis", "Darth Maul"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Em que episódio Anakin Skywalker se torna Darth Vader?",
+			"numero": "W000006",
+			"opcoes": ["Episódio II", "Episódio III", "Episódio IV", "Episódio V"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Qual é a cor do sabre de luz de Mace Windu?",
+			"numero": "W000007",
+			"opcoes": ["Verde", "Azul", "Roxo", "Vermelho"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Como se chama a espécie do Yoda?",
+			"numero": "W000008",
+			"opcoes": ["Jawa", "Ewok", "Desconhecida", "Hutt"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Qual é o nome do droide protocolo dourado?",
+			"numero": "W000009",
+			"opcoes": ["R2-D2", "C-3PO", "BB-8", "K-2SO"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Em qual lua se localizava a base rebelde no Episódio IV?",
+			"numero": "W000010",
+			"opcoes": ["Endor", "Yavin 4", "Hoth", "Dagobah"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Quem matou Jabba the Hutt?",
+			"numero": "W000011",
+			"opcoes": ["Luke Skywalker", "Han Solo", "Princess Leia", "Chewbacca"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Qual é o nome do mentor de Luke Skywalker em Dagobah?",
+			"numero": "W000012",
+			"opcoes": ["Obi-Wan Kenobi", "Qui-Gon Jinn", "Yoda", "Mace Windu"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Como se chama a ordem de cavaleiros que usa a Força?",
+			"numero": "W000013",
+			"opcoes": ["Sith", "Jedi", "Mandalorian", "Clone"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Qual é o nome da filha de Darth Vader?",
+			"numero": "W000014",
+			"opcoes": ["Padmé Amidala", "Princess Leia", "Rey", "Jyn Erso"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Em que planeta vivem os Ewoks?",
+			"numero": "W000015",
+			"opcoes": ["Endor", "Kashyyyk", "Naboo", "Jakku"],
+			"respostaCerta": 0
+		},
+		{
+			"pergunta": "Qual é o nome do clone que se torna Comandante da 212ª Brigada?",
+			"numero": "W000016",
+			"opcoes": ["Rex", "Cody", "Fives", "Echo"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Quem é o mestre de Darth Sidious?",
+			"numero": "W000017",
+			"opcoes": ["Darth Vader", "Darth Maul", "Darth Plagueis", "Darth Tyranus"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Como se chama a capital da República Galáctica?",
+			"numero": "W000018",
+			"opcoes": ["Naboo", "Coruscant", "Alderaan", "Kamino"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Qual é o nome do planeta natal de Chewbacca?",
+			"numero": "W000019",
+			"opcoes": ["Endor", "Kashyyyk", "Ryloth", "Mon Cala"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Quem construiu C-3PO?",
+			"numero": "W000020",
+			"opcoes": ["Luke Skywalker", "Anakin Skywalker", "Obi-Wan Kenobi", "Watto"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Qual é o nome da arma capaz de destruir planetas?",
+			"numero": "W000021",
+			"opcoes": ["Star Destroyer", "Death Star", "Super Star Destroyer", "Starkiller Base"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Em que episódio é revelado que Vader é pai de Luke?",
+			"numero": "W000022",
+			"opcoes": ["Episódio IV", "Episódio V", "Episódio VI", "Episódio III"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Qual é o nome do planeta onde acontece a corrida de pods?",
+			"numero": "W000023",
+			"opcoes": ["Naboo", "Coruscant", "Tatooine", "Geonosis"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Como se chama a rainha de Naboo no Episódio I?",
+			"numero": "W000024",
+			"opcoes": ["Padmé Amidala", "Princess Leia", "Sabé", "Cordé"],
+			"respostaCerta": 0
+		},
+		{
+			"pergunta": "Qual é o nome do Sith de face vermelha e preta no Episódio I?",
+			"numero": "W000025",
+			"opcoes": ["Darth Vader", "Darth Sidious", "Darth Maul", "Darth Tyranus"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Quantos sóis tem o planeta Tatooine?",
+			"numero": "W000026",
+			"opcoes": ["Um", "Dois", "Três", "Quatro"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Qual é o nome da cantina em Tatooine?",
+			"numero": "W000027",
+			"opcoes": ["Mos Eisley Cantina", "Jabba's Palace", "Tosche Station", "Anchorhead"],
+			"respostaCerta": 0
+		},
+		{
+			"pergunta": "Quem cortou a mão de Luke Skywalker?",
+			"numero": "W000028",
+			"opcoes": ["Darth Sidious", "Darth Vader", "Darth Maul", "Count Dooku"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Como se chama o planeta gelado da base rebelde no Episódio V?",
+			"numero": "W000029",
+			"opcoes": ["Hoth", "Dagobah", "Endor", "Kamino"],
+			"respostaCerta": 0
+		},
+		{
+			"pergunta": "Qual é o nome do general droide líder dos separatistas?",
+			"numero": "W000030",
+			"opcoes": ["Battle Droid", "Super Battle Droid", "General Grievous", "Destroyer Droid"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Em que planeta foi treinado o exército clone?",
+			"numero": "W000031",
+			"opcoes": ["Coruscant", "Geonosis", "Kamino", "Ryloth"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Qual é o nome da esposa de Anakin Skywalker?",
+			"numero": "W000032",
+			"opcoes": ["Princess Leia", "Padmé Amidala", "Ahsoka Tano", "Sabé"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Como se chama o mentor de Rey na trilogia sequela?",
+			"numero": "W000033",
+			"opcoes": ["Finn", "Poe Dameron", "Luke Skywalker", "Kylo Ren"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Qual é o nome verdadeiro de Kylo Ren?",
+			"numero": "W000034",
+			"opcoes": ["Ben Solo", "Ben Skywalker", "Ben Kenobi", "Ben Organa"],
+			"respostaCerta": 0
+		},
+		{
+			"pergunta": "Em qual ordem apareceu o primeiro filme de Star Wars cronologicamente?",
+			"numero": "W000035",
+			"opcoes": ["Primeiro", "Quarto", "Sétimo", "Terceiro"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Qual é o nome da padawan de Anakin Skywalker?",
+			"numero": "W000036",
+			"opcoes": ["Barriss Offee", "Ahsoka Tano", "Aayla Secura", "Luminara Unduli"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Como se chama o planeta onde vivem os Gungans?",
+			"numero": "W000037",
+			"opcoes": ["Naboo", "Coruscant", "Tatooine", "Endor"],
+			"respostaCerta": 0
+		},
+		{
+			"pergunta": "Qual é o nome do personagem interpretado por Samuel L. Jackson?",
+			"numero": "W000038",
+			"opcoes": ["Mace Windu", "Lando Calrissian", "Qui-Gon Jinn", "Kit Fisto"],
+			"respostaCerta": 0
+		},
+		{
+			"pergunta": "Em que ano foi lançado o primeiro filme de Star Wars?",
+			"numero": "W000039",
+			"opcoes": ["1975", "1976", "1977", "1978"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Qual é o nome do planeta destruído pela primeira Death Star?",
+			"numero": "W000040",
+			"opcoes": ["Coruscant", "Naboo", "Alderaan", "Kashyyyk"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Como se chama o líder supremo da Primeira Ordem?",
+			"numero": "W000041",
+			"opcoes": ["Kylo Ren", "General Hux", "Supreme Leader Snoke", "Captain Phasma"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Qual é o nome do planeta natal de Obi-Wan Kenobi?",
+			"numero": "W000042",
+			"opcoes": ["Coruscant", "Stewjon", "Naboo", "Alderaan"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Como se chama a cerimônia onde os Jedi jovens escolhem seu cristal kyber?",
+			"numero": "W000043",
+			"opcoes": ["The Gathering", "The Choosing", "The Calling", "The Selection"],
+			"respostaCerta": 0
+		},
+		{
+			"pergunta": "Qual é o nome do droide astromech de Poe Dameron?",
+			"numero": "W000044",
+			"opcoes": ["R2-D2", "BB-8", "C-3PO", "K-2SO"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Em que planeta acontece a batalha final do Episódio VI?",
+			"numero": "W000045",
+			"opcoes": ["Hoth", "Dagobah", "Endor", "Yavin 4"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Qual é o nome do mentor Sith de Count Dooku?",
+			"numero": "W000046",
+			"opcoes": ["Darth Vader", "Darth Sidious", "Darth Maul", "Darth Plagueis"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Como se chama a energia mística que conecta todas as coisas vivas?",
+			"numero": "W000047",
+			"opcoes": ["The Power", "The Energy", "The Force", "The Spirit"],
+			"respostaCerta": 2
+		},
+		{
+			"pergunta": "Qual é o nome do contrabandista que pilota a Millennium Falcon?",
+			"numero": "W000048",
+			"opcoes": ["Lando Calrissian", "Han Solo", "Chewbacca", "Boba Fett"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Em que episódio morre o Imperador Palpatine pela primeira vez?",
+			"numero": "W000049",
+			"opcoes": ["Episódio V", "Episódio VI", "Episódio VII", "Episódio VIII"],
+			"respostaCerta": 1
+		},
+		{
+			"pergunta": "Qual é o nome da organização rebelde que luta contra o Império?",
+			"numero": "W000050",
+			"opcoes": ["Resistance", "Rebel Alliance", "Republic Guard", "New Republic"],
+			"respostaCerta": 1
+		}
+	]
+}
