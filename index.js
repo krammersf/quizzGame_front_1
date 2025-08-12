@@ -734,6 +734,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let integratedPlayerScore = 0;
   let integratedPlayerAnswer = null;
   let integratedGameActive = false;
+  let integratedAnswerProcessed = false; // Controla se a resposta já foi processada
   let countdownActive = false; // Nova variável para rastrear countdown
 
   // Função para inicializar o Jogador 1 integrado
@@ -866,6 +867,7 @@ window.addEventListener('DOMContentLoaded', () => {
         
         integratedCurrentQuestion = gameState.currentQuestionIndex;
         integratedPlayerAnswer = null;
+        integratedAnswerProcessed = false; // Reset para nova pergunta
         
         // Recarregar perguntas se necessário
         if (integratedQuestions.length === 0) {
@@ -1072,6 +1074,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para mostrar resultados da resposta integrada
   function showIntegratedAnswerResults() {
+    // Verificar se já foi processado para evitar duplicação
+    if (integratedAnswerProcessed) {
+      console.log("⚠️ Resposta já processada, ignorando chamada duplicada");
+      return;
+    }
+    
     const question = integratedQuestions[integratedCurrentQuestion];
     const correctAnswer = question.resposta;
     
@@ -1206,7 +1214,10 @@ window.addEventListener('DOMContentLoaded', () => {
     updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/playerAnswers/${creatorName}`] = playerAnswerData;
     
     update(ref(db), updates)
-      .then(() => console.log("✅ Score, resposta da ronda e resultado da pergunta do jogador 1 atualizados"))
+      .then(() => {
+        console.log("✅ Score, resposta da ronda e resultado da pergunta do jogador 1 atualizados");
+        integratedAnswerProcessed = true; // Marcar como processado
+      })
       .catch(err => console.error("❌ Erro ao atualizar dados do jogador 1:", err));
   }
 
