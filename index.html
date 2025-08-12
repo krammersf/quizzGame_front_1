@@ -190,6 +190,20 @@
     .btn-info:hover {
       box-shadow: 0 10px 30px rgba(23,162,184,0.4);
     }
+
+    /* Main action buttons container */
+    .main-action-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin: 20px 0;
+      padding: 20px;
+    }
+
+    .main-action-buttons button {
+      margin: 0;
+    }
     
     /* Final buttons section */
     .final-buttons {
@@ -784,9 +798,12 @@
       <span id="copyMsg" style="display:none; color:#4CAF50; margin-top:10px; text-align:center; font-weight:bold;">✅ Copiado!</span>
     </div>
 
-    <button id="openPlayer1Btn" class="btn-warning btn-large" style="display:none;">🎮 Ativar Painel do Jogador 1</button>
-    <button id="beginGameBtn" class="btn-success btn-large" style="display:none;">▶️ Iniciar Jogo</button>
-    <button id="permanentScoreboardBtn" class="btn-info btn-large" style="display:none;">🏆 Classificação</button>
+    <!-- Main Action Buttons Container -->
+    <div class="main-action-buttons">
+      <button id="openPlayer1Btn" class="btn-warning btn-large" style="display:none;">🎮 Ativar Painel do Jogador 1</button>
+      <button id="beginGameBtn" class="btn-success btn-large" style="display:none;">▶️ Iniciar Jogo</button>
+      <button id="permanentScoreboardBtn" class="btn-info btn-large" style="display:none;">🏆 Classificação</button>
+    </div>
     
     </div> <!-- Fim de gameSetupSection -->
     
