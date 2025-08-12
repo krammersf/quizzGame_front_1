@@ -1009,6 +1009,14 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(updateTimer, 200);
       } else {
         if (timerDisplay) timerDisplay.textContent = "⏰ Tempo Esgotado!";
+        
+        // Bloquear todos os botões do jogador 1 quando o tempo acaba
+        const player1Buttons = document.querySelectorAll(".player1-answer-btn");
+        player1Buttons.forEach(btn => {
+          btn.disabled = true;
+          console.log(`🚫 Botão jogador 1 "${btn.textContent}" bloqueado`);
+        });
+        console.log("⏰ Timer chegou a 0 - BLOQUEANDO botões do jogador 1");
       }
     };
     
