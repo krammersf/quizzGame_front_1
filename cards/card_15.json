@@ -1,0 +1,405 @@
+{
+	"card": "Bandeiras do Mundo",
+	"perguntas": [
+		{
+			"numero": "B000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem uma bandeira com um dragão?",
+			"hipoteses_resposta": ["Butão", "Nepal", "Tibete", "Myanmar"],
+			"resposta": "Butão"
+		},
+		{
+			"numero": "B000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas estrelas tem a bandeira da União Europeia?",
+			"hipoteses_resposta": ["12", "15", "27", "28"],
+			"resposta": "12"
+		},
+		{
+			"numero": "B000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a única bandeira nacional que não é retangular nem quadrada?",
+			"hipoteses_resposta": ["Nepal", "Suíça", "Vaticano", "Mónaco"],
+			"resposta": "Nepal"
+		},
+		{
+			"numero": "B000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma folha de ácer na sua bandeira?",
+			"hipoteses_resposta": ["Canadá", "Noruega", "Suécia", "Finlândia"],
+			"resposta": "Canadá"
+		},
+		{
+			"numero": "B000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual bandeira tem as cores pan-africanas (verde, amarelo, vermelho)?",
+			"hipoteses_resposta": ["Etiópia", "Gana", "Mali", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas estrelas tem a bandeira da China?",
+			"hipoteses_resposta": ["1", "4", "5", "6"],
+			"resposta": "5"
+		},
+		{
+			"numero": "B000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem uma cruz nórdica branca sobre fundo azul?",
+			"hipoteses_resposta": ["Finlândia", "Islândia", "Noruega", "Suécia"],
+			"resposta": "Finlândia"
+		},
+		{
+			"numero": "B000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal aparece na bandeira do Sri Lanka?",
+			"hipoteses_resposta": ["Leão", "Elefante", "Tigre", "Cobra"],
+			"resposta": "Leão"
+		},
+		{
+			"numero": "B000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual bandeira tem apenas duas cores: azul e branco em riscas horizontais?",
+			"hipoteses_resposta": ["Grécia", "Uruguai", "Argentina", "Israel"],
+			"resposta": "Grécia"
+		},
+		{
+			"numero": "B000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem um cedro na sua bandeira?",
+			"hipoteses_resposta": ["Líbano", "Canadá", "Irão", "Turquia"],
+			"resposta": "Líbano"
+		},
+		{
+			"numero": "B000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas listras vermelhas tem a bandeira dos Estados Unidos?",
+			"hipoteses_resposta": ["6", "7", "8", "13"],
+			"resposta": "7"
+		},
+		{
+			"numero": "B000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem uma bandeira completamente verde?",
+			"hipoteses_resposta": ["Líbia", "Arábia Saudita", "Bangladesh", "Nenhum dos anteriores"],
+			"resposta": "Líbia"
+		},
+		{
+			"numero": "B000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que símbolo aparece no centro da bandeira do Japão?",
+			"hipoteses_resposta": ["Sol", "Lua", "Estrela", "Círculo"],
+			"resposta": "Sol"
+		},
+		{
+			"numero": "B000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual bandeira tem um triângulo azul com estrelas?",
+			"hipoteses_resposta": ["Brasil", "Estados Unidos", "Filipinas", "Puerto Rico"],
+			"resposta": "Filipinas"
+		},
+		{
+			"numero": "B000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país africano tem uma bandeira com uma estrela verde?",
+			"hipoteses_resposta": ["Marrocos", "Argélia", "Tunísia", "Líbia"],
+			"resposta": "Marrocos"
+		},
+		{
+			"numero": "B000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a cor predominante na bandeira da Irlanda?",
+			"hipoteses_resposta": ["Verde", "Branco", "Laranja", "Não há predominante"],
+			"resposta": "Não há predominante"
+		},
+		{
+			"numero": "B000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma águia na sua bandeira?",
+			"hipoteses_resposta": ["México", "Alemanha", "Polónia", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual bandeira tem a Union Jack no canto superior esquerdo?",
+			"hipoteses_resposta": ["Austrália", "Nova Zelândia", "Fiji", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas pontas tem a estrela na bandeira de Israel?",
+			"hipoteses_resposta": ["5", "6", "7", "8"],
+			"resposta": "6"
+		},
+		{
+			"numero": "B000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma bandeira com crescente e estrela brancos sobre fundo vermelho?",
+			"hipoteses_resposta": ["Turquia", "Tunísia", "Paquistão", "Singapura"],
+			"resposta": "Turquia"
+		},
+		{
+			"numero": "B000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país nórdico tem uma cruz amarela na bandeira?",
+			"hipoteses_resposta": ["Suécia", "Dinamarca", "Noruega", "Islândia"],
+			"resposta": "Suécia"
+		},
+		{
+			"numero": "B000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que cor não aparece na bandeira da África do Sul?",
+			"hipoteses_resposta": ["Roxo", "Verde", "Azul", "Amarelo"],
+			"resposta": "Roxo"
+		},
+		{
+			"numero": "B000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem um sol com face humana na bandeira?",
+			"hipoteses_resposta": ["Argentina", "Uruguai", "Ambos", "Nenhum"],
+			"resposta": "Ambos"
+		},
+		{
+			"numero": "B000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma bandeira com listras horizontais verdes, brancas e vermelhas?",
+			"hipoteses_resposta": ["Itália", "Hungria", "Bulgária", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a única bandeira nacional que é quadrada?",
+			"hipoteses_resposta": ["Suíça", "Vaticano", "Ambas", "Nenhuma"],
+			"resposta": "Ambas"
+		},
+		{
+			"numero": "B000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma bandeira com um kris (punhal tradicional)?",
+			"hipoteses_resposta": ["Malásia", "Sri Lanka", "Brunei", "Indonésia"],
+			"resposta": "Brunei"
+		},
+		{
+			"numero": "B000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual bandeira tem cinco estrelas pequenas e uma grande?",
+			"hipoteses_resposta": ["China", "Brasil", "Estados Unidos", "Venezuela"],
+			"resposta": "China"
+		},
+		{
+			"numero": "B000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma roda (chakra) na sua bandeira?",
+			"hipoteses_resposta": ["Índia", "Nepal", "Sri Lanka", "Bangladesh"],
+			"resposta": "Índia"
+		},
+		{
+			"numero": "B000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem uma bandeira com um símbolo yin-yang?",
+			"hipoteses_resposta": ["Coreia do Sul", "Coreia do Norte", "Mongólia", "Nenhum"],
+			"resposta": "Coreia do Sul"
+		},
+		{
+			"numero": "B000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que cores compõem a bandeira da Alemanha?",
+			"hipoteses_resposta": ["Preto, vermelho, amarelo", "Preto, branco, vermelho", "Azul, branco, vermelho", "Verde, branco, vermelho"],
+			"resposta": "Preto, vermelho, amarelo"
+		},
+		{
+			"numero": "B000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem uma palmeira na sua bandeira?",
+			"hipoteses_resposta": ["Haiti", "Samoa", "Fiji", "Maldivas"],
+			"resposta": "Haiti"
+		},
+		{
+			"numero": "B000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem 14 listras vermelhas e brancas na bandeira?",
+			"hipoteses_resposta": ["Malásia", "Estados Unidos", "Libéria", "Uruguai"],
+			"resposta": "Malásia"
+		},
+		{
+			"numero": "B000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual bandeira tem um tridente?",
+			"hipoteses_resposta": ["Barbados", "Malta", "Chipre", "Ucrânia"],
+			"resposta": "Barbados"
+		},
+		{
+			"numero": "B000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma bandeira com as cores pan-árabes?",
+			"hipoteses_resposta": ["Jordânia", "Emirados Árabes Unidos", "Sudão", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem um machado na sua bandeira?",
+			"hipoteses_resposta": ["Belize", "Papua Nova Guiné", "Moçambique", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que bandeira tem um círculo com raios (sol)?",
+			"hipoteses_resposta": ["Argentina", "Macedónia do Norte", "Uruguai", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem uma serpe (cobra) na bandeira?",
+			"hipoteses_resposta": ["México", "Guatemala", "Martinica", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem duas listras azuis e uma branca no meio?",
+			"hipoteses_resposta": ["Argentina", "El Salvador", "Honduras", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual bandeira tem um kalashnikov (AK-47)?",
+			"hipoteses_resposta": ["Moçambique", "Zimbábue", "Angola", "Hezbollah"],
+			"resposta": "Moçambique"
+		},
+		{
+			"numero": "B000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma bandeira com 27 estrelas?",
+			"hipoteses_resposta": ["Brasil", "Estados Unidos", "Venezuela", "Malásia"],
+			"resposta": "Brasil"
+		},
+		{
+			"numero": "B000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem uma cruz vermelha sobre fundo branco?",
+			"hipoteses_resposta": ["Inglaterra", "Suíça", "Geórgia", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que bandeira tem um escudo com armas no centro?",
+			"hipoteses_resposta": ["Espanha", "Portugal", "Polónia", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem uma bandeira tricolor vertical verde, branco e laranja?",
+			"hipoteses_resposta": ["Irlanda", "Costa do Marfim", "Ambos", "Nenhum"],
+			"resposta": "Ambos"
+		},
+		{
+			"numero": "B000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma estrela solitária vermelha na bandeira?",
+			"hipoteses_resposta": ["Cuba", "Vietname", "Ambos", "Nenhum"],
+			"resposta": "Ambos"
+		},
+		{
+			"numero": "B000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual bandeira tem um losango amarelo?",
+			"hipoteses_resposta": ["Brasil", "Argentina", "Colômbia", "Venezuela"],
+			"resposta": "Brasil"
+		},
+		{
+			"numero": "B000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem uma bandeira com listras horizontais pretas, vermelhas e amarelas?",
+			"hipoteses_resposta": ["Alemanha", "Bélgica", "Ambos", "Nenhum"],
+			"resposta": "Alemanha"
+		},
+		{
+			"numero": "B000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem um urso na sua bandeira?",
+			"hipoteses_resposta": ["Califórnia", "Rússia", "Finlândia", "Nenhum país"],
+			"resposta": "Nenhum país"
+		},
+		{
+			"numero": "B000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que bandeira tem texto em árabe?",
+			"hipoteses_resposta": ["Arábia Saudita", "Iraque", "Irão", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "B000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país tem uma roda dentada na bandeira?",
+			"hipoteses_resposta": ["Angola", "Moçambique", "Ambos", "Nenhum"],
+			"resposta": "Angola"
+		},
+		{
+			"numero": "B000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que país tem mais cores diferentes na sua bandeira nacional?",
+			"hipoteses_resposta": ["África do Sul", "Seicheles", "Belize", "Todas têm o mesmo"],
+			"resposta": "Todas têm o mesmo"
+		}
+	]
+}
