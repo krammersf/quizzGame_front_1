@@ -1,0 +1,405 @@
+{
+	"card": "Cultura Pop",
+	"perguntas": [
+		{
+			"numero": "P000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do personagem interpretado por Bryan Cranston na série 'Breaking Bad'?",
+			"hipoteses_resposta": ["Jesse Pinkman", "Saul Goodman", "Walter White", "Hank Schrader"],
+			"resposta": "Walter White"
+		},
+		{
+			"numero": "P000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que década foi lançado o primeiro filme da franquia 'Star Wars'?",
+			"hipoteses_resposta": ["1960", "1970", "1980", "1990"],
+			"resposta": "1970"
+		},
+		{
+			"numero": "P000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da protagonista da série 'Stranger Things'?",
+			"hipoteses_resposta": ["Eleven", "Nancy Wheeler", "Joyce Byers", "Max Mayfield"],
+			"resposta": "Eleven"
+		},
+		{
+			"numero": "P000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem dirigiu o filme 'Pulp Fiction' (1994)?",
+			"hipoteses_resposta": ["Martin Scorsese", "Quentin Tarantino", "Steven Spielberg", "Francis Ford Coppola"],
+			"resposta": "Quentin Tarantino"
+		},
+		{
+			"numero": "P000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual banda criou o álbum 'The Dark Side of the Moon'?",
+			"hipoteses_resposta": ["Led Zeppelin", "The Beatles", "Pink Floyd", "Queen"],
+			"resposta": "Pink Floyd"
+		},
+		{
+			"numero": "P000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Game of Thrones', qual é o lema da Casa Stark?",
+			"hipoteses_resposta": ["Fire and Blood", "Winter is Coming", "Hear Me Roar", "Growing Strong"],
+			"resposta": "Winter is Coming"
+		},
+		{
+			"numero": "P000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual ator interpretou Tony Stark no Universo Cinematográfico Marvel?",
+			"hipoteses_resposta": ["Chris Evans", "Robert Downey Jr.", "Mark Ruffalo", "Chris Hemsworth"],
+			"resposta": "Robert Downey Jr."
+		},
+		{
+			"numero": "P000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do dragão de Daenerys Targaryen mais conhecido em 'Game of Thrones'?",
+			"hipoteses_resposta": ["Viserion", "Rhaegal", "Drogon", "Balerion"],
+			"resposta": "Drogon"
+		},
+		{
+			"numero": "P000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que série de anime é conhecida pela frase 'Gotta catch 'em all'?",
+			"hipoteses_resposta": ["Dragon Ball", "Pokémon", "Naruto", "One Piece"],
+			"resposta": "Pokémon"
+		},
+		{
+			"numero": "P000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do clube de luta secreto no filme homônimo de 1999?",
+			"hipoteses_resposta": ["Project Mayhem", "Fight Club", "Paper Street Soap Company", "Space Monkeys"],
+			"resposta": "Fight Club"
+		},
+		{
+			"numero": "P000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem criou a série 'The Office' (versão americana)?",
+			"hipoteses_resposta": ["Ricky Gervais", "Greg Daniels", "Michael Schur", "Steve Carell"],
+			"resposta": "Greg Daniels"
+		},
+		{
+			"numero": "P000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome verdadeiro do Joker no filme 'Joker' (2019)?",
+			"hipoteses_resposta": ["Jack Napier", "Arthur Fleck", "Jerome Valeska", "Joe Kerr"],
+			"resposta": "Arthur Fleck"
+		},
+		{
+			"numero": "P000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Friends', qual é o nome do café onde os personagens se encontram?",
+			"hipoteses_resposta": ["Central Park", "Central Perk", "Coffee Central", "Park Café"],
+			"resposta": "Central Perk"
+		},
+		{
+			"numero": "P000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de 2010 ganhou o Oscar de Melhor Filme?",
+			"hipoteses_resposta": ["Inception", "The Social Network", "The King's Speech", "Black Swan"],
+			"resposta": "The King's Speech"
+		},
+		{
+			"numero": "P000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do personagem principal da série 'The Witcher'?",
+			"hipoteses_resposta": ["Geralt of Rivia", "Jaskier", "Yennefer", "Triss"],
+			"resposta": "Geralt of Rivia"
+		},
+		{
+			"numero": "P000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que banda britânica lançou o álbum 'OK Computer'?",
+			"hipoteses_resposta": ["Coldplay", "Radiohead", "Oasis", "Blur"],
+			"resposta": "Radiohead"
+		},
+		{
+			"numero": "P000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do personagem principal de 'The Matrix'?",
+			"hipoteses_resposta": ["Thomas Anderson", "Neo", "Agent Smith", "Morpheus"],
+			"resposta": "Neo"
+		},
+		{
+			"numero": "P000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Harry Potter', qual é o nome da escola de magia?",
+			"hipoteses_resposta": ["Beauxbatons", "Durmstrang", "Hogwarts", "Ilvermorny"],
+			"resposta": "Hogwarts"
+		},
+		{
+			"numero": "P000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o verdadeiro nome do super-herói Batman?",
+			"hipoteses_resposta": ["Clark Kent", "Bruce Wayne", "Peter Parker", "Tony Stark"],
+			"resposta": "Bruce Wayne"
+		},
+		{
+			"numero": "P000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi lançado o primeiro iPhone?",
+			"hipoteses_resposta": ["2005", "2006", "2007", "2008"],
+			"resposta": "2007"
+		},
+		{
+			"numero": "P000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual banda lançou o álbum 'Abbey Road'?",
+			"hipoteses_resposta": ["The Rolling Stones", "The Beatles", "Led Zeppelin", "The Who"],
+			"resposta": "The Beatles"
+		},
+		{
+			"numero": "P000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do protagonista da série 'Sherlock' da BBC?",
+			"hipoteses_resposta": ["Benedict Cumberbatch", "Sherlock Holmes", "John Watson", "Martin Freeman"],
+			"resposta": "Sherlock Holmes"
+		},
+		{
+			"numero": "P000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que década surgiu o termo 'reality show'?",
+			"hipoteses_resposta": ["1980", "1990", "2000", "2010"],
+			"resposta": "1990"
+		},
+		{
+			"numero": "P000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da rede social criada por Mark Zuckerberg?",
+			"hipoteses_resposta": ["Twitter", "Instagram", "Facebook", "LinkedIn"],
+			"resposta": "Facebook"
+		},
+		{
+			"numero": "P000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme ganhou o Oscar de Melhor Filme em 2020?",
+			"hipoteses_resposta": ["1917", "Joker", "Parasite", "Once Upon a Time in Hollywood"],
+			"resposta": "Parasite"
+		},
+		{
+			"numero": "P000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do personagem principal de 'The Walking Dead'?",
+			"hipoteses_resposta": ["Rick Grimes", "Daryl Dixon", "Glenn Rhee", "Carl Grimes"],
+			"resposta": "Rick Grimes"
+		},
+		{
+			"numero": "P000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi lançado o primeiro console PlayStation?",
+			"hipoteses_resposta": ["1993", "1994", "1995", "1996"],
+			"resposta": "1994"
+		},
+		{
+			"numero": "P000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da protagonista de 'Katniss' na série 'Hunger Games'?",
+			"hipoteses_resposta": ["Katniss Everdeen", "Peeta Mellark", "Gale Hawthorne", "Primrose Everdeen"],
+			"resposta": "Katniss Everdeen"
+		},
+		{
+			"numero": "P000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual streaming popularizou o termo 'binge-watching'?",
+			"hipoteses_resposta": ["Amazon Prime", "Hulu", "Netflix", "Disney+"],
+			"resposta": "Netflix"
+		},
+		{
+			"numero": "P000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Titanic', qual é o nome do personagem interpretado por Leonardo DiCaprio?",
+			"hipoteses_resposta": ["Jack Dawson", "Cal Hockley", "Thomas Andrews", "Captain Smith"],
+			"resposta": "Jack Dawson"
+		},
+		{
+			"numero": "P000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da série que conta a história de um professor de química que vira traficante?",
+			"hipoteses_resposta": ["Better Call Saul", "Breaking Bad", "Ozark", "Narcos"],
+			"resposta": "Breaking Bad"
+		},
+		{
+			"numero": "P000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano o YouTube foi fundado?",
+			"hipoteses_resposta": ["2004", "2005", "2006", "2007"],
+			"resposta": "2005"
+		},
+		{
+			"numero": "P000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do cachorro de Mickey Mouse?",
+			"hipoteses_resposta": ["Goofy", "Pluto", "Donald", "Chip"],
+			"resposta": "Pluto"
+		},
+		{
+			"numero": "P000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de super-heróis foi o primeiro a arrecadar mais de 1 bilhão de dólares?",
+			"hipoteses_resposta": ["Spider-Man", "Batman", "The Dark Knight", "Avengers"],
+			"resposta": "The Dark Knight"
+		},
+		{
+			"numero": "P000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que década surgiu o MTV?",
+			"hipoteses_resposta": ["1970", "1980", "1990", "2000"],
+			"resposta": "1980"
+		},
+		{
+			"numero": "P000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da protagonista de 'The Hunger Games'?",
+			"hipoteses_resposta": ["Jennifer Lawrence", "Katniss Everdeen", "Hermione Granger", "Bella Swan"],
+			"resposta": "Katniss Everdeen"
+		},
+		{
+			"numero": "P000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual banda lançou a música 'Bohemian Rhapsody'?",
+			"hipoteses_resposta": ["The Beatles", "Led Zeppelin", "Queen", "The Rolling Stones"],
+			"resposta": "Queen"
+		},
+		{
+			"numero": "P000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Lost', em que ilha os personagens ficam presos?",
+			"hipoteses_resposta": ["Ilha misteriosa", "Ilha perdida", "Ilha desconhecida", "Ilha tropical"],
+			"resposta": "Ilha misteriosa"
+		},
+		{
+			"numero": "P000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do antagonista principal em 'Star Wars'?",
+			"hipoteses_resposta": ["Darth Vader", "Emperor Palpatine", "Darth Maul", "Kylo Ren"],
+			"resposta": "Darth Vader"
+		},
+		{
+			"numero": "P000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi lançado o primeiro filme do 'Senhor dos Anéis'?",
+			"hipoteses_resposta": ["2000", "2001", "2002", "2003"],
+			"resposta": "2001"
+		},
+		{
+			"numero": "P000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do personagem principal de 'House of Cards'?",
+			"hipoteses_resposta": ["Frank Underwood", "Claire Underwood", "Doug Stamper", "Peter Russo"],
+			"resposta": "Frank Underwood"
+		},
+		{
+			"numero": "P000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual plataforma de streaming foi criada pela Disney?",
+			"hipoteses_resposta": ["Disney+", "Hulu", "ESPN+", "Disney Channel"],
+			"resposta": "Disney+"
+		},
+		{
+			"numero": "P000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'The Big Bang Theory', qual é a profissão do Sheldon?",
+			"hipoteses_resposta": ["Físico", "Matemático", "Engenheiro", "Químico"],
+			"resposta": "Físico"
+		},
+		{
+			"numero": "P000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do protagonista masculino de 'Dirty Dancing'?",
+			"hipoteses_resposta": ["Johnny Castle", "Patrick Swayze", "Baby Houseman", "Jerry Orbach"],
+			"resposta": "Johnny Castle"
+		},
+		{
+			"numero": "P000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano o Instagram foi lançado?",
+			"hipoteses_resposta": ["2008", "2009", "2010", "2011"],
+			"resposta": "2010"
+		},
+		{
+			"numero": "P000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da primeira música dos Beatles a chegar ao número 1 nos EUA?",
+			"hipoteses_resposta": ["Love Me Do", "Please Please Me", "I Want to Hold Your Hand", "She Loves You"],
+			"resposta": "I Want to Hold Your Hand"
+		},
+		{
+			"numero": "P000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Grey's Anatomy', qual é o nome do hospital principal?",
+			"hipoteses_resposta": ["Seattle Grace Hospital", "Grey Sloan Memorial Hospital", "Mercy West Hospital", "Pacific Northwest Hospital"],
+			"resposta": "Seattle Grace Hospital"
+		},
+		{
+			"numero": "P000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de animação da Pixar conta a história de brinquedos que ganham vida?",
+			"hipoteses_resposta": ["Monsters Inc.", "Finding Nemo", "Toy Story", "A Bug's Life"],
+			"resposta": "Toy Story"
+		},
+		{
+			"numero": "P000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da nave espacial em 'Star Trek'?",
+			"hipoteses_resposta": ["USS Discovery", "USS Voyager", "USS Enterprise", "USS Defiant"],
+			"resposta": "USS Enterprise"
+		},
+		{
+			"numero": "P000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'The Office', qual é o nome da empresa onde os personagens trabalham?",
+			"hipoteses_resposta": ["Dunder Mifflin", "Sabre", "Michael Scott Paper Company", "Vance Refrigeration"],
+			"resposta": "Dunder Mifflin"
+		}
+	]
+}

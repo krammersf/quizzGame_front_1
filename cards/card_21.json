@@ -1,0 +1,405 @@
+{
+	"card": "Star Wars",
+	"perguntas": [
+		{
+			"numero": "W000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome completo de Anakin Skywalker após se tornar Sith?",
+			"hipoteses_resposta": ["Darth Maul", "Darth Sidious", "Darth Vader", "Darth Tyranus"],
+			"resposta": "Darth Vader"
+		},
+		{
+			"numero": "W000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em qual planeta nasceu Luke Skywalker?",
+			"hipoteses_resposta": ["Naboo", "Coruscant", "Alderaan", "Tatooine"],
+			"resposta": "Tatooine"
+		},
+		{
+			"numero": "W000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da nave do Han Solo?",
+			"hipoteses_resposta": ["X-wing", "TIE Fighter", "Millennium Falcon", "Star Destroyer"],
+			"resposta": "Millennium Falcon"
+		},
+		{
+			"numero": "W000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem treinou Obi-Wan Kenobi?",
+			"hipoteses_resposta": ["Yoda", "Mace Windu", "Qui-Gon Jinn", "Count Dooku"],
+			"resposta": "Qui-Gon Jinn"
+		},
+		{
+			"numero": "W000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do Imperador Palpatine como Sith?",
+			"hipoteses_resposta": ["Darth Vader", "Darth Sidious", "Darth Plagueis", "Darth Maul"],
+			"resposta": "Darth Sidious"
+		},
+		{
+			"numero": "W000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que episódio Anakin Skywalker se torna Darth Vader?",
+			"hipoteses_resposta": ["Episódio II", "Episódio III", "Episódio IV", "Episódio V"],
+			"resposta": "Episódio III"
+		},
+		{
+			"numero": "W000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a cor do sabre de luz de Mace Windu?",
+			"hipoteses_resposta": ["Verde", "Azul", "Roxo", "Vermelho"],
+			"resposta": "Roxo"
+		},
+		{
+			"numero": "W000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama a espécie do Yoda?",
+			"hipoteses_resposta": ["Jawa", "Ewok", "Desconhecida", "Hutt"],
+			"resposta": "Desconhecida"
+		},
+		{
+			"numero": "W000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do droide protocolo dourado?",
+			"hipoteses_resposta": ["R2-D2", "C-3PO", "BB-8", "K-2SO"],
+			"resposta": "C-3PO"
+		},
+		{
+			"numero": "W000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em qual lua se localizava a base rebelde no Episódio IV?",
+			"hipoteses_resposta": ["Endor", "Yavin 4", "Hoth", "Dagobah"],
+			"resposta": "Yavin 4"
+		},
+		{
+			"numero": "W000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem matou Jabba the Hutt?",
+			"hipoteses_resposta": ["Luke Skywalker", "Han Solo", "Princess Leia", "Chewbacca"],
+			"resposta": "Princess Leia"
+		},
+		{
+			"numero": "W000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do mentor de Luke Skywalker em Dagobah?",
+			"hipoteses_resposta": ["Obi-Wan Kenobi", "Qui-Gon Jinn", "Yoda", "Mace Windu"],
+			"resposta": "Yoda"
+		},
+		{
+			"numero": "W000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama a ordem de cavaleiros que usa a Força?",
+			"hipoteses_resposta": ["Sith", "Jedi", "Mandalorian", "Clone"],
+			"resposta": "Jedi"
+		},
+		{
+			"numero": "W000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da filha de Darth Vader?",
+			"hipoteses_resposta": ["Padmé Amidala", "Princess Leia", "Rey", "Jyn Erso"],
+			"resposta": "Princess Leia"
+		},
+		{
+			"numero": "W000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que planeta vivem os Ewoks?",
+			"hipoteses_resposta": ["Endor", "Kashyyyk", "Naboo", "Jakku"],
+			"resposta": "Endor"
+		},
+		{
+			"numero": "W000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do clone que se torna Comandante da 212ª Brigada?",
+			"hipoteses_resposta": ["Rex", "Cody", "Fives", "Echo"],
+			"resposta": "Cody"
+		},
+		{
+			"numero": "W000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem é o mestre de Darth Sidious?",
+			"hipoteses_resposta": ["Darth Vader", "Darth Maul", "Darth Plagueis", "Darth Tyranus"],
+			"resposta": "Darth Plagueis"
+		},
+		{
+			"numero": "W000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama a capital da República Galáctica?",
+			"hipoteses_resposta": ["Naboo", "Coruscant", "Alderaan", "Kamino"],
+			"resposta": "Coruscant"
+		},
+		{
+			"numero": "W000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do planeta natal de Chewbacca?",
+			"hipoteses_resposta": ["Endor", "Kashyyyk", "Ryloth", "Mon Cala"],
+			"resposta": "Kashyyyk"
+		},
+		{
+			"numero": "W000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem construiu C-3PO?",
+			"hipoteses_resposta": ["Luke Skywalker", "Anakin Skywalker", "Obi-Wan Kenobi", "Watto"],
+			"resposta": "Anakin Skywalker"
+		},
+		{
+			"numero": "W000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da arma capaz de destruir planetas?",
+			"hipoteses_resposta": ["Star Destroyer", "Death Star", "Super Star Destroyer", "Starkiller Base"],
+			"resposta": "Death Star"
+		},
+		{
+			"numero": "W000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que episódio é revelado que Vader é pai de Luke?",
+			"hipoteses_resposta": ["Episódio IV", "Episódio V", "Episódio VI", "Episódio III"],
+			"resposta": "Episódio V"
+		},
+		{
+			"numero": "W000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do planeta onde acontece a corrida de pods?",
+			"hipoteses_resposta": ["Naboo", "Coruscant", "Tatooine", "Geonosis"],
+			"resposta": "Tatooine"
+		},
+		{
+			"numero": "W000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama a rainha de Naboo no Episódio I?",
+			"hipoteses_resposta": ["Padmé Amidala", "Princess Leia", "Sabé", "Cordé"],
+			"resposta": "Padmé Amidala"
+		},
+		{
+			"numero": "W000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do Sith de face vermelha e preta no Episódio I?",
+			"hipoteses_resposta": ["Darth Vader", "Darth Sidious", "Darth Maul", "Darth Tyranus"],
+			"resposta": "Darth Maul"
+		},
+		{
+			"numero": "W000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos sóis tem o planeta Tatooine?",
+			"hipoteses_resposta": ["Um", "Dois", "Três", "Quatro"],
+			"resposta": "Dois"
+		},
+		{
+			"numero": "W000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da cantina em Tatooine?",
+			"hipoteses_resposta": ["Mos Eisley Cantina", "Jabba's Palace", "Tosche Station", "Anchorhead"],
+			"resposta": "Mos Eisley Cantina"
+		},
+		{
+			"numero": "W000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem cortou a mão de Luke Skywalker?",
+			"hipoteses_resposta": ["Darth Sidious", "Darth Vader", "Darth Maul", "Count Dooku"],
+			"resposta": "Darth Vader"
+		},
+		{
+			"numero": "W000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama o planeta gelado da base rebelde no Episódio V?",
+			"hipoteses_resposta": ["Hoth", "Dagobah", "Endor", "Kamino"],
+			"resposta": "Hoth"
+		},
+		{
+			"numero": "W000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do general droide líder dos separatistas?",
+			"hipoteses_resposta": ["Battle Droid", "Super Battle Droid", "General Grievous", "Destroyer Droid"],
+			"resposta": "General Grievous"
+		},
+		{
+			"numero": "W000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que planeta foi treinado o exército clone?",
+			"hipoteses_resposta": ["Coruscant", "Geonosis", "Kamino", "Ryloth"],
+			"resposta": "Kamino"
+		},
+		{
+			"numero": "W000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da esposa de Anakin Skywalker?",
+			"hipoteses_resposta": ["Princess Leia", "Padmé Amidala", "Ahsoka Tano", "Sabé"],
+			"resposta": "Padmé Amidala"
+		},
+		{
+			"numero": "W000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama o mentor de Rey na trilogia sequela?",
+			"hipoteses_resposta": ["Finn", "Poe Dameron", "Luke Skywalker", "Kylo Ren"],
+			"resposta": "Luke Skywalker"
+		},
+		{
+			"numero": "W000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome verdadeiro de Kylo Ren?",
+			"hipoteses_resposta": ["Ben Solo", "Ben Skywalker", "Ben Kenobi", "Ben Organa"],
+			"resposta": "Ben Solo"
+		},
+		{
+			"numero": "W000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em qual ordem apareceu o primeiro filme de Star Wars cronologicamente?",
+			"hipoteses_resposta": ["Primeiro", "Quarto", "Sétimo", "Terceiro"],
+			"resposta": "Quarto"
+		},
+		{
+			"numero": "W000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da padawan de Anakin Skywalker?",
+			"hipoteses_resposta": ["Barriss Offee", "Ahsoka Tano", "Aayla Secura", "Luminara Unduli"],
+			"resposta": "Ahsoka Tano"
+		},
+		{
+			"numero": "W000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama o planeta onde vivem os Gungans?",
+			"hipoteses_resposta": ["Naboo", "Coruscant", "Tatooine", "Endor"],
+			"resposta": "Naboo"
+		},
+		{
+			"numero": "W000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do personagem interpretado por Samuel L. Jackson?",
+			"hipoteses_resposta": ["Mace Windu", "Lando Calrissian", "Qui-Gon Jinn", "Kit Fisto"],
+			"resposta": "Mace Windu"
+		},
+		{
+			"numero": "W000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi lançado o primeiro filme de Star Wars?",
+			"hipoteses_resposta": ["1975", "1976", "1977", "1978"],
+			"resposta": "1977"
+		},
+		{
+			"numero": "W000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do planeta destruído pela primeira Death Star?",
+			"hipoteses_resposta": ["Coruscant", "Naboo", "Alderaan", "Kashyyyk"],
+			"resposta": "Alderaan"
+		},
+		{
+			"numero": "W000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama o líder supremo da Primeira Ordem?",
+			"hipoteses_resposta": ["Kylo Ren", "General Hux", "Supreme Leader Snoke", "Captain Phasma"],
+			"resposta": "Supreme Leader Snoke"
+		},
+		{
+			"numero": "W000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do planeta natal de Obi-Wan Kenobi?",
+			"hipoteses_resposta": ["Coruscant", "Stewjon", "Naboo", "Alderaan"],
+			"resposta": "Stewjon"
+		},
+		{
+			"numero": "W000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama a cerimônia onde os Jedi jovens escolhem seu cristal kyber?",
+			"hipoteses_resposta": ["The Gathering", "The Choosing", "The Calling", "The Selection"],
+			"resposta": "The Gathering"
+		},
+		{
+			"numero": "W000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do droide astromech de Poe Dameron?",
+			"hipoteses_resposta": ["R2-D2", "BB-8", "C-3PO", "K-2SO"],
+			"resposta": "BB-8"
+		},
+		{
+			"numero": "W000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que planeta acontece a batalha final do Episódio VI?",
+			"hipoteses_resposta": ["Hoth", "Dagobah", "Endor", "Yavin 4"],
+			"resposta": "Endor"
+		},
+		{
+			"numero": "W000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do mentor Sith de Count Dooku?",
+			"hipoteses_resposta": ["Darth Vader", "Darth Sidious", "Darth Maul", "Darth Plagueis"],
+			"resposta": "Darth Sidious"
+		},
+		{
+			"numero": "W000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Como se chama a energia mística que conecta todas as coisas vivas?",
+			"hipoteses_resposta": ["The Power", "The Energy", "The Force", "The Spirit"],
+			"resposta": "The Force"
+		},
+		{
+			"numero": "W000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do contrabandista que pilota a Millennium Falcon?",
+			"hipoteses_resposta": ["Lando Calrissian", "Han Solo", "Chewbacca", "Boba Fett"],
+			"resposta": "Han Solo"
+		},
+		{
+			"numero": "W000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que episódio morre o Imperador Palpatine pela primeira vez?",
+			"hipoteses_resposta": ["Episódio V", "Episódio VI", "Episódio VII", "Episódio VIII"],
+			"resposta": "Episódio VI"
+		},
+		{
+			"numero": "W000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da organização rebelde que luta contra o Império?",
+			"hipoteses_resposta": ["Resistance", "Rebel Alliance", "Republic Guard", "New Republic"],
+			"resposta": "Rebel Alliance"
+		}
+	]
+}
