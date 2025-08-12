@@ -1236,21 +1236,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para mostrar resultados finais integrados
   function showIntegratedFinalResults() {
-    document.getElementById("statusText").textContent = "🏁 Jogo Terminado!";
+    // Esconder pergunta e respostas imediatamente
     document.getElementById("currentQuestionDisplay").style.display = "none";
     document.getElementById("player1AnswerSection").style.display = "none";
     document.getElementById("timerDisplay").textContent = "🎉 Fim do Jogo!";
     
-    // Esconder estatísticas após 5 segundos
-    setTimeout(() => {
-      const statsDisplay = document.getElementById("statisticsDisplay");
-      if (statsDisplay) {
-        statsDisplay.style.display = "none";
-      }
-    }, 5000);
+    // Verificar se há estatísticas visíveis
+    const statsDisplay = document.getElementById("statisticsDisplay");
+    const hasVisibleStats = statsDisplay && statsDisplay.style.display !== "none";
     
-    // Mostrar botões finais
-    document.getElementById("finalButtons").style.display = "block";
+    if (hasVisibleStats) {
+      // Se há estatísticas, aguardar 5 segundos antes de mostrar o resultado final
+      setTimeout(() => {
+        // Esconder estatísticas
+        statsDisplay.style.display = "none";
+        
+        // Mostrar texto final e botões
+        document.getElementById("statusText").textContent = "🏁 Jogo Terminado!";
+        document.getElementById("finalButtons").style.display = "block";
+      }, 5000);
+    } else {
+      // Se não há estatísticas, mostrar imediatamente
+      document.getElementById("statusText").textContent = "🏁 Jogo Terminado!";
+      document.getElementById("finalButtons").style.display = "block";
+    }
   }
 
   // Configurar botões de resposta do Jogador 1 integrado
