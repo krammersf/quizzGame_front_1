@@ -427,7 +427,7 @@ window.addEventListener('DOMContentLoaded', () => {
       z-index: 1000;
       font-size: 14px;
     `;
-    warningDiv.innerHTML = '🎮 CONTROLO ATIVO - NÃO MUDES DE ABA! Jogo em progresso...';
+    warningDiv.innerHTML = '🎮 NÃO MUDES DE ABA! Jogo em progresso...';
     document.body.appendChild(warningDiv);
     
     // Piscar o aviso a cada 5 segundos (mais frequente)
@@ -467,7 +467,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (!gameActive) return;
       
       console.log("Host: Heartbeat ATIVO - ", new Date().toLocaleTimeString());
-      document.title = `🎮 CONTROLO ATIVO ${new Date().toLocaleTimeString()}`;
+      document.title = `🎮 NÃO MUDES DE ABA! ${new Date().toLocaleTimeString()}`;
       
       // Audio silencioso para manter aba ativa (se necessário)
       try {
