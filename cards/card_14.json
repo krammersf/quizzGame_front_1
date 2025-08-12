@@ -1,0 +1,405 @@
+{
+	"card": "Jogadores de Futebol da Atualidade",
+	"perguntas": [
+		{
+			"numero": "J000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Kylian Mbappé?",
+			"hipoteses_resposta": ["Real Madrid", "PSG", "Barcelona", "Manchester City"],
+			"resposta": "Real Madrid"
+		},
+		{
+			"numero": "J000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a nacionalidade de Erling Haaland?",
+			"hipoteses_resposta": ["Norueguesa", "Sueca", "Dinamarquesa", "Finlandesa"],
+			"resposta": "Norueguesa"
+		},
+		{
+			"numero": "J000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos Balões de Ouro tem Lionel Messi?",
+			"hipoteses_resposta": ["8", "7", "9", "6"],
+			"resposta": "8"
+		},
+		{
+			"numero": "J000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Vinícius Júnior?",
+			"hipoteses_resposta": ["Real Madrid", "Barcelona", "Atlético Madrid", "Sevilla"],
+			"resposta": "Real Madrid"
+		},
+		{
+			"numero": "J000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador português joga no Al-Nassr?",
+			"hipoteses_resposta": ["Cristiano Ronaldo", "Bruno Fernandes", "João Félix", "Rafael Leão"],
+			"resposta": "Cristiano Ronaldo"
+		},
+		{
+			"numero": "J000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que posição joga habitualmente Kevin De Bruyne?",
+			"hipoteses_resposta": ["Médio ofensivo", "Extremo", "Médio defensivo", "Lateral"],
+			"resposta": "Médio ofensivo"
+		},
+		{
+			"numero": "J000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a nacionalidade de Pedri?",
+			"hipoteses_resposta": ["Espanhola", "Brasileira", "Argentina", "Portuguesa"],
+			"resposta": "Espanhola"
+		},
+		{
+			"numero": "J000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Luka Modrić?",
+			"hipoteses_resposta": ["Real Madrid", "Inter Miami", "AC Milan", "Juventus"],
+			"resposta": "Real Madrid"
+		},
+		{
+			"numero": "J000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador brasileiro joga no Manchester City?",
+			"hipoteses_resposta": ["Ederson", "Alisson", "Casemiro", "Fabinho"],
+			"resposta": "Ederson"
+		},
+		{
+			"numero": "J000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano nasceu Jude Bellingham?",
+			"hipoteses_resposta": ["2003", "2002", "2004", "2001"],
+			"resposta": "2003"
+		},
+		{
+			"numero": "J000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a posição principal de Virgil van Dijk?",
+			"hipoteses_resposta": ["Defesa central", "Médio defensivo", "Lateral esquerdo", "Líbero"],
+			"resposta": "Defesa central"
+		},
+		{
+			"numero": "J000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Neymar Jr.?",
+			"hipoteses_resposta": ["Al-Hilal", "PSG", "Barcelona", "Santos"],
+			"resposta": "Al-Hilal"
+		},
+		{
+			"numero": "J000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador inglês é capitão do Manchester City?",
+			"hipoteses_resposta": ["Kyle Walker", "John Stones", "Jack Grealish", "Phil Foden"],
+			"resposta": "Kyle Walker"
+		},
+		{
+			"numero": "J000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube português joga Otávio?",
+			"hipoteses_resposta": ["FC Porto", "Benfica", "Sporting", "Braga"],
+			"resposta": "FC Porto"
+		},
+		{
+			"numero": "J000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a nacionalidade de Jamal Musiala?",
+			"hipoteses_resposta": ["Alemã", "Inglesa", "Nigeriana", "Americana"],
+			"resposta": "Alemã"
+		},
+		{
+			"numero": "J000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Mohamed Salah?",
+			"hipoteses_resposta": ["Liverpool", "Chelsea", "Arsenal", "Manchester United"],
+			"resposta": "Liverpool"
+		},
+		{
+			"numero": "J000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador francês joga no AC Milan?",
+			"hipoteses_resposta": ["Theo Hernández", "Olivier Giroud", "Mike Maignan", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "J000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que posição joga habitualmente Gavi?",
+			"hipoteses_resposta": ["Médio centro", "Extremo", "Defesa", "Avançado"],
+			"resposta": "Médio centro"
+		},
+		{
+			"numero": "J000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador argentino joga no Inter Miami?",
+			"hipoteses_resposta": ["Lionel Messi", "Ángel Di María", "Paulo Dybala", "Lautaro Martínez"],
+			"resposta": "Lionel Messi"
+		},
+		{
+			"numero": "J000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Harry Kane?",
+			"hipoteses_resposta": ["Bayern München", "Tottenham", "Manchester United", "Real Madrid"],
+			"resposta": "Bayern München"
+		},
+		{
+			"numero": "J000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a nacionalidade de Alphonso Davies?",
+			"hipoteses_resposta": ["Canadiana", "Americana", "Liberiana", "Ghanesa"],
+			"resposta": "Canadiana"
+		},
+		{
+			"numero": "J000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Bruno Fernandes?",
+			"hipoteses_resposta": ["Manchester United", "Sporting", "Manchester City", "Chelsea"],
+			"resposta": "Manchester United"
+		},
+		{
+			"numero": "J000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador norueguês joga no Arsenal?",
+			"hipoteses_resposta": ["Martin Ødegaard", "Erling Haaland", "Alexander Sørloth", "Sander Berge"],
+			"resposta": "Martin Ødegaard"
+		},
+		{
+			"numero": "J000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que posição joga habitualmente Rodri?",
+			"hipoteses_resposta": ["Médio defensivo", "Defesa central", "Médio ofensivo", "Lateral"],
+			"resposta": "Médio defensivo"
+		},
+		{
+			"numero": "J000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador português joga no AC Milan?",
+			"hipoteses_resposta": ["Rafael Leão", "João Félix", "Diogo Jota", "Bernardo Silva"],
+			"resposta": "Rafael Leão"
+		},
+		{
+			"numero": "J000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Robert Lewandowski?",
+			"hipoteses_resposta": ["Barcelona", "Bayern München", "Real Madrid", "PSG"],
+			"resposta": "Barcelona"
+		},
+		{
+			"numero": "J000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a idade aproximada de Kylian Mbappé em 2025?",
+			"hipoteses_resposta": ["26 anos", "24 anos", "28 anos", "25 anos"],
+			"resposta": "26 anos"
+		},
+		{
+			"numero": "J000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente João Félix?",
+			"hipoteses_resposta": ["Atlético Madrid", "Barcelona", "Chelsea", "Benfica"],
+			"resposta": "Atlético Madrid"
+		},
+		{
+			"numero": "J000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador brasileiro é guarda-redes do Liverpool?",
+			"hipoteses_resposta": ["Alisson", "Ederson", "Weverton", "Júlio César"],
+			"resposta": "Alisson"
+		},
+		{
+			"numero": "J000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que posição joga habitualmente Bukayo Saka?",
+			"hipoteses_resposta": ["Extremo direito", "Lateral direito", "Médio ofensivo", "Avançado"],
+			"resposta": "Extremo direito"
+		},
+		{
+			"numero": "J000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador croata joga no Chelsea?",
+			"hipoteses_resposta": ["Mateo Kovačić", "Luka Modrić", "Ivan Perišić", "Marcelo Brozović"],
+			"resposta": "Mateo Kovačić"
+		},
+		{
+			"numero": "J000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Sadio Mané?",
+			"hipoteses_resposta": ["Al-Nassr", "Bayern München", "Liverpool", "Senegal"],
+			"resposta": "Al-Nassr"
+		},
+		{
+			"numero": "J000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a nacionalidade de Eduardo Camavinga?",
+			"hipoteses_resposta": ["Francesa", "Angolana", "Brasileira", "Congolesa"],
+			"resposta": "Francesa"
+		},
+		{
+			"numero": "J000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Rúben Dias?",
+			"hipoteses_resposta": ["Manchester City", "Benfica", "PSG", "Real Madrid"],
+			"resposta": "Manchester City"
+		},
+		{
+			"numero": "J000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador italiano joga no Newcastle?",
+			"hipoteses_resposta": ["Sandro Tonali", "Federico Chiesa", "Nicolo Barella", "Lorenzo Insigne"],
+			"resposta": "Sandro Tonali"
+		},
+		{
+			"numero": "J000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que posição joga habitualmente Casemiro?",
+			"hipoteses_resposta": ["Médio defensivo", "Defesa central", "Médio ofensivo", "Lateral"],
+			"resposta": "Médio defensivo"
+		},
+		{
+			"numero": "J000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador português joga no Manchester City?",
+			"hipoteses_resposta": ["Bernardo Silva", "João Cancelo", "Rúben Dias", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "J000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Aurélien Tchouaméni?",
+			"hipoteses_resposta": ["Real Madrid", "PSG", "Monaco", "Liverpool"],
+			"resposta": "Real Madrid"
+		},
+		{
+			"numero": "J000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a nacionalidade de Khvicha Kvaratskhelia?",
+			"hipoteses_resposta": ["Georgiana", "Russa", "Ucraniana", "Armênia"],
+			"resposta": "Georgiana"
+		},
+		{
+			"numero": "J000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Marcus Rashford?",
+			"hipoteses_resposta": ["Manchester United", "Manchester City", "Chelsea", "Arsenal"],
+			"resposta": "Manchester United"
+		},
+		{
+			"numero": "J000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador francês joga no Real Madrid como defesa central?",
+			"hipoteses_resposta": ["Raphaël Varane", "William Saliba", "Dayot Upamecano", "Ibrahima Konaté"],
+			"resposta": "Raphaël Varane"
+		},
+		{
+			"numero": "J000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que posição joga habitualmente Declan Rice?",
+			"hipoteses_resposta": ["Médio defensivo", "Defesa central", "Médio ofensivo", "Lateral"],
+			"resposta": "Médio defensivo"
+		},
+		{
+			"numero": "J000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador espanhol joga no Barcelona como extremo?",
+			"hipoteses_resposta": ["Ferran Torres", "Ansu Fati", "Ousmane Dembélé", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "J000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Victor Osimhen?",
+			"hipoteses_resposta": ["Napoli", "Bayern München", "PSG", "Chelsea"],
+			"resposta": "Napoli"
+		},
+		{
+			"numero": "J000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a nacionalidade de Darwin Núñez?",
+			"hipoteses_resposta": ["Uruguaia", "Argentina", "Brasileira", "Paraguaia"],
+			"resposta": "Uruguaia"
+		},
+		{
+			"numero": "J000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Karim Benzema?",
+			"hipoteses_resposta": ["Al-Ittihad", "Real Madrid", "PSG", "Al-Nassr"],
+			"resposta": "Al-Ittihad"
+		},
+		{
+			"numero": "J000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador holandês joga no Liverpool como defesa central?",
+			"hipoteses_resposta": ["Virgil van Dijk", "Matthijs de Ligt", "Stefan de Vrij", "Nathan Aké"],
+			"resposta": "Virgil van Dijk"
+		},
+		{
+			"numero": "J000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que posição joga habitualmente Florian Wirtz?",
+			"hipoteses_resposta": ["Médio ofensivo", "Extremo", "Médio defensivo", "Avançado"],
+			"resposta": "Médio ofensivo"
+		},
+		{
+			"numero": "J000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador brasileiro joga no Real Madrid como lateral esquerdo?",
+			"hipoteses_resposta": ["Marcelo", "Alex Sandro", "Renan Lodi", "Nenhum dos anteriores"],
+			"resposta": "Nenhum dos anteriores"
+		},
+		{
+			"numero": "J000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube joga atualmente Phil Foden?",
+			"hipoteses_resposta": ["Manchester City", "Manchester United", "Chelsea", "Arsenal"],
+			"resposta": "Manchester City"
+		}
+	]
+}
