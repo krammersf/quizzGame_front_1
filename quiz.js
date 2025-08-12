@@ -458,6 +458,7 @@ document.addEventListener("DOMContentLoaded", () => {
       isCorrect: false,
       pointsEarned: 0, // Ausência de resposta = 0 pontos (não usar pointsWrong)
       timestamp: Date.now(),
+      responseTimestamp: Date.now(), // Timestamp quando tempo expirou
       timeExpired: true // Flag para indicar que o tempo expirou
     };
     
@@ -479,6 +480,7 @@ document.addEventListener("DOMContentLoaded", () => {
       points: 0, // Usar 0 pontos em vez de gameConfig.pointsWrong
       isCorrect: false,
       timestamp: Date.now(),
+      responseTimestamp: Date.now(), // Timestamp específico da resposta
       timeExpired: true
     };
     
@@ -688,7 +690,8 @@ document.addEventListener("DOMContentLoaded", () => {
       correctAnswer: correct,
       isCorrect: isCorrect,
       pointsEarned: pointsThisRound,
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      responseTimestamp: Date.now() // Timestamp específico da resposta para calcular velocidade
     };
     
     // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
@@ -708,7 +711,8 @@ document.addEventListener("DOMContentLoaded", () => {
       answer: selected,
       points: pointsThisRound,
       isCorrect: isCorrect,
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      responseTimestamp: Date.now() // Timestamp específico da resposta
     };
     
     // Atualizar ambas as estruturas no Firebase

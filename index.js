@@ -541,6 +541,57 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }, 10000);
     
+    // Função para analisar velocidade de resposta
+    async function analyzeResponseSpeed(questionIndex) {
+      try {
+        const playersRef = ref(db, `games/${createdGameId}/players`);
+        const playersSnapshot = await get(playersRef);
+        
+        if (!playersSnapshot.exists()) {
+          console.log("⚠️ Nenhum jogador encontrado para análise de velocidade");
+          return;
+        }
+        
+        const playersData = playersSnapshot.val();
+        const responseSpeedData = [];
+        
+        // Coletar timestamps de resposta de todos os jogadores
+        for (const [playerName, player] of Object.entries(playersData)) {
+          if (player.rounds && player.rounds[questionIndex]) {
+            const roundData = player.rounds[questionIndex];
+            if (roundData.responseTimestamp && !roundData.timeExpired) {
+              responseSpeedData.push({
+                playerName: playerName,
+                responseTimestamp: roundData.responseTimestamp,
+                isCorrect: roundData.isCorrect,
+                selectedAnswer: roundData.selectedAnswer
+              });
+            }
+          }
+        }
+        
+        // Ordenar por velocidade (timestamp mais baixo = mais rápido)
+        responseSpeedData.sort((a, b) => a.responseTimestamp - b.responseTimestamp);
+        
+        if (responseSpeedData.length > 0) {
+          console.log("🏃‍♂️ Velocidade de Resposta (mais rápido primeiro):");
+          responseSpeedData.forEach((data, index) => {
+            const position = index + 1;
+            const correctEmoji = data.isCorrect ? "✅" : "❌";
+            console.log(`${position}º lugar: ${data.playerName} ${correctEmoji} (${data.selectedAnswer})`);
+          });
+          
+          const fastest = responseSpeedData[0];
+          console.log(`🥇 Jogador mais rápido: ${fastest.playerName} ${fastest.isCorrect ? "✅" : "❌"}`);
+        }
+        
+        return responseSpeedData;
+        
+      } catch (error) {
+        console.error("❌ Erro ao analisar velocidade de resposta:", error);
+      }
+    }
+    
     // Função para mostrar estatísticas da pergunta
     async function showQuestionStatistics(questionIndex) {
       try {
@@ -701,6 +752,9 @@ window.addEventListener('DOMContentLoaded', () => {
         
         // Aguardar o tempo configurado por pergunta, mostrar estatísticas, e depois mais 5 segundos antes da próxima pergunta
         setTimeout(async () => {
+          // Analisar velocidade de resposta primeiro
+          await analyzeResponseSpeed(currentQuestion);
+          
           // Mostrar estatísticas da pergunta que acabou de terminar
           await showQuestionStatistics(currentQuestion);
           
@@ -1155,6 +1209,7 @@ window.addEventListener('DOMContentLoaded', () => {
         isCorrect: false,
         pointsEarned: pointsForNoAnswer, // 0 pontos para ausência de resposta
         timestamp: Date.now(),
+        responseTimestamp: Date.now(), // Timestamp quando tempo expirou
         timeExpired: true // Flag para indicar que o tempo expirou
       };
       
@@ -1172,6 +1227,7 @@ window.addEventListener('DOMContentLoaded', () => {
         points: pointsForNoAnswer, // Usar 0 pontos em vez de pointsWrong
         isCorrect: false,
         timestamp: Date.now(),
+        responseTimestamp: Date.now(), // Timestamp específico da resposta
         timeExpired: true
       };
       
@@ -1227,7 +1283,8 @@ window.addEventListener('DOMContentLoaded', () => {
       correctAnswer: correctAnswer,
       isCorrect: isCorrect,
       pointsEarned: pointsThisRound,
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      responseTimestamp: Date.now() // Timestamp específico da resposta para calcular velocidade
     };
     
     // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
@@ -1243,7 +1300,8 @@ window.addEventListener('DOMContentLoaded', () => {
       answer: selectedAnswer,
       points: pointsThisRound,
       isCorrect: isCorrect,
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      responseTimestamp: Date.now() // Timestamp específico da resposta
     };
     
     // Atualizar ambas as estruturas no Firebase
