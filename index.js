@@ -694,7 +694,7 @@ window.addEventListener('DOMContentLoaded', () => {
           resultsStartTime: Date.now()
         });
         
-        // Aguardar 5 segundos, mostrar estatísticas, e depois mais 5 segundos antes da próxima pergunta
+        // Aguardar o tempo configurado por pergunta, mostrar estatísticas, e depois mais 5 segundos antes da próxima pergunta
         setTimeout(async () => {
           // Mostrar estatísticas da pergunta que acabou de terminar
           await showQuestionStatistics(currentQuestion);
@@ -706,7 +706,7 @@ window.addEventListener('DOMContentLoaded', () => {
             nextQuestion();
           }, 5000);
         }, 5000);
-      }, 10000);
+      }, timePerQuestion * 1000);
     }
     
     // Iniciar primeira pergunta após um pequeno delay para todos se conectarem
