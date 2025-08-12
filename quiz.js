@@ -79,7 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function registerPlayerAndWait() {
     console.log("registerPlayerAndWait() chamado");
     const playerRef = ref(db, `games/${gameId}/players/${playerName}`);
-    update(playerRef, { score: 0 });
+    update(playerRef, { 
+      score: 0,
+      fastestCount: 0
+    });
 
     if (!listeningForGameStart) {
       console.log("Começando a ouvir mudanças do Firebase pela primeira vez");
@@ -871,7 +874,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <td style="text-align: center; padding: 8px;">${positionText}</td>
           <td style="padding: 8px;">${player.name}</td>
           <td style="text-align: center; padding: 8px;">${player.score}</td>
-          <td style="text-align: center; padding: 8px;">${player.fastestCount}</td>
         `;
         tbody.appendChild(tr);
       });

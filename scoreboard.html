@@ -318,6 +318,10 @@
             background: linear-gradient(45deg, #ff9800, #e68900);
         }
 
+        .stat-item.fastest {
+            background: linear-gradient(45deg, #9c27b0, #8e24aa);
+        }
+
         .stat-value {
             font-size: 2rem;
             font-weight: bold;
@@ -626,7 +630,8 @@
                         score: players[playerName].score || 0,
                         correct: 0,
                         wrong: 0,
-                        noAnswer: 0
+                        noAnswer: 0,
+                        fastestCount: players[playerName].fastestCount || 0
                     };
                 });
 
@@ -699,6 +704,10 @@
                                 <div class="stat-item no-answer">
                                     <div class="stat-value">${stats.noAnswer}</div>
                                     <div class="stat-label">Não Respondidas</div>
+                                </div>
+                                <div class="stat-item fastest">
+                                    <div class="stat-value">${stats.fastestCount}</div>
+                                    <div class="stat-label">Mais Rápido</div>
                                 </div>
                             </div>
                         </div>
