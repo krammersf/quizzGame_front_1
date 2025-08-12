@@ -803,7 +803,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (snapshot.exists()) {
         integratedQuestions = snapshot.val();
         console.log("📚 Perguntas carregadas:", integratedQuestions.length);
-        document.getElementById("statusText").textContent = `📚 ${integratedQuestions.length} perguntas carregadas - Clica "▶️ Iniciar Jogo" para começar!`;
+        // document.getElementById("statusText").textContent = `📚 ${integratedQuestions.length} perguntas carregadas - Clica "▶️ Iniciar Jogo" para começar!`;
         
         // NÃO mostrar pergunta aqui - só quando o jogo começar e countdown terminar
         console.log("✅ Perguntas prontas - aguardando início do jogo");
