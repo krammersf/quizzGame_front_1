@@ -132,7 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
           totalQuestions: questions.length,
           autoController: true,
           countdown: true, // Flag para indicar contador regressivo
-          countdownTime: 10 // Contador inicial
+          countdownTime: timePerQuestion // Contador inicial usando tempo configurado
         }
       });
       
@@ -153,7 +153,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // Função para iniciar contador regressivo
   function startCountdown() {
     countdownActive = true; // Marcar countdown como ativo
-    let countdownTime = 10;
+    const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
+    let countdownTime = timePerQuestion || 10; // Usar tempo configurado ou 10 como fallback
     
     // Verificar se os elementos existem antes de tentar usá-los
     const integratedQuizSection = document.getElementById("integratedQuizSection");
