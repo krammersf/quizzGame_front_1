@@ -1,0 +1,405 @@
+{
+	"card": "Astronomia",
+	"perguntas": [
+		{
+			"numero": "E000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o planeta mais próximo do Sol?",
+			"hipoteses_resposta": ["Mercúrio", "Vénus", "Terra", "Marte"],
+			"resposta": "Mercúrio"
+		},
+		{
+			"numero": "E000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas luas tem Júpiter?",
+			"hipoteses_resposta": ["79", "67", "95", "83"],
+			"resposta": "79"
+		},
+		{
+			"numero": "E000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a estrela mais próxima da Terra depois do Sol?",
+			"hipoteses_resposta": ["Proxima Centauri", "Alpha Centauri A", "Sirius", "Vega"],
+			"resposta": "Proxima Centauri"
+		},
+		{
+			"numero": "E000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual planeta é conhecido como o 'Planeta Vermelho'?",
+			"hipoteses_resposta": ["Marte", "Vénus", "Júpiter", "Saturno"],
+			"resposta": "Marte"
+		},
+		{
+			"numero": "E000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a maior lua do sistema solar?",
+			"hipoteses_resposta": ["Ganímedes", "Titã", "Europa", "Io"],
+			"resposta": "Ganímedes"
+		},
+		{
+			"numero": "E000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos anos-luz de distância está a galáxia de Andrómeda?",
+			"hipoteses_resposta": ["2,5 milhões", "4,2 milhões", "1,8 milhões", "3,1 milhões"],
+			"resposta": "2,5 milhões"
+		},
+		{
+			"numero": "E000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da nossa galáxia?",
+			"hipoteses_resposta": ["Via Láctea", "Andrómeda", "Triângulo", "Centaurus A"],
+			"resposta": "Via Láctea"
+		},
+		{
+			"numero": "E000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual planeta tem os anéis mais visíveis?",
+			"hipoteses_resposta": ["Saturno", "Júpiter", "Urano", "Neptuno"],
+			"resposta": "Saturno"
+		},
+		{
+			"numero": "E000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a temperatura aproximada da superfície do Sol?",
+			"hipoteses_resposta": ["5.500°C", "6.000°C", "4.500°C", "7.000°C"],
+			"resposta": "5.500°C"
+		},
+		{
+			"numero": "E000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do primeiro satélite artificial lançado pela humanidade?",
+			"hipoteses_resposta": ["Sputnik 1", "Explorer 1", "Vanguard 1", "Luna 1"],
+			"resposta": "Sputnik 1"
+		},
+		{
+			"numero": "E000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a idade aproximada do universo?",
+			"hipoteses_resposta": ["13,8 mil milhões de anos", "15,2 mil milhões de anos", "12,1 mil milhões de anos", "14,5 mil milhões de anos"],
+			"resposta": "13,8 mil milhões de anos"
+		},
+		{
+			"numero": "E000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual planeta demora mais tempo a completar uma órbita em torno do Sol?",
+			"hipoteses_resposta": ["Neptuno", "Urano", "Saturno", "Júpiter"],
+			"resposta": "Neptuno"
+		},
+		{
+			"numero": "E000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da missão que levou o primeiro homem à Lua?",
+			"hipoteses_resposta": ["Apollo 11", "Apollo 8", "Gemini 7", "Mercury 6"],
+			"resposta": "Apollo 11"
+		},
+		{
+			"numero": "E000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a velocidade da luz no vácuo?",
+			"hipoteses_resposta": ["299.792.458 m/s", "300.000.000 m/s", "298.500.000 m/s", "301.000.000 m/s"],
+			"resposta": "299.792.458 m/s"
+		},
+		{
+			"numero": "E000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual telescópio espacial foi lançado em 1990?",
+			"hipoteses_resposta": ["Hubble", "Spitzer", "Kepler", "James Webb"],
+			"resposta": "Hubble"
+		},
+		{
+			"numero": "E000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o planeta mais quente do sistema solar?",
+			"hipoteses_resposta": ["Vénus", "Mercúrio", "Terra", "Marte"],
+			"resposta": "Vénus"
+		},
+		{
+			"numero": "E000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos planetas anões são oficialmente reconhecidos no sistema solar?",
+			"hipoteses_resposta": ["5", "4", "6", "7"],
+			"resposta": "5"
+		},
+		{
+			"numero": "E000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da teoria que explica a origem do universo?",
+			"hipoteses_resposta": ["Big Bang", "Estado Estacionário", "Universo Cíclico", "Inflação Cósmica"],
+			"resposta": "Big Bang"
+		},
+		{
+			"numero": "E000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a distância média entre a Terra e o Sol?",
+			"hipoteses_resposta": ["150 milhões km", "140 milhões km", "160 milhões km", "130 milhões km"],
+			"resposta": "150 milhões km"
+		},
+		{
+			"numero": "E000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o tipo de estrela mais comum no universo?",
+			"hipoteses_resposta": ["Anã vermelha", "Anã amarela", "Gigante azul", "Anã branca"],
+			"resposta": "Anã vermelha"
+		},
+		{
+			"numero": "E000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual planeta tem o dia mais longo (rotação mais lenta)?",
+			"hipoteses_resposta": ["Vénus", "Mercúrio", "Urano", "Neptuno"],
+			"resposta": "Vénus"
+		},
+		{
+			"numero": "E000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do rover da NASA que aterrou em Marte em 2021?",
+			"hipoteses_resposta": ["Perseverance", "Curiosity", "Opportunity", "Spirit"],
+			"resposta": "Perseverance"
+		},
+		{
+			"numero": "E000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a força que mantém os planetas em órbita?",
+			"hipoteses_resposta": ["Gravidade", "Eletromagnetismo", "Força nuclear forte", "Força centrípeta"],
+			"resposta": "Gravidade"
+		},
+		{
+			"numero": "E000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da região do espaço onde a luz não pode escapar?",
+			"hipoteses_resposta": ["Buraco negro", "Nebulosa escura", "Matéria escura", "Energia escura"],
+			"resposta": "Buraco negro"
+		},
+		{
+			"numero": "E000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual lua de Saturno tem uma atmosfera densa e lagos de metano?",
+			"hipoteses_resposta": ["Titã", "Encélado", "Mimas", "Iapetus"],
+			"resposta": "Titã"
+		},
+		{
+			"numero": "E000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da primeira mulher no espaço?",
+			"hipoteses_resposta": ["Valentina Tereshkova", "Sally Ride", "Mae Jemison", "Svetlana Savitskaya"],
+			"resposta": "Valentina Tereshkova"
+		},
+		{
+			"numero": "E000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas constelações são oficialmente reconhecidas?",
+			"hipoteses_resposta": ["88", "84", "92", "96"],
+			"resposta": "88"
+		},
+		{
+			"numero": "E000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior planeta do sistema solar?",
+			"hipoteses_resposta": ["Júpiter", "Saturno", "Neptuno", "Urano"],
+			"resposta": "Júpiter"
+		},
+		{
+			"numero": "E000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da estação espacial internacional?",
+			"hipoteses_resposta": ["ISS", "Mir", "Skylab", "Tiangong"],
+			"resposta": "ISS"
+		},
+		{
+			"numero": "E000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual planeta tem a inclinação axial mais extrema?",
+			"hipoteses_resposta": ["Urano", "Vénus", "Plutão", "Marte"],
+			"resposta": "Urano"
+		},
+		{
+			"numero": "E000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do ponto mais próximo da órbita de um planeta ao Sol?",
+			"hipoteses_resposta": ["Periélio", "Afélio", "Apogeu", "Perigeu"],
+			"resposta": "Periélio"
+		},
+		{
+			"numero": "E000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a composição principal dos cometas?",
+			"hipoteses_resposta": ["Gelo e poeira", "Rocha e metal", "Gases", "Plasma"],
+			"resposta": "Gelo e poeira"
+		},
+		{
+			"numero": "E000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da radiação de fundo cósmica?",
+			"hipoteses_resposta": ["CMB", "GRB", "FRB", "AGN"],
+			"resposta": "CMB"
+		},
+		{
+			"numero": "E000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a massa aproximada do Sol comparada à Terra?",
+			"hipoteses_resposta": ["333.000 vezes", "300.000 vezes", "400.000 vezes", "250.000 vezes"],
+			"resposta": "333.000 vezes"
+		},
+		{
+			"numero": "E000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual fenómeno causa as auroras boreais?",
+			"hipoteses_resposta": ["Vento solar", "Radiação cósmica", "Campo magnético lunar", "Reflexão atmosférica"],
+			"resposta": "Vento solar"
+		},
+		{
+			"numero": "E000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da lua de Júpiter que pode ter um oceano subterrâneo?",
+			"hipoteses_resposta": ["Europa", "Io", "Ganímedes", "Calisto"],
+			"resposta": "Europa"
+		},
+		{
+			"numero": "E000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do maior asteróide do sistema solar?",
+			"hipoteses_resposta": ["Ceres", "Vesta", "Pallas", "Juno"],
+			"resposta": "Ceres"
+		},
+		{
+			"numero": "E000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos anos terrestres demora Marte a orbitar o Sol?",
+			"hipoteses_resposta": ["1,88", "2,12", "1,64", "2,35"],
+			"resposta": "1,88"
+		},
+		{
+			"numero": "E000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da teoria sobre a expansão acelerada do universo?",
+			"hipoteses_resposta": ["Energia escura", "Matéria escura", "Inflação cósmica", "Constante cosmológica"],
+			"resposta": "Energia escura"
+		},
+		{
+			"numero": "E000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a estrela mais brilhante no céu noturno?",
+			"hipoteses_resposta": ["Sirius", "Canopus", "Arcturus", "Vega"],
+			"resposta": "Sirius"
+		},
+		{
+			"numero": "E000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual planeta foi 'rebaixado' a planeta anão em 2006?",
+			"hipoteses_resposta": ["Plutão", "Ceres", "Eris", "Makemake"],
+			"resposta": "Plutão"
+		},
+		{
+			"numero": "E000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da constelação que contém a Estrela Polar?",
+			"hipoteses_resposta": ["Ursa Menor", "Ursa Maior", "Cassiopeia", "Draco"],
+			"resposta": "Ursa Menor"
+		},
+		{
+			"numero": "E000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a unidade astronómica de distância baseada na paralaxe?",
+			"hipoteses_resposta": ["Parsec", "Ano-luz", "Unidade astronómica", "Kiloparsec"],
+			"resposta": "Parsec"
+		},
+		{
+			"numero": "E000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do vento solar quando atinge a magnetosfera terrestre?",
+			"hipoteses_resposta": ["Plasma", "Radiação", "Ionização", "Sublimação"],
+			"resposta": "Plasma"
+		},
+		{
+			"numero": "E000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual missão espacial chegou mais longe da Terra?",
+			"hipoteses_resposta": ["Voyager 1", "Voyager 2", "Pioneer 10", "New Horizons"],
+			"resposta": "Voyager 1"
+		},
+		{
+			"numero": "E000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome da galáxia mais próxima da Via Láctea?",
+			"hipoteses_resposta": ["Galáxia Anã do Cão Maior", "Andrómeda", "Triângulo", "Nuvem de Magalhães"],
+			"resposta": "Galáxia Anã do Cão Maior"
+		},
+		{
+			"numero": "E000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o período de rotação da Terra?",
+			"hipoteses_resposta": ["23h 56m 4s", "24h", "23h 59m", "24h 3m"],
+			"resposta": "23h 56m 4s"
+		},
+		{
+			"numero": "E000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do limite onde a velocidade de escape iguala a velocidade da luz?",
+			"hipoteses_resposta": ["Horizonte de eventos", "Raio de Schwarzschild", "Singularidade", "Ergosfera"],
+			"resposta": "Horizonte de eventos"
+		},
+		{
+			"numero": "E000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual elemento é principalmente fundido no núcleo das estrelas como o Sol?",
+			"hipoteses_resposta": ["Hidrogénio", "Hélio", "Carbono", "Oxigénio"],
+			"resposta": "Hidrogénio"
+		},
+		{
+			"numero": "E000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do telescópio espacial sucessor do Hubble?",
+			"hipoteses_resposta": ["James Webb", "Roman", "Euclid", "PLATO"],
+			"resposta": "James Webb"
+		}
+	]
+}

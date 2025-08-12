@@ -1,0 +1,405 @@
+{
+	"card": "Arte",
+	"perguntas": [
+		{
+			"numero": "A000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'A Noite Estrelada'?",
+			"hipoteses_resposta": ["Vincent van Gogh", "Claude Monet", "Pablo Picasso", "Leonardo da Vinci"],
+			"resposta": "Vincent van Gogh"
+		},
+		{
+			"numero": "A000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que museu se encontra a 'Mona Lisa'?",
+			"hipoteses_resposta": ["Louvre", "Uffizi", "Prado", "Metropolitan"],
+			"resposta": "Louvre"
+		},
+		{
+			"numero": "A000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual movimento artístico é caracterizado por pinceladas visíveis e luz natural?",
+			"hipoteses_resposta": ["Impressionismo", "Cubismo", "Surrealismo", "Expressionismo"],
+			"resposta": "Impressionismo"
+		},
+		{
+			"numero": "A000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem esculpiu 'O Pensador'?",
+			"hipoteses_resposta": ["Auguste Rodin", "Michelangelo", "Donatello", "Bernini"],
+			"resposta": "Auguste Rodin"
+		},
+		{
+			"numero": "A000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual pintor é conhecido pelo 'Período Azul'?",
+			"hipoteses_resposta": ["Pablo Picasso", "Henri Matisse", "Paul Cézanne", "Georges Braque"],
+			"resposta": "Pablo Picasso"
+		},
+		{
+			"numero": "A000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que cidade nasceu Leonardo da Vinci?",
+			"hipoteses_resposta": ["Vinci", "Florença", "Roma", "Milão"],
+			"resposta": "Vinci"
+		},
+		{
+			"numero": "A000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual artista pintou 'Guernica'?",
+			"hipoteses_resposta": ["Pablo Picasso", "Salvador Dalí", "Joan Miró", "Francisco Goya"],
+			"resposta": "Pablo Picasso"
+		},
+		{
+			"numero": "A000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que técnica artística usa pontos de cor pura?",
+			"hipoteses_resposta": ["Pontilhismo", "Fauvismo", "Cubismo", "Dadaísmo"],
+			"resposta": "Pontilhismo"
+		},
+		{
+			"numero": "A000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'A Persistência da Memória' (relógios derretidos)?",
+			"hipoteses_resposta": ["Salvador Dalí", "René Magritte", "Max Ernst", "André Breton"],
+			"resposta": "Salvador Dalí"
+		},
+		{
+			"numero": "A000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual escultura de Michelangelo representa o herói bíblico que derrotou Golias?",
+			"hipoteses_resposta": ["David", "Moisés", "Pietà", "Baco"],
+			"resposta": "David"
+		},
+		{
+			"numero": "A000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que período artístico se enquadra Caravaggio?",
+			"hipoteses_resposta": ["Barroco", "Renascimento", "Maneirismo", "Rococó"],
+			"resposta": "Barroco"
+		},
+		{
+			"numero": "A000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual pintor holandês cortou a própria orelha?",
+			"hipoteses_resposta": ["Vincent van Gogh", "Johannes Vermeer", "Rembrandt", "Piet Mondrian"],
+			"resposta": "Vincent van Gogh"
+		},
+		{
+			"numero": "A000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que movimento artístico fundou Andy Warhol?",
+			"hipoteses_resposta": ["Pop Art", "Minimalismo", "Expressionismo Abstrato", "Arte Conceptual"],
+			"resposta": "Pop Art"
+		},
+		{
+			"numero": "A000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual artista pintou 'O Grito'?",
+			"hipoteses_resposta": ["Edvard Munch", "Ernst Ludwig Kirchner", "Wassily Kandinsky", "Franz Marc"],
+			"resposta": "Edvard Munch"
+		},
+		{
+			"numero": "A000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que museu se encontra 'As Meninas' de Velázquez?",
+			"hipoteses_resposta": ["Prado", "Louvre", "Uffizi", "National Gallery"],
+			"resposta": "Prado"
+		},
+		{
+			"numero": "A000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual pintor impressionista é famoso pelas suas séries de nenúfares?",
+			"hipoteses_resposta": ["Claude Monet", "Pierre-Auguste Renoir", "Edgar Degas", "Camille Pissarro"],
+			"resposta": "Claude Monet"
+		},
+		{
+			"numero": "A000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que material é tradicionalmente usado na escultura clássica grega?",
+			"hipoteses_resposta": ["Mármore", "Bronze", "Madeira", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "A000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'A Criação de Adão' no teto da Capela Sistina?",
+			"hipoteses_resposta": ["Michelangelo", "Rafael", "Leonardo da Vinci", "Donatello"],
+			"resposta": "Michelangelo"
+		},
+		{
+			"numero": "A000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual movimento artístico rejeitava a representação realista?",
+			"hipoteses_resposta": ["Arte Abstrata", "Realismo", "Naturalismo", "Academismo"],
+			"resposta": "Arte Abstrata"
+		},
+		{
+			"numero": "A000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem é considerado o pai do Cubismo junto com Picasso?",
+			"hipoteses_resposta": ["Georges Braque", "Henri Matisse", "Paul Cézanne", "Juan Gris"],
+			"resposta": "Georges Braque"
+		},
+		{
+			"numero": "A000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual artista pintou 'A Ronda da Noite'?",
+			"hipoteses_resposta": ["Rembrandt", "Johannes Vermeer", "Frans Hals", "Jan van Eyck"],
+			"resposta": "Rembrandt"
+		},
+		{
+			"numero": "A000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que técnica de pintura usa pigmentos misturados com gema de ovo?",
+			"hipoteses_resposta": ["Têmpera", "Óleo", "Aquarela", "Acrílico"],
+			"resposta": "Têmpera"
+		},
+		{
+			"numero": "A000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual escultor criou 'O Beijo'?",
+			"hipoteses_resposta": ["Auguste Rodin", "Antonio Canova", "Bernini", "Donatello"],
+			"resposta": "Auguste Rodin"
+		},
+		{
+			"numero": "A000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que século viveu Botticelli?",
+			"hipoteses_resposta": ["XV", "XIV", "XVI", "XVII"],
+			"resposta": "XV"
+		},
+		{
+			"numero": "A000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual pintura de Botticelli mostra a deusa nascendo do mar?",
+			"hipoteses_resposta": ["O Nascimento de Vénus", "A Primavera", "A Anunciação", "Minerva e o Centauro"],
+			"resposta": "O Nascimento de Vénus"
+		},
+		{
+			"numero": "A000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que artista criou os famosos 'ready-mades'?",
+			"hipoteses_resposta": ["Marcel Duchamp", "Andy Warhol", "Roy Lichtenstein", "Jasper Johns"],
+			"resposta": "Marcel Duchamp"
+		},
+		{
+			"numero": "A000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual pintor pós-impressionista é conhecido pelas suas naturezas mortas?",
+			"hipoteses_resposta": ["Paul Cézanne", "Paul Gauguin", "Henri de Toulouse-Lautrec", "Georges Seurat"],
+			"resposta": "Paul Cézanne"
+		},
+		{
+			"numero": "A000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que museu se encontra 'A Última Ceia' de Leonardo da Vinci?",
+			"hipoteses_resposta": ["Santa Maria delle Grazie", "Uffizi", "Louvre", "Vaticano"],
+			"resposta": "Santa Maria delle Grazie"
+		},
+		{
+			"numero": "A000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual movimento artístico é caracterizado por cores vivas e irreais?",
+			"hipoteses_resposta": ["Fauvismo", "Impressionismo", "Expressionismo", "Simbolismo"],
+			"resposta": "Fauvismo"
+		},
+		{
+			"numero": "A000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'Luncheon on the Grass' (Almoço na Relva)?",
+			"hipoteses_resposta": ["Édouard Manet", "Claude Monet", "Pierre-Auguste Renoir", "Edgar Degas"],
+			"resposta": "Édouard Manet"
+		},
+		{
+			"numero": "A000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que artista pintou múltiplas versões de 'Campbell's Soup Cans'?",
+			"hipoteses_resposta": ["Andy Warhol", "Roy Lichtenstein", "Keith Haring", "Jean-Michel Basquiat"],
+			"resposta": "Andy Warhol"
+		},
+		{
+			"numero": "A000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual escultura famosa não tem braços?",
+			"hipoteses_resposta": ["Vénus de Milo", "Vitória de Samotrácia", "Laocoonte", "Apolo do Belvedere"],
+			"resposta": "Vénus de Milo"
+		},
+		{
+			"numero": "A000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que cidade se encontra o Museu Guggenheim mais famoso?",
+			"hipoteses_resposta": ["Nova Iorque", "Bilbau", "Veneza", "Berlim"],
+			"resposta": "Nova Iorque"
+		},
+		{
+			"numero": "A000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual pintor holandês é famoso pela 'Rapariga com Brinco de Pérola'?",
+			"hipoteses_resposta": ["Johannes Vermeer", "Rembrandt", "Frans Hals", "Jan Steen"],
+			"resposta": "Johannes Vermeer"
+		},
+		{
+			"numero": "A000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que movimento artístico explorava o inconsciente e os sonhos?",
+			"hipoteses_resposta": ["Surrealismo", "Dadaísmo", "Expressionismo", "Futurismo"],
+			"resposta": "Surrealismo"
+		},
+		{
+			"numero": "A000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'American Gothic'?",
+			"hipoteses_resposta": ["Grant Wood", "Edward Hopper", "Georgia O'Keeffe", "Jackson Pollock"],
+			"resposta": "Grant Wood"
+		},
+		{
+			"numero": "A000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual artista é conhecido pela técnica de 'drip painting'?",
+			"hipoteses_resposta": ["Jackson Pollock", "Willem de Kooning", "Mark Rothko", "Barnett Newman"],
+			"resposta": "Jackson Pollock"
+		},
+		{
+			"numero": "A000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que período artístico se enquadra El Greco?",
+			"hipoteses_resposta": ["Maneirismo", "Renascimento", "Barroco", "Gótico"],
+			"resposta": "Maneirismo"
+		},
+		{
+			"numero": "A000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual escultor renascentista criou as portas do Batistério de Florença?",
+			"hipoteses_resposta": ["Lorenzo Ghiberti", "Donatello", "Andrea Pisano", "Luca della Robbia"],
+			"resposta": "Lorenzo Ghiberti"
+		},
+		{
+			"numero": "A000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que pintor francês é conhecido pelas suas bailarinas?",
+			"hipoteses_resposta": ["Edgar Degas", "Henri de Toulouse-Lautrec", "Pierre-Auguste Renoir", "Gustave Caillebotte"],
+			"resposta": "Edgar Degas"
+		},
+		{
+			"numero": "A000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual movimento artístico valorizava a velocidade e a tecnologia?",
+			"hipoteses_resposta": ["Futurismo", "Construtivismo", "Suprematismo", "De Stijl"],
+			"resposta": "Futurismo"
+		},
+		{
+			"numero": "A000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem pintou 'A Grande Onda de Kanagawa'?",
+			"hipoteses_resposta": ["Hokusai", "Hiroshige", "Utamaro", "Sharaku"],
+			"resposta": "Hokusai"
+		},
+		{
+			"numero": "A000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual artista mexicana é famosa pelos seus autorretratos?",
+			"hipoteses_resposta": ["Frida Kahlo", "Diego Rivera", "José Clemente Orozco", "David Alfaro Siqueiros"],
+			"resposta": "Frida Kahlo"
+		},
+		{
+			"numero": "A000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que museu se encontra 'A Ronda da Noite'?",
+			"hipoteses_resposta": ["Rijksmuseum", "Van Gogh Museum", "Stedelijk Museum", "Mauritshuis"],
+			"resposta": "Rijksmuseum"
+		},
+		{
+			"numero": "A000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual pintor pós-impressionista viveu no Taiti?",
+			"hipoteses_resposta": ["Paul Gauguin", "Paul Cézanne", "Vincent van Gogh", "Henri de Toulouse-Lautrec"],
+			"resposta": "Paul Gauguin"
+		},
+		{
+			"numero": "A000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que técnica escultórica remove material da peça original?",
+			"hipoteses_resposta": ["Subtração", "Adição", "Moldagem", "Assemblagem"],
+			"resposta": "Subtração"
+		},
+		{
+			"numero": "A000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual artista criou a instalação 'The Weather Project' na Tate Modern?",
+			"hipoteses_resposta": ["Olafur Eliasson", "Anish Kapoor", "Jeff Koons", "Damien Hirst"],
+			"resposta": "Olafur Eliasson"
+		},
+		{
+			"numero": "A000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que cidade nasceu Pablo Picasso?",
+			"hipoteses_resposta": ["Málaga", "Barcelona", "Madrid", "Sevilha"],
+			"resposta": "Málaga"
+		},
+		{
+			"numero": "A000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual movimento artístico utilizava colagens de jornais?",
+			"hipoteses_resposta": ["Cubismo", "Dadaísmo", "Futurismo", "Construtivismo"],
+			"resposta": "Cubismo"
+		},
+		{
+			"numero": "A000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem desenhou o projeto original do Museu Guggenheim de Nova Iorque?",
+			"hipoteses_resposta": ["Frank Lloyd Wright", "Le Corbusier", "Ludwig Mies van der Rohe", "Walter Gropius"],
+			"resposta": "Frank Lloyd Wright"
+		}
+	]
+}
