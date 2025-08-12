@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let listeningForGameState = false; // controla se já está a ouvir o estado do jogo
   let timerInterval = null; // controla o interval do timer para evitar múltiplos
   let playerAnswer = null; // guarda a resposta do jogador para mostrar depois
+  let resultsProcessed = false; // controla se os resultados já foram processados
 
   const enterNameBox = document.getElementById("enterNameBox");
   const waitingBox = document.getElementById("waitingBox");
@@ -233,6 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("✅ CONDIÇÕES ATENDIDAS - Mostrando nova pergunta!");
         currentQuestionIndex = gameState.currentQuestionIndex;
         playerAnswer = null; // Reset da resposta para nova pergunta
+        resultsProcessed = false; // Reset para nova pergunta
         console.log(`Jogador: Nova pergunta ${currentQuestionIndex + 1}/${questions.length}`);
         
         // Limpar timer anterior
@@ -358,11 +360,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Função para mostrar os resultados da resposta
   function showAnswerResults() {
+    // Verificar se já foi processado para evitar duplicação
+    if (resultsProcessed) {
+      console.log("⚠️ Resultados já processados, ignorando chamada duplicada");
+      return;
+    }
+    
     if (!playerAnswer) {
       console.log("Nenhuma resposta para mostrar resultados");
       return;
     }
     
+    resultsProcessed = true; // Marcar como processado
     console.log("=== MOSTRANDO RESULTADOS ===");
     console.log("Resposta do jogador:", playerAnswer.selected);
     console.log("Resposta correta:", playerAnswer.correct);
@@ -404,6 +413,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Nova função para mostrar apenas a resposta correta quando o jogador não respondeu
   function showCorrectAnswerOnly() {
+    // Verificar se já foi processado para evitar duplicação
+    if (resultsProcessed) {
+      console.log("⚠️ Resultados já processados, ignorando chamada duplicada");
+      return;
+    }
+    
+    resultsProcessed = true; // Marcar como processado
     console.log("=== MOSTRANDO APENAS RESPOSTA CORRETA ===");
     console.log("🚫 Jogador não respondeu - aplicando 0 pontos");
     
