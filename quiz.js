@@ -898,10 +898,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 showingResults: false
               });
             } else {
-              // Próxima pergunta
+              // Próxima pergunta (controlo automático)
               update(ref(db, `games/${gameId}/gameState`), {
                 currentQuestionIndex: nextQuestionIndex,
-                timeLeft: 10,
+                timeLeft: gameState.timePerQuestion || 10,
+                timePerQuestion: gameState.timePerQuestion || 10,
                 questionStartTime: Date.now(),
                 gameEnded: false,
                 showingResults: false
@@ -927,10 +928,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 showingResults: false
               });
             } else {
-              // Próxima pergunta
+              // Próxima pergunta (sistema backup)
               update(ref(db, `games/${gameId}/gameState`), {
                 currentQuestionIndex: nextQuestionIndex,
-                timeLeft: 10,
+                timeLeft: gameState.timePerQuestion || 10,
+                timePerQuestion: gameState.timePerQuestion || 10,
                 questionStartTime: Date.now(),
                 gameEnded: false,
                 showingResults: false
