@@ -1,0 +1,405 @@
+{
+	"card": "Animais e Natureza",
+	"perguntas": [
+		{
+			"numero": "N000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o animal terrestre mais rápido do mundo?",
+			"hipoteses_resposta": ["Guepardo", "Leão", "Antílope", "Gazela"],
+			"resposta": "Guepardo"
+		},
+		{
+			"numero": "N000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos corações tem um polvo?",
+			"hipoteses_resposta": ["3", "2", "1", "4"],
+			"resposta": "3"
+		},
+		{
+			"numero": "N000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior mamífero do mundo?",
+			"hipoteses_resposta": ["Baleia-azul", "Elefante-africano", "Orca", "Hipopótamo"],
+			"resposta": "Baleia-azul"
+		},
+		{
+			"numero": "N000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que tipo de animal é um ornitorrinco?",
+			"hipoteses_resposta": ["Monotrema", "Marsupial", "Roedor", "Réptil"],
+			"resposta": "Monotrema"
+		},
+		{
+			"numero": "N000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a árvore mais alta do mundo?",
+			"hipoteses_resposta": ["Sequoia", "Eucalipto", "Pinheiro", "Carvalho"],
+			"resposta": "Sequoia"
+		},
+		{
+			"numero": "N000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos anos pode viver uma tartaruga-gigante?",
+			"hipoteses_resposta": ["Mais de 100", "50-60", "20-30", "80-90"],
+			"resposta": "Mais de 100"
+		},
+		{
+			"numero": "N000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o único mamífero capaz de voar verdadeiramente?",
+			"hipoteses_resposta": ["Morcego", "Esquilo-voador", "Petauro", "Colugo"],
+			"resposta": "Morcego"
+		},
+		{
+			"numero": "N000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas câmaras tem o estômago de uma vaca?",
+			"hipoteses_resposta": ["4", "3", "2", "5"],
+			"resposta": "4"
+		},
+		{
+			"numero": "N000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o processo pelo qual as plantas produzem o seu alimento?",
+			"hipoteses_resposta": ["Fotossíntese", "Respiração", "Digestão", "Fermentação"],
+			"resposta": "Fotossíntese"
+		},
+		{
+			"numero": "N000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal é conhecido por mudar de cor para se camuflar?",
+			"hipoteses_resposta": ["Camaleão", "Iguana", "Lagarto", "Salamandra"],
+			"resposta": "Camaleão"
+		},
+		{
+			"numero": "N000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o maior predador terrestre?",
+			"hipoteses_resposta": ["Urso-polar", "Leão", "Tigre", "Urso-pardo"],
+			"resposta": "Urso-polar"
+		},
+		{
+			"numero": "N000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos olhos tem uma aranha?",
+			"hipoteses_resposta": ["8", "6", "4", "10"],
+			"resposta": "8"
+		},
+		{
+			"numero": "N000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a flor nacional de Portugal?",
+			"hipoteses_resposta": ["Lavanda", "Rosa", "Cravo", "Girassol"],
+			"resposta": "Lavanda"
+		},
+		{
+			"numero": "N000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal pode viver tanto na água como em terra?",
+			"hipoteses_resposta": ["Anfíbio", "Réptil", "Mamífero", "Peixe"],
+			"resposta": "Anfíbio"
+		},
+		{
+			"numero": "N000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o veneno animal mais letal do mundo?",
+			"hipoteses_resposta": ["Polvo-de-anéis-azuis", "Cobra-marinha", "Aranha-viúva-negra", "Escorpião"],
+			"resposta": "Polvo-de-anéis-azuis"
+		},
+		{
+			"numero": "N000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas espécies de pinguins existem aproximadamente?",
+			"hipoteses_resposta": ["18", "12", "25", "30"],
+			"resposta": "18"
+		},
+		{
+			"numero": "N000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a principal função das raízes das plantas?",
+			"hipoteses_resposta": ["Absorver água e nutrientes", "Produzir flores", "Fazer fotossíntese", "Armazenar açúcar"],
+			"resposta": "Absorver água e nutrientes"
+		},
+		{
+			"numero": "N000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal é conhecido como o 'rei da selva'?",
+			"hipoteses_resposta": ["Leão", "Tigre", "Leopardo", "Jaguar"],
+			"resposta": "Leão"
+		},
+		{
+			"numero": "N000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o menor mamífero do mundo?",
+			"hipoteses_resposta": ["Musaranho-pigmeu", "Morcego-abelha", "Rato-pigmeu", "Lemur-rato"],
+			"resposta": "Morcego-abelha"
+		},
+		{
+			"numero": "N000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos dentes tem um elefante adulto?",
+			"hipoteses_resposta": ["4", "6", "8", "2"],
+			"resposta": "4"
+		},
+		{
+			"numero": "N000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o ecossistema com maior biodiversidade do planeta?",
+			"hipoteses_resposta": ["Floresta tropical", "Savana", "Tundra", "Deserto"],
+			"resposta": "Floresta tropical"
+		},
+		{
+			"numero": "N000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal produz a seda natural?",
+			"hipoteses_resposta": ["Bicho-da-seda", "Aranha", "Abelha", "Lagarta"],
+			"resposta": "Bicho-da-seda"
+		},
+		{
+			"numero": "N000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a idade da Terra aproximadamente?",
+			"hipoteses_resposta": ["4,6 mil milhões de anos", "3,8 mil milhões de anos", "6,2 mil milhões de anos", "2,5 mil milhões de anos"],
+			"resposta": "4,6 mil milhões de anos"
+		},
+		{
+			"numero": "N000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal migra a maior distância anualmente?",
+			"hipoteses_resposta": ["Andorinha-do-ártico", "Baleia-cinzenta", "Gnu", "Salmão"],
+			"resposta": "Andorinha-do-ártico"
+		},
+		{
+			"numero": "N000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o gás mais abundante na atmosfera terrestre?",
+			"hipoteses_resposta": ["Azoto", "Oxigénio", "Dióxido de carbono", "Árgon"],
+			"resposta": "Azoto"
+		},
+		{
+			"numero": "N000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas patas tem uma centopeia verdadeira?",
+			"hipoteses_resposta": ["Varia (30-354)", "100", "50", "200"],
+			"resposta": "Varia (30-354)"
+		},
+		{
+			"numero": "N000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a principal causa da extinção atual das espécies?",
+			"hipoteses_resposta": ["Atividade humana", "Mudanças climáticas naturais", "Vulcanismo", "Asteroides"],
+			"resposta": "Atividade humana"
+		},
+		{
+			"numero": "N000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal tem o período de gestação mais longo?",
+			"hipoteses_resposta": ["Elefante", "Baleia", "Rinoceronte", "Girafa"],
+			"resposta": "Elefante"
+		},
+		{
+			"numero": "N000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a profundidade máxima conhecida dos oceanos?",
+			"hipoteses_resposta": ["11.034 metros", "9.800 metros", "12.500 metros", "8.200 metros"],
+			"resposta": "11.034 metros"
+		},
+		{
+			"numero": "N000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que tipo de animal é um escorpião?",
+			"hipoteses_resposta": ["Aracnídeo", "Inseto", "Crustáceo", "Miriápode"],
+			"resposta": "Aracnídeo"
+		},
+		{
+			"numero": "N000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a velocidade máxima de um falcão-peregrino em mergulho?",
+			"hipoteses_resposta": ["390 km/h", "200 km/h", "450 km/h", "300 km/h"],
+			"resposta": "390 km/h"
+		},
+		{
+			"numero": "N000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas espécies de abelhas existem no mundo aproximadamente?",
+			"hipoteses_resposta": ["20.000", "5.000", "35.000", "12.000"],
+			"resposta": "20.000"
+		},
+		{
+			"numero": "N000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o coral que forma a maior barreira de coral do mundo?",
+			"hipoteses_resposta": ["Grande Barreira de Coral", "Barreira de Coral de Belize", "Atol de Aldabra", "Recife de Ningaloo"],
+			"resposta": "Grande Barreira de Coral"
+		},
+		{
+			"numero": "N000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal é conhecido por dormir 20 horas por dia?",
+			"hipoteses_resposta": ["Coala", "Preguiça", "Gato", "Panda"],
+			"resposta": "Coala"
+		},
+		{
+			"numero": "N000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a temperatura corporal normal de um humano?",
+			"hipoteses_resposta": ["37°C", "36°C", "38°C", "35°C"],
+			"resposta": "37°C"
+		},
+		{
+			"numero": "N000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal pode regenerar membros perdidos?",
+			"hipoteses_resposta": ["Salamandra", "Iguana", "Cobra", "Tartaruga"],
+			"resposta": "Salamandra"
+		},
+		{
+			"numero": "N000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o continente com maior número de espécies de primatas?",
+			"hipoteses_resposta": ["África", "América do Sul", "Ásia", "América do Norte"],
+			"resposta": "África"
+		},
+		{
+			"numero": "N000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos litros de água uma pessoa deve beber por dia aproximadamente?",
+			"hipoteses_resposta": ["2-3 litros", "1 litro", "4-5 litros", "0,5 litros"],
+			"resposta": "2-3 litros"
+		},
+		{
+			"numero": "N000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal é considerado o mais inteligente do mar?",
+			"hipoteses_resposta": ["Golfinho", "Polvo", "Baleia", "Tubarão"],
+			"resposta": "Golfinho"
+		},
+		{
+			"numero": "N000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o principal gás responsável pelo efeito estufa?",
+			"hipoteses_resposta": ["Dióxido de carbono", "Metano", "Óxido nitroso", "Vapor de água"],
+			"resposta": "Dióxido de carbono"
+		},
+		{
+			"numero": "N000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal tem a mordida mais forte do mundo?",
+			"hipoteses_resposta": ["Crocodilo-do-nilo", "Tubarão-branco", "Hipopótamo", "T-Rex (extinto)"],
+			"resposta": "Crocodilo-do-nilo"
+		},
+		{
+			"numero": "N000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a camada da atmosfera onde ocorre o tempo meteorológico?",
+			"hipoteses_resposta": ["Troposfera", "Estratosfera", "Mesosfera", "Termosfera"],
+			"resposta": "Troposfera"
+		},
+		{
+			"numero": "N000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos ossos tem um tubarão?",
+			"hipoteses_resposta": ["0 (cartilagem)", "50", "200", "100"],
+			"resposta": "0 (cartilagem)"
+		},
+		{
+			"numero": "N000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a planta carnívora mais conhecida?",
+			"hipoteses_resposta": ["Vénus-papa-moscas", "Nepenthes", "Drosera", "Sarracenia"],
+			"resposta": "Vénus-papa-moscas"
+		},
+		{
+			"numero": "N000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal é conhecido por construir represas?",
+			"hipoteses_resposta": ["Castor", "Lontra", "Rato-almiscarado", "Nutria"],
+			"resposta": "Castor"
+		},
+		{
+			"numero": "N000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a percentagem de água no corpo humano adulto?",
+			"hipoteses_resposta": ["60%", "70%", "50%", "80%"],
+			"resposta": "60%"
+		},
+		{
+			"numero": "N000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Que animal pode sobreviver no espaço?",
+			"hipoteses_resposta": ["Tardígrado", "Barata", "Escorpião", "Aranha"],
+			"resposta": "Tardígrado"
+		},
+		{
+			"numero": "N000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o mamífero que põe ovos?",
+			"hipoteses_resposta": ["Ornitorrinco e Équidna", "Apenas Ornitorrinco", "Canguru", "Koala"],
+			"resposta": "Ornitorrinco e Équidna"
+		},
+		{
+			"numero": "N000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas células nervosas tem o cérebro humano aproximadamente?",
+			"hipoteses_resposta": ["86 mil milhões", "50 mil milhões", "120 mil milhões", "30 mil milhões"],
+			"resposta": "86 mil milhões"
+		},
+		{
+			"numero": "N000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome científico do ser humano?",
+			"hipoteses_resposta": ["Homo sapiens", "Homo erectus", "Homo habilis", "Homo neanderthalensis"],
+			"resposta": "Homo sapiens"
+		}
+	]
+}
