@@ -126,6 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
         gameState: {
           currentQuestionIndex: -1, // -1 indica contador regressivo
           timeLeft: timePerQuestion,
+          timePerQuestion: timePerQuestion, // Tempo total configurado para cada pergunta
           questionStartTime: null,
           totalQuestions: questions.length,
           autoController: true,
@@ -183,6 +184,7 @@ window.addEventListener('DOMContentLoaded', () => {
           update(ref(db, `games/${createdGameId}/gameState`), {
             currentQuestionIndex: 0,
             timeLeft: timePerQuestion,
+            timePerQuestion: timePerQuestion,
             questionStartTime: Date.now(),
             countdown: false,
             countdownTime: 0
@@ -248,6 +250,7 @@ window.addEventListener('DOMContentLoaded', () => {
         update(ref(db, `games/${createdGameId}/gameState`), {
           currentQuestionIndex: 0,
           timeLeft: timePerQuestion,
+          timePerQuestion: timePerQuestion,
           questionStartTime: Date.now(),
           countdown: false,
           countdownTime: 0
@@ -670,6 +673,7 @@ window.addEventListener('DOMContentLoaded', () => {
       update(ref(db, `games/${createdGameId}/gameState`), {
         currentQuestionIndex: currentQuestion,
         timeLeft: timePerQuestion,
+        timePerQuestion: timePerQuestion,
         questionStartTime: questionStartTime,
         gameEnded: false,
         showingResults: false

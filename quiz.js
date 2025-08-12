@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // SEMPRE atualizar timer - mesmo se a pergunta não mudou - MAS SÓ SE NÃO ESTIVER EM COUNTDOWN
       if (!gameState.countdown && gameState.questionStartTime && !gameState.gameEnded) {
         console.log("Jogador: Atualizando timer sincronizado para pergunta", currentQuestionIndex + 1);
-        updateTimerDisplay(gameState.questionStartTime, gameState.timeLeft || 10);
+        updateTimerDisplay(gameState.questionStartTime, gameState.timePerQuestion || 10);
       }
     });
   }
