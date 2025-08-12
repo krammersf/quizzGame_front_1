@@ -841,7 +841,12 @@ window.addEventListener('DOMContentLoaded', () => {
           tempCountdown.remove();
         }
         
-        if (statusText) statusText.textContent = "🎮 Jogo ativo!";
+        // Mostrar pergunta atual em vez de "Jogo ativo"
+        if (statusText && integratedCurrentQuestion >= 0 && integratedQuestions.length > 0) {
+          statusText.textContent = `� Pergunta ${integratedCurrentQuestion + 1}: Responde!`;
+        } else if (statusText) {
+          statusText.textContent = "🎯 Pergunta: Responde!";
+        }
       }
       
       if (gameState.gameEnded) {
