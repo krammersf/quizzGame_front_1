@@ -336,28 +336,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     statsDisplay.style.display = "block";
+    
+    // Criar seção de velocidade se houver dados
+    let fastestPlayerHtml = '';
+    if (statistics.fastestPlayer) {
+      const fastest = statistics.fastestPlayer;
+      const correctEmoji = fastest.isCorrect ? "✅" : "❌";
+      fastestPlayerHtml = `
+        <div class="fastest-player-section">
+          <h4>🏃‍♂️ Jogador Mais Rápido</h4>
+          <div class="fastest-player-info">
+            <span class="fastest-name">${fastest.playerName}</span>
+            <span class="fastest-result">${correctEmoji}</span>
+            <span class="fastest-answer">"${fastest.selectedAnswer}"</span>
+          </div>
+        </div>
+      `;
+    }
+    
     statsDisplay.innerHTML = `
       <div class="statistics-header">
         <h3>📊 Estatísticas da Pergunta ${statistics.questionNumber}</h3>
       </div>
-      <div class="statistics-content">
-        <div class="stat-item correct">
+      <div class="statistics-content compact">
+        <div class="stat-item correct compact">
           <div class="stat-icon">✅</div>
           <div class="stat-info">
             <div class="stat-number">${statistics.correctAnswers}</div>
-            <div class="stat-label">Respostas Certas</div>
+            <div class="stat-label">Certas</div>
             <div class="stat-percentage">${statistics.correctPercentage}%</div>
           </div>
         </div>
-        <div class="stat-item wrong">
+        <div class="stat-item wrong compact">
           <div class="stat-icon">❌</div>
           <div class="stat-info">
             <div class="stat-number">${statistics.wrongAnswers}</div>
-            <div class="stat-label">Respostas Erradas</div>
+            <div class="stat-label">Erradas</div>
             <div class="stat-percentage">${Math.round((statistics.wrongAnswers / statistics.totalPlayers) * 100)}%</div>
           </div>
         </div>
-        <div class="stat-item no-answer">
+        <div class="stat-item no-answer compact">
           <div class="stat-icon">⏰</div>
           <div class="stat-info">
             <div class="stat-number">${statistics.noAnswers}</div>
@@ -366,6 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       </div>
+      ${fastestPlayerHtml}
       <div class="statistics-footer">
         <p>Total de jogadores: <strong>${statistics.totalPlayers}</strong></p>
       </div>

@@ -809,10 +809,85 @@
       margin: 0;
     }
     
+    /* Estilos compactos para estatísticas */
+    .statistics-content.compact {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    
+    .stat-item.compact {
+      padding: 15px;
+      min-height: 120px;
+    }
+    
+    .stat-item.compact .stat-icon {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    
+    .stat-item.compact .stat-number {
+      font-size: 1.5rem;
+      margin-bottom: 3px;
+    }
+    
+    .stat-item.compact .stat-label {
+      font-size: 0.8rem;
+      margin-bottom: 3px;
+    }
+    
+    .stat-item.compact .stat-percentage {
+      font-size: 0.9rem;
+    }
+    
+    /* Estilos para jogador mais rápido */
+    .fastest-player-section {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      text-align: center;
+      color: white;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    
+    .fastest-player-section h4 {
+      margin: 0 0 10px 0;
+      font-size: 1.1rem;
+      color: white;
+    }
+    
+    .fastest-player-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .fastest-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #ffd700;
+    }
+    
+    .fastest-result {
+      font-size: 1.2rem;
+    }
+    
+    .fastest-answer {
+      font-style: italic;
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+    
     @media (max-width: 768px) {
       .statistics-content {
         grid-template-columns: 1fr;
         gap: 10px;
+      }
+      
+      .statistics-content.compact {
+        grid-template-columns: 1fr;
       }
       
       .stat-item {
@@ -821,6 +896,11 @@
       
       .stat-number {
         font-size: 1.5rem;
+      }
+      
+      .fastest-player-info {
+        flex-direction: column;
+        gap: 5px;
       }
     }
   </style>
