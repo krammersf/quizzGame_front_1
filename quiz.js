@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
       countdownText.textContent = "Preparar...";
     } else {
       countdownText.textContent = "COMEÇAR!";
-    }
+    } 
   }
   
   function hideCountdownScreen() {
