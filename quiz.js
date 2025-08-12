@@ -288,7 +288,16 @@ document.addEventListener("DOMContentLoaded", () => {
         timerInterval = setTimeout(updateTimer, 200); // Atualizar a cada 200ms
       } else {
         timerInterval = null;
-        console.log("Timer chegou a 0");
+        console.log("⏰ Timer chegou a 0 - BLOQUEANDO botões");
+        
+        // Bloquear todos os botões quando o tempo acaba
+        const answersBox = document.getElementById("answersBox");
+        if (answersBox) {
+          Array.from(answersBox.children).forEach(btn => {
+            btn.disabled = true;
+            console.log(`🚫 Botão "${btn.textContent}" bloqueado`);
+          });
+        }
       }
     };
     
