@@ -1,0 +1,405 @@
+{
+	"card": "Filmes e Séries",
+	"perguntas": [
+		{
+			"numero": "C000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme ganhou o Oscar de Melhor Filme em 2020?",
+			"hipoteses_resposta": ["Parasita", "1917", "Joker", "Era Uma Vez em... Hollywood"],
+			"resposta": "Parasita"
+		},
+		{
+			"numero": "C000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi lançado o primeiro filme de 'O Senhor dos Anéis'?",
+			"hipoteses_resposta": ["2000", "2001", "2002", "2003"],
+			"resposta": "2001"
+		},
+		{
+			"numero": "C000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem dirigiu o filme 'Pulp Fiction'?",
+			"hipoteses_resposta": ["Quentin Tarantino", "Martin Scorsese", "Christopher Nolan", "Steven Spielberg"],
+			"resposta": "Quentin Tarantino"
+		},
+		{
+			"numero": "C000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual série da Netflix foi a mais vista de sempre na plataforma?",
+			"hipoteses_resposta": ["Stranger Things", "Squid Game", "La Casa de Papel", "Bridgerton"],
+			"resposta": "Squid Game"
+		},
+		{
+			"numero": "C000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Breaking Bad', qual é o nome verdadeiro do personagem Heisenberg?",
+			"hipoteses_resposta": ["Walter White", "Jesse Pinkman", "Saul Goodman", "Mike Ehrmantraut"],
+			"resposta": "Walter White"
+		},
+		{
+			"numero": "C000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual ator interpretou o Joker no filme 'O Cavaleiro das Trevas'?",
+			"hipoteses_resposta": ["Heath Ledger", "Joaquin Phoenix", "Jack Nicholson", "Jared Leto"],
+			"resposta": "Heath Ledger"
+		},
+		{
+			"numero": "C000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas temporadas tem a série 'Game of Thrones'?",
+			"hipoteses_resposta": ["7", "8", "9", "10"],
+			"resposta": "8"
+		},
+		{
+			"numero": "C000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de Christopher Nolan trata sobre sonhos dentro de sonhos?",
+			"hipoteses_resposta": ["Inception", "Interstellar", "Memento", "Tenet"],
+			"resposta": "Inception"
+		},
+		{
+			"numero": "C000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que cidade se passa a série 'Friends'?",
+			"hipoteses_resposta": ["Nova Iorque", "Los Angeles", "Chicago", "Boston"],
+			"resposta": "Nova Iorque"
+		},
+		{
+			"numero": "C000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme da Marvel foi o primeiro a arrecadar mais de 2 mil milhões de dólares?",
+			"hipoteses_resposta": ["Avengers: Endgame", "Avengers: Infinity War", "Black Panther", "Spider-Man: No Way Home"],
+			"resposta": "Avengers: Endgame"
+		},
+		{
+			"numero": "C000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem criou a série 'Sherlock' da BBC?",
+			"hipoteses_resposta": ["Steven Moffat e Mark Gatiss", "Russell T Davies", "Chris Chibnall", "Julian Fellowes"],
+			"resposta": "Steven Moffat e Mark Gatiss"
+		},
+		{
+			"numero": "C000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do hotel na série 'American Horror Story: Hotel'?",
+			"hipoteses_resposta": ["Hotel Cortez", "Hotel Cecil", "Hotel California", "Hotel Overlook"],
+			"resposta": "Hotel Cortez"
+		},
+		{
+			"numero": "C000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'The Office' (versão americana), qual é o nome da empresa?",
+			"hipoteses_resposta": ["Dunder Mifflin", "Scranton Paper", "Pawnee Industries", "Sterling Cooper"],
+			"resposta": "Dunder Mifflin"
+		},
+		{
+			"numero": "C000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de terror foi baseado num livro de Stephen King e lançado em 2017?",
+			"hipoteses_resposta": ["It", "Pet Sematary", "Doctor Sleep", "The Shining"],
+			"resposta": "It"
+		},
+		{
+			"numero": "C000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem interpretou Tony Stark/Homem de Ferro no MCU?",
+			"hipoteses_resposta": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Mark Ruffalo"],
+			"resposta": "Robert Downey Jr."
+		},
+		{
+			"numero": "C000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual série é conhecida pela frase 'Winter is Coming'?",
+			"hipoteses_resposta": ["Game of Thrones", "The Walking Dead", "Vikings", "The Witcher"],
+			"resposta": "Game of Thrones"
+		},
+		{
+			"numero": "C000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi lançado o filme 'Titanic'?",
+			"hipoteses_resposta": ["1997", "1996", "1998", "1999"],
+			"resposta": "1997"
+		},
+		{
+			"numero": "C000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual ator interpretou Hannibal Lecter em 'O Silêncio dos Inocentes'?",
+			"hipoteses_resposta": ["Anthony Hopkins", "Brian Cox", "Mads Mikkelsen", "Gary Oldman"],
+			"resposta": "Anthony Hopkins"
+		},
+		{
+			"numero": "C000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos filmes compõem a saga original de 'Star Wars'?",
+			"hipoteses_resposta": ["6", "7", "8", "9"],
+			"resposta": "6"
+		},
+		{
+			"numero": "C000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Stranger Things', como se chama a dimensão paralela?",
+			"hipoteses_resposta": ["The Upside Down", "The Shadow Realm", "The Dark Place", "The Other Side"],
+			"resposta": "The Upside Down"
+		},
+		{
+			"numero": "C000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de animação da Pixar foi o primeiro a ganhar o Oscar de Melhor Filme Animado?",
+			"hipoteses_resposta": ["Monsters, Inc.", "Finding Nemo", "The Incredibles", "Não houve Oscar em 2001"],
+			"resposta": "Não houve Oscar em 2001"
+		},
+		{
+			"numero": "C000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem dirigiu o filme 'Parasita'?",
+			"hipoteses_resposta": ["Bong Joon-ho", "Park Chan-wook", "Kim Ki-duk", "Lee Chang-dong"],
+			"resposta": "Bong Joon-ho"
+		},
+		{
+			"numero": "C000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Lost', qual é o número da sequência misteriosa?",
+			"hipoteses_resposta": ["4 8 15 16 23 42", "1 2 3 4 5 6", "7 14 21 28 35 42", "3 6 9 12 15 18"],
+			"resposta": "4 8 15 16 23 42"
+		},
+		{
+			"numero": "C000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual série da HBO retrata a máfia italiana-americana?",
+			"hipoteses_resposta": ["The Sopranos", "Boardwalk Empire", "The Wire", "Deadwood"],
+			"resposta": "The Sopranos"
+		},
+		{
+			"numero": "C000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que filme aparece a frase 'May the Force be with you'?",
+			"hipoteses_resposta": ["Star Wars", "Star Trek", "Blade Runner", "E.T."],
+			"resposta": "Star Wars"
+		},
+		{
+			"numero": "C000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual atriz interpretou Hermione Granger na saga 'Harry Potter'?",
+			"hipoteses_resposta": ["Emma Watson", "Emma Stone", "Saoirse Ronan", "Anya Taylor-Joy"],
+			"resposta": "Emma Watson"
+		},
+		{
+			"numero": "C000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'The Big Bang Theory', qual é a profissão de Sheldon Cooper?",
+			"hipoteses_resposta": ["Físico Teórico", "Engenheiro", "Astrofísico", "Matemático"],
+			"resposta": "Físico Teórico"
+		},
+		{
+			"numero": "C000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de terror de 1973 é considerado um dos mais assustadores de sempre?",
+			"hipoteses_resposta": ["O Exorcista", "O Massacre da Serra Elétrica", "Halloween", "Psico"],
+			"resposta": "O Exorcista"
+		},
+		{
+			"numero": "C000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'House of Cards', qual é o nome do protagonista?",
+			"hipoteses_resposta": ["Frank Underwood", "Doug Stamper", "Peter Russo", "Tom Hammerschmidt"],
+			"resposta": "Frank Underwood"
+		},
+		{
+			"numero": "C000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o nome do café na série 'Friends'?",
+			"hipoteses_resposta": ["Central Perk", "Coffee Bean", "Starbucks", "The Grind"],
+			"resposta": "Central Perk"
+		},
+		{
+			"numero": "C000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quem dirigiu a trilogia 'O Senhor dos Anéis'?",
+			"hipoteses_resposta": ["Peter Jackson", "Guillermo del Toro", "Ridley Scott", "James Cameron"],
+			"resposta": "Peter Jackson"
+		},
+		{
+			"numero": "C000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Westworld', o que são os hosts?",
+			"hipoteses_resposta": ["Androides", "Aliens", "Fantasmas", "Clones"],
+			"resposta": "Androides"
+		},
+		{
+			"numero": "C000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de 1994 conta a história de um homem com QI baixo?",
+			"hipoteses_resposta": ["Forrest Gump", "Rain Man", "What's Eating Gilbert Grape", "The Green Mile"],
+			"resposta": "Forrest Gump"
+		},
+		{
+			"numero": "C000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Money Heist' (La Casa de Papel), qual é o nome do líder?",
+			"hipoteses_resposta": ["El Profesor", "Berlín", "Tokio", "Nairobi"],
+			"resposta": "El Profesor"
+		},
+		{
+			"numero": "C000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual série de ficção científica foi criada por J.J. Abrams?",
+			"hipoteses_resposta": ["Fringe", "Lost", "Alias", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "C000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi lançado o primeiro filme de 'Matrix'?",
+			"hipoteses_resposta": ["1999", "1998", "2000", "2001"],
+			"resposta": "1999"
+		},
+		{
+			"numero": "C000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual ator interpretou o Coringa no filme 'Joker' de 2019?",
+			"hipoteses_resposta": ["Joaquin Phoenix", "Heath Ledger", "Jack Nicholson", "Jared Leto"],
+			"resposta": "Joaquin Phoenix"
+		},
+		{
+			"numero": "C000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'The Crown', que família real é retratada?",
+			"hipoteses_resposta": ["Britânica", "Holandesa", "Sueca", "Espanhola"],
+			"resposta": "Britânica"
+		},
+		{
+			"numero": "C000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de animação da Disney foi lançado em 2013?",
+			"hipoteses_resposta": ["Frozen", "Moana", "Zootopia", "Big Hero 6"],
+			"resposta": "Frozen"
+		},
+		{
+			"numero": "C000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Dexter', qual é a profissão do protagonista além de serial killer?",
+			"hipoteses_resposta": ["Analista Forense", "Detetive", "Médico", "Professor"],
+			"resposta": "Analista Forense"
+		},
+		{
+			"numero": "C000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de Quentin Tarantino se passa durante a Segunda Guerra Mundial?",
+			"hipoteses_resposta": ["Inglourious Basterds", "Django Unchained", "Kill Bill", "Once Upon a Time in Hollywood"],
+			"resposta": "Inglourious Basterds"
+		},
+		{
+			"numero": "C000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Peaky Blinders', qual é o nome da família protagonista?",
+			"hipoteses_resposta": ["Shelby", "Peaky", "Birmingham", "Garrison"],
+			"resposta": "Shelby"
+		},
+		{
+			"numero": "C000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual série da Netflix retrata a vida de Pablo Escobar?",
+			"hipoteses_resposta": ["Narcos", "El Chapo", "Queen of the South", "Ozark"],
+			"resposta": "Narcos"
+		},
+		{
+			"numero": "C000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que filme Leonardo DiCaprio finalmente ganhou o Oscar de Melhor Ator?",
+			"hipoteses_resposta": ["The Revenant", "The Wolf of Wall Street", "Inception", "Django Unchained"],
+			"resposta": "The Revenant"
+		},
+		{
+			"numero": "C000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual série de terror da Netflix se passa na cidade fictícia de Hawkins?",
+			"hipoteses_resposta": ["Stranger Things", "Dark", "The Haunting of Hill House", "American Horror Story"],
+			"resposta": "Stranger Things"
+		},
+		{
+			"numero": "C000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'Mad Men', qual é a profissão de Don Draper?",
+			"hipoteses_resposta": ["Publicitário", "Jornalista", "Vendedor", "Executivo"],
+			"resposta": "Publicitário"
+		},
+		{
+			"numero": "C000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de Christopher Nolan trata sobre a manipulação do tempo?",
+			"hipoteses_resposta": ["Tenet", "Inception", "Interstellar", "Memento"],
+			"resposta": "Tenet"
+		},
+		{
+			"numero": "C000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em 'The Mandalorian', como é chamada a criança?",
+			"hipoteses_resposta": ["Grogu", "Baby Yoda", "The Child", "Todas as anteriores"],
+			"resposta": "Todas as anteriores"
+		},
+		{
+			"numero": "C000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual série retrata a vida na prisão feminina de Litchfield?",
+			"hipoteses_resposta": ["Orange Is the New Black", "Wentworth", "Bad Girls", "Prison Break"],
+			"resposta": "Orange Is the New Black"
+		},
+		{
+			"numero": "C000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual filme de terror de 2018 foi baseado num livro de Stephen King?",
+			"hipoteses_resposta": ["A Quiet Place", "Hereditary", "The Nun", "Nenhum dos anteriores"],
+			"resposta": "Nenhum dos anteriores"
+		}
+	]
+}

@@ -27,10 +27,11 @@ quiz/
   style.css
 
 
-temas a fazer
-astronomia
-arte
-bandeiras
+temas a fazer:
+
+
+continuar jogo 
+
 
 tmepo da pergunta
 timestnmp resposta
