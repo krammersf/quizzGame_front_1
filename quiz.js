@@ -255,13 +255,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // SEMPRE atualizar timer - mesmo se a pergunta não mudou - MAS SÓ SE NÃO ESTIVER EM COUNTDOWN
       if (!gameState.countdown && gameState.questionStartTime && !gameState.gameEnded) {
         console.log("Jogador: Atualizando timer sincronizado para pergunta", currentQuestionIndex + 1);
-        updateTimerDisplay(gameState.questionStartTime);
+        updateTimerDisplay(gameState.questionStartTime, gameState.timeLeft || 10);
       }
     });
   }
 
   // Função para atualizar o display do timer baseado no tempo do servidor
-  function updateTimerDisplay(questionStartTime) {
+  function updateTimerDisplay(questionStartTime, maxTime = 10) {
     // Limpar timer anterior se existir
     if (timerInterval) {
       clearTimeout(timerInterval);
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const updateTimer = () => {
       const elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
-      timeLeft = Math.max(0, 10 - elapsed);
+      timeLeft = Math.max(0, maxTime - elapsed);
       timerElement.textContent = `⏱️ ${timeLeft}s`;
       
       // Adicionar classe warning quando tempo < 5s

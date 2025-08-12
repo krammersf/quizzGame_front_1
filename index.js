@@ -101,6 +101,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     try {
+      // Ler tempo por pergunta da configuração
+      const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
+      
       // Gerar as perguntas para o jogo
       console.log("Host gerando perguntas para o jogo...");
       const questions = await generateQuestionsForGame();
@@ -111,7 +114,7 @@ window.addEventListener('DOMContentLoaded', () => {
         questions: questions,
         gameState: {
           currentQuestionIndex: -1, // -1 indica contador regressivo
-          timeLeft: 10,
+          timeLeft: timePerQuestion,
           questionStartTime: null,
           totalQuestions: questions.length,
           autoController: true,
@@ -168,7 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
           // Atualizar Firebase para iniciar primeira pergunta
           update(ref(db, `games/${createdGameId}/gameState`), {
             currentQuestionIndex: 0,
-            timeLeft: 10,
+            timeLeft: timePerQuestion,
             questionStartTime: Date.now(),
             countdown: false,
             countdownTime: 0
@@ -230,9 +233,10 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         
         // Atualizar Firebase para iniciar primeira pergunta
+        const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
         update(ref(db, `games/${createdGameId}/gameState`), {
           currentQuestionIndex: 0,
-          timeLeft: 10,
+          timeLeft: timePerQuestion,
           questionStartTime: Date.now(),
           countdown: false,
           countdownTime: 0
@@ -442,6 +446,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     let currentQuestion = 0;
     const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
+    const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
     let gameActive = true;
     
     console.log(`Host: Iniciando controlador do jogo com ${maxQuestions} perguntas`);
@@ -653,7 +658,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Avançar para próxima pergunta
       update(ref(db, `games/${createdGameId}/gameState`), {
         currentQuestionIndex: currentQuestion,
-        timeLeft: 10,
+        timeLeft: timePerQuestion,
         questionStartTime: questionStartTime,
         gameEnded: false,
         showingResults: false
@@ -1001,9 +1006,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para atualizar timer integrado
   function updateIntegratedTimer(questionStartTime) {
+    const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
+    
     const updateTimer = () => {
       const elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
-      const timeLeft = Math.max(0, 10 - elapsed);
+      const timeLeft = Math.max(0, timePerQuestion - elapsed);
       
       const timerDisplay = document.getElementById("timerDisplay");
       if (timerDisplay) {
