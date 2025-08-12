@@ -797,7 +797,7 @@ document.addEventListener("DOMContentLoaded", () => {
           sessionStorage.setItem("gameId", gameId);
           console.log("GameId guardado no sessionStorage:", gameId);
           console.log("Redirecionando para scoreboard.html");
-          window.location.href = "scoreboard.html";
+          window.location.href = `scoreboard.html?gameId=${gameId}`;
         } else {
           console.error("GameId não encontrado!");
           alert("Erro: ID do jogo não encontrado!");
@@ -840,7 +840,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = snapshot.val();
       const playersArray = Object.keys(data).map(name => ({
         name,
-        score: data[name].score || 0
+        score: data[name].score || 0,
+        fastestCount: data[name].fastestCount || 0
       }));
 
       // Ordenar por pontuação (maior primeiro)
@@ -870,6 +871,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <td style="text-align: center; padding: 8px;">${positionText}</td>
           <td style="padding: 8px;">${player.name}</td>
           <td style="text-align: center; padding: 8px;">${player.score}</td>
+          <td style="text-align: center; padding: 8px;">${player.fastestCount}</td>
         `;
         tbody.appendChild(tr);
       });

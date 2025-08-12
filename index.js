@@ -583,12 +583,36 @@ window.addEventListener('DOMContentLoaded', () => {
           
           const fastest = responseSpeedData[0];
           console.log(`🥇 Jogador mais rápido: ${fastest.playerName} ${fastest.isCorrect ? "✅" : "❌"}`);
+          
+          // Registrar na base de dados que este jogador foi o mais rápido
+          await updateFastestPlayerCounter(fastest.playerName);
         }
         
         return responseSpeedData;
         
       } catch (error) {
         console.error("❌ Erro ao analisar velocidade de resposta:", error);
+      }
+    }
+    
+    // Função para atualizar contador de jogador mais rápido
+    async function updateFastestPlayerCounter(playerName) {
+      try {
+        const playerRef = ref(db, `games/${createdGameId}/players/${playerName}`);
+        const playerSnapshot = await get(playerRef);
+        
+        if (playerSnapshot.exists()) {
+          const playerData = playerSnapshot.val();
+          const currentFastestCount = playerData.fastestCount || 0;
+          
+          await update(playerRef, {
+            fastestCount: currentFastestCount + 1
+          });
+          
+          console.log(`🏃‍♂️ ${playerName} foi o mais rápido ${currentFastestCount + 1} vez(es)`);
+        }
+      } catch (error) {
+        console.error("❌ Erro ao atualizar contador de mais rápido:", error);
       }
     }
     
