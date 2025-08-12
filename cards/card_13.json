@@ -1,0 +1,405 @@
+{
+	"card": "Futebol",
+	"perguntas": [
+		{
+			"numero": "F000001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual clube tem mais vitórias na Liga dos Campeões?",
+			"hipoteses_resposta": ["Real Madrid", "Barcelona", "AC Milan", "Liverpool"],
+			"resposta": "Real Madrid"
+		},
+		{
+			"numero": "F000002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi criada a FIFA?",
+			"hipoteses_resposta": ["1904", "1910", "1900", "1908"],
+			"resposta": "1904"
+		},
+		{
+			"numero": "F000003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador marcou o golo mais rápido da história da Premier League?",
+			"hipoteses_resposta": ["Alan Shearer", "Ledley King", "Thierry Henry", "Michael Owen"],
+			"resposta": "Ledley King"
+		},
+		{
+			"numero": "F000004",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país organizou o primeiro Mundial de Futebol?",
+			"hipoteses_resposta": ["Brasil", "Uruguai", "Argentina", "Inglaterra"],
+			"resposta": "Uruguai"
+		},
+		{
+			"numero": "F000005",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos Mundiais ganhou Pelé?",
+			"hipoteses_resposta": ["2", "3", "4", "1"],
+			"resposta": "3"
+		},
+		{
+			"numero": "F000006",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual clube português tem mais títulos nacionais?",
+			"hipoteses_resposta": ["Benfica", "Porto", "Sporting", "Belenenses"],
+			"resposta": "Benfica"
+		},
+		{
+			"numero": "F000007",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que estádio se realizou a final do Mundial de 1950?",
+			"hipoteses_resposta": ["Maracanã", "Wembley", "Santiago Bernabéu", "San Siro"],
+			"resposta": "Maracanã"
+		},
+		{
+			"numero": "F000008",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador detém o recorde de mais golos numa só edição do Mundial?",
+			"hipoteses_resposta": ["Just Fontaine", "Gerd Müller", "Pelé", "Ronaldo"],
+			"resposta": "Just Fontaine"
+		},
+		{
+			"numero": "F000009",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o primeiro clube a ganhar três Ligas dos Campeões consecutivas?",
+			"hipoteses_resposta": ["Real Madrid", "Ajax", "Bayern München", "Liverpool"],
+			"resposta": "Real Madrid"
+		},
+		{
+			"numero": "F000010",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano Portugal ganhou o Europeu?",
+			"hipoteses_resposta": ["2016", "2004", "2012", "2008"],
+			"resposta": "2016"
+		},
+		{
+			"numero": "F000011",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual cidade alberga o estádio Old Trafford?",
+			"hipoteses_resposta": ["Manchester", "Liverpool", "Londres", "Birmingham"],
+			"resposta": "Manchester"
+		},
+		{
+			"numero": "F000012",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos jogadores de campo tem uma equipa de futebol?",
+			"hipoteses_resposta": ["10", "11", "9", "12"],
+			"resposta": "10"
+		},
+		{
+			"numero": "F000013",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a duração regulamentar de um jogo de futebol?",
+			"hipoteses_resposta": ["90 minutos", "80 minutos", "100 minutos", "85 minutos"],
+			"resposta": "90 minutos"
+		},
+		{
+			"numero": "F000014",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que país nasceu Diego Maradona?",
+			"hipoteses_resposta": ["Argentina", "Brasil", "Uruguai", "Chile"],
+			"resposta": "Argentina"
+		},
+		{
+			"numero": "F000015",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a primeira seleção africana a chegar aos quartos-de-final de um Mundial?",
+			"hipoteses_resposta": ["Camarões", "Nigéria", "Gana", "Senegal"],
+			"resposta": "Camarões"
+		},
+		{
+			"numero": "F000016",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador marcou o golo que deu a vitória a Portugal no Euro 2016?",
+			"hipoteses_resposta": ["Eder", "Cristiano Ronaldo", "Nani", "Pepe"],
+			"resposta": "Eder"
+		},
+		{
+			"numero": "F000017",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube Zinedine Zidane terminou a carreira como jogador?",
+			"hipoteses_resposta": ["Real Madrid", "Juventus", "Marseille", "Bordeaux"],
+			"resposta": "Real Madrid"
+		},
+		{
+			"numero": "F000018",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual país ganhou o Mundial de 2018?",
+			"hipoteses_resposta": ["França", "Croácia", "Bélgica", "Inglaterra"],
+			"resposta": "França"
+		},
+		{
+			"numero": "F000019",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas substituições são permitidas em cada equipa durante um jogo?",
+			"hipoteses_resposta": ["5", "3", "4", "6"],
+			"resposta": "5"
+		},
+		{
+			"numero": "F000020",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o clube com mais participações na Liga dos Campeões?",
+			"hipoteses_resposta": ["Real Madrid", "Barcelona", "Bayern München", "Manchester United"],
+			"resposta": "Real Madrid"
+		},
+		{
+			"numero": "F000021",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi disputado o primeiro jogo da história da FIFA?",
+			"hipoteses_resposta": ["1904", "1900", "1908", "1912"],
+			"resposta": "1904"
+		},
+		{
+			"numero": "F000022",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador português marcou mais golos pela seleção nacional?",
+			"hipoteses_resposta": ["Cristiano Ronaldo", "Eusébio", "Luís Figo", "Pauleta"],
+			"resposta": "Cristiano Ronaldo"
+		},
+		{
+			"numero": "F000023",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o resultado da final da Liga dos Campeões de 1999 entre Manchester United e Bayern München?",
+			"hipoteses_resposta": ["2-1", "1-0", "3-2", "2-0"],
+			"resposta": "2-1"
+		},
+		{
+			"numero": "F000024",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que estádio joga habitualmente o FC Barcelona?",
+			"hipoteses_resposta": ["Camp Nou", "Santiago Bernabéu", "Wanda Metropolitano", "Ramón Sánchez-Pizjuán"],
+			"resposta": "Camp Nou"
+		},
+		{
+			"numero": "F000025",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual seleção ganhou mais Campeonatos Europeus?",
+			"hipoteses_resposta": ["Alemanha e Espanha", "França", "Itália", "Holanda"],
+			"resposta": "Alemanha e Espanha"
+		},
+		{
+			"numero": "F000026",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos mundiais tem o Brasil?",
+			"hipoteses_resposta": ["5", "4", "6", "3"],
+			"resposta": "5"
+		},
+		{
+			"numero": "F000027",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador foi conhecido como 'O Fenómeno'?",
+			"hipoteses_resposta": ["Ronaldo Nazário", "Ronaldinho", "Cristiano Ronaldo", "Kaká"],
+			"resposta": "Ronaldo Nazário"
+		},
+		{
+			"numero": "F000028",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube inglês jogou Cristiano Ronaldo?",
+			"hipoteses_resposta": ["Manchester United", "Chelsea", "Arsenal", "Liverpool"],
+			"resposta": "Manchester United"
+		},
+		{
+			"numero": "F000029",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é a máxima competição de clubes europeus?",
+			"hipoteses_resposta": ["Liga dos Campeões", "Liga Europa", "Taça UEFA", "Recopa Europeia"],
+			"resposta": "Liga dos Campeões"
+		},
+		{
+			"numero": "F000030",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano decorreu o Mundial de Futebol em Portugal?",
+			"hipoteses_resposta": ["Nunca", "1966", "2004", "1998"],
+			"resposta": "Nunca"
+		},
+		{
+			"numero": "F000031",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador detém o recorde de mais Bolas de Ouro conquistadas?",
+			"hipoteses_resposta": ["Lionel Messi", "Cristiano Ronaldo", "Johan Cruyff", "Michel Platini"],
+			"resposta": "Lionel Messi"
+		},
+		{
+			"numero": "F000032",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que posição joga tradicionalmente um 'libero'?",
+			"hipoteses_resposta": ["Defesa central", "Médio defensivo", "Lateral", "Guarda-redes"],
+			"resposta": "Defesa central"
+		},
+		{
+			"numero": "F000033",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi o primeiro país a ganhar um Mundial fora do seu continente?",
+			"hipoteses_resposta": ["Brasil", "Argentina", "Alemanha", "Uruguai"],
+			"resposta": "Brasil"
+		},
+		{
+			"numero": "F000034",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos minutos tem cada parte de um jogo de futebol?",
+			"hipoteses_resposta": ["45", "40", "50", "35"],
+			"resposta": "45"
+		},
+		{
+			"numero": "F000035",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual clube italiano tem mais títulos da Serie A?",
+			"hipoteses_resposta": ["Juventus", "AC Milan", "Inter Milan", "AS Roma"],
+			"resposta": "Juventus"
+		},
+		{
+			"numero": "F000036",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que estádio se disputa habitualmente a final da Liga dos Campeões?",
+			"hipoteses_resposta": ["Varia todos os anos", "Wembley", "Santiago Bernabéu", "Camp Nou"],
+			"resposta": "Varia todos os anos"
+		},
+		{
+			"numero": "F000037",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador marcou o golo do título do Manchester City em 2012?",
+			"hipoteses_resposta": ["Sergio Agüero", "Mario Balotelli", "Carlos Tevez", "Edin Džeko"],
+			"resposta": "Sergio Agüero"
+		},
+		{
+			"numero": "F000038",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos jogadores pode ter um clube inscrito na Liga dos Campeões?",
+			"hipoteses_resposta": ["25", "23", "30", "28"],
+			"resposta": "25"
+		},
+		{
+			"numero": "F000039",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual seleção foi campeã mundial em 2006?",
+			"hipoteses_resposta": ["Itália", "França", "Alemanha", "Brasil"],
+			"resposta": "Itália"
+		},
+		{
+			"numero": "F000040",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que ano foi criada a Premier League inglesa?",
+			"hipoteses_resposta": ["1992", "1990", "1995", "1988"],
+			"resposta": "1992"
+		},
+		{
+			"numero": "F000041",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o estádio com maior capacidade do mundo?",
+			"hipoteses_resposta": ["Rungrado 1º de Maio", "Maracanã", "Camp Nou", "Wembley"],
+			"resposta": "Rungrado 1º de Maio"
+		},
+		{
+			"numero": "F000042",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantas equipas participam na fase de grupos da Liga dos Campeões?",
+			"hipoteses_resposta": ["32", "24", "36", "28"],
+			"resposta": "32"
+		},
+		{
+			"numero": "F000043",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual clube alemão tem mais títulos da Bundesliga?",
+			"hipoteses_resposta": ["Bayern München", "Borussia Dortmund", "Hamburger SV", "Werder Bremen"],
+			"resposta": "Bayern München"
+		},
+		{
+			"numero": "F000044",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que Mundial Eusébio foi o melhor marcador?",
+			"hipoteses_resposta": ["1966", "1962", "1970", "1974"],
+			"resposta": "1966"
+		},
+		{
+			"numero": "F000045",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual jogador francês ganhou a Bola de Ouro em 1998?",
+			"hipoteses_resposta": ["Zinedine Zidane", "Thierry Henry", "Michel Platini", "Karim Benzema"],
+			"resposta": "Zinedine Zidane"
+		},
+		{
+			"numero": "F000046",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Quantos golos marcou Pelé na sua carreira profissional (aproximadamente)?",
+			"hipoteses_resposta": ["1000+", "800", "1200", "900"],
+			"resposta": "1000+"
+		},
+		{
+			"numero": "F000047",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual foi a primeira seleção a defender com sucesso um título mundial?",
+			"hipoteses_resposta": ["Itália", "Uruguai", "Brasil", "Alemanha"],
+			"resposta": "Itália"
+		},
+		{
+			"numero": "F000048",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que clube Kaká ganhou a Bola de Ouro em 2007?",
+			"hipoteses_resposta": ["AC Milan", "Real Madrid", "São Paulo", "Orlando City"],
+			"resposta": "AC Milan"
+		},
+		{
+			"numero": "F000049",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual é o recorde de vitórias consecutivas numa época da Premier League?",
+			"hipoteses_resposta": ["18", "16", "20", "14"],
+			"resposta": "18"
+		},
+		{
+			"numero": "F000050",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Em que estádio Portugal ganhou o Euro 2016?",
+			"hipoteses_resposta": ["Stade de France", "Wembley", "Allianz Arena", "San Siro"],
+			"resposta": "Stade de France"
+		}
+	]
+}
