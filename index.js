@@ -1241,6 +1241,14 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("player1AnswerSection").style.display = "none";
     document.getElementById("timerDisplay").textContent = "🎉 Fim do Jogo!";
     
+    // Esconder estatísticas após 5 segundos
+    setTimeout(() => {
+      const statsDisplay = document.getElementById("statisticsDisplay");
+      if (statsDisplay) {
+        statsDisplay.style.display = "none";
+      }
+    }, 5000);
+    
     // Mostrar botões finais
     document.getElementById("finalButtons").style.display = "block";
   }
