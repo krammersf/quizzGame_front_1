@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const playerName = document.getElementById("playerName").value.trim();
     const totalPlayers = parseInt(document.getElementById("totalPlayers").value);
     const maxQuestions = parseInt(document.getElementById("maxQuestions").value);
+    const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
     const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
     const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
 
@@ -47,6 +48,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     if (isNaN(maxQuestions) || maxQuestions < 1) {
       alert("O número máximo de perguntas deve ser pelo menos 1.");
+      return;
+    }
+    if (isNaN(timePerQuestion) || timePerQuestion < 10 || timePerQuestion > 20) {
+      alert("⚠️ Erro: O tempo por pergunta deve estar entre 10 e 20 segundos!");
       return;
     }
     if (isNaN(pointsCorrect)) {
@@ -103,6 +108,12 @@ window.addEventListener('DOMContentLoaded', () => {
     try {
       // Ler tempo por pergunta da configuração
       const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
+      
+      // Validar tempo por pergunta (deve estar entre 10 e 20 segundos)
+      if (isNaN(timePerQuestion) || timePerQuestion < 10 || timePerQuestion > 20) {
+        alert("⚠️ Erro: O tempo por pergunta deve estar entre 10 e 20 segundos!");
+        return;
+      }
       
       // Gerar as perguntas para o jogo
       console.log("Host gerando perguntas para o jogo...");
