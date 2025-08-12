@@ -100,6 +100,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!data) return;
 
       gameConfig = data.config;
+      
+      // Atualizar timeLeft com a configuração do jogo
+      if (gameConfig?.timePerQuestion) {
+        timeLeft = gameConfig.timePerQuestion;
+        console.log(`⏰ TimeLeft atualizado para: ${timeLeft}s (das configurações do jogo)`);
+      }
+      
       const players = data.players || {};
       const totalPlayers = gameConfig?.totalPlayers || 0;
       const connectedPlayers = Object.keys(players).length;

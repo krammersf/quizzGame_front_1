@@ -74,6 +74,7 @@ window.addEventListener('DOMContentLoaded', () => {
       config: {
         totalPlayers,
         maxQuestions,
+        timePerQuestion,
         pointsCorrect,
         pointsWrong,
         selectedCards
