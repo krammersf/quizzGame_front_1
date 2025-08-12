@@ -562,7 +562,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Atualizar contador de perguntas
     const questionNumber = currentQuestionIndex + 1;
     const totalQuestions = questions.length;
-    document.getElementById("questionCounter").textContent = `Pergunta ${questionNumber} / ${totalQuestions}`;
+    const questionCode = q.numero || '';
+    document.getElementById("questionCounter").innerHTML = `${questionNumber}/${totalQuestions} <span style="color: #999; font-size: 0.85em;">[${questionCode}]</span>`;
     
     // Mostrar question box com nova classe
     const questionBox = document.getElementById("questionBox");

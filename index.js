@@ -920,10 +920,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const imgElement = document.getElementById("questionImage");
     const currentQuestionDisplay = document.getElementById("currentQuestionDisplay");
     
-    // Atualizar título com formato: "X / Y [numero_original]" onde [numero_original] é do card
+    // Atualizar título com formato: "X/Y [numero_original]" onde [numero_original] é do card
     if (questionTitle) {
       questionTitle.innerHTML = 
-        `<span style="color: #b0b0b0; font-weight: 600;">${integratedCurrentQuestion + 1} / ${integratedQuestions.length} [${question.numero}]</span>`;
+        `${integratedCurrentQuestion + 1}/${integratedQuestions.length} <span style="color: #999; font-size: 0.85em;">[${question.numero}]</span>`;
     }
     
     // Mostrar pergunta (usar 'pergunta' em vez de 'question')
