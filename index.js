@@ -555,11 +555,11 @@ window.addEventListener('DOMContentLoaded', () => {
         const playersData = playersSnapshot.val();
         const responseSpeedData = [];
         
-        // Coletar timestamps de resposta de todos os jogadores
+        // Coletar timestamps de resposta de todos os jogadores (apenas corretas)
         for (const [playerName, player] of Object.entries(playersData)) {
           if (player.rounds && player.rounds[questionIndex]) {
             const roundData = player.rounds[questionIndex];
-            if (roundData.responseTimestamp && !roundData.timeExpired) {
+            if (roundData.responseTimestamp && !roundData.timeExpired && roundData.isCorrect) {
               responseSpeedData.push({
                 playerName: playerName,
                 responseTimestamp: roundData.responseTimestamp,
@@ -574,7 +574,7 @@ window.addEventListener('DOMContentLoaded', () => {
         responseSpeedData.sort((a, b) => a.responseTimestamp - b.responseTimestamp);
         
         if (responseSpeedData.length > 0) {
-          console.log("🏃‍♂️ Velocidade de Resposta (mais rápido primeiro):");
+          console.log("🏃‍♂️ Velocidade de Resposta CORRETAS (mais rápido primeiro):");
           responseSpeedData.forEach((data, index) => {
             const position = index + 1;
             const correctEmoji = data.isCorrect ? "✅" : "❌";
@@ -813,6 +813,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let integratedCurrentQuestion = -1; // Começar em -1 para detectar a primeira pergunta corretamente
   let integratedPlayerScore = 0;
   let integratedPlayerAnswer = null;
+  let integratedPlayerResponseTimestamp = null; // Timestamp da resposta do jogador 1
   let integratedGameActive = false;
   let integratedAnswerProcessed = false; // Controla se a resposta já foi processada
   let countdownActive = false; // Nova variável para rastrear countdown
@@ -952,6 +953,7 @@ window.addEventListener('DOMContentLoaded', () => {
         
         integratedCurrentQuestion = gameState.currentQuestionIndex;
         integratedPlayerAnswer = null;
+        integratedPlayerResponseTimestamp = null; // Reset do timestamp
         integratedAnswerProcessed = false; // Reset para nova pergunta
         
         // Recarregar perguntas se necessário
@@ -1055,6 +1057,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // Reset da resposta para nova pergunta
     integratedPlayerAnswer = null; // Reset da variável de resposta
+    integratedPlayerResponseTimestamp = null; // Reset do timestamp
     document.getElementById("player1Answer").textContent = "";
     resetIntegratedAnswerButtons();
     
@@ -1308,7 +1311,7 @@ window.addEventListener('DOMContentLoaded', () => {
       isCorrect: isCorrect,
       pointsEarned: pointsThisRound,
       timestamp: Date.now(),
-      responseTimestamp: Date.now() // Timestamp específico da resposta para calcular velocidade
+      responseTimestamp: integratedPlayerResponseTimestamp || Date.now() // Usar timestamp da resposta capturado quando clicou
     };
     
     // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
@@ -1325,7 +1328,7 @@ window.addEventListener('DOMContentLoaded', () => {
       points: pointsThisRound,
       isCorrect: isCorrect,
       timestamp: Date.now(),
-      responseTimestamp: Date.now() // Timestamp específico da resposta
+      responseTimestamp: integratedPlayerResponseTimestamp || Date.now() // Usar timestamp da resposta capturado quando clicou
     };
     
     // Atualizar ambas as estruturas no Firebase
@@ -1386,6 +1389,10 @@ window.addEventListener('DOMContentLoaded', () => {
         
         const answer = e.target.dataset.answer;
         integratedPlayerAnswer = answer;
+        
+        // CAPTURAR TIMESTAMP IMEDIATAMENTE quando jogador 1 responde
+        integratedPlayerResponseTimestamp = Date.now();
+        console.log(`⏰ Jogador 1 respondeu às ${new Date(integratedPlayerResponseTimestamp).toLocaleTimeString()}`);
         
         // Visual feedback - resetar todos os botões primeiro
         resetIntegratedAnswerButtons();
