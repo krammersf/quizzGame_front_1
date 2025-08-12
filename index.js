@@ -152,7 +152,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para iniciar contador regressivo
   function startCountdown() {
-    console.log("🚀 Iniciando contador regressivo...");
     countdownActive = true; // Marcar countdown como ativo
     let countdownTime = 10;
     
