@@ -610,7 +610,7 @@
 <body>
   <div class="quiz-container">
     <!-- Timer fixo estilo Kahoot -->
-    <div id="timerDisplay" class="timer-container">⏱️ 10s</div>
+    <div id="timerDisplay" class="timer-container">⏱️ --s</div>
     
     <!-- Header do Quiz -->
     <div class="quiz-header">
@@ -672,6 +672,16 @@
     </div>
   </div>
 
+  <script>
+    // Inicializar timer com valor padrão para outros jogadores
+    document.addEventListener('DOMContentLoaded', function() {
+      const timerDisplay = document.getElementById('timerDisplay');
+      if (timerDisplay) {
+        // Inicializar com 10s, será atualizado quando receber dados do Firebase
+        timerDisplay.textContent = '⏱️ 10s';
+      }
+    });
+  </script>
   <script type="module" src="quiz.js"></script>
 </body>
 </html>

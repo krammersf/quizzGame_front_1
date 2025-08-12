@@ -1004,6 +1004,13 @@ window.addEventListener('DOMContentLoaded', () => {
     // Atualizar status
     document.getElementById("statusText").textContent = 
       `🎯 Pergunta ${integratedCurrentQuestion + 1}: Responde!`;
+    
+    // Inicializar timer com o tempo configurado
+    const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value) || 10;
+    const timerDisplay = document.getElementById("timerDisplay");
+    if (timerDisplay) {
+      timerDisplay.textContent = `⏰ ${timePerQuestion}s`;
+    }
   }
 
   // Função para reset dos botões de resposta

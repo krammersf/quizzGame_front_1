@@ -475,7 +475,7 @@
           <h3 id="questionTitle">Pergunta 1 de 10</h3>
           <div class="question-info">
             <span id="questionCounter" style="font-weight: bold; color: rgba(255,255,255,0.8);">1/10</span>
-            <span id="timerDisplay" class="timer-display">⏰ 10s</span>
+            <span id="timerDisplay" class="timer-display">⏰ --s</span>
           </div>
         </div>
         <div id="questionContent" class="question-content">
@@ -520,6 +520,29 @@
     </div>
   </div>
 
+  <script>
+    // Inicializar timer com valor padrão quando página carrega
+    document.addEventListener('DOMContentLoaded', function() {
+      const timePerQuestionInput = document.getElementById('timePerQuestion');
+      const timerDisplay = document.getElementById('timerDisplay');
+      
+      if (timePerQuestionInput && timerDisplay) {
+        const defaultTime = timePerQuestionInput.value || 10;
+        timerDisplay.textContent = `⏰ ${defaultTime}s`;
+      }
+      
+      // Atualizar timer quando campo muda
+      if (timePerQuestionInput) {
+        timePerQuestionInput.addEventListener('input', function() {
+          const timerDisplay = document.getElementById('timerDisplay');
+          if (timerDisplay) {
+            const newTime = this.value || 10;
+            timerDisplay.textContent = `⏰ ${newTime}s`;
+          }
+        });
+      }
+    });
+  </script>
   <script type="module" src="index.js"></script>
 </body>
 </html>
