@@ -563,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionNumber = currentQuestionIndex + 1;
     const totalQuestions = questions.length;
     const questionCode = q.numero || '';
-    document.getElementById("questionCounter").innerHTML = `${questionNumber}/${totalQuestions} <span style="color: #999; font-size: 0.85em;">[${questionCode}]</span>`;
+    document.getElementById("questionCounter").innerHTML = `<span style="color: #ccc; font-size: 0.85rem;">${questionNumber}/${totalQuestions} [${questionCode}]</span>`;
     
     // Mostrar question box com nova classe
     const questionBox = document.getElementById("questionBox");

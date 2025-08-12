@@ -923,7 +923,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Atualizar título com formato: "X/Y [numero_original]" onde [numero_original] é do card
     if (questionTitle) {
       questionTitle.innerHTML = 
-        `${integratedCurrentQuestion + 1}/${integratedQuestions.length} <span style="color: #999; font-size: 0.85em;">[${question.numero}]</span>`;
+        `<span style="color: #ccc; font-size: 0.85rem;">${integratedCurrentQuestion + 1}/${integratedQuestions.length} [${question.numero}]</span>`;
     }
     
     // Mostrar pergunta (usar 'pergunta' em vez de 'question')
