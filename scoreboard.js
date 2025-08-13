@@ -44,8 +44,7 @@ onValue(playersRef, (snapshot) => {
     
     const playersArray = Object.keys(data).map(name => ({
       name,
-      score: data[name].score || 0,
-      fastestCount: data[name].fastestCount || 0
+      score: data[name].score || 0
     }));
 
     console.log("Array de jogadores:", playersArray);
