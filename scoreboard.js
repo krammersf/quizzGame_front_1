@@ -82,7 +82,6 @@ onValue(playersRef, (snapshot) => {
           <td>${positionText}</td>
           <td>${player.name}</td>
           <td>${player.score}</td>
-          <td>${player.fastestCount}x</td>
         `;
         tbody.appendChild(tr);
       });
