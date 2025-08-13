@@ -903,20 +903,46 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const gameState = snapshot.val();
       
-      // Se não há questionStartTime ou o jogo está parado há muito tempo, assumir controlo
+      // Log de status para debug
+      if (gameState.hostLastSeen) {
+        const timeSinceHostSeen = Date.now() - gameState.hostLastSeen;
+        console.log(`🔍 Player ${playerName}: Host visto há ${Math.round(timeSinceHostSeen/1000)}s`);
+      }
+      
+      // APENAS assumir controle se não há host ativo ou se o host falhou há muito tempo
       if (gameState.autoController && gameState.questionStartTime) {
         const timeSinceStart = Date.now() - gameState.questionStartTime;
         
-        // Se passou mais de 8 segundos desde o início da pergunta e não está a mostrar resultados
-        if (timeSinceStart > 8000 && !gameState.showingResults && !gameState.gameEnded) {
-          console.log("Controlo automático: Forçando resultados após 8s (backup ativo)");
+        // Verificar se o host está ativo através do heartbeat
+        const hostLastSeen = gameState.hostLastSeen || 0;
+        const timeSinceHostSeen = Date.now() - hostLastSeen;
+        const hostActive = gameState.hostActive && timeSinceHostSeen < 10000; // Host ativo se visto há menos de 10s
+        
+        // AUMENTAR tempo de tolerância para 15 segundos para evitar conflitos
+        // Só assumir controle se realmente parece que o host falhou
+        if (timeSinceStart > 15000 && !gameState.showingResults && !gameState.gameEnded && !hostActive) {
+          
+          // Verificar se já há um backup ativo
+          if (gameState.backupController && gameState.backupController !== playerName) {
+            console.log(`🚫 Backup já ativo: ${gameState.backupController}`);
+            return;
+          }
+          
+          console.log("⚠️ Host parece inativo. Backup assumindo controle após 15s...");
+          
+          // Verificar se não é o próprio host
+          if (gameState.hostId && gameState.hostId === playerName) {
+            console.log("🚫 Não posso ser backup de mim mesmo");
+            return;
+          }
           
           // Forçar mostrar resultados
           update(ref(db, `games/${gameId}/gameState`), {
             ...gameState,
             showingResults: true,
             timeLeft: 0,
-            resultsStartTime: Date.now()
+            resultsStartTime: Date.now(),
+            backupController: playerName // Marcar quem assumiu controle
           });
           
           // Avançar para próxima pergunta após 5 segundos
@@ -945,11 +971,30 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 5000);
         }
         
-        // Se está a mostrar resultados há mais de 6 segundos, avançar
+        // Se está a mostrar resultados há mais de 10 segundos, avançar (aumentado tolerância)
         if (gameState.showingResults && gameState.resultsStartTime) {
           const timeSinceResults = Date.now() - gameState.resultsStartTime;
-          if (timeSinceResults > 6000) {
-            console.log("Controlo automático: Avançando após 6s de resultados (backup ativo)");
+          
+          // Verificar se o host está ativo através do heartbeat
+          const hostLastSeen = gameState.hostLastSeen || 0;
+          const timeSinceHostSeen = Date.now() - hostLastSeen;
+          const hostActive = gameState.hostActive && timeSinceHostSeen < 10000;
+          
+          if (timeSinceResults > 10000 && !hostActive) {
+            
+            // Verificar se já há um backup ativo
+            if (gameState.backupController && gameState.backupController !== playerName) {
+              console.log(`🚫 Backup já ativo: ${gameState.backupController}`);
+              return;
+            }
+            
+            console.log("⚠️ Backup: Avançando após 10s de resultados (host inativo)");
+            
+            // Verificar se não é o próprio host
+            if (gameState.hostId && gameState.hostId === playerName) {
+              console.log("🚫 Não posso ser backup de mim mesmo");
+              return;
+            }
             
             const nextQuestionIndex = gameState.currentQuestionIndex + 1;
             if (nextQuestionIndex >= questions.length) {

@@ -131,6 +131,7 @@ window.addEventListener('DOMContentLoaded', () => {
           questionStartTime: null,
           totalQuestions: questions.length,
           autoController: true,
+          hostId: creatorName, // Identificar quem é o host oficial
           countdown: true, // Flag para indicar contador regressivo
           countdownTime: timePerQuestion // Contador inicial usando tempo configurado
         }
@@ -487,6 +488,15 @@ window.addEventListener('DOMContentLoaded', () => {
       if (!gameActive) return;
       
       console.log("Host: Heartbeat ATIVO - ", new Date().toLocaleTimeString());
+      
+      // Atualizar heartbeat no Firebase para informar jogadores que host está ativo
+      update(ref(db, `games/${createdGameId}/gameState`), {
+        hostLastSeen: Date.now(),
+        hostActive: true,
+        backupController: null // Limpar backup quando host está ativo
+      }).catch(err => {
+        console.log("Erro no heartbeat:", err);
+      });
       document.title = `🎮 NÃO MUDES DE ABA! ${new Date().toLocaleTimeString()}`;
       
       // Audio silencioso para manter aba ativa (se necessário)
