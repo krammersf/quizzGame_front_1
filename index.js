@@ -599,13 +599,17 @@ window.addEventListener('DOMContentLoaded', () => {
           
           console.log(`📝 Jogador ${playerName} - answer: "${playerAnswer}" | selectedAnswer: "${selectedAnswer}" | timeExpired: ${timeExpired} | Correta: "${correctAnswer}"`);
           
-          // Verificar se realmente respondeu algo (não é null ou undefined)
+          // Verificar se realmente respondeu algo (não é null ou undefined ou "SEM_RESPOSTA")
           if (!playerAnswer && !selectedAnswer) {
             // Não respondeu - contabilizar como sem resposta
             noAnswerCount++;
             console.log(`⏰ ${playerName}: SEM RESPOSTA (answer e selectedAnswer são null)`);
+          } else if (playerAnswer === "SEM_RESPOSTA" || selectedAnswer === "SEM_RESPOSTA") {
+            // Host não respondeu (usa "SEM_RESPOSTA")
+            noAnswerCount++;
+            console.log(`⏰ ${playerName}: SEM RESPOSTA (valor SEM_RESPOSTA)`);
           } else {
-            // Tem uma resposta - verificar se está correta
+            // Tem uma resposta válida - verificar se está correta
             let playerAnswerText;
             if (selectedAnswer) {
               playerAnswerText = selectedAnswer;

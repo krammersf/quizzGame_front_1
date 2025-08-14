@@ -624,6 +624,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const answersBox = document.getElementById("answersBox");
 
+    // Se já existem botões para esta pergunta, não recriar (proteção adicional)
+    if (answersBox.children.length > 0) {
+      console.log("Botões já existem, preservando estado");
+      return;
+    }
+
     // Antes de limpar, desativa os botões para evitar cliques extras durante transição
     Array.from(answersBox.children).forEach(btn => btn.disabled = true);
 
