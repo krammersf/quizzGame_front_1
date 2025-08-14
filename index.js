@@ -771,6 +771,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // Começar a escutar mudanças no estado do jogo
     listenToIntegratedGameState();
     
+    // Configurar botões de resposta do Jogador 1
+    setupIntegratedPlayer1Answers();
+    
     // Verificar se o jogo já está ativo e forçar atualização
     setTimeout(() => {
       const gameStateRef = ref(db, `games/${createdGameId}/gameState`);
@@ -791,8 +794,8 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }, 1000); // Dar tempo para as perguntas carregarem
     
-    // Host apenas controla o jogo - NÃO participa como jogador
-    console.log("🎮 Host configurado apenas como controlador do jogo");
+    // Host agora participa como jogador e controla o jogo
+    console.log("🎮 Host configurado como controlador E jogador");
   }
 
   // Host apenas controla o jogo - variáveis de jogador removidas
@@ -992,31 +995,12 @@ window.addEventListener('DOMContentLoaded', () => {
     // Atualizar botões com o texto das respostas (sem mostrar A), B), C), D))
     const options = question.hipoteses_resposta;
     if (options && options.length >= 4) {
-      // Atualizar elementos de display das respostas para o host (somente visualização)
-      const answerA = document.getElementById("answerA");
-      const answerB = document.getElementById("answerB");
-      const answerC = document.getElementById("answerC");
-      const answerD = document.getElementById("answerD");
-      const answersDisplay = document.getElementById("answersDisplay");
-      
-      if (answerA && answerB && answerC && answerD) {
-        answerA.textContent = `A) ${options[0]}`;
-        answerB.textContent = `B) ${options[1]}`;
-        answerC.textContent = `C) ${options[2]}`;
-        answerD.textContent = `D) ${options[3]}`;
-        
-        // Mostrar as opções no painel do host
-        if (answersDisplay) {
-          answersDisplay.style.display = "block";
-        }
-      }
-      
       const answerButtons = document.querySelectorAll(".player1-answer-btn");
       if (answerButtons.length >= 4) {
-        answerButtons[0].textContent = options[0]; // Só o texto
-        answerButtons[1].textContent = options[1];
-        answerButtons[2].textContent = options[2];
-        answerButtons[3].textContent = options[3];
+        answerButtons[0].textContent = `A) ${options[0]}`;
+        answerButtons[1].textContent = `B) ${options[1]}`;
+        answerButtons[2].textContent = `C) ${options[2]}`;
+        answerButtons[3].textContent = `D) ${options[3]}`;
         
         // DESBLOQUEAR todos os botões para nova pergunta e resetar classes CSS
         resetIntegratedAnswerButtons();
@@ -1041,8 +1025,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // Mostrar secções relevantes
     if (currentQuestionDisplay) currentQuestionDisplay.style.display = "block";
     
-    // Host apenas vê as perguntas - NÃO pode responder
-    document.getElementById("player1AnswerSection").style.display = "none";
+    // Host pode participar como jogador - mostrar botões de resposta
+    document.getElementById("player1AnswerSection").style.display = "grid";
     
     // Reset da resposta para nova pergunta
     integratedPlayerAnswer = null; // Reset da variável de resposta
@@ -1052,6 +1036,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const player1AnswerElement = document.getElementById("player1Answer");
     if (player1AnswerElement) {
       player1AnswerElement.textContent = "";
+      player1AnswerElement.style.display = "none";
     }
     
     resetIntegratedAnswerButtons();
@@ -1192,7 +1177,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // Função para mostrar resultados da resposta integrada
-  function showIntegratedAnswerResults() {
+  async function showIntegratedAnswerResults() {
     // Verificar se já foi processado para evitar duplicação
     if (integratedAnswerProcessed) {
       console.log("⚠️ Resposta já processada, ignorando chamada duplicada");
@@ -1215,32 +1200,88 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     if (!integratedPlayerAnswer) {
-      console.log("🚫 Jogador 1 não respondeu - aplicando 0 pontos");
-      // HOST APENAS CONTROLA - NÃO CALCULA PONTUAÇÃO
-      console.log("⏰ Host: Tempo esgotado - apenas controlando fluxo");
+      console.log("🚫 Host não respondeu - aplicando 0 pontos");
       
-      // REMOVIDO: Cálculo de pontuação do host
-      // Host não participa como jogador
-      // HOST NÃO SALVA DADOS COMO JOGADOR
-      // REMOVIDO: Todo o código de salvamento de dados do host no Firebase
-      console.log("⏰ Host: Tempo esgotado processado - apenas controle de fluxo");
+      // Calcular e salvar pontuação para o host
+      await saveIntegratedPlayerScore(question, false, 0, null);
       
       return;
     }
     
-    // HOST NÃO CALCULA PONTUAÇÃO - APENAS CONTROLA FLUXO
-    console.log("🎮 Host: Processando resposta apenas para controle de jogo");
+    // Calcular se a resposta está correta
+    const correctAnswerLetter = String.fromCharCode(65 + question.hipoteses_resposta.indexOf(correctAnswer));
+    const isCorrect = integratedPlayerAnswer === correctAnswerLetter;
     
-    // REMOVIDO: Toda a lógica de pontuação do host
-    // O host apenas aplica feedback visual mas não salva dados como jogador
+    let pointsEarned = 0;
+    if (isCorrect) {
+      pointsEarned = parseInt(document.getElementById("pointsCorrect").value) || 10;
+      console.log(`✅ Host respondeu CORRETAMENTE: +${pointsEarned} pontos`);
+    } else {
+      pointsEarned = parseInt(document.getElementById("pointsWrong").value) || 0;
+      console.log(`❌ Host respondeu INCORRETAMENTE: ${pointsEarned} pontos`);
+    }
     
-    // HOST NÃO SALVA DADOS NO FIREBASE COMO JOGADOR
-    console.log("🎮 Host: Resposta processada - apenas controle visual");
+    // Calcular tempo de resposta
+    let responseTime = null;
+    if (integratedPlayerResponseTimestamp) {
+      const gameStateRef = ref(db, `games/${createdGameId}/gameState`);
+      const gameStateSnapshot = await get(gameStateRef);
+      
+      if (gameStateSnapshot.exists()) {
+        const gameState = gameStateSnapshot.val();
+        if (gameState.questionStartTime) {
+          responseTime = integratedPlayerResponseTimestamp - gameState.questionStartTime;
+          console.log(`⏰ Host tempo de resposta: ${responseTime}ms`);
+        }
+      }
+    }
     
-    // REMOVIDO: Todo código de salvamento de dados do host
+    // Salvar pontuação no Firebase
+    await saveIntegratedPlayerScore(question, isCorrect, pointsEarned, responseTime);
     
-    // HOST NÃO ATUALIZA FIREBASE COMO JOGADOR
-    console.log("🎮 Host: Apenas controle - sem dados salvos no Firebase");
+    // Mostrar resultado visual
+    const player1AnswerElement = document.getElementById("player1Answer");
+    if (player1AnswerElement) {
+      if (isCorrect) {
+        player1AnswerElement.textContent = `✅ Correto! +${pointsEarned} pontos`;
+        player1AnswerElement.style.color = "#4CAF50";
+      } else {
+        const correctText = question.hipoteses_resposta[correctIndex];
+        player1AnswerElement.textContent = `❌ Errado! Resposta: ${correctAnswerLetter}) ${correctText}`;
+        player1AnswerElement.style.color = "#F44336";
+      }
+      player1AnswerElement.style.display = "block";
+    }
+  }
+  
+  // Função para salvar pontuação do host integrado no Firebase
+  async function saveIntegratedPlayerScore(question, isCorrect, pointsEarned, responseTime) {
+    try {
+      const updates = {};
+      
+      // Salvar dados da pergunta
+      updates[`games/${createdGameId}/players/${creatorName}/questions/q${integratedCurrentQuestion}`] = {
+        answer: integratedPlayerAnswer || "SEM_RESPOSTA",
+        correct: isCorrect,
+        pointsEarned: pointsEarned,
+        responseTime: responseTime,
+        timeLimit: parseInt(document.getElementById("timePerQuestion").value) * 1000,
+        responseTimestamp: integratedPlayerResponseTimestamp
+      };
+      
+      // Atualizar score total
+      const playerRef = ref(db, `games/${createdGameId}/players/${creatorName}`);
+      const playerSnapshot = await get(playerRef);
+      const currentScore = playerSnapshot.exists() ? (playerSnapshot.val().score || 0) : 0;
+      const newScore = currentScore + pointsEarned;
+      updates[`games/${createdGameId}/players/${creatorName}/score`] = newScore;
+      
+      await update(ref(db), updates);
+      console.log(`💾 Host dados salvos: ${pointsEarned} pontos | Total: ${newScore}`);
+      
+    } catch (error) {
+      console.error("❌ Erro ao salvar pontuação do host:", error);
+    }
   }
 
   // Função para mostrar resultados finais integrados

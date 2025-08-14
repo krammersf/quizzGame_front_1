@@ -903,6 +903,134 @@
         gap: 5px;
       }
     }
+    
+    /* Estilos para botões de resposta estilo Kahoot no painel integrado */
+    .answers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .answer-btn {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border: none;
+      border-radius: 15px;
+      padding: 20px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(102,126,234,0.3);
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .answer-btn:nth-child(1) {
+      background: linear-gradient(45deg, #475569, #64748b);
+    }
+    
+    .answer-btn:nth-child(2) {
+      background: linear-gradient(45deg, #1e40af, #3b82f6);
+    }
+    
+    .answer-btn:nth-child(3) {
+      background: linear-gradient(45deg, #6b46c1, #8b5cf6);
+    }
+    
+    .answer-btn:nth-child(4) {
+      background: linear-gradient(45deg, #7c3aed, #be185d);
+    }
+    
+    .answer-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    .answer-btn:active {
+      transform: translateY(-2px);
+    }
+    
+    .answer-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .answer-btn:hover::before {
+      left: 100%;
+    }
+    
+    /* Estados dos botões de resposta */
+    .answer-btn.selected {
+      background: #d3d3d3 !important; /* Cinzento claro */
+      color: black !important; /* Letra preta */
+      border: 3px solid #999 !important; /* Borda mais grossa */
+      transform: none !important;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2) !important;
+    }
+    
+    .answer-btn.correct {
+      background: #28a745 !important; /* Verde para certa */
+      color: white !important;
+      border: 8px solid #1e7e34 !important; /* Borda verde mais grossa */
+      box-shadow: 0 8px 25px rgba(40,167,69,0.5) !important;
+      animation: correctPulse 0.6s ease-in-out;
+    }
+    
+    .answer-btn.incorrect {
+      background: #dc3545 !important; /* Vermelho para errada */
+      color: white !important;
+      border: 8px solid #c82333 !important; /* Borda vermelha mais grossa */
+      box-shadow: 0 8px 25px rgba(220,53,69,0.5) !important;
+      animation: incorrectShake 0.6s ease-in-out;
+    }
+    
+    .answer-btn.disabled {
+      background: #6c757d !important; /* Cinzento para desabilitado */
+      color: rgba(255,255,255,0.5) !important;
+      cursor: not-allowed !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    
+    /* Animações */
+    @keyframes correctPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes incorrectShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    
+    /* Responsivo para botões */
+    @media (max-width: 768px) {
+      .answers-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      .answer-btn {
+        padding: 15px;
+        font-size: 1.1rem;
+        min-height: 60px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1015,7 +1143,7 @@
 
     <!-- Secção de quiz integrada para o Jogador 1 -->
     <div id="integratedQuizSection" class="game-panel" style="display:none;">
-      <h2>🎮 Painel do Jogador 1 (Controlador)</h2>
+      <h2>🎮 Painel do Jogador 1 (Host & Jogador)</h2>
       
       <!-- Status do jogo -->
       <div id="gameStatus" class="status-section">
@@ -1043,26 +1171,17 @@
         <div id="questionContent" class="question-content">
           <img id="questionImage" style="display:none;">
           <p id="questionText" class="question-text"></p>
-          <!-- Opções A), B), C), D) escondidas -->
-          <div id="answersDisplay" style="display: none;">
-            <div class="answer-option" id="answerA" style="margin: 10px 0; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; backdrop-filter: blur(10px);">A) ...</div>
-            <div class="answer-option" id="answerB" style="margin: 10px 0; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; backdrop-filter: blur(10px);">B) ...</div>
-            <div class="answer-option" id="answerC" style="margin: 10px 0; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; backdrop-filter: blur(10px);">C) ...</div>
-            <div class="answer-option" id="answerD" style="margin: 10px 0; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; backdrop-filter: blur(10px);">D) ...</div>
+          
+          <!-- Botões de resposta estilo Kahoot para o Host/Jogador 1 -->
+          <div id="player1AnswerSection" class="answers-grid" style="display: none; margin-top: 25px;">
+            <button class="player1-answer-btn answer-btn" data-answer="A" style="background: linear-gradient(45deg, #475569, #64748b); box-shadow: 0 5px 20px rgba(71,85,105,0.3);">A) Opção A</button>
+            <button class="player1-answer-btn answer-btn" data-answer="B" style="background: linear-gradient(45deg, #1e40af, #3b82f6); box-shadow: 0 5px 20px rgba(30,64,175,0.3);">B) Opção B</button>
+            <button class="player1-answer-btn answer-btn" data-answer="C" style="background: linear-gradient(45deg, #6b46c1, #8b5cf6); box-shadow: 0 5px 20px rgba(107,70,193,0.3);">C) Opção C</button>
+            <button class="player1-answer-btn answer-btn" data-answer="D" style="background: linear-gradient(45deg, #7c3aed, #be185d); box-shadow: 0 5px 20px rgba(124,58,237,0.3);">D) Opção D</button>
           </div>
+          
+          <p id="player1Answer" style="margin-top: 15px; font-weight: bold; color: #1b5e20; text-align: center; display: none;"></p>
         </div>
-      </div>
-      
-      <!-- Respostas do Jogador 1 -->
-      <div id="player1AnswerSection" style="display: none; margin-top: 25px;">
-        <h4 style="margin-bottom: 15px; color: #2e7d32; text-align: center; font-weight: 600;">🎯 Escolhe a tua resposta:</h4>
-        <div class="answer-grid">
-          <button class="player1-answer-btn answer-btn" data-answer="A" style="background: linear-gradient(45deg, #475569, #64748b); box-shadow: 0 5px 20px rgba(71,85,105,0.3);">A) Opção A</button>
-          <button class="player1-answer-btn answer-btn" data-answer="B" style="background: linear-gradient(45deg, #1e40af, #3b82f6); box-shadow: 0 5px 20px rgba(30,64,175,0.3);">B) Opção B</button>
-          <button class="player1-answer-btn answer-btn" data-answer="C" style="background: linear-gradient(45deg, #6b46c1, #8b5cf6); box-shadow: 0 5px 20px rgba(107,70,193,0.3);">C) Opção C</button>
-          <button class="player1-answer-btn answer-btn" data-answer="D" style="background: linear-gradient(45deg, #7c3aed, #be185d); box-shadow: 0 5px 20px rgba(124,58,237,0.3);">D) Opção D</button>
-        </div>
-        <p id="player1Answer" style="margin-top: 15px; font-weight: bold; color: #1b5e20; text-align: center;"></p>
       </div>
     </div>
     
