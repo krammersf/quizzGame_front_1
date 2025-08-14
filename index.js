@@ -765,6 +765,12 @@ window.addEventListener('DOMContentLoaded', () => {
     // Mostrar o botão "Iniciar Jogo"
     document.getElementById("beginGameBtn").style.display = "inline-block";
     
+    // Inicializar perguntas integradas
+    loadIntegratedQuestions();
+    
+    // Começar a escutar mudanças no estado do jogo
+    listenToIntegratedGameState();
+    
     // Host apenas controla o jogo - NÃO participa como jogador
     console.log("🎮 Host configurado apenas como controlador do jogo");
   }
@@ -955,6 +961,25 @@ window.addEventListener('DOMContentLoaded', () => {
     // Atualizar botões com o texto das respostas (sem mostrar A), B), C), D))
     const options = question.hipoteses_resposta;
     if (options && options.length >= 4) {
+      // Atualizar elementos de display das respostas para o host (somente visualização)
+      const answerA = document.getElementById("answerA");
+      const answerB = document.getElementById("answerB");
+      const answerC = document.getElementById("answerC");
+      const answerD = document.getElementById("answerD");
+      const answersDisplay = document.getElementById("answersDisplay");
+      
+      if (answerA && answerB && answerC && answerD) {
+        answerA.textContent = `A) ${options[0]}`;
+        answerB.textContent = `B) ${options[1]}`;
+        answerC.textContent = `C) ${options[2]}`;
+        answerD.textContent = `D) ${options[3]}`;
+        
+        // Mostrar as opções no painel do host
+        if (answersDisplay) {
+          answersDisplay.style.display = "block";
+        }
+      }
+      
       const answerButtons = document.querySelectorAll(".player1-answer-btn");
       if (answerButtons.length >= 4) {
         answerButtons[0].textContent = options[0]; // Só o texto
@@ -984,12 +1009,20 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // Mostrar secções relevantes
     if (currentQuestionDisplay) currentQuestionDisplay.style.display = "block";
-    document.getElementById("player1AnswerSection").style.display = "block";
+    
+    // Host apenas vê as perguntas - NÃO pode responder
+    document.getElementById("player1AnswerSection").style.display = "none";
     
     // Reset da resposta para nova pergunta
     integratedPlayerAnswer = null; // Reset da variável de resposta
     integratedPlayerResponseTimestamp = null; // Reset do timestamp
-    document.getElementById("player1Answer").textContent = "";
+    
+    // Verificar se elemento existe antes de tentar usar
+    const player1AnswerElement = document.getElementById("player1Answer");
+    if (player1AnswerElement) {
+      player1AnswerElement.textContent = "";
+    }
+    
     resetIntegratedAnswerButtons();
     
     console.log("🔄 Resposta do jogador 1 resetada para nova pergunta");
