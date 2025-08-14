@@ -243,10 +243,15 @@ document.addEventListener("DOMContentLoaded", () => {
       
       if (!gameState.countdown && (gameState.currentQuestionIndex !== currentQuestionIndex || !gameState.showingResults)) {
         console.log("✅ CONDIÇÕES ATENDIDAS - Mostrando nova pergunta!");
+        
+        // Atualizar PRIMEIRO o índice local
         currentQuestionIndex = gameState.currentQuestionIndex;
+        
+        // DEPOIS resetar os estados
         playerAnswer = null; // Reset da resposta para nova pergunta
         resultsProcessed = false; // Reset para nova pergunta
         questionDisplayed = -1; // Reset para permitir nova exibição
+        
         console.log(`Jogador: Nova pergunta ${currentQuestionIndex + 1}/${questions.length}`);
         
         // Limpar timer anterior
@@ -623,12 +628,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("questionText").textContent = q.pergunta;
 
     const answersBox = document.getElementById("answersBox");
-
-    // Se já existem botões para esta pergunta, não recriar (proteção adicional)
-    if (answersBox.children.length > 0) {
-      console.log("Botões já existem, preservando estado");
-      return;
-    }
 
     // Antes de limpar, desativa os botões para evitar cliques extras durante transição
     Array.from(answersBox.children).forEach(btn => btn.disabled = true);
