@@ -771,6 +771,26 @@ window.addEventListener('DOMContentLoaded', () => {
     // Começar a escutar mudanças no estado do jogo
     listenToIntegratedGameState();
     
+    // Verificar se o jogo já está ativo e forçar atualização
+    setTimeout(() => {
+      const gameStateRef = ref(db, `games/${createdGameId}/gameState`);
+      get(gameStateRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const gameState = snapshot.val();
+          console.log("🔍 Verificando estado atual do jogo:", gameState);
+          
+          // Se o jogo já está ativo e há uma pergunta atual, forçar mostrar
+          if (!gameState.countdown && gameState.currentQuestionIndex >= 0) {
+            console.log("🔄 Jogo já ativo - forçando exibição da pergunta atual");
+            integratedCurrentQuestion = gameState.currentQuestionIndex;
+            if (integratedQuestions.length > 0) {
+              showIntegratedQuestion();
+            }
+          }
+        }
+      });
+    }, 1000); // Dar tempo para as perguntas carregarem
+    
     // Host apenas controla o jogo - NÃO participa como jogador
     console.log("🎮 Host configurado apenas como controlador do jogo");
   }
@@ -896,7 +916,13 @@ window.addEventListener('DOMContentLoaded', () => {
         // Recarregar perguntas se necessário
         if (integratedQuestions.length === 0) {
           console.log("📚 Recarregando perguntas...");
-          loadIntegratedQuestions();
+          loadIntegratedQuestions().then(() => {
+            // Após carregar, mostrar a pergunta se ainda estamos na mesma pergunta
+            if (integratedQuestions.length > 0 && gameState.currentQuestionIndex === integratedCurrentQuestion) {
+              console.log("📋 Mostrando pergunta integrada após carregar...");
+              showIntegratedQuestion();
+            }
+          });
         } else {
           console.log("📋 Mostrando pergunta integrada...");
           showIntegratedQuestion();
@@ -912,6 +938,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Função para mostrar pergunta no painel integrado
   function showIntegratedQuestion() {
+    console.log("🔍 showIntegratedQuestion() chamada");
+    console.log("🔍 countdownActive:", countdownActive);
+    console.log("🔍 integratedCurrentQuestion:", integratedCurrentQuestion);
+    console.log("🔍 integratedQuestions.length:", integratedQuestions.length);
+    
     // PROTEÇÃO EXTRA: Não mostrar se countdown ainda estiver ativo
     if (countdownActive) {
       console.log("🚫 Tentativa de mostrar pergunta durante countdown - bloqueada");
