@@ -585,14 +585,27 @@ window.addEventListener('DOMContentLoaded', () => {
           
           console.log(`🔍 Verificando jogador ${playerName} para pergunta ${questionIndex}`);
           
+          let playerAnswer = null;
+          let selectedAnswer = null;
+          let timeExpired = false;
+          
           // Verificar se o jogador tem resposta para esta pergunta
+          // Primeiro verificar a estrutura "rounds" (jogadores normais)
           if (player.rounds && player.rounds[questionIndex]) {
-            const playerAnswer = player.rounds[questionIndex].answer;
-            const selectedAnswer = player.rounds[questionIndex].selectedAnswer;
-            const timeExpired = player.rounds[questionIndex].timeExpired;
-            
-            console.log(`📝 Jogador ${playerName} - answer: "${playerAnswer}" | selectedAnswer: "${selectedAnswer}" | timeExpired: ${timeExpired} | Correta: "${correctAnswer}"`);
-            
+            playerAnswer = player.rounds[questionIndex].answer;
+            selectedAnswer = player.rounds[questionIndex].selectedAnswer;
+            timeExpired = player.rounds[questionIndex].timeExpired;
+          }
+          // Depois verificar a estrutura "questions" (host integrado)
+          else if (player.questions && player.questions[`q${questionIndex}`]) {
+            const questionData = player.questions[`q${questionIndex}`];
+            playerAnswer = questionData.answer;
+            selectedAnswer = null; // Host usa apenas answer
+            timeExpired = false; // Host não usa timeExpired da mesma forma
+          }
+          
+          console.log(`📝 Jogador ${playerName} - answer: "${playerAnswer}" | selectedAnswer: "${selectedAnswer}" | timeExpired: ${timeExpired} | Correta: "${correctAnswer}"`);
+          
             // Verificar se realmente respondeu algo (não é null ou undefined)
             if (!playerAnswer && !selectedAnswer) {
               // Não respondeu - contabilizar como sem resposta
@@ -1239,20 +1252,6 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // Salvar pontuação no Firebase
     await saveIntegratedPlayerScore(question, isCorrect, pointsEarned, responseTime);
-    
-    // Mostrar resultado visual
-    const player1AnswerElement = document.getElementById("player1Answer");
-    if (player1AnswerElement) {
-      if (isCorrect) {
-        player1AnswerElement.textContent = `✅ Correto! +${pointsEarned} pontos`;
-        player1AnswerElement.style.color = "#4CAF50";
-      } else {
-        const correctText = question.hipoteses_resposta[correctIndex];
-        player1AnswerElement.textContent = `❌ Errado! Resposta correta: ${correctText}`;
-        player1AnswerElement.style.color = "#F44336";
-      }
-      player1AnswerElement.style.display = "block";
-    }
   }
   
   // Função para salvar pontuação do host integrado no Firebase
@@ -1260,14 +1259,16 @@ window.addEventListener('DOMContentLoaded', () => {
     try {
       const updates = {};
       
-      // Salvar dados da pergunta
-      updates[`games/${createdGameId}/players/${creatorName}/questions/q${integratedCurrentQuestion}`] = {
+      // Salvar dados da pergunta usando a mesma estrutura dos outros jogadores
+      updates[`games/${createdGameId}/players/${creatorName}/rounds/${integratedCurrentQuestion}`] = {
         answer: integratedPlayerAnswer || "SEM_RESPOSTA",
+        selectedAnswer: null, // Host usa apenas answer
         correct: isCorrect,
         pointsEarned: pointsEarned,
         responseTime: responseTime,
         timeLimit: parseInt(document.getElementById("timePerQuestion").value) * 1000,
-        responseTimestamp: integratedPlayerResponseTimestamp
+        responseTimestamp: integratedPlayerResponseTimestamp,
+        timeExpired: false // Host não usa timeExpired da mesma forma
       };
       
       // Atualizar score total
