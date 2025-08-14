@@ -606,40 +606,35 @@ window.addEventListener('DOMContentLoaded', () => {
           
           console.log(`📝 Jogador ${playerName} - answer: "${playerAnswer}" | selectedAnswer: "${selectedAnswer}" | timeExpired: ${timeExpired} | Correta: "${correctAnswer}"`);
           
-            // Verificar se realmente respondeu algo (não é null ou undefined)
-            if (!playerAnswer && !selectedAnswer) {
-              // Não respondeu - contabilizar como sem resposta
-              noAnswerCount++;
-              console.log(`⏰ ${playerName}: SEM RESPOSTA (answer e selectedAnswer são null)`);
-            } else {
-              // Tem uma resposta - verificar se está correta
-              let playerAnswerText;
-              if (selectedAnswer) {
-                playerAnswerText = selectedAnswer;
-              } else if (playerAnswer) {
-                // Converter letra (A, B, C, D) para texto
-                const answerIndex = playerAnswer.charCodeAt(0) - 65; // A=0, B=1, C=2, D=3
-                if (answerIndex >= 0 && answerIndex < currentQuestion.hipoteses_resposta.length) {
-                  playerAnswerText = currentQuestion.hipoteses_resposta[answerIndex];
-                } else {
-                  playerAnswerText = playerAnswer; // fallback
-                }
-              }
-              
-              console.log(`🔄 Resposta convertida: "${playerAnswerText}"`);
-              
-              if (playerAnswerText === correctAnswer) {
-                correctCount++;
-                console.log(`✅ ${playerName}: Resposta CERTA`);
+          // Verificar se realmente respondeu algo (não é null ou undefined)
+          if (!playerAnswer && !selectedAnswer) {
+            // Não respondeu - contabilizar como sem resposta
+            noAnswerCount++;
+            console.log(`⏰ ${playerName}: SEM RESPOSTA (answer e selectedAnswer são null)`);
+          } else {
+            // Tem uma resposta - verificar se está correta
+            let playerAnswerText;
+            if (selectedAnswer) {
+              playerAnswerText = selectedAnswer;
+            } else if (playerAnswer) {
+              // Converter letra (A, B, C, D) para texto
+              const answerIndex = playerAnswer.charCodeAt(0) - 65; // A=0, B=1, C=2, D=3
+              if (answerIndex >= 0 && answerIndex < currentQuestion.hipoteses_resposta.length) {
+                playerAnswerText = currentQuestion.hipoteses_resposta[answerIndex];
               } else {
-                wrongCount++;
-                console.log(`❌ ${playerName}: Resposta ERRADA`);
+                playerAnswerText = playerAnswer; // fallback
               }
             }
-          } else {
-            // Jogador não tem registro para esta pergunta
-            noAnswerCount++;
-            console.log(`⏰ ${playerName}: SEM RESPOSTA (sem registro da ronda)`);
+            
+            console.log(`🔄 Resposta convertida: "${playerAnswerText}"`);
+            
+            if (playerAnswerText === correctAnswer) {
+              correctCount++;
+              console.log(`✅ ${playerName}: Resposta CERTA`);
+            } else {
+              wrongCount++;
+              console.log(`❌ ${playerName}: Resposta ERRADA`);
+            }
           }
         });
         
@@ -965,6 +960,9 @@ window.addEventListener('DOMContentLoaded', () => {
       return;
     }
     
+    // Limpar feedback visual da pergunta anterior
+    clearHostAnswerStyles();
+    
     // Esconder estatísticas se estiverem visíveis
     const statsDisplay = document.getElementById("statisticsDisplay");
     if (statsDisplay) {
@@ -1200,11 +1198,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const question = integratedQuestions[integratedCurrentQuestion];
     const correctAnswer = question.resposta;
     
-    // Usar a nova função para mostrar feedback visual (sem resposta = só borda)
-    applyIntegratedAnswerFeedback(correctAnswer, false); // false = sem resposta
-    
     if (!integratedPlayerAnswer) {
       console.log("🚫 Host não respondeu - aplicando 0 pontos");
+      
+      // Mostrar apenas resposta correta em verde quando não há resposta
+      showHostCorrectAnswerOnly(correctAnswer);
       
       // Calcular e salvar pontuação para o host
       await saveIntegratedPlayerScore(question, false, 0, null);
@@ -1249,6 +1247,9 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
+    
+    // Mostrar feedback visual igual aos outros jogadores
+    showHostAnswerFeedback(correctAnswer, integratedPlayerAnswer, isCorrect);
     
     // Salvar pontuação no Firebase
     await saveIntegratedPlayerScore(question, isCorrect, pointsEarned, responseTime);
@@ -1365,44 +1366,93 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // Função para mostrar feedback final (quando tempo acaba)
-  function applyIntegratedAnswerFeedback(correctAnswer, hasAnswer = true) {
+  // Função para mostrar feedback visual quando host responde
+  function showHostAnswerFeedback(correctAnswer, selectedAnswer, isCorrect) {
     const question = integratedQuestions[integratedCurrentQuestion];
     const buttons = document.querySelectorAll(".player1-answer-btn");
     
-    // Encontrar qual letra (A, B, C, D) corresponde à resposta correta
-    let correctAnswerLetter = null;
-    for (let i = 0; i < question.hipoteses_resposta.length; i++) {
-      if (question.hipoteses_resposta[i] === correctAnswer) {
-        correctAnswerLetter = String.fromCharCode(65 + i); // A=65, B=66, C=67, D=68
-        break;
-      }
-    }
-    
-    console.log(`🎯 Resposta correta: "${correctAnswer}" = Letra: ${correctAnswerLetter}`);
-    console.log(`👤 Jogador escolheu: ${integratedPlayerAnswer}`);
-    console.log(`📝 Tem resposta: ${hasAnswer}`);
+    console.log("=== MOSTRANDO RESULTADOS HOST ===");
+    console.log("Resposta do host:", selectedAnswer);
+    console.log("Resposta correta:", correctAnswer);
+    console.log("Está correto:", isCorrect);
     
     buttons.forEach(button => {
       const buttonAnswer = button.dataset.answer; // A, B, C, ou D
+      const buttonText = button.textContent;
       
-      // Remover todas as classes de feedback primeiro
-      button.classList.remove('selected', 'correct', 'incorrect', 'correct-border-only');
+      // Limpar todas as classes anteriores
+      button.style.backgroundColor = "";
+      button.style.color = "";
+      button.style.border = "";
+      button.style.boxShadow = "";
       
-      if (buttonAnswer === correctAnswerLetter) {
-        if (hasAnswer) {
-          // Com resposta: mostrar cor verde completa
-          button.classList.add('correct');
-          console.log(`✅ Botão ${buttonAnswer} marcado como correto (verde completo)`);
+      // Mostrar resultado da resposta do host
+      if (buttonAnswer === selectedAnswer) {
+        if (isCorrect) {
+          button.style.backgroundColor = "#4CAF50"; // Verde para resposta correta
+          button.style.color = "white";
+          button.style.border = "3px solid #2E7D32";
+          button.style.boxShadow = "0 0 10px #4CAF50";
+          console.log("✅ Resposta do host CORRETA:", selectedAnswer);
         } else {
-          // Sem resposta: apenas destacar borda (adicionar classe especial)
-          button.classList.add('correct-border-only');
-          console.log(`🔲 Botão ${buttonAnswer} marcado com borda correta apenas`);
+          button.style.backgroundColor = "#F44336"; // Vermelho para resposta incorreta
+          button.style.color = "white";
+          button.style.border = "3px solid #C62828";
+          button.style.boxShadow = "0 0 10px #F44336";
+          console.log("❌ Resposta do host INCORRETA:", selectedAnswer);
         }
-      } else if (hasAnswer && buttonAnswer === integratedPlayerAnswer && integratedPlayerAnswer !== correctAnswerLetter) {
-        // Só mostrar vermelho se houve resposta e foi errada
-        button.classList.add('incorrect');
-        console.log(`❌ Botão ${buttonAnswer} marcado como incorreto (vermelho)`);
       }
+      
+      // Sempre destacar a resposta correta (se for diferente da selecionada)
+      if (buttonText === correctAnswer && buttonAnswer !== selectedAnswer) {
+        button.style.backgroundColor = "#4CAF50"; // Verde para resposta correta
+        button.style.color = "white";
+        button.style.border = "3px solid #2E7D32";
+        button.style.boxShadow = "0 0 10px #4CAF50";
+        console.log("✅ Resposta correta destacada:", buttonText);
+      }
+    });
+  }
+  
+  // Função para mostrar apenas resposta correta quando host não responde
+  function showHostCorrectAnswerOnly(correctAnswer) {
+    console.log("=== MOSTRANDO APENAS RESPOSTA CORRETA HOST ===");
+    console.log("🚫 Host não respondeu - aplicando 0 pontos");
+    
+    const question = integratedQuestions[integratedCurrentQuestion];
+    const buttons = document.querySelectorAll(".player1-answer-btn");
+    
+    console.log("Resposta correta:", correctAnswer);
+    
+    buttons.forEach(button => {
+      const buttonText = button.textContent;
+      
+      // Limpar estilos anteriores
+      button.style.backgroundColor = "";
+      button.style.color = "";
+      button.style.border = "";
+      button.style.boxShadow = "";
+      
+      // Destacar apenas a resposta correta em verde
+      if (buttonText === correctAnswer) {
+        button.style.backgroundColor = "#4CAF50"; // Verde para a resposta correta
+        button.style.color = "white";
+        button.style.border = "3px solid #2E7D32";
+        button.style.boxShadow = "0 0 10px #4CAF50"; // Brilho extra
+        console.log("✅ Resposta correta destacada:", buttonText);
+      }
+    });
+  }
+  
+  // Função para limpar estilos dos botões de resposta do host
+  function clearHostAnswerStyles() {
+    const buttons = document.querySelectorAll(".player1-answer-btn");
+    buttons.forEach(button => {
+      button.style.backgroundColor = "";
+      button.style.color = "";
+      button.style.border = "";
+      button.style.boxShadow = "";
+      button.classList.remove('selected'); // Remover também classe selected se existir
     });
   }
 
