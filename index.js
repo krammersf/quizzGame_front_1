@@ -992,15 +992,15 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
     
-    // Atualizar botões com o texto das respostas (sem mostrar A), B), C), D))
+    // Atualizar botões com o texto das respostas (apenas hipóteses, sem letras)
     const options = question.hipoteses_resposta;
     if (options && options.length >= 4) {
       const answerButtons = document.querySelectorAll(".player1-answer-btn");
       if (answerButtons.length >= 4) {
-        answerButtons[0].textContent = `A) ${options[0]}`;
-        answerButtons[1].textContent = `B) ${options[1]}`;
-        answerButtons[2].textContent = `C) ${options[2]}`;
-        answerButtons[3].textContent = `D) ${options[3]}`;
+        answerButtons[0].textContent = options[0]; // Apenas "Kamakura"
+        answerButtons[1].textContent = options[1]; // Apenas "Yamato"
+        answerButtons[2].textContent = options[2]; // Apenas "Fujiwara" 
+        answerButtons[3].textContent = options[3]; // Apenas "Heian"
         
         // DESBLOQUEAR todos os botões para nova pergunta e resetar classes CSS
         resetIntegratedAnswerButtons();
@@ -1190,15 +1190,6 @@ window.addEventListener('DOMContentLoaded', () => {
     // Usar a nova função para mostrar feedback visual (sem resposta = só borda)
     applyIntegratedAnswerFeedback(correctAnswer, false); // false = sem resposta
     
-    // Encontrar qual é a resposta correta (índice)
-    let correctIndex = -1;
-    for (let i = 0; i < question.hipoteses_resposta.length; i++) {
-      if (question.hipoteses_resposta[i] === correctAnswer) {
-        correctIndex = i;
-        break;
-      }
-    }
-    
     if (!integratedPlayerAnswer) {
       console.log("🚫 Host não respondeu - aplicando 0 pontos");
       
@@ -1209,7 +1200,17 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     // Calcular se a resposta está correta
-    const correctAnswerLetter = String.fromCharCode(65 + question.hipoteses_resposta.indexOf(correctAnswer));
+    // integratedPlayerAnswer contém a letra (A, B, C, D)
+    // Precisamos de verificar se essa letra corresponde à posição da resposta correta
+    let correctIndex = -1;
+    for (let i = 0; i < question.hipoteses_resposta.length; i++) {
+      if (question.hipoteses_resposta[i] === correctAnswer) {
+        correctIndex = i;
+        break;
+      }
+    }
+    
+    const correctAnswerLetter = String.fromCharCode(65 + correctIndex); // A, B, C, D
     const isCorrect = integratedPlayerAnswer === correctAnswerLetter;
     
     let pointsEarned = 0;
@@ -1247,7 +1248,7 @@ window.addEventListener('DOMContentLoaded', () => {
         player1AnswerElement.style.color = "#4CAF50";
       } else {
         const correctText = question.hipoteses_resposta[correctIndex];
-        player1AnswerElement.textContent = `❌ Errado! Resposta: ${correctAnswerLetter}) ${correctText}`;
+        player1AnswerElement.textContent = `❌ Errado! Resposta correta: ${correctText}`;
         player1AnswerElement.style.color = "#F44336";
       }
       player1AnswerElement.style.display = "block";
