@@ -806,7 +806,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mostrar tela de fim
     const gameEndBox = document.getElementById("gameEndBox");
     gameEndBox.classList.remove("hidden");
+    
+    // Atualizar score e número de perguntas
     document.getElementById("finalScoreDisplay").textContent = score;
+    document.getElementById("totalQuestionsDisplay").textContent = questions.length;
+    
+    console.log(`Jogo terminado - ${questions.length} perguntas completadas, pontuação final: ${score}`);
     
     // Adicionar event listener ao botão Ver Classificação aqui
     const showRankingButton = document.getElementById("showRankingBtn");

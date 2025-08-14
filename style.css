@@ -284,3 +284,32 @@ tr:hover {
     padding: 6px;
   }
 }
+
+/* Estilos para o ecrã de fim de jogo */
+.final-stats {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.stat-item {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-label {
+  font-weight: bold;
+  color: #555;
+}
+
+.final-score {
+  font-size: 2em;
+  font-weight: bold;
+  color: #4CAF50;
+  background-color: #f0f8f0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #4CAF50;
+}

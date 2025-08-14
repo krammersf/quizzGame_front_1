@@ -737,8 +737,13 @@
     <!-- Game End Screen -->
     <div id="gameEndBox" class="game-end-card hidden">
       <h2>🏁 FIM DO JOGO</h2>
-      <p>Parabéns! Completaste todas as perguntas.</p>
-      <div id="finalScoreDisplay" class="final-score">0</div>
+      <p>Parabéns! Completaste <span id="totalQuestionsDisplay">0</span> perguntas.</p>
+      <div class="final-stats">
+        <div class="stat-item">
+          <span class="stat-label">Pontuação Final:</span>
+          <span id="finalScoreDisplay" class="final-score">0</span>
+        </div>
+      </div>
       <button id="showRankingBtn">📊 Ver Classificação</button>
     </div>
 
