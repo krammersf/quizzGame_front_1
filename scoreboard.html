@@ -333,6 +333,50 @@
             opacity: 0.9;
         }
         
+        /* Game Info Card */
+        .game-info-card {
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 193, 7, 0.2));
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .game-info-header {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        .game-info-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .info-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        
         /* Loading Animation */
         .loading-animation {
             width: 60px;
@@ -608,17 +652,20 @@
                 const gameData = snapshot.val();
                 const players = gameData.players || {};
                 const questionResults = gameData.questionResults || {};
-                let totalQuestions = gameData.totalQuestions || 0;
+                let totalQuestions = gameData.totalQuestions || gameData.gameState?.totalQuestions || 0;
 
-                // Se totalQuestions não estiver definido, calcular pelo número de perguntas respondidas
+                // Se totalQuestions não estiver definido, calcular pelo número de perguntas configuradas
                 if (totalQuestions === 0) {
-                    totalQuestions = Object.keys(questionResults).length;
+                    // Primeiro tentar obter das questions definidas
+                    totalQuestions = gameData.questions ? gameData.questions.length : Object.keys(questionResults).length;
                 }
 
                 console.log("🔍 Debug - gameData:", gameData);
                 console.log("🔍 Debug - questionResults:", questionResults);
                 console.log("🔍 Debug - players:", players);
-                console.log("🔍 Debug - totalQuestions:", totalQuestions);
+                console.log("🔍 Debug - totalQuestions calculado:", totalQuestions);
+                console.log("🔍 Debug - gameData.questions?.length:", gameData.questions?.length);
+                console.log("🔍 Debug - Object.keys(questionResults).length:", Object.keys(questionResults).length);
 
                 // Processar estatísticas por jogador
                 const playerStats = {};
@@ -652,9 +699,9 @@
                                     playerStats[playerName].correct++;
                                 } else if (answer.isCorrect === false) {
                                     // Verificar se não respondeu (answer = null ou timeExpired = true)
-                                    if (answer.answer === null || answer.timeExpired === true) {
-                                        // Não respondeu - não contar como errada
-                                        // Será contabilizada automaticamente em noAnswer
+                                    if (answer.answer === null || answer.timeExpired === true || !answer.answer) {
+                                        // Não respondeu - contar como não respondida
+                                        playerStats[playerName].noAnswer++;
                                         console.log(`🔍 ${playerName} não respondeu à pergunta ${questionIndex}`);
                                     } else {
                                         // Respondeu mas errou
@@ -662,27 +709,55 @@
                                         console.log(`🔍 ${playerName} respondeu errado à pergunta ${questionIndex}`);
                                     }
                                 }
+                            } else if (answer && (answer.answer === null || answer.timeExpired === true || !answer.answer)) {
+                                // Caso especial: resposta sem isCorrect mas claramente não respondida
+                                playerStats[playerName].noAnswer++;
+                                console.log(`🔍 ${playerName} não respondeu à pergunta ${questionIndex} (sem isCorrect)`);
                             }
                         }
                     });
                 });
 
-                // Calcular perguntas não respondidas
+                // Calcular perguntas não respondidas para jogadores que não têm todas as respostas registadas
                 Object.keys(playerStats).forEach(playerName => {
                     const answered = playerStats[playerName].correct + playerStats[playerName].wrong;
-                    // Garantir que não respondidas nunca seja negativo
-                    playerStats[playerName].noAnswer = Math.max(0, totalQuestions - answered);
+                    const recorded = answered + playerStats[playerName].noAnswer;
+                    
+                    // Se ainda faltam perguntas não contabilizadas, adicionar como não respondidas
+                    if (recorded < totalQuestions) {
+                        playerStats[playerName].noAnswer += (totalQuestions - recorded);
+                    }
                     
                     console.log(`🔍 Debug - ${playerName} final:`, {
                         correct: playerStats[playerName].correct,
                         wrong: playerStats[playerName].wrong,
-                        answered: answered,
-                        totalQuestions: totalQuestions,
-                        noAnswer: playerStats[playerName].noAnswer
+                        noAnswer: playerStats[playerName].noAnswer,
+                        total: playerStats[playerName].correct + playerStats[playerName].wrong + playerStats[playerName].noAnswer,
+                        totalQuestions: totalQuestions
                     });
                 });
 
-                // Gerar HTML das estatísticas
+                // Gerar HTML das estatísticas com informações do jogo
+                const gameInfoHTML = `
+                    <div class="game-info-card">
+                        <div class="game-info-header">📊 Informações do Jogo</div>
+                        <div class="game-info-content">
+                            <div class="info-item">
+                                <span class="info-label">Total de Perguntas:</span>
+                                <span class="info-value">${totalQuestions}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Perguntas Respondidas:</span>
+                                <span class="info-value">${Object.keys(questionResults).length}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Jogadores:</span>
+                                <span class="info-value">${Object.keys(players).length}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
                 const statsHTML = Object.entries(playerStats)
                     .sort((a, b) => b[1].score - a[1].score) // Ordenar por pontuação
                     .map(([playerName, stats]) => `
@@ -712,7 +787,7 @@
                         </div>
                     `).join('');
 
-                container.innerHTML = statsHTML || '<div style="text-align: center; padding: 20px; color: white;">📊 Nenhuma estatística disponível</div>';
+                container.innerHTML = gameInfoHTML + statsHTML || '<div style="text-align: center; padding: 20px; color: white;">📊 Nenhuma estatística disponível</div>';
 
             } catch (error) {
                 console.error('Erro ao carregar estatísticas avançadas:', error);
