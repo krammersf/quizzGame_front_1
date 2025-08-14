@@ -1188,6 +1188,9 @@ window.addEventListener('DOMContentLoaded', () => {
       return;
     }
     
+    integratedAnswerProcessed = true; // Marcar como processado
+    console.log("=== PROCESSANDO RESPOSTA HOST ===");
+    
     const question = integratedQuestions[integratedCurrentQuestion];
     const correctAnswer = question.resposta;
     
@@ -1226,7 +1229,7 @@ window.addEventListener('DOMContentLoaded', () => {
       console.log(`❌ Host respondeu INCORRETAMENTE: ${pointsEarned} pontos`);
     }
     
-    // Calcular tempo de resposta
+    // Calcular tempo de resposta  
     let responseTime = null;
     if (integratedPlayerResponseTimestamp) {
       const gameStateRef = ref(db, `games/${createdGameId}/gameState`);
@@ -1237,6 +1240,12 @@ window.addEventListener('DOMContentLoaded', () => {
         if (gameState.questionStartTime) {
           responseTime = integratedPlayerResponseTimestamp - gameState.questionStartTime;
           console.log(`⏰ Host tempo de resposta: ${responseTime}ms`);
+          
+          // Verificar se o tempo é válido (positivo)
+          if (responseTime < 0) {
+            console.warn(`⚠️ Tempo de resposta negativo detectado: ${responseTime}ms - definindo como null`);
+            responseTime = null;
+          }
         }
       }
     }
