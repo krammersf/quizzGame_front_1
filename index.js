@@ -157,69 +157,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
     let countdownTime = timePerQuestion || 10; // Usar tempo configurado ou 10 como fallback
     
-    // Verificar se os elementos existem antes de tentar usá-los
-    const integratedQuizSection = document.getElementById("integratedQuizSection");
-    const currentQuestionDisplay = document.getElementById("currentQuestionDisplay");
-    const player1AnswerSection = document.getElementById("player1AnswerSection");
-    const questionText = document.getElementById("questionText");
+    console.log(`🚀 Iniciando countdown de ${countdownTime} segundos`);
     
-    if (!integratedQuizSection || !currentQuestionDisplay || !questionText) {
-      console.warn("⚠️ Alguns elementos HTML não encontrados para countdown do jogador 1 - usando modo simplificado");
-      
-      // Modo simplificado - só mostrar o countdown no Firebase para outros jogadores
-      const countdownInterval = setInterval(() => {
-        countdownTime--;
-        
-        if (countdownTime > 0) {
-          // Atualizar contador no Firebase para outros jogadores
-          update(ref(db, `games/${createdGameId}/gameState`), {
-            countdownTime: countdownTime
-          });
-          console.log(`⏰ Contador simplificado: ${countdownTime}`);
-        } else {
-          // Acabou o contador - iniciar primeira pergunta
-          clearInterval(countdownInterval);
-          console.log("🏁 Contador terminado - iniciando primeira pergunta!");
-          countdownActive = false; // Marcar countdown como terminado
-          
-          // Atualizar Firebase para iniciar primeira pergunta
-          update(ref(db, `games/${createdGameId}/gameState`), {
-            currentQuestionIndex: 0,
-            timeLeft: timePerQuestion,
-            timePerQuestion: timePerQuestion,
-            questionStartTime: Date.now(),
-            countdown: false,
-            countdownTime: 0
-          });
-          
-          // Iniciar controlador automático
-          startGameController();
-        }
-      }, 1000);
-      return;
-    }
-    
-    // Mostrar contador no painel integrado do jogador 1
-    integratedQuizSection.style.display = "block";
-    currentQuestionDisplay.style.display = "block";
-    if (player1AnswerSection) player1AnswerSection.style.display = "none";
-    
-    // Mostrar contador - criar elemento temporário para o countdown
-    questionText.textContent = "🎮 O jogo vai começar em...";
-    
-    // Criar elemento temporário para o número do countdown
-    const countdownElement = document.createElement("div");
-    countdownElement.id = "tempCountdown";
-    countdownElement.style.fontSize = "48px";
-    countdownElement.style.color = "#FF6B35";
-    countdownElement.style.textAlign = "center";
-    countdownElement.style.fontWeight = "bold";
-    countdownElement.style.marginTop = "20px";
-    countdownElement.textContent = countdownTime;
-    
-    // Adicionar o elemento depois do questionText
-    questionText.parentNode.appendChild(countdownElement);
-    
+    // Modo simplificado - controle apenas via Firebase
     const countdownInterval = setInterval(() => {
       countdownTime--;
       
@@ -228,12 +168,6 @@ window.addEventListener('DOMContentLoaded', () => {
         update(ref(db, `games/${createdGameId}/gameState`), {
           countdownTime: countdownTime
         });
-        
-        // Atualizar display do jogador 1 (com verificação)
-        const tempCountdown = document.getElementById("tempCountdown");
-        if (tempCountdown) {
-          tempCountdown.textContent = countdownTime;
-        }
         console.log(`⏰ Contador: ${countdownTime}`);
       } else {
         // Acabou o contador - iniciar primeira pergunta
@@ -241,14 +175,7 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log("🏁 Contador terminado - iniciando primeira pergunta!");
         countdownActive = false; // Marcar countdown como terminado
         
-        // Resetar estilo do contador (com verificações) - remover elemento temporário
-        const tempCountdown = document.getElementById("tempCountdown");
-        if (tempCountdown) {
-          tempCountdown.remove();
-        }
-        
         // Atualizar Firebase para iniciar primeira pergunta
-        const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
         update(ref(db, `games/${createdGameId}/gameState`), {
           currentQuestionIndex: 0,
           timeLeft: timePerQuestion,
@@ -845,6 +772,14 @@ window.addEventListener('DOMContentLoaded', () => {
   // Host apenas controla o jogo - variáveis de jogador removidas
   // Variáveis para controle de fluxo do jogo apenas
   let gameControllerActive = false;
+  let countdownActive = false; // Controla se countdown está ativo
+  
+  // Variáveis mínimas necessárias para compatibilidade (sem lógica de jogador)
+  let integratedQuestions = [];
+  let integratedCurrentQuestion = -1;
+  let integratedPlayerAnswer = null;
+  let integratedAnswerProcessed = false;
+  let integratedPlayerResponseTimestamp = null;
 
   // Host apenas controla o jogo - todas as funções de jogador removidas
   console.log("🎮 Host configurado como controlador apenas");
