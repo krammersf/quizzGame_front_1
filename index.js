@@ -492,11 +492,11 @@ window.addEventListener('DOMContentLoaded', () => {
         const playersData = playersSnapshot.val();
         const responseSpeedData = [];
         
-        // Coletar timestamps de resposta de todos os jogadores (todas as respostas válidas)
+        // Coletar timestamps de resposta de todos os jogadores (apenas corretas)
         for (const [playerName, player] of Object.entries(playersData)) {
           if (player.rounds && player.rounds[questionIndex]) {
             const roundData = player.rounds[questionIndex];
-            if (roundData.responseTimestamp && !roundData.timeExpired) {
+            if (roundData.responseTimestamp && !roundData.timeExpired && roundData.isCorrect) {
               responseSpeedData.push({
                 playerName: playerName,
                 responseTimestamp: roundData.responseTimestamp,
@@ -511,7 +511,7 @@ window.addEventListener('DOMContentLoaded', () => {
         responseSpeedData.sort((a, b) => a.responseTimestamp - b.responseTimestamp);
         
         if (responseSpeedData.length > 0) {
-          console.log("🏃‍♂️ Velocidade de Resposta (mais rápido primeiro):");
+          console.log("🏃‍♂️ Velocidade de Resposta CORRETAS (mais rápido primeiro):");
           responseSpeedData.forEach((data, index) => {
             const position = index + 1;
             const correctEmoji = data.isCorrect ? "✅" : "❌";
@@ -519,12 +519,12 @@ window.addEventListener('DOMContentLoaded', () => {
           });
           
           const fastest = responseSpeedData[0];
-          console.log(`🥇 Jogador mais rápido: ${fastest.playerName} ${fastest.isCorrect ? "✅" : "❌"}`);
+          console.log(`🥇 Jogador mais rápido (resposta correta): ${fastest.playerName} ${fastest.isCorrect ? "✅" : "❌"}`);
           
           // Registrar na base de dados que este jogador foi o mais rápido
           await updateFastestPlayerCounter(fastest.playerName);
         } else {
-          console.log("⚠️ Nenhuma resposta válida encontrada para determinar o mais rápido");
+          console.log("⚠️ Nenhuma resposta correta encontrada para determinar o mais rápido");
         }
         
         return responseSpeedData;

@@ -737,27 +737,7 @@
                     });
                 });
 
-                // Gerar HTML das estatísticas com informações do jogo
-                const gameInfoHTML = `
-                    <div class="game-info-card">
-                        <div class="game-info-header">📊 Informações do Jogo</div>
-                        <div class="game-info-content">
-                            <div class="info-item">
-                                <span class="info-label">Total de Perguntas:</span>
-                                <span class="info-value">${totalQuestions}</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Perguntas Respondidas:</span>
-                                <span class="info-value">${Object.keys(questionResults).length}</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Jogadores:</span>
-                                <span class="info-value">${Object.keys(players).length}</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
+                // Gerar HTML das estatísticas
                 const statsHTML = Object.entries(playerStats)
                     .sort((a, b) => b[1].score - a[1].score) // Ordenar por pontuação
                     .map(([playerName, stats]) => `
@@ -787,7 +767,7 @@
                         </div>
                     `).join('');
 
-                container.innerHTML = gameInfoHTML + statsHTML || '<div style="text-align: center; padding: 20px; color: white;">📊 Nenhuma estatística disponível</div>';
+                container.innerHTML = statsHTML || '<div style="text-align: center; padding: 20px; color: white;">📊 Nenhuma estatística disponível</div>';
 
             } catch (error) {
                 console.error('Erro ao carregar estatísticas avançadas:', error);
