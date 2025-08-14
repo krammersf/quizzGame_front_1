@@ -492,11 +492,11 @@ window.addEventListener('DOMContentLoaded', () => {
         const playersData = playersSnapshot.val();
         const responseSpeedData = [];
         
-        // Coletar timestamps de resposta de todos os jogadores (apenas corretas)
+        // Coletar timestamps de resposta de todos os jogadores (todas as respostas válidas)
         for (const [playerName, player] of Object.entries(playersData)) {
           if (player.rounds && player.rounds[questionIndex]) {
             const roundData = player.rounds[questionIndex];
-            if (roundData.responseTimestamp && !roundData.timeExpired && roundData.isCorrect) {
+            if (roundData.responseTimestamp && !roundData.timeExpired) {
               responseSpeedData.push({
                 playerName: playerName,
                 responseTimestamp: roundData.responseTimestamp,
@@ -511,7 +511,7 @@ window.addEventListener('DOMContentLoaded', () => {
         responseSpeedData.sort((a, b) => a.responseTimestamp - b.responseTimestamp);
         
         if (responseSpeedData.length > 0) {
-          console.log("🏃‍♂️ Velocidade de Resposta CORRETAS (mais rápido primeiro):");
+          console.log("🏃‍♂️ Velocidade de Resposta (mais rápido primeiro):");
           responseSpeedData.forEach((data, index) => {
             const position = index + 1;
             const correctEmoji = data.isCorrect ? "✅" : "❌";
@@ -523,6 +523,8 @@ window.addEventListener('DOMContentLoaded', () => {
           
           // Registrar na base de dados que este jogador foi o mais rápido
           await updateFastestPlayerCounter(fastest.playerName);
+        } else {
+          console.log("⚠️ Nenhuma resposta válida encontrada para determinar o mais rápido");
         }
         
         return responseSpeedData;
