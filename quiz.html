@@ -255,6 +255,20 @@
       animation: incorrectShake 0.6s ease-in-out;
     }
     
+    .answer-btn.no-answer {
+      /* Mantém a cor original do gradiente */
+      border: 5px solid #28a745 !important; /* Borda verde para indicar resposta correta não selecionada */
+      box-shadow: 0 8px 25px rgba(40,167,69,0.3) !important;
+      animation: noAnswerGlow 0.6s ease-in-out;
+    }
+    
+    .answer-btn.correct-border-only {
+      /* Apenas borda verde, sem mudar cor de fundo (para quando não há resposta) */
+      border: 8px solid #1e7e34 !important; /* Borda verde grossa */
+      box-shadow: 0 8px 25px rgba(40,167,69,0.3) !important; /* Sombra sutil */
+      animation: noAnswerGlow 0.6s ease-in-out;
+    }
+    
     /* Animações para feedback */
     @keyframes correctPulse {
       0% { transform: scale(1); }
@@ -268,10 +282,17 @@
       75% { transform: translateX(5px); }
     }
     
+    @keyframes noAnswerGlow {
+      0% { box-shadow: 0 8px 25px rgba(40,167,69,0.3); }
+      50% { box-shadow: 0 12px 35px rgba(40,167,69,0.6); }
+      100% { box-shadow: 0 8px 25px rgba(40,167,69,0.3); }
+    }
+    
     /* Desabilitar hover quando resposta foi dada */
     .answer-btn.selected:hover,
     .answer-btn.correct:hover,
-    .answer-btn.incorrect:hover {
+    .answer-btn.incorrect:hover,
+    .answer-btn.no-answer:hover {
       transform: none !important;
       box-shadow: inherit !important;
     }

@@ -531,19 +531,17 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const answersBox = document.getElementById("answersBox");
     Array.from(answersBox.children).forEach(btn => {
-      // Limpar estilos anteriores
+      // Limpar estilos anteriores e classes
+      btn.classList.remove('selected', 'correct', 'incorrect', 'correct-border-only');
       btn.style.backgroundColor = "";
       btn.style.color = "";
       btn.style.border = "";
       btn.style.boxShadow = "";
       
-      // Destacar apenas a resposta correta em verde
+      // Destacar apenas a resposta correta com borda verde (mantendo cor original)
       if (btn.textContent === correctAnswer || (Array.isArray(correctAnswer) && correctAnswer.includes(btn.textContent))) {
-        btn.style.backgroundColor = "#4CAF50"; // Verde para a resposta correta
-        btn.style.color = "white";
-        btn.style.border = "3px solid #2E7D32";
-        btn.style.boxShadow = "0 0 10px #4CAF50"; // Brilho extra
-        console.log("✅ Resposta correta destacada:", btn.textContent);
+        btn.classList.add('correct-border-only');
+        console.log("✅ Resposta correta destacada com borda verde:", btn.textContent);
       }
     });
     
