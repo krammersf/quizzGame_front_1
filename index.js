@@ -1381,34 +1381,22 @@ window.addEventListener('DOMContentLoaded', () => {
       const buttonText = button.textContent;
       
       // Limpar todas as classes anteriores
-      button.style.backgroundColor = "";
-      button.style.color = "";
-      button.style.border = "";
-      button.style.boxShadow = "";
+      button.classList.remove('selected', 'correct', 'incorrect');
       
       // Mostrar resultado da resposta do host
       if (buttonAnswer === selectedAnswer) {
         if (isCorrect) {
-          button.style.backgroundColor = "#4CAF50"; // Verde para resposta correta
-          button.style.color = "white";
-          button.style.border = "3px solid #2E7D32";
-          button.style.boxShadow = "0 0 10px #4CAF50";
+          button.classList.add('correct');
           console.log("✅ Resposta do host CORRETA:", selectedAnswer);
         } else {
-          button.style.backgroundColor = "#F44336"; // Vermelho para resposta incorreta
-          button.style.color = "white";
-          button.style.border = "3px solid #C62828";
-          button.style.boxShadow = "0 0 10px #F44336";
+          button.classList.add('incorrect');
           console.log("❌ Resposta do host INCORRETA:", selectedAnswer);
         }
       }
       
       // Sempre destacar a resposta correta (se for diferente da selecionada)
       if (buttonText === correctAnswer && buttonAnswer !== selectedAnswer) {
-        button.style.backgroundColor = "#4CAF50"; // Verde para resposta correta
-        button.style.color = "white";
-        button.style.border = "3px solid #2E7D32";
-        button.style.boxShadow = "0 0 10px #4CAF50";
+        button.classList.add('correct');
         console.log("✅ Resposta correta destacada:", buttonText);
       }
     });
@@ -1427,18 +1415,12 @@ window.addEventListener('DOMContentLoaded', () => {
     buttons.forEach(button => {
       const buttonText = button.textContent;
       
-      // Limpar estilos anteriores
-      button.style.backgroundColor = "";
-      button.style.color = "";
-      button.style.border = "";
-      button.style.boxShadow = "";
+      // Limpar todas as classes anteriores
+      button.classList.remove('selected', 'correct', 'incorrect');
       
       // Destacar apenas a resposta correta em verde
       if (buttonText === correctAnswer) {
-        button.style.backgroundColor = "#4CAF50"; // Verde para a resposta correta
-        button.style.color = "white";
-        button.style.border = "3px solid #2E7D32";
-        button.style.boxShadow = "0 0 10px #4CAF50"; // Brilho extra
+        button.classList.add('correct');
         console.log("✅ Resposta correta destacada:", buttonText);
       }
     });
@@ -1448,11 +1430,12 @@ window.addEventListener('DOMContentLoaded', () => {
   function clearHostAnswerStyles() {
     const buttons = document.querySelectorAll(".player1-answer-btn");
     buttons.forEach(button => {
+      // Limpar tanto classes CSS quanto estilos inline (para garantir)
+      button.classList.remove('selected', 'correct', 'incorrect');
       button.style.backgroundColor = "";
       button.style.color = "";
       button.style.border = "";
       button.style.boxShadow = "";
-      button.classList.remove('selected'); // Remover também classe selected se existir
     });
   }
 
