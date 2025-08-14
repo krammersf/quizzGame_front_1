@@ -590,18 +590,11 @@ window.addEventListener('DOMContentLoaded', () => {
           let timeExpired = false;
           
           // Verificar se o jogador tem resposta para esta pergunta
-          // Primeiro verificar a estrutura "rounds" (jogadores normais)
+          // Todos os jogadores (incluindo host) usam agora a estrutura "rounds"
           if (player.rounds && player.rounds[questionIndex]) {
             playerAnswer = player.rounds[questionIndex].answer;
             selectedAnswer = player.rounds[questionIndex].selectedAnswer;
             timeExpired = player.rounds[questionIndex].timeExpired;
-          }
-          // Depois verificar a estrutura "questions" (host integrado)
-          else if (player.questions && player.questions[`q${questionIndex}`]) {
-            const questionData = player.questions[`q${questionIndex}`];
-            playerAnswer = questionData.answer;
-            selectedAnswer = null; // Host usa apenas answer
-            timeExpired = false; // Host não usa timeExpired da mesma forma
           }
           
           console.log(`📝 Jogador ${playerName} - answer: "${playerAnswer}" | selectedAnswer: "${selectedAnswer}" | timeExpired: ${timeExpired} | Correta: "${correctAnswer}"`);
@@ -1263,13 +1256,13 @@ window.addEventListener('DOMContentLoaded', () => {
       // Salvar dados da pergunta usando a mesma estrutura dos outros jogadores
       updates[`games/${createdGameId}/players/${creatorName}/rounds/${integratedCurrentQuestion}`] = {
         answer: integratedPlayerAnswer || "SEM_RESPOSTA",
-        selectedAnswer: null, // Host usa apenas answer
-        correct: isCorrect,
+        selectedAnswer: integratedPlayerAnswer ? question.hipoteses_resposta[integratedPlayerAnswer.charCodeAt(0) - 65] : null,
+        isCorrect: isCorrect,
         pointsEarned: pointsEarned,
         responseTime: responseTime,
         timeLimit: parseInt(document.getElementById("timePerQuestion").value) * 1000,
         responseTimestamp: integratedPlayerResponseTimestamp,
-        timeExpired: false // Host não usa timeExpired da mesma forma
+        timeExpired: !integratedPlayerAnswer // Se não há resposta, tempo expirou
       };
       
       // Atualizar score total
