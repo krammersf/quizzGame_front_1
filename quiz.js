@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let gameStarted = false; // controla se o jogo já foi iniciado para evitar reiniciar
   let listeningForGameStart = false; // controla se já está a ouvir mudanças do Firebase
   let listeningForGameState = false; // controla se já está a ouvir o estado do jogo
+  let questionDisplayed = -1; // controla qual pergunta está atualmente exibida para evitar recriar
   let timerInterval = null; // controla o interval do timer para evitar múltiplos
   let playerAnswer = null; // guarda a resposta do jogador para mostrar depois
   let resultsProcessed = false; // controla se os resultados já foram processados
@@ -245,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentQuestionIndex = gameState.currentQuestionIndex;
         playerAnswer = null; // Reset da resposta para nova pergunta
         resultsProcessed = false; // Reset para nova pergunta
+        questionDisplayed = -1; // Reset para permitir nova exibição
         console.log(`Jogador: Nova pergunta ${currentQuestionIndex + 1}/${questions.length}`);
         
         // Limpar timer anterior
@@ -576,6 +578,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function showQuestion() {
     console.log("showQuestion chamada - currentQuestionIndex:", currentQuestionIndex, "total questions:", questions.length);
     
+    // Verificar se esta pergunta já foi exibida para evitar recriar botões
+    if (questionDisplayed === currentQuestionIndex) {
+      console.log("Pergunta já exibida, ignorando chamada duplicada");
+      return;
+    }
+    
+    questionDisplayed = currentQuestionIndex;
+    
     // Esconder countdown e waiting screen
     hideCountdownScreen();
     waitingBox.style.display = "none";
@@ -625,10 +635,17 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = option;
       btn.className = "answer-btn";
       btn.onclick = () => checkAnswer(option, q.resposta);
-      btn.disabled = false;
+      
+      // Verificar se deve começar desativado (se já respondeu ou tempo expirou)
+      btn.disabled = (playerAnswer !== null);
       
       // Garantir que todas as classes de estado são removidas
       btn.classList.remove('selected', 'correct', 'incorrect');
+      
+      // Se o jogador já respondeu, mostrar a seleção
+      if (playerAnswer && playerAnswer.selected === option) {
+        btn.classList.add('selected');
+      }
       
       answersBox.appendChild(btn);
     });

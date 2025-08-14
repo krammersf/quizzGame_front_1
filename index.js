@@ -838,54 +838,16 @@ window.addEventListener('DOMContentLoaded', () => {
     // Mostrar o botão "Iniciar Jogo"
     document.getElementById("beginGameBtn").style.display = "inline-block";
     
-    // Inicializar como jogador 1 integrado
-    initializeIntegratedPlayer1();
+    // Host apenas controla o jogo - NÃO participa como jogador
+    console.log("🎮 Host configurado apenas como controlador do jogo");
   }
 
-  // Variáveis para o jogo integrado
-  let integratedQuestions = [];
-  let integratedCurrentQuestion = -1; // Começar em -1 para detectar a primeira pergunta corretamente
-  let integratedPlayerScore = 0;
-  let integratedPlayerAnswer = null;
-  let integratedPlayerResponseTimestamp = null; // Timestamp da resposta do jogador 1
-  let integratedGameActive = false;
-  let integratedAnswerProcessed = false; // Controla se a resposta já foi processada
-  let countdownActive = false; // Nova variável para rastrear countdown
+  // Host apenas controla o jogo - variáveis de jogador removidas
+  // Variáveis para controle de fluxo do jogo apenas
+  let gameControllerActive = false;
 
-  // Função para inicializar o Jogador 1 integrado
-  async function initializeIntegratedPlayer1() {
-    console.log("🎯 Inicializando Jogador 1 integrado");
-    
-    // Adicionar jogador à base de dados
-    await update(ref(db, `games/${createdGameId}/players/${creatorName}`), {
-      name: creatorName,
-      score: 0,
-      isHost: true,
-      joinedAt: Date.now()
-    });
-
-    // Atualizar status
-    document.getElementById("statusText").textContent = "✅ Conectado como Jogador 1 (Host)";
-    
-    // Carregar perguntas
-    await loadIntegratedQuestions();
-    
-    // Escutar estado do jogo
-    listenToIntegratedGameState();
-    
-    // Configurar botões de resposta do Jogador 1
-    setupIntegratedPlayer1Answers();
-    
-    // Tentar carregar perguntas a cada 3 segundos se ainda não existirem
-    const questionsInterval = setInterval(async () => {
-      if (integratedQuestions.length === 0) {
-        console.log("🔄 Tentando carregar perguntas novamente...");
-        await loadIntegratedQuestions();
-      } else {
-        clearInterval(questionsInterval);
-      }
-    }, 3000);
-  }
+  // Host apenas controla o jogo - todas as funções de jogador removidas
+  console.log("🎮 Host configurado como controlador apenas");
 
   // Função para carregar perguntas para o jogo integrado
   async function loadIntegratedQuestions() {
@@ -1255,132 +1217,31 @@ window.addEventListener('DOMContentLoaded', () => {
     
     if (!integratedPlayerAnswer) {
       console.log("🚫 Jogador 1 não respondeu - aplicando 0 pontos");
-      // Não mostrar mensagem ao jogador 1
+      // HOST APENAS CONTROLA - NÃO CALCULA PONTUAÇÃO
+      console.log("⏰ Host: Tempo esgotado - apenas controlando fluxo");
       
-      // Ausência de resposta = 0 pontos (não usar pointsWrong)
-      const pointsForNoAnswer = 0;
-      integratedPlayerScore += pointsForNoAnswer;
-      console.log(`⏰ SEM RESPOSTA: +${pointsForNoAnswer} pontos | Total: ${integratedPlayerScore}`);
-      
-      const roundData = {
-        questionIndex: integratedCurrentQuestion,
-        questionText: question.pergunta,
-        selectedAnswer: null, // Nenhuma resposta selecionada
-        correctAnswer: correctAnswer,
-        isCorrect: false,
-        pointsEarned: pointsForNoAnswer, // 0 pontos para ausência de resposta
-        timestamp: Date.now(),
-        responseTimestamp: Date.now(), // Timestamp quando tempo expirou
-        timeExpired: true // Flag para indicar que o tempo expirou
-      };
-      
-      // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
-      const questionData = {
-        question: question.pergunta,
-        options: question.hipoteses_resposta,
-        correctAnswer: correctAnswer,
-        questionIndex: integratedCurrentQuestion
-      };
-      
-      // Dados da resposta do jogador 1 (tempo esgotado)
-      const playerAnswerData = {
-        answer: null,
-        points: pointsForNoAnswer, // Usar 0 pontos em vez de pointsWrong
-        isCorrect: false,
-        timestamp: Date.now(),
-        responseTimestamp: Date.now(), // Timestamp específico da resposta
-        timeExpired: true
-      };
-      
-      // Atualizar ambas as estruturas no Firebase
-      const updates = {};
-      updates[`games/${createdGameId}/players/${creatorName}/score`] = integratedPlayerScore;
-      updates[`games/${createdGameId}/players/${creatorName}/rounds/${integratedCurrentQuestion}`] = roundData;
-      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/question`] = questionData.question;
-      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/options`] = questionData.options;
-      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/correctAnswer`] = questionData.correctAnswer;
-      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/questionIndex`] = questionData.questionIndex;
-      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/playerAnswers/${creatorName}`] = playerAnswerData;
-      
-      update(ref(db), updates)
-        .then(() => console.log("✅ Registo de tempo esgotado e resultado da pergunta do jogador 1 guardados"))
-        .catch(err => console.error("❌ Erro ao guardar registo do jogador 1:", err));
+      // REMOVIDO: Cálculo de pontuação do host
+      // Host não participa como jogador
+      // HOST NÃO SALVA DADOS COMO JOGADOR
+      // REMOVIDO: Todo o código de salvamento de dados do host no Firebase
+      console.log("⏰ Host: Tempo esgotado processado - apenas controle de fluxo");
       
       return;
     }
     
-    // Converter letra para índice (A=0, B=1, C=2, D=3)
-    const answerIndex = integratedPlayerAnswer.charCodeAt(0) - 65; // A=65 em ASCII
-    const selectedAnswer = question.hipoteses_resposta[answerIndex];
+    // HOST NÃO CALCULA PONTUAÇÃO - APENAS CONTROLA FLUXO
+    console.log("🎮 Host: Processando resposta apenas para controle de jogo");
     
-    const isCorrect = selectedAnswer === correctAnswer;
-    console.log(`🔍 Resposta: ${selectedAnswer}, Correta: ${correctAnswer}, Está certo: ${isCorrect}`);
+    // REMOVIDO: Toda a lógica de pontuação do host
+    // O host apenas aplica feedback visual mas não salva dados como jogador
     
-    // Aplicar feedback visual (com resposta = cores completas)
-    applyIntegratedAnswerFeedback(correctAnswer, true); // true = com resposta
+    // HOST NÃO SALVA DADOS NO FIREBASE COMO JOGADOR
+    console.log("🎮 Host: Resposta processada - apenas controle visual");
     
-    if (isCorrect) {
-      const pointsCorrect = parseInt(document.getElementById("pointsCorrect").value);
-      integratedPlayerScore += pointsCorrect;
-      console.log(`✅ Resposta CERTA: +${pointsCorrect} pontos | Total: ${integratedPlayerScore}`);
-      // Não mostrar mensagem ao jogador 1
-    } else {
-      const pointsWrong = parseInt(document.getElementById("pointsWrong").value);
-      integratedPlayerScore += pointsWrong;
-      console.log(`❌ Resposta ERRADA: ${pointsWrong} pontos | Total: ${integratedPlayerScore}`);
-      // Não mostrar mensagem ao jogador 1
-    }
+    // REMOVIDO: Todo código de salvamento de dados do host
     
-    // Calcular pontos ganhos nesta ronda
-    const pointsThisRound = isCorrect ? 
-      parseInt(document.getElementById("pointsCorrect").value) : 
-      parseInt(document.getElementById("pointsWrong").value);
-    
-    // Guardar resposta detalhada desta ronda na base de dados (estrutura antiga - mantida para compatibilidade)
-    const roundData = {
-      questionIndex: integratedCurrentQuestion,
-      questionText: question.pergunta,
-      selectedAnswer: selectedAnswer,
-      correctAnswer: correctAnswer,
-      isCorrect: isCorrect,
-      pointsEarned: pointsThisRound,
-      timestamp: Date.now(),
-      responseTimestamp: integratedPlayerResponseTimestamp || Date.now() // Usar timestamp da resposta capturado quando clicou
-    };
-    
-    // Nova estrutura: Guardar na pergunta com todas as respostas dos jogadores
-    const questionData = {
-      question: question.pergunta,
-      options: question.hipoteses_resposta,
-      correctAnswer: correctAnswer,
-      questionIndex: integratedCurrentQuestion
-    };
-    
-    // Dados da resposta do jogador 1
-    const playerAnswerData = {
-      answer: selectedAnswer,
-      points: pointsThisRound,
-      isCorrect: isCorrect,
-      timestamp: Date.now(),
-      responseTimestamp: integratedPlayerResponseTimestamp || Date.now() // Usar timestamp da resposta capturado quando clicou
-    };
-    
-    // Atualizar ambas as estruturas no Firebase
-    const updates = {};
-    updates[`games/${createdGameId}/players/${creatorName}/score`] = integratedPlayerScore;
-    updates[`games/${createdGameId}/players/${creatorName}/rounds/${integratedCurrentQuestion}`] = roundData;
-    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/question`] = questionData.question;
-    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/options`] = questionData.options;
-    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/correctAnswer`] = questionData.correctAnswer;
-    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/questionIndex`] = questionData.questionIndex;
-    updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/playerAnswers/${creatorName}`] = playerAnswerData;
-    
-    update(ref(db), updates)
-      .then(() => {
-        console.log("✅ Score, resposta da ronda e resultado da pergunta do jogador 1 atualizados");
-        integratedAnswerProcessed = true; // Marcar como processado
-      })
-      .catch(err => console.error("❌ Erro ao atualizar dados do jogador 1:", err));
+    // HOST NÃO ATUALIZA FIREBASE COMO JOGADOR
+    console.log("🎮 Host: Apenas controle - sem dados salvos no Firebase");
   }
 
   // Função para mostrar resultados finais integrados
