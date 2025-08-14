@@ -235,14 +235,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       
-      // Sincronizar pergunta atual (nova pergunta) - MAS SÓ SE NÃO ESTIVER EM COUNTDOWN
+      // Sincronizar pergunta atual (nova pergunta) - APENAS SE FOR REALMENTE NOVA
       console.log("🔍 Verificando nova pergunta...");
       console.log("🔍 !gameState.countdown:", !gameState.countdown);
       console.log("🔍 gameState.currentQuestionIndex !== currentQuestionIndex:", gameState.currentQuestionIndex !== currentQuestionIndex);
-      console.log("🔍 !gameState.showingResults:", !gameState.showingResults);
+      console.log("🔍 gameState.showingResults:", gameState.showingResults);
       
-      if (!gameState.countdown && (gameState.currentQuestionIndex !== currentQuestionIndex || !gameState.showingResults)) {
-        console.log("✅ CONDIÇÕES ATENDIDAS - Mostrando nova pergunta!");
+      // SÓ MOSTRAR NOVA PERGUNTA SE O ÍNDICE MUDOU DE FACTO
+      if (!gameState.countdown && gameState.currentQuestionIndex !== currentQuestionIndex) {
+        console.log("✅ NOVA PERGUNTA DETECTADA - Atualizando!");
+        console.log(`📈 Mudando de pergunta ${currentQuestionIndex} para ${gameState.currentQuestionIndex}`);
         
         // Atualizar PRIMEIRO o índice local
         currentQuestionIndex = gameState.currentQuestionIndex;
@@ -582,6 +584,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showQuestion() {
     console.log("showQuestion chamada - currentQuestionIndex:", currentQuestionIndex, "total questions:", questions.length);
+    console.log("🔍 questionDisplayed:", questionDisplayed);
     
     // Verificar se esta pergunta já foi exibida para evitar recriar botões
     if (questionDisplayed === currentQuestionIndex) {
@@ -589,6 +592,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     
+    console.log("✅ Nova pergunta será exibida - atualizando questionDisplayed para:", currentQuestionIndex);
     questionDisplayed = currentQuestionIndex;
     
     // Esconder countdown e waiting screen
