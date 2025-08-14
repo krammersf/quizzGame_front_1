@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let gameConfig = null;
   let questions = [];
-  let currentQuestionIndex = 0;
+  let currentQuestionIndex = -1; // Iniciar com -1 para sincronizar com o servidor
   let score = 0;
   let timer;
   let timeLeft = 10;
@@ -262,9 +262,9 @@ document.addEventListener("DOMContentLoaded", () => {
           timerInterval = null;
         }
         
-        if (currentQuestionIndex < questions.length) {
+        if (currentQuestionIndex >= 0 && currentQuestionIndex < questions.length) {
           showQuestion();
-        } else {
+        } else if (currentQuestionIndex >= questions.length) {
           console.log("Todas as perguntas foram respondidas");
           showFinalRanking();
           return;
