@@ -1076,6 +1076,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Função para atualizar timer integrado
   function updateIntegratedTimer(questionStartTime) {
     const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
+    console.log(`🕐 Timer configurado para: ${timePerQuestion}s`);
     
     const updateTimer = () => {
       const elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
@@ -1280,6 +1281,23 @@ window.addEventListener('DOMContentLoaded', () => {
       const currentScore = playerSnapshot.exists() ? (playerSnapshot.val().score || 0) : 0;
       const newScore = currentScore + pointsEarned;
       updates[`games/${createdGameId}/players/${creatorName}/score`] = newScore;
+      
+      // Também salvar na estrutura questionResults para estatísticas avançadas (igual outros jogadores)
+      const playerAnswerData = {
+        answer: integratedPlayerAnswer || null,
+        points: pointsEarned,
+        isCorrect: isCorrect,
+        timestamp: Date.now(),
+        responseTimestamp: integratedPlayerResponseTimestamp,
+        timeExpired: !integratedPlayerAnswer
+      };
+      
+      // Garantir que a pergunta existe na estrutura questionResults
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/question`] = question.pergunta;
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/options`] = question.hipoteses_resposta;
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/correctAnswer`] = question.resposta;
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/questionIndex`] = integratedCurrentQuestion;
+      updates[`games/${createdGameId}/questionResults/${integratedCurrentQuestion}/playerAnswers/${creatorName}`] = playerAnswerData;
       
       await update(ref(db), updates);
       console.log(`💾 Host dados salvos: ${pointsEarned} pontos | Total: ${newScore}`);
