@@ -38,6 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return "imagens/ZZZ0099.gif";
   }
 
+  // Função para fazer scroll automático em dispositivos móveis
+  function scrollToBottomOnMobile() {
+    if (window.innerWidth <= 768) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        });
+      }, 150); // Delay um pouco maior para garantir que a imagem foi renderizada
+    }
+  }
+
   // Função para verificar se uma imagem existe e aplicar fallback se necessário
   function setImageWithFallback(imgElement, imagePath) {
     const img = new Image();
@@ -55,6 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
         imgElement.src = imagePath;
       }
       imgElement.classList.remove("hidden");
+      
+      // Fazer scroll após a imagem carregar
+      scrollToBottomOnMobile();
     };
     img.onerror = function() {
       // Imagem não existe, usar fallback
@@ -66,6 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
       imgElement.style.animationPlayState = 'running';
       imgElement.classList.remove("hidden");
       console.log(`🎬 GIF fallback carregado com timestamp: imagens/ZZZ0099.gif?t=${timestamp}`);
+      
+      // Fazer scroll após o fallback carregar
+      scrollToBottomOnMobile();
     };
     img.src = imagePath;
   }
@@ -317,16 +335,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if (currentQuestionIndex >= 0 && currentQuestionIndex < questions.length) {
           showQuestion();
-          
-          // Scroll automático para o final da página em dispositivos móveis
-          setTimeout(() => {
-            if (window.innerWidth <= 768) {
-              window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: 'smooth'
-              });
-            }
-          }, 100); // Pequeno delay para garantir que o DOM foi atualizado
         } else if (currentQuestionIndex >= questions.length) {
           console.log("Todas as perguntas foram respondidas");
           showFinalRanking();
@@ -725,15 +733,10 @@ document.addEventListener("DOMContentLoaded", () => {
     playerAnswer = null;
     console.log("playerAnswer resetado para nova pergunta");
     
-    // Scroll automático para o final da página em dispositivos móveis
-    setTimeout(() => {
-      if (window.innerWidth <= 768) {
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: 'smooth'
-        });
-      }
-    }, 100); // Pequeno delay para garantir que o DOM foi atualizado
+    // Se não há imagem, fazer scroll imediatamente
+    if (!imagePath) {
+      scrollToBottomOnMobile();
+    }
     
     // startTimer() removido - timer é sincronizado via Firebase
   }

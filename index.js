@@ -37,6 +37,18 @@ function getQuestionImagePath(question) {
 }
 
 // Função para verificar se uma imagem existe e aplicar fallback se necessário
+// Função para fazer scroll automático em dispositivos móveis
+function scrollToBottomOnMobile() {
+  if (window.innerWidth <= 768) {
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+    }, 150); // Delay um pouco maior para garantir que a imagem foi renderizada
+  }
+}
+
 function setImageWithFallback(imgElement, imagePath) {
   const img = new Image();
   img.onload = function() {
@@ -53,6 +65,9 @@ function setImageWithFallback(imgElement, imagePath) {
       imgElement.src = imagePath;
     }
     imgElement.classList.remove("hidden");
+    
+    // Fazer scroll após a imagem carregar
+    scrollToBottomOnMobile();
   };
   img.onerror = function() {
     // Imagem não existe, usar fallback
@@ -64,6 +79,9 @@ function setImageWithFallback(imgElement, imagePath) {
     imgElement.style.animationPlayState = 'running';
     imgElement.classList.remove("hidden");
     console.log(`🎬 GIF fallback carregado com timestamp: imagens/ZZZ0099.gif?t=${timestamp}`);
+    
+    // Fazer scroll após o fallback carregar
+    scrollToBottomOnMobile();
   };
   img.src = imagePath;
 }
@@ -1053,6 +1071,8 @@ window.addEventListener('DOMContentLoaded', () => {
         setImageWithFallback(imgElement, imagePath);
       } else {
         imgElement.classList.add("hidden");
+        // Se não há imagem, fazer scroll imediatamente
+        scrollToBottomOnMobile();
       }
     }
     
