@@ -4,7 +4,7 @@
 		{
 			"numero": "W000001",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000001.png",
 			"pergunta": "Qual é o nome completo de Anakin Skywalker após se tornar Sith?",
 			"hipoteses_resposta": ["Darth Maul", "Darth Sidious", "Darth Vader", "Darth Tyranus"],
 			"resposta": "Darth Vader"
@@ -12,7 +12,7 @@
 		{
 			"numero": "W000002",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000002.png",
 			"pergunta": "Em qual planeta nasceu Luke Skywalker?",
 			"hipoteses_resposta": ["Naboo", "Coruscant", "Alderaan", "Tatooine"],
 			"resposta": "Tatooine"
@@ -20,7 +20,7 @@
 		{
 			"numero": "W000003",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000003.png",
 			"pergunta": "Qual é o nome da nave do Han Solo?",
 			"hipoteses_resposta": ["X-wing", "TIE Fighter", "Millennium Falcon", "Star Destroyer"],
 			"resposta": "Millennium Falcon"
@@ -36,7 +36,7 @@
 		{
 			"numero": "W000005",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000005.png",
 			"pergunta": "Qual é o nome do Imperador Palpatine como Sith?",
 			"hipoteses_resposta": ["Darth Vader", "Darth Sidious", "Darth Plagueis", "Darth Maul"],
 			"resposta": "Darth Sidious"
@@ -52,7 +52,7 @@
 		{
 			"numero": "W000007",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000007.png",
 			"pergunta": "Qual é a cor do sabre de luz de Mace Windu?",
 			"hipoteses_resposta": ["Verde", "Azul", "Roxo", "Vermelho"],
 			"resposta": "Roxo"
@@ -60,7 +60,7 @@
 		{
 			"numero": "W000008",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000008.png",
 			"pergunta": "Como se chama a espécie do Yoda?",
 			"hipoteses_resposta": ["Jawa", "Ewok", "Desconhecida", "Hutt"],
 			"resposta": "Desconhecida"
@@ -92,7 +92,7 @@
 		{
 			"numero": "W000012",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000012.png",
 			"pergunta": "Qual é o nome do mentor de Luke Skywalker em Dagobah?",
 			"hipoteses_resposta": ["Obi-Wan Kenobi", "Qui-Gon Jinn", "Yoda", "Mace Windu"],
 			"resposta": "Yoda"
@@ -108,7 +108,6 @@
 		{
 			"numero": "W000014",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
 			"pergunta": "Qual é o nome da filha de Darth Vader?",
 			"hipoteses_resposta": ["Padmé Amidala", "Princess Leia", "Rey", "Jyn Erso"],
 			"resposta": "Princess Leia"
@@ -132,7 +131,7 @@
 		{
 			"numero": "W000017",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000017.png",
 			"pergunta": "Quem é o mestre de Darth Sidious?",
 			"hipoteses_resposta": ["Darth Vader", "Darth Maul", "Darth Plagueis", "Darth Tyranus"],
 			"resposta": "Darth Plagueis"
@@ -140,7 +139,7 @@
 		{
 			"numero": "W000018",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000018.png",
 			"pergunta": "Como se chama a capital da República Galáctica?",
 			"hipoteses_resposta": ["Naboo", "Coruscant", "Alderaan", "Kamino"],
 			"resposta": "Coruscant"
@@ -164,7 +163,7 @@
 		{
 			"numero": "W000021",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000021.png",
 			"pergunta": "Qual é o nome da arma capaz de destruir planetas?",
 			"hipoteses_resposta": ["Star Destroyer", "Death Star", "Super Star Destroyer", "Starkiller Base"],
 			"resposta": "Death Star"
@@ -172,7 +171,7 @@
 		{
 			"numero": "W000022",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000022.png",
 			"pergunta": "Em que episódio é revelado que Vader é pai de Luke?",
 			"hipoteses_resposta": ["Episódio IV", "Episódio V", "Episódio VI", "Episódio III"],
 			"resposta": "Episódio V"
@@ -276,7 +275,7 @@
 		{
 			"numero": "W000035",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000035.png",
 			"pergunta": "Em qual ordem apareceu o primeiro filme de Star Wars cronologicamente?",
 			"hipoteses_resposta": ["Primeiro", "Quarto", "Sétimo", "Terceiro"],
 			"resposta": "Quarto"
@@ -308,7 +307,7 @@
 		{
 			"numero": "W000039",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000039.png",
 			"pergunta": "Em que ano foi lançado o primeiro filme de Star Wars?",
 			"hipoteses_resposta": ["1975", "1976", "1977", "1978"],
 			"resposta": "1977"
@@ -340,7 +339,7 @@
 		{
 			"numero": "W000043",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000043.png",
 			"pergunta": "Como se chama a cerimônia onde os Jedi jovens escolhem seu cristal kyber?",
 			"hipoteses_resposta": ["The Gathering", "The Choosing", "The Calling", "The Selection"],
 			"resposta": "The Gathering"
@@ -380,7 +379,6 @@
 		{
 			"numero": "W000048",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
 			"pergunta": "Qual é o nome do contrabandista que pilota a Millennium Falcon?",
 			"hipoteses_resposta": ["Lando Calrissian", "Han Solo", "Chewbacca", "Boba Fett"],
 			"resposta": "Han Solo"
@@ -388,7 +386,7 @@
 		{
 			"numero": "W000049",
 			"tipo_pergunta": "hipotese",
-			"imagem": null,
+			"imagem": "imagens/W000049.png",
 			"pergunta": "Em que episódio morre o Imperador Palpatine pela primeira vez?",
 			"hipoteses_resposta": ["Episódio V", "Episódio VI", "Episódio VII", "Episódio VIII"],
 			"resposta": "Episódio VI"
