@@ -40,14 +40,17 @@ function getQuestionImagePath(question) {
 function setImageWithFallback(imgElement, imagePath) {
   const img = new Image();
   img.onload = function() {
-    // Imagem carregou com sucesso
-    imgElement.src = imagePath;
+    // Imagem carregou com sucesso - adicionar timestamp para forçar reload de GIFs
+    const timestamp = Date.now();
+    const finalPath = imagePath.includes('ZZZ0099.gif') ? `${imagePath}?t=${timestamp}` : imagePath;
+    imgElement.src = finalPath;
     imgElement.style.display = "block";
   };
   img.onerror = function() {
     // Imagem não existe, usar fallback
     console.log(`Imagem não encontrada: ${imagePath}, usando fallback`);
-    imgElement.src = "imagens/ZZZ0099.png";
+    const timestamp = Date.now();
+    imgElement.src = `imagens/ZZZ0099.gif?t=${timestamp}`;
     imgElement.style.display = "block";
   };
   img.src = imagePath;
