@@ -40,10 +40,18 @@ function getQuestionImagePath(question) {
 function setImageWithFallback(imgElement, imagePath) {
   const img = new Image();
   img.onload = function() {
-    // Imagem carregou com sucesso - adicionar timestamp para forçar reload de GIFs
-    const timestamp = Date.now();
-    const finalPath = imagePath.includes('ZZZ0099.gif') ? `${imagePath}?t=${timestamp}` : imagePath;
-    imgElement.src = finalPath;
+    // Imagem carregou com sucesso
+    // Para GIFs, forçar reload para garantir animação
+    if (imagePath.includes('.gif')) {
+      const timestamp = Date.now();
+      imgElement.src = `${imagePath}?t=${timestamp}`;
+      // Garantir que GIFs podem animar
+      imgElement.style.animation = '';
+      imgElement.style.animationPlayState = 'running';
+      console.log(`🎬 GIF carregado com timestamp: ${imagePath}?t=${timestamp}`);
+    } else {
+      imgElement.src = imagePath;
+    }
     imgElement.style.display = "block";
   };
   img.onerror = function() {
@@ -51,7 +59,11 @@ function setImageWithFallback(imgElement, imagePath) {
     console.log(`Imagem não encontrada: ${imagePath}, usando fallback`);
     const timestamp = Date.now();
     imgElement.src = `imagens/ZZZ0099.gif?t=${timestamp}`;
+    // Garantir que GIFs podem animar
+    imgElement.style.animation = '';
+    imgElement.style.animationPlayState = 'running';
     imgElement.style.display = "block";
+    console.log(`🎬 GIF fallback carregado com timestamp: imagens/ZZZ0099.gif?t=${timestamp}`);
   };
   img.src = imagePath;
 }
