@@ -24,6 +24,382 @@
 			"pergunta": "Qual a bandeira deste pais?",
 			"hipoteses_resposta": ["Nepal", "Suíça", "Vaticano", "Mónaco"],
 			"resposta": "Nepal"
+		},
+		{
+			"numero": "B001004",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001004.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Seychelles", "Madagascar", "Maurícias", "Cabo Verde"],
+			"resposta": "Seychelles"
+		},
+		{
+			"numero": "B001005",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001005.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Palau", "Micronésia", "Ilhas Marshall", "Nauru"],
+			"resposta": "Palau"
+		},
+		{
+			"numero": "B001006",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001006.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Kirguistão", "Cazaquistão", "Uzbequistão", "Tajiquistão"],
+			"resposta": "Kirguistão"
+		},
+		{
+			"numero": "B001007",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001007.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Vanuatu", "Fiji", "Ilhas Salomão", "Papua Nova Guiné"],
+			"resposta": "Vanuatu"
+		},
+		{
+			"numero": "B001008",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001008.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Moldávia", "Roménia", "Andorra", "Chade"],
+			"resposta": "Moldávia"
+		},
+		{
+			"numero": "B001009",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001009.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Belize", "Guatemala", "Honduras", "El Salvador"],
+			"resposta": "Belize"
+		},
+		{
+			"numero": "B001010",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001010.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Eritreia", "Etiópia", "Somália", "Sudão"],
+			"resposta": "Eritreia"
+		},
+		{
+			"numero": "B001011",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001011.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Omã", "Qatar", "Kuwait", "Bahrein"],
+			"resposta": "Omã"
+		},
+		{
+			"numero": "B001012",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001012.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Brunei", "Malásia", "Singapura", "Indonésia"],
+			"resposta": "Brunei"
+		},
+		{
+			"numero": "B001013",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001013.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Liechtenstein", "San Marino", "Andorra", "Vaticano"],
+			"resposta": "Liechtenstein"
+		},
+		{
+			"numero": "B001014",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001014.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Barbados", "Jamaica", "Trinidad e Tobago", "Granada"],
+			"resposta": "Barbados"
+		},
+		{
+			"numero": "B001015",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001015.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Turkmenistão", "Uzbequistão", "Kirguistão", "Cazaquistão"],
+			"resposta": "Turkmenistão"
+		},
+		{
+			"numero": "B001016",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001016.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Maldivas", "Sri Lanka", "Bangladesh", "Maurícias"],
+			"resposta": "Maldivas"
+		},
+		{
+			"numero": "B001017",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001017.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Tonga", "Samoa", "Fiji", "Vanuatu"],
+			"resposta": "Tonga"
+		},
+		{
+			"numero": "B001018",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001018.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Comores", "Seychelles", "Madagascar", "Maurícias"],
+			"resposta": "Comores"
+		},
+		{
+			"numero": "B001019",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001019.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Nauru", "Kiribati", "Tuvalu", "Micronésia"],
+			"resposta": "Nauru"
+		},
+		{
+			"numero": "B001020",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001020.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Gabão", "República Centro-Africana", "Camarões", "Guiné Equatorial"],
+			"resposta": "Gabão"
+		},
+		{
+			"numero": "B001021",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001021.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Lesoto", "Botsuana", "Essuatíni", "África do Sul"],
+			"resposta": "Lesoto"
+		},
+		{
+			"numero": "B001022",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001022.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Micronésia", "Palau", "Ilhas Marshall", "Kiribati"],
+			"resposta": "Micronésia"
+		},
+		{
+			"numero": "B001023",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001023.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Dominica", "Granada", "Santa Lúcia", "São Vicente e Granadinas"],
+			"resposta": "Dominica"
+		},
+		{
+			"numero": "B001024",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001024.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Guiné Equatorial", "Gabão", "Camarões", "República Centro-Africana"],
+			"resposta": "Guiné Equatorial"
+		},
+		{
+			"numero": "B001025",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001025.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Tuvalu", "Kiribati", "Nauru", "Fiji"],
+			"resposta": "Tuvalu"
+		},
+		{
+			"numero": "B001026",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001026.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Costa Rica", "Nicarágua", "Honduras", "El Salvador"],
+			"resposta": "Costa Rica"
+		},
+		{
+			"numero": "B001027",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001027.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Ilhas Marshall", "Micronésia", "Palau", "Nauru"],
+			"resposta": "Ilhas Marshall"
+		},
+		{
+			"numero": "B001028",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001028.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Kiribati", "Tuvalu", "Nauru", "Ilhas Marshall"],
+			"resposta": "Kiribati"
+		},
+		{
+			"numero": "B001029",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001029.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Antígua e Barbuda", "Barbados", "São Cristóvão e Nevis", "Trinidad e Tobago"],
+			"resposta": "Antígua e Barbuda"
+		},
+		{
+			"numero": "B001030",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001030.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["São Cristóvão e Nevis", "Antígua e Barbuda", "Dominica", "Granada"],
+			"resposta": "São Cristóvão e Nevis"
+		},
+		{
+			"numero": "B001031",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001031.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Cazaquistão", "Kirguistão", "Uzbequistão", "Turkmenistão"],
+			"resposta": "Cazaquistão"
+		},
+		{
+			"numero": "B001032",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001032.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Tajiquistão", "Uzbequistão", "Kirguistão", "Irão"],
+			"resposta": "Tajiquistão"
+		},
+		{
+			"numero": "B001033",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001033.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Papua Nova Guiné", "Vanuatu", "Ilhas Salomão", "Fiji"],
+			"resposta": "Papua Nova Guiné"
+		},
+		{
+			"numero": "B001034",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001034.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Ilhas Salomão", "Vanuatu", "Papua Nova Guiné", "Fiji"],
+			"resposta": "Ilhas Salomão"
+		},
+		{
+			"numero": "B001035",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001035.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Granada", "Dominica", "Santa Lúcia", "São Vicente e Granadinas"],
+			"resposta": "Granada"
+		},
+		{
+			"numero": "B001036",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001036.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Santa Lúcia", "Dominica", "Granada", "São Vicente e Granadinas"],
+			"resposta": "Santa Lúcia"
+		},
+		{
+			"numero": "B001037",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001037.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["São Vicente e Granadinas", "Granada", "Santa Lúcia", "Dominica"],
+			"resposta": "São Vicente e Granadinas"
+		},
+		{
+			"numero": "B001038",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001038.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Timor-Leste", "Bangladesh", "Papua Nova Guiné", "Moçambique"],
+			"resposta": "Timor-Leste"
+		},
+		{
+			"numero": "B001039",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001039.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Montenegro", "Sérvia", "Macedónia do Norte", "Albânia"],
+			"resposta": "Montenegro"
+		},
+		{
+			"numero": "B001040",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001040.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Macedónia do Norte", "Montenegro", "Albânia", "Bulgária"],
+			"resposta": "Macedónia do Norte"
+		},
+		{
+			"numero": "B001041",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001041.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Samoa", "Tonga", "Fiji", "Vanuatu"],
+			"resposta": "Samoa"
+		},
+		{
+			"numero": "B001042",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001042.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Níger", "Mali", "Burkina Faso", "Chade"],
+			"resposta": "Níger"
+		},
+		{
+			"numero": "B001043",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001043.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Burkina Faso", "Mali", "Níger", "Guiné"],
+			"resposta": "Burkina Faso"
+		},
+		{
+			"numero": "B001044",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001044.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Mali", "Burkina Faso", "Níger", "Senegal"],
+			"resposta": "Mali"
+		},
+		{
+			"numero": "B001045",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001045.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Guiné", "Mali", "Senegal", "Gana"],
+			"resposta": "Guiné"
+		},
+		{
+			"numero": "B001046",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001046.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Benin", "Togo", "Burkina Faso", "Gana"],
+			"resposta": "Benin"
+		},
+		{
+			"numero": "B001047",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001047.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Togo", "Benin", "Gana", "Burkina Faso"],
+			"resposta": "Togo"
+		},
+		{
+			"numero": "B001048",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001048.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Ruanda", "Burundi", "Uganda", "República Democrática do Congo"],
+			"resposta": "Ruanda"
+		},
+		{
+			"numero": "B001049",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001049.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Burundi", "Ruanda", "Uganda", "Tanzânia"],
+			"resposta": "Burundi"
+		},
+		{
+			"numero": "B001050",
+			"tipo_pergunta": "hipotese",
+			"imagem": "imagens/B001050.png",
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Djibuti", "Eritreia", "Somália", "Etiópia"],
+			"resposta": "Djibuti"
 		}
 	]
 }
