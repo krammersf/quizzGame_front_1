@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentQuestionIndex = -1; // Iniciar com -1 para sincronizar com o servidor
   let score = 0;
   let timer;
-  let timeLeft = 10;
+  let timeLeft = 14; // Valor inicial, será sobrescrito pela configuração do jogo
   let gameStarted = false; // controla se o jogo já foi iniciado para evitar reiniciar
   let listeningForGameStart = false; // controla se já está a ouvir mudanças do Firebase
   let listeningForGameState = false; // controla se já está a ouvir o estado do jogo
@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // SEMPRE atualizar timer - mesmo se a pergunta não mudou - MAS SÓ SE NÃO ESTIVER EM COUNTDOWN
       if (!gameState.countdown && gameState.questionStartTime && !gameState.gameEnded) {
         console.log("Jogador: Atualizando timer sincronizado para pergunta", currentQuestionIndex + 1);
-        updateTimerDisplay(gameState.questionStartTime, gameState.timePerQuestion || 10);
+        updateTimerDisplay(gameState.questionStartTime, gameState.timePerQuestion || gameConfig?.timePerQuestion || 14);
       }
     });
   }
@@ -1043,8 +1043,8 @@ document.addEventListener("DOMContentLoaded", () => {
               // Próxima pergunta (controlo automático)
               update(ref(db, `games/${gameId}/gameState`), {
                 currentQuestionIndex: nextQuestionIndex,
-                timeLeft: gameState.timePerQuestion || 10,
-                timePerQuestion: gameState.timePerQuestion || 10,
+                timeLeft: gameState.timePerQuestion || gameConfig?.timePerQuestion || 14,
+                timePerQuestion: gameState.timePerQuestion || gameConfig?.timePerQuestion || 14,
                 questionStartTime: Date.now(),
                 gameEnded: false,
                 showingResults: false
@@ -1092,8 +1092,8 @@ document.addEventListener("DOMContentLoaded", () => {
               // Próxima pergunta (sistema backup)
               update(ref(db, `games/${gameId}/gameState`), {
                 currentQuestionIndex: nextQuestionIndex,
-                timeLeft: gameState.timePerQuestion || 10,
-                timePerQuestion: gameState.timePerQuestion || 10,
+                timeLeft: gameState.timePerQuestion || gameConfig?.timePerQuestion || 14,
+                timePerQuestion: gameState.timePerQuestion || gameConfig?.timePerQuestion || 14,
                 questionStartTime: Date.now(),
                 gameEnded: false,
                 showingResults: false

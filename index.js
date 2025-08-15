@@ -103,8 +103,8 @@ window.addEventListener('DOMContentLoaded', () => {
       alert("O número máximo de perguntas deve ser pelo menos 1.");
       return;
     }
-    if (isNaN(timePerQuestion) || timePerQuestion < 10 || timePerQuestion > 20) {
-      alert("⚠️ Erro: O tempo por pergunta deve estar entre 10 e 20 segundos!");
+    if (isNaN(timePerQuestion) || timePerQuestion < 10 || timePerQuestion > 25) {
+      alert("⚠️ Erro: O tempo por pergunta deve estar entre 10 e 25 segundos!");
       return;
     }
     if (isNaN(pointsCorrect)) {
@@ -163,9 +163,9 @@ window.addEventListener('DOMContentLoaded', () => {
       // Ler tempo por pergunta da configuração
       const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
       
-      // Validar tempo por pergunta (deve estar entre 10 e 20 segundos)
-      if (isNaN(timePerQuestion) || timePerQuestion < 10 || timePerQuestion > 20) {
-        alert("⚠️ Erro: O tempo por pergunta deve estar entre 10 e 20 segundos!");
+      // Validar tempo por pergunta (deve estar entre 10 e 25 segundos)
+      if (isNaN(timePerQuestion) || timePerQuestion < 10 || timePerQuestion > 25) {
+        alert("⚠️ Erro: O tempo por pergunta deve estar entre 10 e 25 segundos!");
         return;
       }
       
@@ -208,7 +208,8 @@ window.addEventListener('DOMContentLoaded', () => {
   function startCountdown() {
     countdownActive = true; // Marcar countdown como ativo
     const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value);
-    let countdownTime = timePerQuestion || 10; // Usar tempo configurado ou 10 como fallback
+    const defaultTimeValue = parseInt(document.getElementById("timePerQuestion").defaultValue) || 14;
+    let countdownTime = timePerQuestion || defaultTimeValue; // Usar tempo configurado ou valor padrão do campo
     
     console.log(`🚀 Iniciando countdown de ${countdownTime} segundos`);
     
@@ -1111,7 +1112,8 @@ window.addEventListener('DOMContentLoaded', () => {
       `🎯 Pergunta ${integratedCurrentQuestion + 1}: Responde!`;
     
     // Inicializar timer com o tempo configurado
-    const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value) || 10;
+    const defaultTimeValue = parseInt(document.getElementById("timePerQuestion").defaultValue) || 14;
+    const timePerQuestion = parseInt(document.getElementById("timePerQuestion").value) || defaultTimeValue;
     const timerDisplay = document.getElementById("timerDisplay");
     if (timerDisplay) {
       timerDisplay.textContent = `⏰ ${timePerQuestion}s`;
