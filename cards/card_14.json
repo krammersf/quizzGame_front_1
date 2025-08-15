@@ -38,7 +38,7 @@
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
 			"pergunta": "Qual jogador português joga no Al-Nassr?",
-			"hipoteses_resposta": ["Cristiano Ronaldo", "Bruno Fernandes", "João Félix", "Rafael Leão"],
+			"hipoteses_resposta": ["Cristiano Ronaldo", "Bruno Fernandes", "Vitinha", "Rafael Leão"],
 			"resposta": "Cristiano Ronaldo"
 		},
 		{
@@ -63,7 +63,7 @@
 			"imagem": null,
 			"pergunta": "Em que clube joga atualmente Luka Modrić?",
 			"hipoteses_resposta": ["Real Madrid", "Inter Miami", "AC Milan", "Juventus"],
-			"resposta": "Real Madrid"
+			"resposta": "AC Milan"
 		},
 		{
 			"numero": "J000009",
@@ -95,7 +95,7 @@
 			"imagem": null,
 			"pergunta": "Em que clube joga atualmente Neymar Jr.?",
 			"hipoteses_resposta": ["Al-Hilal", "PSG", "Barcelona", "Santos"],
-			"resposta": "Al-Hilal"
+			"resposta": "Santos"
 		},
 		{
 			"numero": "J000013",
@@ -109,9 +109,9 @@
 			"numero": "J000014",
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Em que clube português joga Otávio?",
+			"pergunta": "Em que clube português joga Otamendi?",
 			"hipoteses_resposta": ["FC Porto", "Benfica", "Sporting", "Braga"],
-			"resposta": "FC Porto"
+			"resposta": "Benfica"
 		},
 		{
 			"numero": "J000015",
@@ -133,7 +133,7 @@
 			"numero": "J000017",
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Qual jogador francês joga no AC Milan?",
+			"pergunta": "Qual jogador francês joga ou jogava no AC Milan?",
 			"hipoteses_resposta": ["Theo Hernández", "Olivier Giroud", "Mike Maignan", "Todas as anteriores"],
 			"resposta": "Todas as anteriores"
 		},
@@ -166,7 +166,7 @@
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
 			"pergunta": "Qual a nacionalidade de Alphonso Davies?",
-			"hipoteses_resposta": ["Canadiana", "Americana", "Liberiana", "Ghanesa"],
+			"hipoteses_resposta": ["Canadiana", "Americana", "Austriaca", "Ghanesa"],
 			"resposta": "Canadiana"
 		},
 		{
@@ -198,7 +198,7 @@
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
 			"pergunta": "Qual jogador português joga no AC Milan?",
-			"hipoteses_resposta": ["Rafael Leão", "João Félix", "Diogo Jota", "Bernardo Silva"],
+			"hipoteses_resposta": ["Rafael Leão", "João Félix", "Manuel Fernandes", "Bernardo Silva"],
 			"resposta": "Rafael Leão"
 		},
 		{
@@ -222,8 +222,8 @@
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
 			"pergunta": "Em que clube joga atualmente João Félix?",
-			"hipoteses_resposta": ["Atlético Madrid", "Barcelona", "Chelsea", "Benfica"],
-			"resposta": "Atlético Madrid"
+			"hipoteses_resposta": ["Al-Nassr", "Barcelona", "Chelsea", "Benfica"],
+			"resposta": "Al-Nassr"
 		},
 		{
 			"numero": "J000029",
@@ -245,7 +245,7 @@
 			"numero": "J000031",
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Qual jogador croata joga no Chelsea?",
+			"pergunta": "Qual jogador croata joga ou jogou no Chelsea?",
 			"hipoteses_resposta": ["Mateo Kovačić", "Luka Modrić", "Ivan Perišić", "Marcelo Brozović"],
 			"resposta": "Mateo Kovačić"
 		},
@@ -277,7 +277,7 @@
 			"numero": "J000035",
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Qual jogador italiano joga no Newcastle?",
+			"pergunta": "Qual jogador italiano joga ou jogou no Newcastle?",
 			"hipoteses_resposta": ["Sandro Tonali", "Federico Chiesa", "Nicolo Barella", "Lorenzo Insigne"],
 			"resposta": "Sandro Tonali"
 		},
@@ -294,8 +294,8 @@
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
 			"pergunta": "Qual jogador português joga no Manchester City?",
-			"hipoteses_resposta": ["Bernardo Silva", "João Cancelo", "Rúben Dias", "Todas as anteriores"],
-			"resposta": "Todas as anteriores"
+			"hipoteses_resposta": ["Bernardo Silva", "João Cancento", "Roberto Dias", "Todas as anteriores"],
+			"resposta": "Bernardo Silva"
 		},
 		{
 			"numero": "J000038",
@@ -318,14 +318,14 @@
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
 			"pergunta": "Em que clube joga atualmente Marcus Rashford?",
-			"hipoteses_resposta": ["Manchester United", "Manchester City", "Chelsea", "Arsenal"],
-			"resposta": "Manchester United"
+			"hipoteses_resposta": ["Manchester United", "Manchester City", "Barcelona", "Arsenal"],
+			"resposta": "Barcelona"
 		},
 		{
 			"numero": "J000041",
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
-			"pergunta": "Qual jogador francês joga no Real Madrid como defesa central?",
+			"pergunta": "Qual jogador francês que jogau no Real Madrid como defesa central?",
 			"hipoteses_resposta": ["Raphaël Varane", "William Saliba", "Dayot Upamecano", "Ibrahima Konaté"],
 			"resposta": "Raphaël Varane"
 		},
@@ -342,7 +342,7 @@
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
 			"pergunta": "Qual jogador espanhol joga no Barcelona como extremo?",
-			"hipoteses_resposta": ["Ferran Torres", "Ansu Fati", "Ousmane Dembélé", "Todas as anteriores"],
+			"hipoteses_resposta": ["Neymar", "Ansu Fati", "Ousmane Dembélé", "Todas as anteriores"],
 			"resposta": "Todas as anteriores"
 		},
 		{
@@ -350,8 +350,8 @@
 			"tipo_pergunta": "hipotese",
 			"imagem": null,
 			"pergunta": "Em que clube joga atualmente Victor Osimhen?",
-			"hipoteses_resposta": ["Napoli", "Bayern München", "PSG", "Chelsea"],
-			"resposta": "Napoli"
+			"hipoteses_resposta": ["Napoli", "Bayern München", "Galatasssary", "Chelsea"],
+			"resposta": "Galatassary"
 		},
 		{
 			"numero": "J000045",
