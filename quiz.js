@@ -317,6 +317,16 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if (currentQuestionIndex >= 0 && currentQuestionIndex < questions.length) {
           showQuestion();
+          
+          // Scroll automático para o final da página em dispositivos móveis
+          setTimeout(() => {
+            if (window.innerWidth <= 768) {
+              window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+              });
+            }
+          }, 100); // Pequeno delay para garantir que o DOM foi atualizado
         } else if (currentQuestionIndex >= questions.length) {
           console.log("Todas as perguntas foram respondidas");
           showFinalRanking();
@@ -714,6 +724,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Reset da resposta para nova pergunta
     playerAnswer = null;
     console.log("playerAnswer resetado para nova pergunta");
+    
+    // Scroll automático para o final da página em dispositivos móveis
+    setTimeout(() => {
+      if (window.innerWidth <= 768) {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+    }, 100); // Pequeno delay para garantir que o DOM foi atualizado
+    
     // startTimer() removido - timer é sincronizado via Firebase
   }
 
