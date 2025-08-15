@@ -33,7 +33,7 @@ function getQuestionImagePath(question) {
   }
   
   // Se não tem número específico, usar imagem genérica
-  return "imagens/ZZZ0099.png";
+  return "imagens/ZZZ0099.gif";
 }
 
 // Função para verificar se uma imagem existe e aplicar fallback se necessário
