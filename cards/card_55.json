@@ -1,0 +1,29 @@
+{
+	"card": "Bandeiras com imagems",
+	"perguntas": [
+		{
+			"numero": "B001001",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Butão", "Nepal", "Tibete", "Myanmar"],
+			"resposta": "Butão"
+		},
+		{
+			"numero": "B001002",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Myanmar", "Polonia", "Japão", "Mónaco"],
+			"resposta": "Mónaco"
+		},
+		{
+			"numero": "B001003",
+			"tipo_pergunta": "hipotese",
+			"imagem": null,
+			"pergunta": "Qual a bandeira deste pais?",
+			"hipoteses_resposta": ["Nepal", "Suíça", "Vaticano", "Mónaco"],
+			"resposta": "Nepal"
+		}
+	]
+}
