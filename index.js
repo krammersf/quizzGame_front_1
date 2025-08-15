@@ -15,6 +15,44 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
+// Função auxiliar para determinar o caminho da imagem baseado no número da pergunta
+function getQuestionImagePath(question) {
+  // Se já tem imagem definida, usar essa
+  if (question.imagem) {
+    return question.imagem;
+  }
+  
+  // Se tem número da pergunta, tentar encontrar imagem correspondente
+  if (question.numero) {
+    const imageFileName = `${question.numero}.png`;
+    const imagePath = `imagens/${imageFileName}`;
+    
+    // Para perguntas do card_55 ou outras com números específicos, 
+    // mostrar a imagem específica ou fallback
+    return imagePath;
+  }
+  
+  // Se não tem número específico, usar imagem genérica
+  return "imagens/ZZZ0099.png";
+}
+
+// Função para verificar se uma imagem existe e aplicar fallback se necessário
+function setImageWithFallback(imgElement, imagePath) {
+  const img = new Image();
+  img.onload = function() {
+    // Imagem carregou com sucesso
+    imgElement.src = imagePath;
+    imgElement.style.display = "block";
+  };
+  img.onerror = function() {
+    // Imagem não existe, usar fallback
+    console.log(`Imagem não encontrada: ${imagePath}, usando fallback`);
+    imgElement.src = "imagens/ZZZ0099.png";
+    imgElement.style.display = "block";
+  };
+  img.src = imagePath;
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   const startGameBtn = document.getElementById("startGameBtn");
   const beginGameBtn = document.getElementById("beginGameBtn");
@@ -994,9 +1032,9 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // Mostrar imagem se existir (usar 'imagem' em vez de 'image')
     if (imgElement) {
-      if (question.imagem) {
-        imgElement.src = question.imagem;
-        imgElement.style.display = "block";
+      const imagePath = getQuestionImagePath(question);
+      if (imagePath) {
+        setImageWithFallback(imgElement, imagePath);
       } else {
         imgElement.style.display = "none";
       }
