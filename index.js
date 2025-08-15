@@ -52,7 +52,7 @@ function setImageWithFallback(imgElement, imagePath) {
     } else {
       imgElement.src = imagePath;
     }
-    imgElement.style.display = "block";
+    imgElement.classList.remove("hidden");
   };
   img.onerror = function() {
     // Imagem não existe, usar fallback
@@ -62,7 +62,7 @@ function setImageWithFallback(imgElement, imagePath) {
     // Garantir que GIFs podem animar
     imgElement.style.animation = '';
     imgElement.style.animationPlayState = 'running';
-    imgElement.style.display = "block";
+    imgElement.classList.remove("hidden");
     console.log(`🎬 GIF fallback carregado com timestamp: imagens/ZZZ0099.gif?t=${timestamp}`);
   };
   img.src = imagePath;
@@ -1051,7 +1051,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (imagePath) {
         setImageWithFallback(imgElement, imagePath);
       } else {
-        imgElement.style.display = "none";
+        imgElement.classList.add("hidden");
       }
     }
     

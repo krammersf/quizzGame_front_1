@@ -156,10 +156,12 @@
     
     .question-image {
       max-width: 100%;
-      height: auto;
+      height: 200px; /* Altura fixa padrão */
+      object-fit: contain; /* Manter proporção sem distorção */
       border-radius: 15px;
       margin: 20px 0;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      background: #f8f9fa; /* Fundo sutil para imagens menores */
     }
     
     /* Answer Buttons Estilo Kahoot */
