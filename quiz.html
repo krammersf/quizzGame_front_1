@@ -137,13 +137,14 @@
     
     .question-counter {
       background: linear-gradient(45deg, #667eea, #764ba2);
-      color: #ccc;
+      color: white;
       padding: 10px 20px;
       border-radius: 25px;
-      font-size: 0.85rem;
-      font-weight: normal;
+      font-size: 0.9rem;
+      font-weight: 600;
       display: inline-block;
       margin-bottom: 20px;
+      text-align: center;
     }
     
     .question-text {
@@ -159,7 +160,8 @@
       height: 200px; /* Altura fixa padrão */
       object-fit: contain; /* Manter proporção sem distorção */
       border-radius: 15px;
-      margin: 20px 0;
+      margin: 20px auto; /* Centralizar horizontalmente */
+      display: block; /* Necessário para margin auto funcionar */
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       background: #f8f9fa; /* Fundo sutil para imagens menores */
     }
