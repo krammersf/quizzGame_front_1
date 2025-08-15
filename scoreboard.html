@@ -2,6 +2,7 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classificações</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -614,8 +615,8 @@
 
             try {
                 // Importar as funções do Firebase
-                const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js");
-                const { getDatabase, ref, get } = await import("https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js");
+                const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js");
+                const { getDatabase, ref, get } = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js");
 
                 const firebaseConfig = {
                     apiKey: "AIzaSyDkhUnWFDUio5ebqfxal2TR-fI5wFmgBqc",
