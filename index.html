@@ -498,6 +498,14 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.2) !important;
     }
     
+    /* Estado para botões do host quando apenas a resposta correta é mostrada (sem resposta) */
+    .player1-answer-btn.correct-border-only {
+      /* Apenas borda verde, sem mudar cor de fundo (para quando não há resposta) */
+      border: 8px solid #1e7e34 !important; /* Borda verde grossa */
+      box-shadow: 0 8px 25px rgba(40,167,69,0.3) !important; /* Sombra sutil */
+      animation: correctPulse 0.6s ease-in-out;
+    }
+    
     .answer-btn.correct {
       background: #28a745 !important; /* Verde para certa */
       color: white !important;

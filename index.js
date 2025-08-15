@@ -1445,7 +1445,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const buttonText = button.textContent;
       
       // Limpar todas as classes anteriores
-      button.classList.remove('selected', 'correct', 'incorrect');
+      button.classList.remove('selected', 'correct', 'incorrect', 'correct-border-only');
       
       // Mostrar resultado da resposta do host
       if (buttonAnswer === selectedAnswer) {
@@ -1480,12 +1480,12 @@ window.addEventListener('DOMContentLoaded', () => {
       const buttonText = button.textContent;
       
       // Limpar todas as classes anteriores
-      button.classList.remove('selected', 'correct', 'incorrect');
+      button.classList.remove('selected', 'correct', 'incorrect', 'correct-border-only');
       
-      // Destacar apenas a resposta correta em verde
+      // Destacar apenas a resposta correta com borda verde (mantendo cor original)
       if (buttonText === correctAnswer) {
-        button.classList.add('correct');
-        console.log("✅ Resposta correta destacada:", buttonText);
+        button.classList.add('correct-border-only');
+        console.log("✅ Resposta correta destacada com borda verde:", buttonText);
       }
     });
   }
@@ -1495,7 +1495,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll(".player1-answer-btn");
     buttons.forEach(button => {
       // Limpar tanto classes CSS quanto estilos inline (para garantir)
-      button.classList.remove('selected', 'correct', 'incorrect');
+      button.classList.remove('selected', 'correct', 'incorrect', 'correct-border-only');
       button.style.backgroundColor = "";
       button.style.color = "";
       button.style.border = "";
